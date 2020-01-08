@@ -171,12 +171,12 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 220013492}
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 220013499}
+        m_MethodName: Move
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -360,6 +360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4.5
   rotSpeed: 1
+  mainCamera: {fileID: 1253919177}
 --- !u!1 &396124316
 GameObject:
   m_ObjectHideFlags: 0
