@@ -14,7 +14,7 @@ public class CharacterManager : MonoBehaviour
 {
     // Public Variables
     public float speed = 4.5f;
-    public float rotSpeed = 1.0f;
+    public float rotSpeed = 10.0f;
 
     // Private Variables
     PlayerInputActions inputAction; // InputActions
@@ -23,6 +23,8 @@ public class CharacterManager : MonoBehaviour
     Vector2 rotationDirection;
     Vector2 movementInput;
     Vector3 inputDirection;
+    float x;
+    float y;
 
 
     private void Awake()
@@ -41,8 +43,8 @@ public class CharacterManager : MonoBehaviour
     void FixedUpdate()
     {
         //Grab input x and y 2D
-        float x = movementInput.x;
-        float y = movementInput.y;
+        x = movementInput.x;
+        y = movementInput.y;
 
         //Fill input direction with the Lerp of current pos and destination direction
         Vector3 targetInput = new Vector3(x, 0, y);
@@ -52,22 +54,27 @@ public class CharacterManager : MonoBehaviour
         Vector3 desiredDirection = new Vector3(inputDirection.x, 0, inputDirection.z);
         //Verify there was input
         if(desiredDirection != Vector3.zero)
-            UpdatePlayerPosition(desiredDirection);//Move the player
-        UpdatePlayerRotation();//Rotate the player
+            UpdatePlayer(desiredDirection);//Move the player
     }
 
-    void UpdatePlayerPosition(Vector3 dir)
+    /// <summary>
+    /// Player update function handling the speed and rotation of the player
+    /// </summary>
+    /// <param name="dir">The desired direction of the left analog stick</param>
+    void UpdatePlayer(Vector3 dir)
     {
         //Debug.Log("Moving" + dir);
         //Generate the new position based on our speed and time passed
         dir = dir * speed * Time.deltaTime;
         //Update that position
         playerRBody.MovePosition(transform.position + dir);
-    }
 
-    void UpdatePlayerRotation()
-    {
-
+        //Check if the user is giving input(Stops player from resetting to default angle)
+        if (x != 0 && y != 0)
+        {
+            float angle = Mathf.Atan2(x, y) * Mathf.Rad2Deg;
+            playerRBody.rotation = Quaternion.Euler(new Vector3(0, angle, 0));
+        }
     }
 
     void OnEnable()
