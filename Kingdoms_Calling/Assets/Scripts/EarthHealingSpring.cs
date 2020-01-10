@@ -15,6 +15,7 @@ public class EarthHealingSpring : MonoBehaviour
     [Header("Totem Specs")]
     public float range = 1f;
     public float lifeTime = 10f;
+    public float damageHealInterval = 2f;
     public int healValue = 1;
     public int damageValue = 1;
 
@@ -22,6 +23,7 @@ public class EarthHealingSpring : MonoBehaviour
     Transform[] enemyArray;
     int playerLayerIndex;
     int enemyLayerIndex;
+    float totemTick;
 
     // Start is called before the first frame update
     void Start()
@@ -29,35 +31,44 @@ public class EarthHealingSpring : MonoBehaviour
         //Get the player and enemy layermask id's
         playerLayerIndex = LayerMask.NameToLayer("Player");
         enemyLayerIndex = LayerMask.NameToLayer("Enemy");
+        totemTick = damageHealInterval;
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Grab all colliders inside of the sphere which in our case acts as a circle with the player and enemy layer mask 
-        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, range, 1 << playerLayerIndex | 1 << enemyLayerIndex);
+        //Increment the damage interval
+        totemTick -= Time.deltaTime;
 
-        //Uncomment to determine which colliders are being chosen
-        //for(int j = 0; j < hitColliders.Length; j++)
-        //{
-        //    Debug.Log(hitColliders[j].name);
-        //}
-
-        //Loop through the colliders checking if its either a player or a enemy
-        int i = 0;
-        while (i < hitColliders.Length)
+        if (totemTick <= 0)
         {
-            if (hitColliders[i].gameObject.tag == "Player")
+            //Grab all colliders inside of the sphere which in our case acts as a circle with the player and enemy layer mask 
+            Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, range, 1 << playerLayerIndex | 1 << enemyLayerIndex);
+
+            //Uncomment to determine which colliders are being chosen
+            for (int j = 0; j < hitColliders.Length; j++)
             {
-                Debug.Log("Heal " + hitColliders[i].name);
-                hitColliders[i].gameObject.GetComponentInChildren<Health>().Damage(healValue); //Heal the current colliders health by the current healValue
+                Debug.Log(hitColliders[j].name);
             }
-            else if (hitColliders[i].gameObject.tag == "Enemy")
+
+            //Loop through the colliders checking if its either a player or a enemy
+            int i = 0;
+            while (i < hitColliders.Length)
             {
-                Debug.Log("Damage " + hitColliders[i].name);
-                hitColliders[i].gameObject.GetComponentInChildren<Health>().Damage(-damageValue); //Damage the current colliders health by the current damageValue
+                if (hitColliders[i].gameObject.tag == "Player")
+                {
+                    Debug.Log("Heal " + hitColliders[i].name);
+                    hitColliders[i].gameObject.GetComponentInChildren<Health>().Damage(healValue); //Heal the current colliders health by the current healValue
+                }
+                else if (hitColliders[i].gameObject.tag == "Enemy")
+                {
+                    Debug.Log("Damage " + hitColliders[i].name);
+                    hitColliders[i].gameObject.GetComponentInChildren<Health>().Damage(-damageValue); //Damage the current colliders health by the current damageValue
+                }
+                i++;
             }
-            i++;
+            //Reset the tick timer 
+            totemTick = damageHealInterval;
         }
     }
 
