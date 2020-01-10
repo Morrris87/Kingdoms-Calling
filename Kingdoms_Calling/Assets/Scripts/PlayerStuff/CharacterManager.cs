@@ -125,6 +125,16 @@ public class CharacterManager : MonoBehaviour
         //Debug.Log("Fire");
     }
 
+    public void CycleTargetB(InputAction.CallbackContext context)
+    {
+        Debug.Log("CycleTargetB");
+    }
+
+    public void CycleTargetF(InputAction.CallbackContext context)
+    {
+        Debug.Log("CycleTargetF");
+    }
+
     public void Move(InputAction.CallbackContext context)
     {
         //Debug.Log("Move");

@@ -38,7 +38,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Drop Item",
+                    "name": "DropItem",
                     "type": "Button",
                     "id": "b384b821-5291-463c-a3a8-fc16f68493e5",
                     "expectedControlType": "",
@@ -46,7 +46,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Cycle Target(Forward)",
+                    "name": "CycleTargetF",
                     "type": "Button",
                     "id": "df5e734e-43d5-41db-a44d-ddd16440148a",
                     "expectedControlType": "",
@@ -54,7 +54,7 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Cycle Target(Backwards)",
+                    "name": "CycleTargetB",
                     "type": "Button",
                     "id": "598227f3-7300-452a-a946-e8326b0d4f85",
                     "expectedControlType": "",
@@ -154,29 +154,29 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Drop Item",
+                    "action": "DropItem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "289f61a4-c05e-4f36-98ea-b2f574d4126d",
-                    "path": "",
-                    "interactions": "",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "Cycle Target(Forward)",
+                    "action": "CycleTargetF",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
                     "id": "9bba4085-8e48-405d-9f73-3e59bd6c802e",
-                    "path": "",
-                    "interactions": "",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "Cycle Target(Backwards)",
+                    "action": "CycleTargetB",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

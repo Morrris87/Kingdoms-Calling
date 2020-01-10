@@ -51,7 +51,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Drop Item"",
+                    ""name"": ""DropItem"",
                     ""type"": ""Button"",
                     ""id"": ""b384b821-5291-463c-a3a8-fc16f68493e5"",
                     ""expectedControlType"": """",
@@ -59,7 +59,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Cycle Target(Forward)"",
+                    ""name"": ""CycleTargetF"",
                     ""type"": ""Button"",
                     ""id"": ""df5e734e-43d5-41db-a44d-ddd16440148a"",
                     ""expectedControlType"": """",
@@ -67,7 +67,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Cycle Target(Backwards)"",
+                    ""name"": ""CycleTargetB"",
                     ""type"": ""Button"",
                     ""id"": ""598227f3-7300-452a-a946-e8326b0d4f85"",
                     ""expectedControlType"": """",
@@ -167,29 +167,29 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Drop Item"",
+                    ""action"": ""DropItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""289f61a4-c05e-4f36-98ea-b2f574d4126d"",
-                    ""path"": """",
-                    ""interactions"": """",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Cycle Target(Forward)"",
+                    ""action"": ""CycleTargetF"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""9bba4085-8e48-405d-9f73-3e59bd6c802e"",
-                    ""path"": """",
-                    ""interactions"": """",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Cycle Target(Backwards)"",
+                    ""action"": ""CycleTargetB"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -271,9 +271,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_PlayerControls_ShowItems = m_PlayerControls.FindAction("Show Items", throwIfNotFound: true);
         m_PlayerControls_Pause = m_PlayerControls.FindAction("Pause", throwIfNotFound: true);
         m_PlayerControls_Interact = m_PlayerControls.FindAction("Interact", throwIfNotFound: true);
-        m_PlayerControls_DropItem = m_PlayerControls.FindAction("Drop Item", throwIfNotFound: true);
-        m_PlayerControls_CycleTargetForward = m_PlayerControls.FindAction("Cycle Target(Forward)", throwIfNotFound: true);
-        m_PlayerControls_CycleTargetBackwards = m_PlayerControls.FindAction("Cycle Target(Backwards)", throwIfNotFound: true);
+        m_PlayerControls_DropItem = m_PlayerControls.FindAction("DropItem", throwIfNotFound: true);
+        m_PlayerControls_CycleTargetF = m_PlayerControls.FindAction("CycleTargetF", throwIfNotFound: true);
+        m_PlayerControls_CycleTargetB = m_PlayerControls.FindAction("CycleTargetB", throwIfNotFound: true);
         m_PlayerControls_RotateCharacter = m_PlayerControls.FindAction("Rotate Character", throwIfNotFound: true);
         m_PlayerControls_Ability1 = m_PlayerControls.FindAction("Ability 1", throwIfNotFound: true);
         m_PlayerControls_Ability2 = m_PlayerControls.FindAction("Ability 2", throwIfNotFound: true);
@@ -333,8 +333,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerControls_Pause;
     private readonly InputAction m_PlayerControls_Interact;
     private readonly InputAction m_PlayerControls_DropItem;
-    private readonly InputAction m_PlayerControls_CycleTargetForward;
-    private readonly InputAction m_PlayerControls_CycleTargetBackwards;
+    private readonly InputAction m_PlayerControls_CycleTargetF;
+    private readonly InputAction m_PlayerControls_CycleTargetB;
     private readonly InputAction m_PlayerControls_RotateCharacter;
     private readonly InputAction m_PlayerControls_Ability1;
     private readonly InputAction m_PlayerControls_Ability2;
@@ -349,8 +349,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @Pause => m_Wrapper.m_PlayerControls_Pause;
         public InputAction @Interact => m_Wrapper.m_PlayerControls_Interact;
         public InputAction @DropItem => m_Wrapper.m_PlayerControls_DropItem;
-        public InputAction @CycleTargetForward => m_Wrapper.m_PlayerControls_CycleTargetForward;
-        public InputAction @CycleTargetBackwards => m_Wrapper.m_PlayerControls_CycleTargetBackwards;
+        public InputAction @CycleTargetF => m_Wrapper.m_PlayerControls_CycleTargetF;
+        public InputAction @CycleTargetB => m_Wrapper.m_PlayerControls_CycleTargetB;
         public InputAction @RotateCharacter => m_Wrapper.m_PlayerControls_RotateCharacter;
         public InputAction @Ability1 => m_Wrapper.m_PlayerControls_Ability1;
         public InputAction @Ability2 => m_Wrapper.m_PlayerControls_Ability2;
@@ -380,12 +380,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @DropItem.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnDropItem;
                 @DropItem.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnDropItem;
                 @DropItem.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnDropItem;
-                @CycleTargetForward.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnCycleTargetForward;
-                @CycleTargetForward.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnCycleTargetForward;
-                @CycleTargetForward.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnCycleTargetForward;
-                @CycleTargetBackwards.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnCycleTargetBackwards;
-                @CycleTargetBackwards.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnCycleTargetBackwards;
-                @CycleTargetBackwards.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnCycleTargetBackwards;
+                @CycleTargetF.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnCycleTargetF;
+                @CycleTargetF.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnCycleTargetF;
+                @CycleTargetF.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnCycleTargetF;
+                @CycleTargetB.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnCycleTargetB;
+                @CycleTargetB.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnCycleTargetB;
+                @CycleTargetB.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnCycleTargetB;
                 @RotateCharacter.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnRotateCharacter;
                 @RotateCharacter.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnRotateCharacter;
                 @RotateCharacter.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnRotateCharacter;
@@ -420,12 +420,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @DropItem.started += instance.OnDropItem;
                 @DropItem.performed += instance.OnDropItem;
                 @DropItem.canceled += instance.OnDropItem;
-                @CycleTargetForward.started += instance.OnCycleTargetForward;
-                @CycleTargetForward.performed += instance.OnCycleTargetForward;
-                @CycleTargetForward.canceled += instance.OnCycleTargetForward;
-                @CycleTargetBackwards.started += instance.OnCycleTargetBackwards;
-                @CycleTargetBackwards.performed += instance.OnCycleTargetBackwards;
-                @CycleTargetBackwards.canceled += instance.OnCycleTargetBackwards;
+                @CycleTargetF.started += instance.OnCycleTargetF;
+                @CycleTargetF.performed += instance.OnCycleTargetF;
+                @CycleTargetF.canceled += instance.OnCycleTargetF;
+                @CycleTargetB.started += instance.OnCycleTargetB;
+                @CycleTargetB.performed += instance.OnCycleTargetB;
+                @CycleTargetB.canceled += instance.OnCycleTargetB;
                 @RotateCharacter.started += instance.OnRotateCharacter;
                 @RotateCharacter.performed += instance.OnRotateCharacter;
                 @RotateCharacter.canceled += instance.OnRotateCharacter;
@@ -461,8 +461,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
         void OnDropItem(InputAction.CallbackContext context);
-        void OnCycleTargetForward(InputAction.CallbackContext context);
-        void OnCycleTargetBackwards(InputAction.CallbackContext context);
+        void OnCycleTargetF(InputAction.CallbackContext context);
+        void OnCycleTargetB(InputAction.CallbackContext context);
         void OnRotateCharacter(InputAction.CallbackContext context);
         void OnAbility1(InputAction.CallbackContext context);
         void OnAbility2(InputAction.CallbackContext context);
