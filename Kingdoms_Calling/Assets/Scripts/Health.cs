@@ -22,6 +22,14 @@ public class Health : MonoBehaviour
         currentHealth = startingHealth; // Transfers the value from startingHealth to currentHealth, keeping track of this object's max HP
     }
 
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Damage(10); // DEBUG: When Q is pressed, 10 damage is done to player 1, changing the health bar
+        }
+    }
+
     // Damage function is used to subtract health from currentHealth when damage is taken
     public void Damage(int damage)  // Pass in the amount to subtract from currentHealth
     {
