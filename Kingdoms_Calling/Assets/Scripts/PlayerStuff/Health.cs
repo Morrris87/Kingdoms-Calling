@@ -24,7 +24,7 @@ public class Health : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Damage(10); // DEBUG: When Q is pressed, 10 damage is done to player 1, changing the health bar
         }
@@ -33,7 +33,7 @@ public class Health : MonoBehaviour
     // Damage function is used to subtract health from currentHealth when damage is taken
     public void Damage(int damage)  // Pass in the amount to subtract from currentHealth
     {
-        currentHealth += damage;
+        currentHealth -= damage;
         healthUI.fillAmount = CalculateHealthLeftPercent(currentHealth, startingHealth);    // Adjusts the fill amount of the health bar based on the % of health left
 
         if (currentHealth <= 0) // When currentHealth reaches 0...
