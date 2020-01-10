@@ -25,6 +25,8 @@ public class AI : AdvancedFSM
     public float health = 50;
     public int damage = 10;
 
+    public bool isTargeted = false;    
+
     //private SlotManager playerSlotManager;
 
     //public SlotManager GetPlayerSlot()

@@ -20,15 +20,23 @@ public class CharacterManager : MonoBehaviour
     [Header("Camera")]
     public Camera mainCamera;
 
+    [Header("CycleInputTimer")]
+    public float cycleSpeed = 1.0f;
+    public float cycleRange = 1f;
+
     // Private Variables
     PlayerInputActions inputAction; // InputActions
     Rigidbody playerRBody;
     //Character Input variables
     Vector2 rotationDirection, movementInput;
     Vector3 inputDirection, inputRotation;
-    float xMove, yMove, xRot, yRot;
+    float xMove, yMove, xRot, yRot, cycleTimer;
     //Camera information
     Vector3 camForward, camRight;
+
+    //Player and enemy layer index
+    int playerLayerIndex, enemyLayerIndex;
+
 
 
     private void Awake()
@@ -37,6 +45,11 @@ public class CharacterManager : MonoBehaviour
         //Using the input performed method to retrieve the input value and assign to the new created variables in the fixed update
         inputAction.PlayerControls.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
         inputAction.PlayerControls.RotateCharacter.performed += ctx => rotationDirection = ctx.ReadValue<Vector2>();
+
+        //Get the player and enemy layermask id's
+        playerLayerIndex = LayerMask.NameToLayer("Player");
+        enemyLayerIndex = LayerMask.NameToLayer("Enemy");
+        cycleTimer = cycleSpeed;
 
         if (this.GetComponent<Rigidbody>())// Check if the current object has a rigid body attatched
             playerRBody = this.GetComponent<Rigidbody>();
@@ -60,10 +73,10 @@ public class CharacterManager : MonoBehaviour
         //Verify there was input
         if (desiredDirection != Vector3.zero)
             UpdatePlayer(desiredDirection);//Move the player
-        
+
         //Call update rotation to change rotation of the player  
         UpdatePlayerRotation();
-        
+
     }
 
     /// <summary>
@@ -127,11 +140,89 @@ public class CharacterManager : MonoBehaviour
 
     public void CycleTargetB(InputAction.CallbackContext context)
     {
+        cycleTimer -= Time.deltaTime;
+
+        if (cycleSpeed == 0)
+        {
+            //cycle
+            //Grab all colliders inside of the sphere which in our case acts as a circle with the enemy layer mask 
+            Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, cycleRange,  1 << enemyLayerIndex);
+
+            //loop through the skeletons near the player
+            int i = 0;
+            while (i < hitColliders.Length)
+            {
+                //if the enemy is targeted target the next enemy in the list
+                if (hitColliders[i].gameObject.GetComponent<AI>().isTargeted == true)
+                {
+                    hitColliders[i].gameObject.GetComponent<AI>().isTargeted = false;
+                    //If we have a increase in the list then increment else set the first one.
+                    if (hitColliders[i - 1])
+                        hitColliders[i - 1].gameObject.GetComponent<AI>().isTargeted = true;
+                    else
+                        hitColliders[0].gameObject.GetComponent<AI>().isTargeted = true;
+                }
+                else//If we cannot find the last targeted enemy 
+                {
+                    //Grab and reset all enemies 
+                    Collider[] fixTargeting = Physics.OverlapSphere(this.transform.position, cycleRange*10, 1 << enemyLayerIndex);
+                    while (i < fixTargeting.Length)
+                    {
+                        fixTargeting[i].gameObject.GetComponent<AI>().isTargeted = false;
+                    }                        
+
+                    //Set the first enemy in the close radius of the player as the target
+                    hitColliders[0].gameObject.GetComponent<AI>().isTargeted = true;
+                }
+            }
+
+            //once done cycling reset timer
+            cycleTimer = cycleSpeed;
+        }
         Debug.Log("CycleTargetB");
     }
 
     public void CycleTargetF(InputAction.CallbackContext context)
     {
+        cycleTimer -= Time.deltaTime;
+
+        if (cycleSpeed == 0)
+        {
+            //cycle
+            //Grab all colliders inside of the sphere which in our case acts as a circle with the enemy layer mask 
+            Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, cycleRange, 1 << enemyLayerIndex);
+
+            //loop through the skeletons near the player
+            int i = 0;
+            while (i < hitColliders.Length)
+            {
+                //if the enemy is targeted target the next enemy in the list
+                if (hitColliders[i].gameObject.GetComponent<AI>().isTargeted == true)
+                {
+                    hitColliders[i].gameObject.GetComponent<AI>().isTargeted = false;
+                    //If we have a increase in the list then increment else set the first one.
+                    if(hitColliders[i + 1])
+                        hitColliders[i + 1].gameObject.GetComponent<AI>().isTargeted = true;
+                    else
+                        hitColliders[0].gameObject.GetComponent<AI>().isTargeted = true;
+                }
+                else//If we cannot find the last targeted enemy 
+                {
+                    //Grab and reset all enemies 
+                    Collider[] fixTargeting = Physics.OverlapSphere(this.transform.position, cycleRange * 10, 1 << enemyLayerIndex);
+                    while (i < fixTargeting.Length)
+                    {
+                        fixTargeting[i].gameObject.GetComponent<AI>().isTargeted = false;
+                    }
+
+                    //Set the first enemy in the close radius of the player as the target
+                    hitColliders[0].gameObject.GetComponent<AI>().isTargeted = true;
+                }
+            }
+
+            //once done cycling reset timer
+            cycleTimer = cycleSpeed;
+        }
         Debug.Log("CycleTargetF");
     }
 
