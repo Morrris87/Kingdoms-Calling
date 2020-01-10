@@ -324,9 +324,9 @@ MonoBehaviour:
     type: 3}
   skeletonPurple: {fileID: 4736584970851178458, guid: 285bd29d39bebec4b8be4ab4563c82c1,
     type: 3}
-  spawnerOne: {fileID: 0}
-  spawnerTwo: {fileID: 0}
-  spawnerThree: {fileID: 0}
+  spawnerOne: {fileID: 1340370245}
+  spawnerTwo: {fileID: 1468546099}
+  spawnerThree: {fileID: 1368545978}
 --- !u!1 &567743328
 GameObject:
   m_ObjectHideFlags: 0
