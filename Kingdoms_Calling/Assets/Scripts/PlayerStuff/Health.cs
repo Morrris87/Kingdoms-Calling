@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public int startingHealth;  // Sets the base starting health for the object the script is attached to
+    public int maxHealth;  // Sets the base starting health for the object the script is attached to
     public Image healthUI;      // UI element for this object's health bar
 
     private int currentHealth;  // This int keeps track of what HP this object is currently at
@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         isDead = false;                 // Object starts off alive
-        currentHealth = startingHealth; // Transfers the value from startingHealth to currentHealth, keeping track of this object's max HP
+        currentHealth = maxHealth; // Transfers the value from startingHealth to currentHealth, keeping track of this object's max HP
     }
 
     void Update()
@@ -34,7 +34,7 @@ public class Health : MonoBehaviour
     public void Damage(int damage)  // Pass in the amount to subtract from currentHealth
     {
         currentHealth -= damage;
-        healthUI.fillAmount = CalculateHealthLeftPercent(currentHealth, startingHealth);    // Adjusts the fill amount of the health bar based on the % of health left
+        healthUI.fillAmount = CalculateHealthLeftPercent(currentHealth, maxHealth);    // Adjusts the fill amount of the health bar based on the % of health left
 
         if (currentHealth <= 0) // When currentHealth reaches 0...
         {
