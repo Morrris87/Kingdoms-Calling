@@ -22,7 +22,7 @@ public class CharacterManager : MonoBehaviour
 
     [Header("CycleInputTimer")]
     public float cycleSpeed = 1.0f;
-    public float cycleRange = 1f;
+    public float cycleRange = 10f;
 
     // Private Variables
     PlayerInputActions inputAction; // InputActions
@@ -49,7 +49,7 @@ public class CharacterManager : MonoBehaviour
         //Get the player and enemy layermask id's
         playerLayerIndex = LayerMask.NameToLayer("Player");
         enemyLayerIndex = LayerMask.NameToLayer("Enemy");
-        cycleTimer = cycleSpeed;
+        cycleTimer = 0;
 
         if (this.GetComponent<Rigidbody>())// Check if the current object has a rigid body attatched
             playerRBody = this.GetComponent<Rigidbody>();
@@ -76,6 +76,9 @@ public class CharacterManager : MonoBehaviour
 
         //Call update rotation to change rotation of the player  
         UpdatePlayerRotation();
+
+        //Update the cycle timer
+        cycleTimer -= Time.deltaTime;
 
     }
 
@@ -140,94 +143,104 @@ public class CharacterManager : MonoBehaviour
 
     public void CycleTargetB(InputAction.CallbackContext context)
     {
-        cycleTimer -= Time.deltaTime;
+        //if (cycleTimer <= 0)
+        //{
+        //    //cycle
+        //    //Grab all colliders inside of the sphere which in our case acts as a circle with the enemy layer mask 
+        //    Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, cycleRange, 1 << enemyLayerIndex);
 
-        if (cycleSpeed == 0)
-        {
-            //cycle
-            //Grab all colliders inside of the sphere which in our case acts as a circle with the enemy layer mask 
-            Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, cycleRange,  1 << enemyLayerIndex);
+        //    //loop through the skeletons near the player
+        //    int i = 0;
+        //    while (i < hitColliders.Length)
+        //    {
+        //        //if the enemy is targeted target the next enemy in the list
+        //        if (hitColliders[i].gameObject.GetComponent<AI>().isTargeted == true)
+        //        {
+        //            hitColliders[i].gameObject.GetComponent<AI>().isTargeted = false;
+        //            //If we have a increase in the list then increment else set the first one.
+        //            if (hitColliders[i - 1])
+        //            {
+        //                hitColliders[i - 1].gameObject.GetComponent<AI>().isTargeted = true;
+        //                Debug.Log("Current Selected Skeleton: " + hitColliders[i - 1].gameObject.name);
+        //            }
+        //            else
+        //            {
+        //                hitColliders[0].gameObject.GetComponent<AI>().isTargeted = true;
+        //                Debug.Log("Current Selected Skeleton: " + hitColliders[0].gameObject.name);
+        //            }
+        //        }
+        //        else//If we cannot find the last targeted enemy 
+        //        {
+        //            //Grab and reset all enemies 
+        //            Collider[] fixTargeting = Physics.OverlapSphere(this.transform.position, cycleRange * 10, 1 << enemyLayerIndex);
+        //            while (i < fixTargeting.Length)
+        //            {
+        //                fixTargeting[i].gameObject.GetComponent<AI>().isTargeted = false;
+        //            }
 
-            //loop through the skeletons near the player
-            int i = 0;
-            while (i < hitColliders.Length)
-            {
-                //if the enemy is targeted target the next enemy in the list
-                if (hitColliders[i].gameObject.GetComponent<AI>().isTargeted == true)
-                {
-                    hitColliders[i].gameObject.GetComponent<AI>().isTargeted = false;
-                    //If we have a increase in the list then increment else set the first one.
-                    if (hitColliders[i - 1])
-                        hitColliders[i - 1].gameObject.GetComponent<AI>().isTargeted = true;
-                    else
-                        hitColliders[0].gameObject.GetComponent<AI>().isTargeted = true;
-                }
-                else//If we cannot find the last targeted enemy 
-                {
-                    //Grab and reset all enemies 
-                    Collider[] fixTargeting = Physics.OverlapSphere(this.transform.position, cycleRange*10, 1 << enemyLayerIndex);
-                    while (i < fixTargeting.Length)
-                    {
-                        fixTargeting[i].gameObject.GetComponent<AI>().isTargeted = false;
-                    }                        
+        //            //Set the first enemy in the close radius of the player as the target
+        //            hitColliders[0].gameObject.GetComponent<AI>().isTargeted = true;
+        //            Debug.Log("Current Selected Skeleton: " + hitColliders[0].gameObject.name);
+        //        }
+        //    }
 
-                    //Set the first enemy in the close radius of the player as the target
-                    hitColliders[0].gameObject.GetComponent<AI>().isTargeted = true;
-                }
-            }
-
-            //once done cycling reset timer
-            cycleTimer = cycleSpeed;
-        }
+        //    //once done cycling reset timer
+        //    cycleTimer = cycleSpeed;
+        //}
         Debug.Log("CycleTargetB");
     }
 
     public void CycleTargetF(InputAction.CallbackContext context)
     {
-        cycleTimer -= Time.deltaTime;
+        //if (cycleTimer <= 0)
+        //{
+        //    //cycle
+        //    //Grab all colliders inside of the sphere which in our case acts as a circle with the enemy layer mask 
+        //    Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, cycleRange, 1 << enemyLayerIndex);
 
-        if (cycleSpeed == 0)
-        {
-            //cycle
-            //Grab all colliders inside of the sphere which in our case acts as a circle with the enemy layer mask 
-            Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, cycleRange, 1 << enemyLayerIndex);
+        //    //loop through the skeletons near the player
+        //    int i = 0;
+        //    while (i < hitColliders.Length)
+        //    {
+        //        //if the enemy is targeted target the next enemy in the list
+        //        if (hitColliders[i].gameObject.GetComponent<AI>().isTargeted == true)
+        //        {
+        //            hitColliders[i].gameObject.GetComponent<AI>().isTargeted = false;
+        //            //If we have a increase in the list then increment else set the first one.
+        //            if (hitColliders[i - 1])
+        //            {
+        //                hitColliders[i - 1].gameObject.GetComponent<AI>().isTargeted = true;
+        //                Debug.Log("Current Selected Skeleton: " + hitColliders[i + 1].gameObject.name);
+        //            }
+        //            else
+        //            {
+        //                hitColliders[0].gameObject.GetComponent<AI>().isTargeted = true;
+        //                Debug.Log("Current Selected Skeleton: " + hitColliders[0].gameObject.name);
+        //            }
+        //        }
+        //        else//If we cannot find the last targeted enemy 
+        //        {
+        //            //Grab and reset all enemies 
+        //            Collider[] fixTargeting = Physics.OverlapSphere(this.transform.position, cycleRange * 10, 1 << enemyLayerIndex);
+        //            while (i < fixTargeting.Length)
+        //            {
+        //                fixTargeting[i].gameObject.GetComponent<AI>().isTargeted = false;
+        //            }
 
-            //loop through the skeletons near the player
-            int i = 0;
-            while (i < hitColliders.Length)
-            {
-                //if the enemy is targeted target the next enemy in the list
-                if (hitColliders[i].gameObject.GetComponent<AI>().isTargeted == true)
-                {
-                    hitColliders[i].gameObject.GetComponent<AI>().isTargeted = false;
-                    //If we have a increase in the list then increment else set the first one.
-                    if(hitColliders[i + 1])
-                        hitColliders[i + 1].gameObject.GetComponent<AI>().isTargeted = true;
-                    else
-                        hitColliders[0].gameObject.GetComponent<AI>().isTargeted = true;
-                }
-                else//If we cannot find the last targeted enemy 
-                {
-                    //Grab and reset all enemies 
-                    Collider[] fixTargeting = Physics.OverlapSphere(this.transform.position, cycleRange * 10, 1 << enemyLayerIndex);
-                    while (i < fixTargeting.Length)
-                    {
-                        fixTargeting[i].gameObject.GetComponent<AI>().isTargeted = false;
-                    }
+        //            //Set the first enemy in the close radius of the player as the target
+        //            hitColliders[0].gameObject.GetComponent<AI>().isTargeted = true;
+        //            Debug.Log("Current Selected Skeleton: " + hitColliders[0].gameObject.name);
+        //        }
+        //    }
 
-                    //Set the first enemy in the close radius of the player as the target
-                    hitColliders[0].gameObject.GetComponent<AI>().isTargeted = true;
-                }
-            }
-
-            //once done cycling reset timer
-            cycleTimer = cycleSpeed;
-        }
+        //    //once done cycling reset timer
+        //    cycleTimer = cycleSpeed;
+        //}
         Debug.Log("CycleTargetF");
     }
 
-    public void Move(InputAction.CallbackContext context)
-    {
-        //Debug.Log("Move");
-    }
+public void Move(InputAction.CallbackContext context)
+{
+    //Debug.Log("Move");
+}
 }
