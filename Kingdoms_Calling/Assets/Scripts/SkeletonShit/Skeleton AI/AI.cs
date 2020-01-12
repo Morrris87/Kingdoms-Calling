@@ -24,8 +24,10 @@ public class AI : AdvancedFSM
     public int chaseRange = 15;
     public float health = 50;
     public int damage = 10;
+    public float tauntDuration = 0;
 
-    public bool isTargeted = false;    
+    public bool isTargeted = false;
+    public bool isTaunted = false;
 
     //private SlotManager playerSlotManager;
 

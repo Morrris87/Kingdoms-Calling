@@ -241,8 +241,8 @@ public class CharacterManager : MonoBehaviour
         Debug.Log("CycleTargetF");
     }
 
-public void Move(InputAction.CallbackContext context)
-{
+    //public void Move(InputAction.CallbackContext context)
+    //{
     //Debug.Log("Move");
-}
+    //}
 }

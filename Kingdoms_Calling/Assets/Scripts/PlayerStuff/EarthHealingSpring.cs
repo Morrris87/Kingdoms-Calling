@@ -20,7 +20,6 @@ public class EarthHealingSpring : MonoBehaviour
     public int damageValue = 1;
 
     // Private Variables
-    Transform[] enemyArray;
     int playerLayerIndex;
     int enemyLayerIndex;
     float totemTick;
@@ -46,10 +45,10 @@ public class EarthHealingSpring : MonoBehaviour
             Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, range, 1 << playerLayerIndex | 1 << enemyLayerIndex);
 
             //Uncomment to determine which colliders are being chosen
-            for (int j = 0; j < hitColliders.Length; j++)
-            {
-                Debug.Log(hitColliders[j].name);
-            }
+            //for (int j = 0; j < hitColliders.Length; j++)
+            //{
+            //    Debug.Log(hitColliders[j].name);
+            //}
 
             //Loop through the colliders checking if its either a player or a enemy
             int i = 0;
