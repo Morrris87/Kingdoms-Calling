@@ -98,7 +98,6 @@ namespace Complete
         /// </summary>
         public virtual void EnterStateInit()
         {
-
         }
         /// <summary>
         /// Decides if the state should transition to another on its list

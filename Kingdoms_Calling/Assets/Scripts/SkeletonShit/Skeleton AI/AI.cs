@@ -7,7 +7,7 @@ using Complete;
 
 public class AI : AdvancedFSM
 {
-    public GameObject Player;
+    
     public FSMStateID id;
 
     public static int SLOT_DIST = 1;
@@ -20,14 +20,16 @@ public class AI : AdvancedFSM
     [HideInInspector]
     public Rigidbody rigBody;
 
-    public int attackRange = 10;
-    public int chaseRange = 15;
-    public float health = 50;
-    public int damage = 10;
-    public float tauntDuration = 0;
+    public int attackRange = 2;
+    public int chaseRange = 10;
 
-    public bool isTargeted = false;
     public bool isTaunted = false;
+    public float tauntDuration = 0;
+    public bool isTargeted = false;
+
+    [HideInInspector]
+    public SkeletonStats skeletonStats;
+    
 
     //private SlotManager playerSlotManager;
 
@@ -56,8 +58,8 @@ public class AI : AdvancedFSM
         //playerSlotManager = objPlayer.GetComponent<SlotManager>();
 
         rigBody = GetComponent<Rigidbody>();
-
-        // Create the FSM for the tank.
+        skeletonStats = gameObject.GetComponent<SkeletonStats>();
+        // Create the FSM for the player.
         ConstructFSM();
 
     }
@@ -91,10 +93,11 @@ public class AI : AdvancedFSM
 
         DeathState death = new DeathState(this);
 
-        AddFSMState(death);
+        
         AddFSMState(idle);
         AddFSMState(charge);
         AddFSMState(attack);
+        AddFSMState(death);
 
         navAgent.speed = 3.0f;
     }

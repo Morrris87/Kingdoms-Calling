@@ -6,17 +6,13 @@ using Complete;
 public class IdleState : FSMState
 {
     AI enemyAI;
-    float health;
 
     float elapsedTime;
     float intervalTime;
 
-    int randNum;
-    Rigidbody r;
-
     public IdleState(AI skeleton)
     {
-        AI enemyAI = skeleton;
+        enemyAI = skeleton;
         curSpeed = 0;
         stateID = FSMStateID.Idle;
         enemyAI.navAgent.speed = curSpeed;
@@ -33,7 +29,7 @@ public class IdleState : FSMState
     {
         Transform skeleton = enemyAI.gameObject.transform;
         Transform player = enemyAI.Player.transform;
-        if (health <= 0)
+        if (enemyAI.skeletonStats.health <= 0)
         {
             enemyAI.PerformTransition(Transition.NoHealth);
             return;

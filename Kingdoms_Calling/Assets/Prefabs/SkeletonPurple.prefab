@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6091827250836253648}
   - component: {fileID: 182462095856899173}
   - component: {fileID: 4225457116163235081}
+  - component: {fileID: -9067140855366557108}
   m_Layer: 9
   m_Name: SkeletonPurple
   m_TagString: Purple
@@ -123,15 +124,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1cacef9b5482b9478a229eac42cff09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  id: 0
+  Player: {fileID: 694699486586812718, guid: c49fb9b228367e741be9205a523b5423, type: 3}
+  id: 1
   m_CharNumber: 1
-  navAgent: {fileID: 0}
+  navAgent: {fileID: -9067140855366557108}
   rigBody: {fileID: 0}
   attackRange: 10
   chaseRange: 15
   health: 50
   damage: 10
+  isTaunted: 0
+  tauntDuration: 0
+  isTargeted: 0
 --- !u!114 &4225457116163235081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,3 +154,25 @@ MonoBehaviour:
   stamina: 0
   physicaDefence: 0
   magicDefence: 0
+--- !u!195 &-9067140855366557108
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4736584970851178458}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1
+  m_BaseOffset: 0.5
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4

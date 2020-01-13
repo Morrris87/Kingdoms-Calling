@@ -5,9 +5,13 @@ using Complete;
 
 public class AttackState : FSMState
 {
+    AI enemyAI;
+
+    float elapsedTime;
+    float intervalTime;
     public AttackState(AI skeleton)
     {
-        AI enemyAI = skeleton;
+        enemyAI = skeleton;
         curSpeed = 0;
         stateID = FSMStateID.Attacking;
         enemyAI.navAgent.speed = curSpeed;
@@ -19,5 +23,18 @@ public class AttackState : FSMState
 
     public override void Reason()
     {
+        Transform skeleton = enemyAI.gameObject.transform;
+        Transform player = enemyAI.Player.transform;
+        if (enemyAI.skeletonStats.health <= 0)
+        {
+            enemyAI.PerformTransition(Transition.NoHealth);
+            return;
+        }
+        if (IsInCurrentRange(skeleton, player.position, enemyAI.attackRange))
+        {
+            enemyAI.PerformTransition(Transition.NotInAttackRange);
+            Debug.Log("chasing");
+            return;
+        }
     }
 }

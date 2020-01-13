@@ -32,9 +32,13 @@ namespace Complete
         private FSMState currentState;
         public FSMState CurrentState { get { return currentState; } }
 
+        [HideInInspector]
+        public GameObject Player;
+
         public AdvancedFSM()
         {
             fsmStates = new List<FSMState>();
+            Player = GameObject.FindGameObjectWithTag("Player");
         }
         public void AddFSMState(FSMState fsmState)
         {
