@@ -83,7 +83,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Ability 1"",
+                    ""name"": ""Ability1"",
                     ""type"": ""Button"",
                     ""id"": ""ba05a133-0b47-4c39-961c-a4c3e6d41fe2"",
                     ""expectedControlType"": """",
@@ -91,7 +91,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Ability 2"",
+                    ""name"": ""Ability2"",
                     ""type"": ""Button"",
                     ""id"": ""1c030335-1fe7-4234-a872-f415ddd4f5e5"",
                     ""expectedControlType"": """",
@@ -207,22 +207,22 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""fa80b32a-eed3-47b9-8019-217d8d88408a"",
-                    ""path"": """",
-                    ""interactions"": """",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Ability 1"",
+                    ""action"": ""Ability1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
                     ""id"": ""fcc75c97-a26f-4617-b599-a169f389b660"",
-                    ""path"": """",
-                    ""interactions"": """",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Ability 2"",
+                    ""action"": ""Ability2"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -275,8 +275,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_PlayerControls_CycleTargetF = m_PlayerControls.FindAction("CycleTargetF", throwIfNotFound: true);
         m_PlayerControls_CycleTargetB = m_PlayerControls.FindAction("CycleTargetB", throwIfNotFound: true);
         m_PlayerControls_RotateCharacter = m_PlayerControls.FindAction("Rotate Character", throwIfNotFound: true);
-        m_PlayerControls_Ability1 = m_PlayerControls.FindAction("Ability 1", throwIfNotFound: true);
-        m_PlayerControls_Ability2 = m_PlayerControls.FindAction("Ability 2", throwIfNotFound: true);
+        m_PlayerControls_Ability1 = m_PlayerControls.FindAction("Ability1", throwIfNotFound: true);
+        m_PlayerControls_Ability2 = m_PlayerControls.FindAction("Ability2", throwIfNotFound: true);
         m_PlayerControls_Special = m_PlayerControls.FindAction("Special", throwIfNotFound: true);
         m_PlayerControls_Attack = m_PlayerControls.FindAction("Attack", throwIfNotFound: true);
     }

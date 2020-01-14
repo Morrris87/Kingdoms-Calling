@@ -13,6 +13,11 @@ using UnityEngine.InputSystem;
 public class CharacterManager : MonoBehaviour
 {
     // Public Variables
+    public enum Class { Paladin, Warrior, Assassin, Archer };
+
+    [Header("Character Class")]
+    public Class characterClass;
+
     [Header("Movement")]
     public float speed = 4.5f;
     public float rotSpeed = 10.0f;
@@ -25,7 +30,7 @@ public class CharacterManager : MonoBehaviour
     public float cycleRange = 10f;
 
     // Private Variables
-    PlayerInputActions inputAction; // InputActions
+    PlayerInputActions inputAction; // InputActions    
     Rigidbody playerRBody;
     //Character Input variables
     Vector2 rotationDirection, movementInput;
@@ -36,8 +41,6 @@ public class CharacterManager : MonoBehaviour
 
     //Player and enemy layer index
     int playerLayerIndex, enemyLayerIndex;
-
-
 
     private void Awake()
     {
@@ -79,7 +82,6 @@ public class CharacterManager : MonoBehaviour
 
         //Update the cycle timer
         cycleTimer -= Time.deltaTime;
-
     }
 
     /// <summary>
@@ -93,7 +95,6 @@ public class CharacterManager : MonoBehaviour
         dir = dir * speed * Time.deltaTime;
         //Update that position
         playerRBody.MovePosition(transform.position + dir);
-
     }
 
     /// <summary>
@@ -138,7 +139,22 @@ public class CharacterManager : MonoBehaviour
     //Input Functions below (Examples of how the call are made context being the information given back to us by the input casting that results in our data)
     public void Fire(InputAction.CallbackContext context)
     {
-        //Debug.Log("Fire");
+        Debug.Log("Fire");
+    }
+
+    public void Move(InputAction.CallbackContext context)
+    {
+        //Debug.Log("Move");
+    }
+
+    public void Ability1(InputAction.CallbackContext context)
+    {
+        Debug.Log("Ability 1");
+    }
+
+    public void Ability2(InputAction.CallbackContext context)
+    {
+        Debug.Log("Ability 2");
     }
 
     public void CycleTargetB(InputAction.CallbackContext context)
@@ -158,7 +174,7 @@ public class CharacterManager : MonoBehaviour
                 {
                     hitColliders[i].gameObject.GetComponent<AI>().isTargeted = false;
                     //If we have a increase in the list then increment else set the first one.
-                    if (hitColliders[i - 1])
+                    if (hitColliders.Length < (i - 1))
                     {
                         hitColliders[i - 1].gameObject.GetComponent<AI>().isTargeted = true;
                         Debug.Log("Current Selected Skeleton: " + hitColliders[i - 1].gameObject.name);
@@ -173,16 +189,19 @@ public class CharacterManager : MonoBehaviour
                 {
                     //Grab and reset all enemies 
                     Collider[] fixTargeting = Physics.OverlapSphere(this.transform.position, cycleRange * 10, 1 << enemyLayerIndex);
-                    while (i < fixTargeting.Length)
+
+                    int j = 0;
+                    while (j < fixTargeting.Length)
                     {
-                        fixTargeting[i].gameObject.GetComponent<AI>().isTargeted = false;
-                        i++;
+                        fixTargeting[j].gameObject.GetComponent<AI>().isTargeted = false;
+                        j++;
                     }
 
                     //Set the first enemy in the close radius of the player as the target
                     hitColliders[0].gameObject.GetComponent<AI>().isTargeted = true;
                     Debug.Log("Current Selected Skeleton: " + hitColliders[0].gameObject.name);
                 }
+                i++;
             }
 
             //once done cycling reset timer
@@ -208,10 +227,10 @@ public class CharacterManager : MonoBehaviour
                 {
                     hitColliders[i].gameObject.GetComponent<AI>().isTargeted = false;
                     //If we have a increase in the list then increment else set the first one.
-                    if (hitColliders[i - 1])
+                    if (hitColliders.Length < (i + 1))
                     {
-                        hitColliders[i - 1].gameObject.GetComponent<AI>().isTargeted = true;
-                        Debug.Log("Current Selected Skeleton: " + hitColliders[i + 1].gameObject.name);
+                        hitColliders[i + 1].gameObject.GetComponent<AI>().isTargeted = true;
+                        Debug.Log("Current Selected Skeleton: " + hitColliders[i + 1].gameObject.name + " : " + i);
                     }
                     else
                     {
@@ -223,16 +242,19 @@ public class CharacterManager : MonoBehaviour
                 {
                     //Grab and reset all enemies 
                     Collider[] fixTargeting = Physics.OverlapSphere(this.transform.position, cycleRange * 10, 1 << enemyLayerIndex);
-                    while (i < fixTargeting.Length)
+
+                    int j = 0;
+                    while (j < fixTargeting.Length)
                     {
-                        fixTargeting[i].gameObject.GetComponent<AI>().isTargeted = false;
-                        i++;
+                        fixTargeting[j].gameObject.GetComponent<AI>().isTargeted = false;
+                        j++;
                     }
 
                     //Set the first enemy in the close radius of the player as the target
                     hitColliders[0].gameObject.GetComponent<AI>().isTargeted = true;
                     Debug.Log("Current Selected Skeleton: " + hitColliders[0].gameObject.name);
                 }
+                i++;
             }
 
             //once done cycling reset timer

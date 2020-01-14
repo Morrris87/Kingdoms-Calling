@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 694699486586812716}
   - component: {fileID: 694699486586812719}
   - component: {fileID: 694699486586812705}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: TestPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -238,6 +238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63515f6a6becfbc4896258887ed9679b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  characterClass: 0
   speed: 4.5
   rotSpeed: 1
   mainCamera: {fileID: 0}
+  cycleSpeed: 1
+  cycleRange: 10
