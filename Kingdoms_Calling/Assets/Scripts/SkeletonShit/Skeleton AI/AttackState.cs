@@ -24,7 +24,6 @@ public class AttackState : FSMState
         // depending on wepon :D
 
         enemyAI.playerHealth.Damage(enemyAI.skeletonStats.power);
-        //enemyAI.playerHealth.currentHealth -= enemyAI.skeletonStats.power;
     }
 
     public override void Reason()
@@ -42,9 +41,5 @@ public class AttackState : FSMState
             Debug.Log("chasing");
             return;
         }
-    }
-    double distance(float x1, float y1, float x2, float y2)
-    {
-        return Math.Sqrt(Math.Pow(x2 - x1, 2) + Math.Pow(y2 - y1, 2) * 1.0);
     }
 }

@@ -34,14 +34,6 @@ public class AI : AdvancedFSM
     [HideInInspector]
     public Health playerHealth;
 
-
-
-    //private SlotManager playerSlotManager;
-
-    //public SlotManager GetPlayerSlot()
-    //{
-    //    return playerSlotManager;
-    //}
     private string GetStateString()
     {
         string state = "NONE";
@@ -58,10 +50,6 @@ public class AI : AdvancedFSM
     // Initialize the FSM for the NPC tank.
     protected override void Initialize()
     {
-        // Find the Player and init appropriate data.
-        
-        //playerSlotManager = objPlayer.GetComponent<SlotManager>();
-
         rigBody = GetComponent<Rigidbody>();
         skeletonStats = gameObject.GetComponent<SkeletonStats>();
         // Create the FSM for the player.
