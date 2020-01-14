@@ -129,12 +129,14 @@ MonoBehaviour:
   m_CharNumber: 1
   navAgent: {fileID: -1244373510792504526}
   rigBody: {fileID: 0}
-  attackRange: 10
+  attackRange: 3
   chaseRange: 15
   isTaunted: 0
   tauntDuration: 0
   isTargeted: 0
   skeletonStats: {fileID: 0}
+  objPlayer: {fileID: 694699486586812718, guid: c49fb9b228367e741be9205a523b5423,
+    type: 3}
 --- !u!114 &6720366827950241728
 MonoBehaviour:
   m_ObjectHideFlags: 0

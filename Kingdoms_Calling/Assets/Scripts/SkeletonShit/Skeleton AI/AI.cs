@@ -20,8 +20,8 @@ public class AI : AdvancedFSM
     [HideInInspector]
     public Rigidbody rigBody;
 
-    public int attackRange = 2;
-    public int chaseRange = 10;
+    public int attackRange;
+    public int chaseRange;
 
     public bool isTaunted = false;
     public float tauntDuration = 0;
@@ -29,7 +29,12 @@ public class AI : AdvancedFSM
 
     [HideInInspector]
     public SkeletonStats skeletonStats;
-    
+    [HideInInspector]
+    public GameObject objPlayer;
+    [HideInInspector]
+    public Health playerHealth;
+
+
 
     //private SlotManager playerSlotManager;
 
@@ -54,7 +59,7 @@ public class AI : AdvancedFSM
     protected override void Initialize()
     {
         // Find the Player and init appropriate data.
-        GameObject objPlayer = GameObject.FindGameObjectWithTag("Player");
+        
         //playerSlotManager = objPlayer.GetComponent<SlotManager>();
 
         rigBody = GetComponent<Rigidbody>();
@@ -67,6 +72,8 @@ public class AI : AdvancedFSM
     // Update each frame.
     protected override void FSMUpdate()
     {
+        objPlayer = GameObject.FindGameObjectWithTag("Player");
+        playerHealth = objPlayer.GetComponent<Health>();
         if (CurrentState != null)
         {
             CurrentState.Reason();
