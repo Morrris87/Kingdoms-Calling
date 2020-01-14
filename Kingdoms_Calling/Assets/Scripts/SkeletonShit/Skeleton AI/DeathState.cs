@@ -15,6 +15,7 @@ public class DeathState : FSMState
 
     public override void Act()
     {
+        
     }
 
     public override void Reason()

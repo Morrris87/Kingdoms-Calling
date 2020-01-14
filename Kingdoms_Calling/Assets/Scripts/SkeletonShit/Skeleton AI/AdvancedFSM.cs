@@ -38,7 +38,6 @@ namespace Complete
         public AdvancedFSM()
         {
             fsmStates = new List<FSMState>();
-            Player = GameObject.FindGameObjectWithTag("Player");
         }
         public void AddFSMState(FSMState fsmState)
         {
