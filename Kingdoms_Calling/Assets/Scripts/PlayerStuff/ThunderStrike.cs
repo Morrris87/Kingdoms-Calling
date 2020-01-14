@@ -11,11 +11,14 @@ public class ThunderStrike : MonoBehaviour
 {
     public Image abilityUI; // UI sprite for the ability in the HUD
 
+    // DEBUG
+    public GameObject enemyTest;
+
     private bool isUsable;          // When ability is available for use, set this to true
     private float waitTime = 40;    // Time in seconds needed to wait for ability cooldown
     private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
 
-    private Vector3 playerStartPos, playerDestPos;      // Both the starting position and destination position for the player when ability is used
+    private Vector3 playerDestPos;  // The destination position for the player when ability is used
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +30,8 @@ public class ThunderStrike : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        // DEBUG
+        playerDestPos = enemyTest.transform.position;
     }
 
     // Calling this function uses the ability
@@ -44,9 +48,15 @@ public class ThunderStrike : MonoBehaviour
 
         // Play the ability animation
 
-        // After animation, damage enemies inside the abilityHitBox
+        // Find the targeted enemy
+
+        // Teleport the player to the enemy targeted if enemy has been found
+        if (playerDestPos != null)
+        {
+            this.transform.position = playerDestPos;
+        }
 
         // Give enemies procs if appliciable
-        
+
     }
 }
