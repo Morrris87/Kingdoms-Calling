@@ -20,7 +20,11 @@ public class AttackState : FSMState
 
     public override void Act()
     {
-        enemyAI.playerHealth.currentHealth -= enemyAI.skeletonStats.power;
+        // ADD TIMER
+        // depending on wepon :D
+
+        enemyAI.playerHealth.Damage(enemyAI.skeletonStats.power);
+        //enemyAI.playerHealth.currentHealth -= enemyAI.skeletonStats.power;
     }
 
     public override void Reason()
