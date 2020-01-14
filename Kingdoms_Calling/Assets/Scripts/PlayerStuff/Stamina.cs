@@ -28,12 +28,12 @@ public class Stamina : MonoBehaviour
     void Update()
     {
         // If holding down shift...
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Sprinting(true);    // Start sprinting
         }
         // If releasing shift...
-        if (Input.GetKeyUp(KeyCode.LeftShift))
+        if (Input.GetKeyUp(KeyCode.Space))
         {
             Sprinting(false);   // Stop sprinting
         }
