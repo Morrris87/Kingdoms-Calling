@@ -5,9 +5,13 @@ using Complete;
 
 public class DeathState : FSMState
 {
+    AI enemyAI;
+
+    float elapsedTime;
+    float intervalTime;
     public DeathState(AI skeleton)
     {
-        AI enemyAI = skeleton;
+        enemyAI = skeleton;
         curSpeed = 0;
         stateID = FSMStateID.Dead;
         enemyAI.navAgent.speed = curSpeed;
@@ -16,6 +20,7 @@ public class DeathState : FSMState
     public override void Act()
     {
         //die
+        
     }
 
     public override void Reason()

@@ -68,6 +68,10 @@ public class AI : AdvancedFSM
             CurrentState.Act();
             id = CurrentStateID;
         }
+        if(CurrentState.ID == FSMStateID.Dead)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void ConstructFSM()
