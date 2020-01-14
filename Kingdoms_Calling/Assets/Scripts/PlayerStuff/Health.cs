@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public int maxHealth;  // Sets the base starting health for the object the script is attached to
+    public int maxHealth;       // Sets the base starting health for the object the script is attached to
     public Image healthUI;      // UI element for this object's health bar
 
     public  int currentHealth;  // This int keeps track of what HP this object is currently at
@@ -19,14 +19,19 @@ public class Health : MonoBehaviour
     void Start()
     {
         isDead = false;                 // Object starts off alive
-        currentHealth = maxHealth; // Transfers the value from startingHealth to currentHealth, keeping track of this object's max HP
+        currentHealth = maxHealth;      // Transfers the value from startingHealth to currentHealth, keeping track of this object's max HP
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             Damage(10); // DEBUG: When Q is pressed, 10 damage is done to player 1, changing the health bar
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            Damage(-10);
         }
     }
 
