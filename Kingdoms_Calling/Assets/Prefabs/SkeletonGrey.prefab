@@ -129,12 +129,14 @@ MonoBehaviour:
   m_CharNumber: 1
   navAgent: {fileID: 2163037438973608791}
   rigBody: {fileID: 0}
-  attackRange: 3
-  chaseRange: 15
+  attackRange: 1
+  chaseRange: 5
   isTaunted: 0
   tauntDuration: 0
   isTargeted: 0
   skeletonStats: {fileID: 0}
+  objPlayer: {fileID: 0}
+  playerHealth: {fileID: 0}
 --- !u!114 &3853751152922664107
 MonoBehaviour:
   m_ObjectHideFlags: 0

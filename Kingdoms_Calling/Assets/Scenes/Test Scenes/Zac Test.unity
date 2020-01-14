@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033f385016acedc4b9d486d47fe865ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSkeletonNumber: 20
+  maxSkeletonNumber: 1
   skeletonWhite: {fileID: 4012977831338809075, guid: 0c49c0304c7772b4db1b782883ce898c,
     type: 3}
   skeletonGrey: {fileID: 1252390567163562131, guid: 4915266e590de7d469e0276e18674bed,
@@ -394,6 +394,11 @@ PrefabInstance:
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 1330291622}
+    - target: {fileID: 694699486586812705, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: speed
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c49fb9b228367e741be9205a523b5423, type: 3}
 --- !u!1 &1330291620

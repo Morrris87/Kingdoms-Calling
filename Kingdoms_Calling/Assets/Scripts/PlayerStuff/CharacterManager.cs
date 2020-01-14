@@ -177,6 +177,10 @@ public class CharacterManager : MonoBehaviour
         Debug.Log("Ability 2");
     }
 
+    /// <summary>
+    /// Cycle enemy targets backwards
+    /// </summary>
+    /// <param name="context">Input</param>
     public void CycleTargetB(InputAction.CallbackContext context)
     {
         if (cycleTimer <= 0)
@@ -230,6 +234,10 @@ public class CharacterManager : MonoBehaviour
         Debug.Log("CycleTargetB");
     }
 
+    /// <summary>
+    /// Cycle enemy targets forwards
+    /// </summary>
+    /// <param name="context">Input</param>
     public void CycleTargetF(InputAction.CallbackContext context)
     {
         if (cycleTimer <= 0)
