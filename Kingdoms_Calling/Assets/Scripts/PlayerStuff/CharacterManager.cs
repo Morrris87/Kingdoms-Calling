@@ -40,7 +40,15 @@ public class CharacterManager : MonoBehaviour
     Vector3 camForward, camRight;
 
     // Character Abilities
+    //Paladin
+    EarthHealingSpring paladinEarthHealingSpring;
+    Taunt paladinTaunt;
+    //Warrior
+
+    //Assassin    
     ThunderStrike thunderStrike;
+
+    //Archer
 
     //Player and enemy layer index
     int playerLayerIndex, enemyLayerIndex;
@@ -65,7 +73,8 @@ public class CharacterManager : MonoBehaviour
         //Handle loading and grabbing character abilities here
         if (characterClass == CharacterClass.Paladin)
         {
-
+            paladinEarthHealingSpring = this.GetComponent<EarthHealingSpring>();
+            paladinTaunt = this.GetComponent<Taunt>();
         }
         else if (characterClass == CharacterClass.Assassin)
         {
