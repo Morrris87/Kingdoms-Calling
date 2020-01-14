@@ -16,7 +16,6 @@ public class ThunderStrike : MonoBehaviour
     private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
 
     private Vector3 playerStartPos, playerDestPos;      // Both the starting position and destination position for the player when ability is used
-    [SerializeField] private GameObject abilityHitBox;  // Drag in a game object here to act as the hit box for the ability. Enemies inside are affected.
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +33,8 @@ public class ThunderStrike : MonoBehaviour
     // Calling this function uses the ability
     public void UseAbility()
     {
+        Debug.Log("Ability 1 Used (Assassin)");
+
         // Ability has been used, so it needs to cooldown
         isUsable = false;
 

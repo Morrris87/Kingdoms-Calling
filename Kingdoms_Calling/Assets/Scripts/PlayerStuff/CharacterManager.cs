@@ -39,6 +39,9 @@ public class CharacterManager : MonoBehaviour
     //Camera information
     Vector3 camForward, camRight;
 
+    // Character Abilities
+    ThunderStrike thunderStrike;
+
     //Player and enemy layer index
     int playerLayerIndex, enemyLayerIndex;
 
@@ -63,6 +66,10 @@ public class CharacterManager : MonoBehaviour
         if (characterClass == CharacterClass.Paladin)
         {
 
+        }
+        else if (characterClass == CharacterClass.Assassin)
+        {
+            thunderStrike = this.GetComponent<ThunderStrike>();
         }
     }
 
@@ -155,10 +162,13 @@ public class CharacterManager : MonoBehaviour
 
     public void Ability1(InputAction.CallbackContext context)
     {
-        Debug.Log("Ability 1");
-        if(characterClass == CharacterClass.Paladin)
+        if (characterClass == CharacterClass.Paladin)
         {
 
+        }
+        else if (characterClass == CharacterClass.Assassin)
+        {
+            thunderStrike.UseAbility();
         }
     }
 
@@ -167,6 +177,10 @@ public class CharacterManager : MonoBehaviour
         Debug.Log("Ability 2");
     }
 
+    /// <summary>
+    /// Cycle enemy targets backwards
+    /// </summary>
+    /// <param name="context">Input</param>
     public void CycleTargetB(InputAction.CallbackContext context)
     {
         if (cycleTimer <= 0)
@@ -220,6 +234,10 @@ public class CharacterManager : MonoBehaviour
         Debug.Log("CycleTargetB");
     }
 
+    /// <summary>
+    /// Cycle enemy targets forwards
+    /// </summary>
+    /// <param name="context">Input</param>
     public void CycleTargetF(InputAction.CallbackContext context)
     {
         if (cycleTimer <= 0)
