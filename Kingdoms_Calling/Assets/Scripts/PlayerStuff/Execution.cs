@@ -7,6 +7,9 @@ public class Execution : MonoBehaviour
 {
     public Image abilityUI; // The UI Images for the abilities
 
+    // DEBUG
+    public GameObject enemyTest;
+
     private bool isUsable;          // When ability is available for use, set this to true
     private float waitTime = 40;    // Time in seconds needed to wait for ability cooldown
     private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
