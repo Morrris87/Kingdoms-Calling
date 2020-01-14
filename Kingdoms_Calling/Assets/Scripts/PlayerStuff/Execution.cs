@@ -1,20 +1,15 @@
-﻿//  Name: CharacterAbilityTemplate.cs
-//  Author: Connor Larsen
-//  Function: 
-
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterAbilityTemplate : MonoBehaviour
+public class Execution : MonoBehaviour
 {
     public Image abilityUI; // The UI Images for the abilities
 
     private bool isUsable;          // When ability is available for use, set this to true
     private float waitTime = 40;    // Time in seconds needed to wait for ability cooldown
     private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
-    
 
     // Start is called before the first frame update
     void Start()
@@ -41,5 +36,10 @@ public class CharacterAbilityTemplate : MonoBehaviour
 
         // Play the ability animation
 
+        // Calculate how much damage is done to the enemy
+        {
+            // Grab the enemy that enters the hitbox
+            // 
+        }
     }
 }

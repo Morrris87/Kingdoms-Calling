@@ -1,4 +1,4 @@
-﻿//  Name: CharacterAbilityTemplate.cs
+﻿//  Name: ThunderStrike.cs
 //  Author: Connor Larsen
 //  Function: 
 
@@ -7,14 +7,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterAbilityTemplate : MonoBehaviour
+public class ThunderStrike : MonoBehaviour
 {
-    public Image abilityUI; // The UI Images for the abilities
+    public Image abilityUI; // UI sprite for the ability in the HUD
 
     private bool isUsable;          // When ability is available for use, set this to true
     private float waitTime = 40;    // Time in seconds needed to wait for ability cooldown
     private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
-    
+
+    private Vector3 playerStartPos, playerDestPos;      // Both the starting position and destination position for the player when ability is used
+    [SerializeField] private GameObject abilityHitBox;  // Drag in a game object here to act as the hit box for the ability. Enemies inside are affected.
 
     // Start is called before the first frame update
     void Start()
@@ -41,5 +43,9 @@ public class CharacterAbilityTemplate : MonoBehaviour
 
         // Play the ability animation
 
+        // After animation, damage enemies inside the abilityHitBox
+
+        // Give enemies procs if appliciable
+        
     }
 }
