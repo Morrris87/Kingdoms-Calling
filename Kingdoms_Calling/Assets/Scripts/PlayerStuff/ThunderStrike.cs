@@ -34,6 +34,8 @@ public class ThunderStrike : MonoBehaviour
     // Calling this function uses the ability
     public void UseAbility()
     {
+        Debug.Log("Ability 1 Used (Assassin)");
+
         // Ability has been used, so it needs to cooldown
         isUsable = false;
 
