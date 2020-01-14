@@ -13,10 +13,10 @@ using UnityEngine.InputSystem;
 public class CharacterManager : MonoBehaviour
 {
     // Public Variables
-    public enum Class { Paladin, Warrior, Assassin, Archer };
+    public enum CharacterClass { Paladin, Warrior, Assassin, Archer };
 
     [Header("Character Class")]
-    public Class characterClass;
+    public CharacterClass characterClass;
 
     [Header("Movement")]
     public float speed = 4.5f;
@@ -58,6 +58,12 @@ public class CharacterManager : MonoBehaviour
             playerRBody = this.GetComponent<Rigidbody>();
         else
             Debug.Log(this.gameObject + " needs a rigid body");
+
+        //Handle loading and grabbing character abilities here
+        if (characterClass == CharacterClass.Paladin)
+        {
+
+        }
     }
 
     void FixedUpdate()
@@ -150,6 +156,10 @@ public class CharacterManager : MonoBehaviour
     public void Ability1(InputAction.CallbackContext context)
     {
         Debug.Log("Ability 1");
+        if(characterClass == CharacterClass.Paladin)
+        {
+
+        }
     }
 
     public void Ability2(InputAction.CallbackContext context)
