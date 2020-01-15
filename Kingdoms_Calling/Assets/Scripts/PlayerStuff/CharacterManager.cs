@@ -47,8 +47,10 @@ public class CharacterManager : MonoBehaviour
 
     //Assassin    
     ThunderStrike thunderStrike;
+    Execution execution;
 
     //Archer
+    ArrowVolley arrowVolley;
 
     //Player and enemy layer index
     int playerLayerIndex, enemyLayerIndex;
@@ -181,7 +183,7 @@ public class CharacterManager : MonoBehaviour
         }
         else if (characterClass == CharacterClass.Archer)
         {
-
+            arrowVolley.UseAbility();
         }
         else if (characterClass == CharacterClass.Warrior)
         {
