@@ -42,10 +42,10 @@ public class Execution : MonoBehaviour
         // Calculate how much damage is done to the enemy
         {
             // Grab the enemy's health remaining
-            float enemyHealth = enemyTest.GetComponent<Health>().currentHealth;
+            int enemyHealth = enemyTest.GetComponent<Health>().currentHealth;
 
             // Subtract the enemyHealth from the enemy's max health
-            float damageDealt = enemyTest.GetComponent<Health>().maxHealth - enemyHealth;
+            int damageDealt = enemyTest.GetComponent<Health>().maxHealth - enemyHealth;
 
             // Do damage to the enemy
             enemyTest.GetComponent<Health>().Damage(damageDealt);

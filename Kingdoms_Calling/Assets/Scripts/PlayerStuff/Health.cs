@@ -9,11 +9,11 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour
 {
-    public float maxHealth;       // Sets the base starting health for the object the script is attached to
+    public int maxHealth;       // Sets the base starting health for the object the script is attached to
     public Image healthUI;      // UI element for this object's health bar
 
     [HideInInspector]
-    public  float currentHealth;  // This int keeps track of what HP this object is currently at
+    public  int currentHealth;  // This int keeps track of what HP this object is currently at
     private bool isDead;        // If currentHealth reaches 0, this bool is set to true, otherwise is false
 
     // Start is called before the first frame update
@@ -37,7 +37,7 @@ public class Health : MonoBehaviour
     }
 
     // Damage function is used to subtract health from currentHealth when damage is taken
-    public void Damage(float damage)  // Pass in the amount to subtract from currentHealth
+    public void Damage(int damage)  // Pass in the amount to subtract from currentHealth
     {
         currentHealth -= damage;
         healthUI.fillAmount = CalculateHealthLeftPercent(currentHealth, maxHealth);    // Adjusts the fill amount of the health bar based on the % of health left
@@ -49,9 +49,9 @@ public class Health : MonoBehaviour
     }
 
     // Calculates the remaining health in a percentage out of 100
-    public float CalculateHealthLeftPercent(float current, float starting)  // Pass in the currentHealth and the startingHealth
+    public float CalculateHealthLeftPercent(int current, int starting)  // Pass in the currentHealth and the startingHealth
     {
-        float damagePercent = current / starting;
+        float damagePercent = (float)current / (float)starting;
         return damagePercent;
     }
 }
