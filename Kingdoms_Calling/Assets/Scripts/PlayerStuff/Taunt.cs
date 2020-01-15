@@ -1,4 +1,11 @@
-﻿using System.Collections;
+﻿/*
+ * Paladin Taunt Functionality
+ * Resource: https://docs.unity3d.com/ScriptReference/Physics.OverlapSphere.html
+ * Created by: Bradley Williamson
+ * On: 1/11/20
+ */
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 

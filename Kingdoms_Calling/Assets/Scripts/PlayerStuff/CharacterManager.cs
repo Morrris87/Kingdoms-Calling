@@ -182,7 +182,7 @@ public class CharacterManager : MonoBehaviour
         //Debug.Log("Move");
     }
 
-    public void Ability1(InputAction.CallbackContext context)
+    public void Ability1(InputAction.CallbackContext context) // For the character's first ability (left bumper)
     {
         if (characterClass == CharacterClass.Paladin)
         {
