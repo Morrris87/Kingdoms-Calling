@@ -2,21 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum SkeletonColour
-{
-    White,
-    Grey,
-    Purple
-};
-
-public enum Proc
-{
-    None,
-    Fire,
-    Wind,
-    Earth,
-    Lightning
-};
 public class SkeletonStats : MonoBehaviour
 {
     public enum Proc
