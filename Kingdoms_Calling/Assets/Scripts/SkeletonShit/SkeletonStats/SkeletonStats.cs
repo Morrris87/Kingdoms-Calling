@@ -7,7 +7,8 @@ public enum SkeletonColour
     White,
     Grey,
     Purple
-}
+};
+
 public enum Proc
 {
     None,
@@ -15,7 +16,8 @@ public enum Proc
     Wind,
     Earth,
     Lightning
-}
+};
+
 public class SkeletonStats : MonoBehaviour
 {
     public int health;

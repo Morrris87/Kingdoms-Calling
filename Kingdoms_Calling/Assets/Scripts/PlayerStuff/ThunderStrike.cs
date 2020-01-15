@@ -54,6 +54,7 @@ public class ThunderStrike : MonoBehaviour
         }
 
         // Give enemies procs if appliciable
+        
 
     }
 }
