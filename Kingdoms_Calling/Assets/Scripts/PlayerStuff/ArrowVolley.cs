@@ -42,13 +42,14 @@ public class ArrowVolley : MonoBehaviour
 
         if(isUsable == false)
         {
-            if(cooldownElapsed <= waitTime)
+            if(cooldownElapsed <= waitTime) // Start the cooldown timer
             {
                 cooldownElapsed += Time.deltaTime;
             }
             else
             {
                 isUsable = true;
+                abilityUI.enabled = true; //not sure if this works need to test with the targeting bull
                 cooldownElapsed = 0;
             }
             if (createrArrowVolley != null)
@@ -82,28 +83,30 @@ public class ArrowVolley : MonoBehaviour
                 // Ability has been used, so it needs to cooldown
                 isUsable = false;
 
-                // Start the cooldown timer
-
-                // Update the UI with the time remaining
-
-                // Play the ability animation
-
-                // Find the targeted enemy
+                // Play the ability animation and update the UI
+                abilityUI.enabled = false; //not sure if this works need to test with the targeting bull
 
                 // Draw Circle On ground Around the targeted enemys position
                 Instantiate(circle, target.transform.position, Quaternion.identity);
-                // Give enemies procs if appliciable
+                
+                //apply damage to all enemys in circle range
+
+                //foreach ()//enemy colliding with circle
+               // {
+                    
+                //}
 
                 //ADD TIMER FOR PROC AND SHIT!!!!!!!!!!!!!
                 if(target.GetComponent<SkeletonStats>().proc == SkeletonStats.Proc.None)
                 {
+                    // Give enemies procs if appliciable
                     target.GetComponent<SkeletonStats>().proc = SkeletonStats.Proc.Wind;
                 }
             }
         }
 
     }
-    public void OnGUI()
+    public void OnGUI()// Update the UI with the time remaining
     {
         GUI.Label(new Rect(60, 60, 30, 30), cooldownElapsed.ToString());
     }

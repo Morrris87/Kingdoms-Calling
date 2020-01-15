@@ -153,7 +153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73f3f263f25d8e94fa480e491452091b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
+  abilityUI: {fileID: 4377735304313280583}
   enemyTest: {fileID: 1012103069}
   circle: {fileID: 1485140454962217269, guid: 3cf5da2bfe6172446a1831b0c6b37cea, type: 3}
 --- !u!114 &97634828 stripped
@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 1012103071}
   - component: {fileID: 1012103070}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: TestEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
