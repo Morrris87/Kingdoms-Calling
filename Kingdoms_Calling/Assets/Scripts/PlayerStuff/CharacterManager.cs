@@ -5,6 +5,7 @@
  * On: 1/7/20
  */
 
+using Complete;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,8 +27,11 @@ public class CharacterManager : MonoBehaviour
     public Camera mainCamera;
 
     [Header("CycleInputTimer")]
-    public float cycleSpeed = 1.0f;
+    public float cycleSpeed = 0.5f;
     public float cycleRange = 10f;
+
+    [Header("Right Analog Stick Targeting Range")]
+    public float analogTargetRange = 5.0f;
 
     // Private Variables
     PlayerInputActions inputAction; // InputActions    
@@ -116,7 +120,11 @@ public class CharacterManager : MonoBehaviour
         UpdatePlayerRotation();
 
         //Update the cycle timer
+        if(cycleTimer >= 0)
         cycleTimer -= Time.deltaTime;
+
+        //Draw where the player is currently facing
+        UsefullFunctions.DebugRay(transform.position, transform.forward * 5.0f, Color.red);
     }
 
     /// <summary>
@@ -157,7 +165,36 @@ public class CharacterManager : MonoBehaviour
         {
             //Update the players rigidbody
             Quaternion newRotation = Quaternion.LookRotation(lookRot);
-            playerRBody.MoveRotation(newRotation);
+            playerRBody.MoveRotation(newRotation);            
+        }
+
+        //Handle right analog targeting
+        if(cycleTimer <= 0)
+        {
+            RaycastHit hit;
+            // Does the ray intersect any objects in the enemy layer
+            if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity, 1 << enemyLayerIndex))
+            {
+                //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.yellow);
+                Debug.Log("Right analog targeting did hit: " + hit.collider.gameObject.name);
+                targetedEnemy = hit.collider.gameObject;
+                targetedEnemy.GetComponent<AI>().isTargeted = true;
+                
+            }
+            // Else we didn't hit anyone reset the targeted enemy
+            else
+            {
+                //Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 1000, Color.white);
+                //Debug.Log("Did not Hit");
+                //if we had a targeted enemy reset the last targeted enemies field and erase our last targeted enemy field
+                if (targetedEnemy != null)
+                {
+                    targetedEnemy.GetComponent<AI>().isTargeted = false;
+                    targetedEnemy = null;
+                }
+
+            }
+            cycleTimer = cycleSpeed;//Reset timer whether we looked at a enemy or not
         }
     }
 
@@ -339,6 +376,13 @@ public class CharacterManager : MonoBehaviour
         }
         Debug.Log("CycleTargetF");
     }
+
+    Collider[] GetInSphereOverlap(Vector3 pos, float r, int layer)
+    {
+        Collider[] hitColliders = Physics.OverlapSphere(pos, r, layer);
+
+        return hitColliders;
+    }    
 
     //public void Move(InputAction.CallbackContext context)
     //{
