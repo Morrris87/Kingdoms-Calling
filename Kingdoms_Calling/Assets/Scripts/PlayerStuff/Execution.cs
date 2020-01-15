@@ -7,9 +7,6 @@ public class Execution : MonoBehaviour
 {
     public Image abilityUI; // The UI Images for the abilities
 
-    // DEBUG
-    public GameObject enemyTest;
-
     private bool isUsable;          // When ability is available for use, set this to true
     private float waitTime = 40;    // Time in seconds needed to wait for ability cooldown
     private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
@@ -28,7 +25,7 @@ public class Execution : MonoBehaviour
     }
 
     // Calling this function uses the ability
-    public void UseAbility()
+    public void UseAbility(GameObject target)
     {
         // Ability has been used, so it needs to cooldown
         isUsable = false;
@@ -41,8 +38,14 @@ public class Execution : MonoBehaviour
 
         // Calculate how much damage is done to the enemy
         {
-            // Grab the enemy that enters the hitbox
-            // 
+            // Grab the enemy's health remaining
+            int enemyHealth = target.GetComponent<Health>().currentHealth;
+
+            // Subtract the enemyHealth from the enemy's max health
+            int damageDealt = target.GetComponent<Health>().maxHealth - enemyHealth;
+
+            // Do damage to the enemy
+            target.GetComponent<Health>().Damage(damageDealt);
         }
     }
 }

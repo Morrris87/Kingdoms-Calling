@@ -38,6 +38,7 @@ public class CharacterManager : MonoBehaviour
     float xMove, yMove, xRot, yRot, cycleTimer;
     //Camera information
     Vector3 camForward, camRight;
+    GameObject targetedEnemy;
 
     // Character Abilities
     //Paladin
@@ -81,10 +82,16 @@ public class CharacterManager : MonoBehaviour
         else if (characterClass == CharacterClass.Assassin)
         {
             thunderStrike = this.GetComponent<ThunderStrike>();
+            execution = this.GetComponent<Execution>();
         }
         else if (characterClass == CharacterClass.Archer)
         {
             arrowVolley = this.GetComponent<ArrowVolley>();
+            //piercingArrow = this.GetComponent<PiercingArrow>();
+        }
+        else if (characterClass == CharacterClass.Warrior)
+        {
+
         }
     }
 
@@ -179,11 +186,11 @@ public class CharacterManager : MonoBehaviour
     {
         if (characterClass == CharacterClass.Paladin)
         {
-
+            
         }
         else if (characterClass == CharacterClass.Assassin)
         {
-            thunderStrike.UseAbility();
+            thunderStrike.UseAbility(targetedEnemy);
         }
         else if (characterClass == CharacterClass.Archer)
         {
@@ -195,9 +202,24 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    public void Ability2(InputAction.CallbackContext context)
+    public void Ability2(InputAction.CallbackContext context)   // For the character's second ability (right bumper)
     {
-        Debug.Log("Ability 2");
+        if (characterClass == CharacterClass.Paladin)
+        {
+
+        }
+        else if (characterClass == CharacterClass.Assassin)
+        {
+            execution.UseAbility(targetedEnemy);
+        }
+        else if (characterClass == CharacterClass.Archer)
+        {
+            //piercingArrow.UseAbility();
+        }
+        else if (characterClass == CharacterClass.Warrior)
+        {
+
+        }
     }
 
     /// <summary>
@@ -224,11 +246,13 @@ public class CharacterManager : MonoBehaviour
                     if (hitColliders.Length < (i - 1))
                     {
                         hitColliders[i - 1].gameObject.GetComponent<AI>().isTargeted = true;
+                        targetedEnemy = hitColliders[i - 1].gameObject;
                         Debug.Log("Current Selected Skeleton: " + hitColliders[i - 1].gameObject.name);
                     }
                     else
                     {
                         hitColliders[0].gameObject.GetComponent<AI>().isTargeted = true;
+                        targetedEnemy = hitColliders[0].gameObject;
                         Debug.Log("Current Selected Skeleton: " + hitColliders[0].gameObject.name);
                     }
                 }
@@ -281,11 +305,13 @@ public class CharacterManager : MonoBehaviour
                     if (hitColliders.Length < (i + 1))
                     {
                         hitColliders[i + 1].gameObject.GetComponent<AI>().isTargeted = true;
+                        targetedEnemy = hitColliders[i + 1].gameObject;
                         Debug.Log("Current Selected Skeleton: " + hitColliders[i + 1].gameObject.name + " : " + i);
                     }
                     else
                     {
                         hitColliders[0].gameObject.GetComponent<AI>().isTargeted = true;
+                        targetedEnemy = hitColliders[0].gameObject;
                         Debug.Log("Current Selected Skeleton: " + hitColliders[0].gameObject.name);
                     }
                 }
