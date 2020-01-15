@@ -71,27 +71,35 @@ public class ArrowVolley : MonoBehaviour
     }
 
     // Calling this function uses the ability
-    public void UseAbility()
+    public void UseAbility(GameObject target)
     {
         if (isUsable == true)
         {
-            Debug.Log("Ability 1 Used (Archer)");
+            if (target != null)
+            {
+                Debug.Log("Ability 1 Used (Archer)");
 
-            // Ability has been used, so it needs to cooldown
-            isUsable = false;
+                // Ability has been used, so it needs to cooldown
+                isUsable = false;
 
-            // Start the cooldown timer
+                // Start the cooldown timer
 
-            // Update the UI with the time remaining
+                // Update the UI with the time remaining
 
-            // Play the ability animation
+                // Play the ability animation
 
-            // Find the targeted enemy
+                // Find the targeted enemy
 
-            // Draw Circle On ground Around the targeted enemys position
-            Instantiate(circle, circleDestPos , Quaternion.identity);
-            // Give enemies procs if appliciable
-           
+                // Draw Circle On ground Around the targeted enemys position
+                Instantiate(circle, target.transform.position, Quaternion.identity);
+                // Give enemies procs if appliciable
+
+                //ADD TIMER FOR PROC AND SHIT!!!!!!!!!!!!!
+                if(target.GetComponent<SkeletonStats>().proc == SkeletonStats.Proc.None)
+                {
+                    target.GetComponent<SkeletonStats>().proc = SkeletonStats.Proc.Wind;
+                }
+            }
         }
 
     }

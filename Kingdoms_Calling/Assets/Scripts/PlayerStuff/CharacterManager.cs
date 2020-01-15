@@ -194,7 +194,7 @@ public class CharacterManager : MonoBehaviour
         }
         else if (characterClass == CharacterClass.Archer)
         {
-            arrowVolley.UseAbility();
+            arrowVolley.UseAbility(targetedEnemy);
         }
         else if (characterClass == CharacterClass.Warrior)
         {
