@@ -1421,6 +1421,7 @@ GameObject:
   - component: {fileID: 694699487160246735}
   - component: {fileID: 694699487160246721}
   - component: {fileID: 694699487160246736}
+  - component: {fileID: 694699487160246737}
   m_Layer: 0
   m_Name: TestPlayer (Assassin)
   m_TagString: Untagged
@@ -1579,6 +1580,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityUI: {fileID: 0}
   enemyTest: {fileID: 5777536976263925970}
+--- !u!114 &694699487160246737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694699487160246734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507becf1f22ad0843b0750db3b8389ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityUI: {fileID: 0}
+  enemyTest: {fileID: 5777536976263925970}
 --- !u!114 &4173059297666287041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1715,6 +1730,7 @@ GameObject:
   - component: {fileID: 4173059297666287041}
   - component: {fileID: 4241989878333059553}
   - component: {fileID: 659216272690273555}
+  - component: {fileID: 5777536976263925972}
   m_Layer: 9
   m_Name: Skeleton
   m_TagString: White
@@ -1735,3 +1751,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5777536976263925972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5777536976263925970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fe87bf589d14f4984f0a76d8d08cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  healthUI: {fileID: 0}
+  currentHealth: 0

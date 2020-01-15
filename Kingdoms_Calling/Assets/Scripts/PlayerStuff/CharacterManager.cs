@@ -179,6 +179,14 @@ public class CharacterManager : MonoBehaviour
         {
             thunderStrike.UseAbility();
         }
+        else if (characterClass == CharacterClass.Archer)
+        {
+
+        }
+        else if (characterClass == CharacterClass.Warrior)
+        {
+
+        }
     }
 
     public void Ability2(InputAction.CallbackContext context)
