@@ -81,10 +81,16 @@ public class CharacterManager : MonoBehaviour
         else if (characterClass == CharacterClass.Assassin)
         {
             thunderStrike = this.GetComponent<ThunderStrike>();
+            execution = this.GetComponent<Execution>();
         }
         else if (characterClass == CharacterClass.Archer)
         {
             arrowVolley = this.GetComponent<ArrowVolley>();
+            //piercingArrow = this.GetComponent<PiercingArrow>();
+        }
+        else if (characterClass == CharacterClass.Warrior)
+        {
+
         }
     }
 
@@ -179,7 +185,7 @@ public class CharacterManager : MonoBehaviour
     {
         if (characterClass == CharacterClass.Paladin)
         {
-
+            
         }
         else if (characterClass == CharacterClass.Assassin)
         {
@@ -195,9 +201,24 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    public void Ability2(InputAction.CallbackContext context)
+    public void Ability2(InputAction.CallbackContext context)   // For the character's second ability (right bumper)
     {
-        Debug.Log("Ability 2");
+        if (characterClass == CharacterClass.Paladin)
+        {
+
+        }
+        else if (characterClass == CharacterClass.Assassin)
+        {
+            execution.UseAbility();
+        }
+        else if (characterClass == CharacterClass.Archer)
+        {
+            //piercingArrow.UseAbility();
+        }
+        else if (characterClass == CharacterClass.Warrior)
+        {
+
+        }
     }
 
     /// <summary>
