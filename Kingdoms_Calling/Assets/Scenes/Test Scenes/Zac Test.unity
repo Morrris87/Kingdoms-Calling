@@ -141,6 +141,21 @@ MonoBehaviour:
   maxHealth: 10000
   healthUI: {fileID: 4377735304336762410}
   currentHealth: 50
+--- !u!114 &97634822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97634820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73f3f263f25d8e94fa480e491452091b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityUI: {fileID: 0}
+  enemyTest: {fileID: 0}
+  circle: {fileID: 0}
 --- !u!1 &361809392
 GameObject:
   m_ObjectHideFlags: 0
@@ -398,6 +413,11 @@ PrefabInstance:
         type: 3}
       propertyPath: speed
       value: 4.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 694699486586812705, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: characterClass
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c49fb9b228367e741be9205a523b5423, type: 3}
