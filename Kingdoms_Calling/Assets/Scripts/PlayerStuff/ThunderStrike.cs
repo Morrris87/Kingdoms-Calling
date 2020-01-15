@@ -35,26 +35,34 @@ public class ThunderStrike : MonoBehaviour
     {
         Debug.Log("Ability 1 Used (Assassin)");
 
-        // Ability has been used, so it needs to cooldown
-        isUsable = false;
-
-        // Start the cooldown timer
-
-        // Update the UI with the time remaining
-
-        // Play the ability animation
-
-        // Find the targeted enemy
-        playerDestPos = target.transform.position;
-
-        // Teleport the player to the enemy targeted if enemy has been found
-        if (playerDestPos != null)
+        if (isUsable == true)
         {
-            this.transform.position = playerDestPos;
+            // Ability has been used, so it needs to cooldown
+            isUsable = false;
+
+            if (target != null)
+            {
+                // Start the cooldown timer
+
+                // Update the UI with the time remaining
+
+                // Play the ability animation
+
+                // Find the targeted enemy
+                playerDestPos = target.transform.position;
+
+                // Teleport the player to the enemy targeted if enemy has been found
+                if (playerDestPos != null)
+                {
+                    this.transform.position = playerDestPos;
+                }
+
+                // Give enemies procs if appliciable
+                if (target.GetComponent<SkeletonStats>().proc == SkeletonStats.Proc.None)
+                {
+                    target.GetComponent<SkeletonStats>().proc = SkeletonStats.Proc.Lightning;
+                }
+            }
         }
-
-        // Give enemies procs if appliciable
-        
-
     }
 }
