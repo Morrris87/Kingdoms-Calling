@@ -82,6 +82,10 @@ public class CharacterManager : MonoBehaviour
         {
             thunderStrike = this.GetComponent<ThunderStrike>();
         }
+        else if (characterClass == CharacterClass.Archer)
+        {
+            arrowVolley = this.GetComponent<ArrowVolley>();
+        }
     }
 
     void FixedUpdate()
