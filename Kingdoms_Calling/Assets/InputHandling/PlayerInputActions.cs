@@ -113,6 +113,22 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""HealthLoss"",
+                    ""type"": ""Button"",
+                    ""id"": ""aeb329f9-1ed8-463d-9428-7dec461cd4c5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""HealthGain"",
+                    ""type"": ""Button"",
+                    ""id"": ""71b44987-ed4d-4eca-9f97-0d303228556d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -247,6 +263,28 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""60fc55a6-4dec-450f-b1a6-4c07dc701e57"",
+                    ""path"": ""<Gamepad>/dpad/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HealthLoss"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9d0eecbb-a821-4bf1-aec3-7e9bcc965bb6"",
+                    ""path"": ""<Gamepad>/dpad/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HealthGain"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -279,6 +317,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_PlayerControls_Ability2 = m_PlayerControls.FindAction("Ability2", throwIfNotFound: true);
         m_PlayerControls_Special = m_PlayerControls.FindAction("Special", throwIfNotFound: true);
         m_PlayerControls_Attack = m_PlayerControls.FindAction("Attack", throwIfNotFound: true);
+        m_PlayerControls_HealthLoss = m_PlayerControls.FindAction("HealthLoss", throwIfNotFound: true);
+        m_PlayerControls_HealthGain = m_PlayerControls.FindAction("HealthGain", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -340,6 +380,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerControls_Ability2;
     private readonly InputAction m_PlayerControls_Special;
     private readonly InputAction m_PlayerControls_Attack;
+    private readonly InputAction m_PlayerControls_HealthLoss;
+    private readonly InputAction m_PlayerControls_HealthGain;
     public struct PlayerControlsActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -356,6 +398,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @Ability2 => m_Wrapper.m_PlayerControls_Ability2;
         public InputAction @Special => m_Wrapper.m_PlayerControls_Special;
         public InputAction @Attack => m_Wrapper.m_PlayerControls_Attack;
+        public InputAction @HealthLoss => m_Wrapper.m_PlayerControls_HealthLoss;
+        public InputAction @HealthGain => m_Wrapper.m_PlayerControls_HealthGain;
         public InputActionMap Get() { return m_Wrapper.m_PlayerControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -401,6 +445,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Attack.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAttack;
+                @HealthLoss.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnHealthLoss;
+                @HealthLoss.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnHealthLoss;
+                @HealthLoss.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnHealthLoss;
+                @HealthGain.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnHealthGain;
+                @HealthGain.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnHealthGain;
+                @HealthGain.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnHealthGain;
             }
             m_Wrapper.m_PlayerControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -441,6 +491,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
+                @HealthLoss.started += instance.OnHealthLoss;
+                @HealthLoss.performed += instance.OnHealthLoss;
+                @HealthLoss.canceled += instance.OnHealthLoss;
+                @HealthGain.started += instance.OnHealthGain;
+                @HealthGain.performed += instance.OnHealthGain;
+                @HealthGain.canceled += instance.OnHealthGain;
             }
         }
     }
@@ -468,5 +524,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnAbility2(InputAction.CallbackContext context);
         void OnSpecial(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
+        void OnHealthLoss(InputAction.CallbackContext context);
+        void OnHealthGain(InputAction.CallbackContext context);
     }
 }

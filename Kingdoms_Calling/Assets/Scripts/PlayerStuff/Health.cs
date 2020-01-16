@@ -57,7 +57,7 @@ public class Health : MonoBehaviour
                 this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
             }         
         }
-        //healthUI.fillAmount = CalculateHealthLeftPercent(currentHealth, maxHealth);    // Adjusts the fill amount of the health bar based on the % of health left
+        healthUI.fillAmount = CalculateHealthLeftPercent(currentHealth, maxHealth);    // Adjusts the fill amount of the health bar based on the % of health left
 
         if (currentHealth <= 0) // When currentHealth reaches 0...
         {

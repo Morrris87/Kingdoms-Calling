@@ -1451,6 +1451,7 @@ GameObject:
   - component: {fileID: 694699487160246721}
   - component: {fileID: 694699487160246736}
   - component: {fileID: 694699487160246737}
+  - component: {fileID: 694699487160246738}
   m_Layer: 0
   m_Name: TestPlayer (Archer)
   m_TagString: Untagged
@@ -1590,6 +1591,40 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: df18e769-c2e0-40cb-9fc8-5df668e0b5ed
     m_ActionName: Player Controls/Attack
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 694699487160246721}
+        m_MethodName: HealthLoss
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: aeb329f9-1ed8-463d-9428-7dec461cd4c5
+    m_ActionName: Player Controls/HealthLoss[/XInputControllerWindows/dpad/left]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 694699487160246721}
+        m_MethodName: HealthGain
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+    m_ActionId: 71b44987-ed4d-4eca-9f97-0d303228556d
+    m_ActionName: Player Controls/HealthGain[/XInputControllerWindows/dpad/right]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player Controls
@@ -1623,3 +1658,18 @@ MonoBehaviour:
   abilityUI: {fileID: 0}
   enemyTest: {fileID: 0}
   circle: {fileID: 0}
+--- !u!114 &694699487160246738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694699487160246734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fe87bf589d14f4984f0a76d8d08cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  healthUI: {fileID: 234304739540254956}
+  currentHealth: 0

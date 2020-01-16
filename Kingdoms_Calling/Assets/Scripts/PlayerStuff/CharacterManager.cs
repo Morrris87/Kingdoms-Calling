@@ -279,6 +279,16 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
+    public void HealthLoss()
+    {
+        GetComponent<Health>().DebugHealthLoss();
+    }
+
+    public void HealthGain()
+    {
+        GetComponent<Health>().DebugHealthGain();
+    }
+
     /// <summary>
     /// Cycle enemy targets backwards
     /// </summary>

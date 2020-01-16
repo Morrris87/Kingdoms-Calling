@@ -100,6 +100,22 @@
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
+                },
+                {
+                    "name": "HealthLoss",
+                    "type": "Button",
+                    "id": "aeb329f9-1ed8-463d-9428-7dec461cd4c5",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "HealthGain",
+                    "type": "Button",
+                    "id": "71b44987-ed4d-4eca-9f97-0d303228556d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
                 }
             ],
             "bindings": [
@@ -232,6 +248,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "60fc55a6-4dec-450f-b1a6-4c07dc701e57",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HealthLoss",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9d0eecbb-a821-4bf1-aec3-7e9bcc965bb6",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HealthGain",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
