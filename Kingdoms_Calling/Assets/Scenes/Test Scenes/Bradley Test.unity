@@ -807,6 +807,36 @@ PrefabInstance:
       propertyPath: healthUI
       value: 
       objectReference: {fileID: 1805392139}
+    - target: {fileID: 4225770948336764392, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: AttackRateSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225770948336764392, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: AttackRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225770948336764392, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: AttackDamage
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225770948336764392, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: AttackHitChance
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225770948336764392, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: AttackStaminaLoss
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4225770948336764392, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: attackTimer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6637319660618601289, guid: c49fb9b228367e741be9205a523b5423,
         type: 3}
       propertyPath: staminaUI

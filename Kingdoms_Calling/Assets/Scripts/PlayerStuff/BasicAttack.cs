@@ -32,7 +32,7 @@ public class BasicAttack : MonoBehaviour
     public float AttackStaminaLoss;
 
     RaycastHit[] hits;
-    private Vector3[] RaycastLocations = { new Vector3(0f, 0, 1.3f ), new Vector3(-1f, 0, 1f), new Vector3(-0.5f, 0, 1f), new Vector3(1f, 0, 1f), new Vector3(0.5f, 0, 1f) };
+    private Vector3[] RaycastLocations = { new Vector3(0f, 0, 1.3f), new Vector3(-1f, 0, 1f), new Vector3(-0.5f, 0, 1f), new Vector3(1f, 0, 1f), new Vector3(0.5f, 0, 1f) };
     public float attackTimer = 0;
 
     //Current class enum type
@@ -132,11 +132,23 @@ public class BasicAttack : MonoBehaviour
     /// <param name="raycastDir">Direction that the raycast will face</param>
     void RaycastAndDamage(float atkRate, float atkRange, float atkDamage, float atkChance, float atkStamina, Vector3 raycastDir)
     {
-        hits = Physics.RaycastAll(transform.position, raycastDir, atkRange, 1 << enemyLayerIndex);
-        foreach (RaycastHit r in hits)
+        if (currentClass != CharacterClass.Archer)
         {
-            Debug.Log(r.collider.name + " at : " + raycastDir);
-            r.collider.gameObject.GetComponent<Health>().Damage((int)atkDamage);
+            hits = Physics.RaycastAll(transform.position, raycastDir, atkRange, 1 << enemyLayerIndex);
+            foreach (RaycastHit r in hits)
+            {
+                Debug.Log(r.collider.name + " at : " + raycastDir);
+                r.collider.gameObject.GetComponent<Health>().Damage((int)atkDamage);
+            }
+        }
+        else
+        {
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position, raycastDir, out hit, atkRange, 1 << enemyLayerIndex))
+            {
+                Debug.Log(hit.collider.name + " at : " + raycastDir);
+                hit.collider.gameObject.GetComponent<Health>().Damage((int)atkDamage);
+            }
         }
     }
 
