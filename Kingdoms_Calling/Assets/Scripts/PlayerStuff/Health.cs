@@ -73,4 +73,14 @@ public class Health : MonoBehaviour
         float damagePercent = (float)current / (float)starting;
         return damagePercent;
     }
+
+    public void DebugHealthLoss()
+    {
+
+    }
+
+    public void DebugHealthGain()
+    {
+
+    }
 }

@@ -58,6 +58,7 @@ public class CharacterManager : MonoBehaviour
 
     //Archer
     ArrowVolley arrowVolley;
+    PiercingArrow piercingArrow;
 
     //Player and enemy layer index
     int playerLayerIndex, enemyLayerIndex;
@@ -95,7 +96,7 @@ public class CharacterManager : MonoBehaviour
         else if (characterClass == CharacterClass.Archer)
         {
             arrowVolley = this.GetComponent<ArrowVolley>();
-            //piercingArrow = this.GetComponent<PiercingArrow>();
+            piercingArrow = this.GetComponent<PiercingArrow>();
         }
         else if (characterClass == CharacterClass.Warrior)
         {
@@ -241,11 +242,13 @@ public class CharacterManager : MonoBehaviour
         }
         else if (characterClass == CharacterClass.Assassin)
         {
-            thunderStrike.UseAbility(targetedEnemy);
+            if (context.performed)
+                thunderStrike.UseAbility(targetedEnemy);
         }
         else if (characterClass == CharacterClass.Archer)
         {
-            arrowVolley.UseAbility(targetedEnemy);
+            if (context.performed)
+                arrowVolley.UseAbility(targetedEnemy);
         }
         else if (characterClass == CharacterClass.Warrior)
         {
@@ -261,11 +264,13 @@ public class CharacterManager : MonoBehaviour
         }
         else if (characterClass == CharacterClass.Assassin)
         {
-            execution.UseAbility(targetedEnemy);
+            if (context.performed)
+                execution.UseAbility(targetedEnemy);
         }
         else if (characterClass == CharacterClass.Archer)
         {
-            //piercingArrow.UseAbility();
+            if (context.performed)
+                piercingArrow.UseAbility();
         }
         else if (characterClass == CharacterClass.Warrior)
         {
