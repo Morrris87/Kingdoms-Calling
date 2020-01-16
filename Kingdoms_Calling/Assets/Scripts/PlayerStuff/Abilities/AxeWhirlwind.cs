@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+ * Warrior axe whirlwind ability
+ * Resource: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Installation.html
+ * Created by: Bradley Williamson
+ * On: 1/15/20
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -82,13 +88,6 @@ public class AxeWhirlwind : MonoBehaviour
 
             // Change the inUse bool
             inUse = true;
-
-            // Give enemies procs if appliciable
-            //if (target.GetComponent<SkeletonStats>().proc == SkeletonStats.Proc.None)
-            //{
-            //    target.GetComponent<SkeletonStats>().proc = SkeletonStats.Proc.Lightning;
-            //}
-
         }
     }
 
@@ -102,7 +101,7 @@ public class AxeWhirlwind : MonoBehaviour
         int i = 0;
         while (i < hitColliders.Length)
         {
-            Debug.Log("Whirlwind Damage " + hitColliders[i].name);
+            //Debug.Log("Whirlwind Damage " + hitColliders[i].name);
             hitColliders[i].gameObject.GetComponentInChildren<Health>().Damage(whirlwindDamage); //Damage the current colliders health by the current damageValue
 
             i++;
