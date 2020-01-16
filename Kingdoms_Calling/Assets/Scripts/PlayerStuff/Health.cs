@@ -24,7 +24,10 @@ public class Health : MonoBehaviour
     {
         isDead = false;                 // Object starts off alive
         currentHealth = maxHealth;      // Transfers the value from startingHealth to currentHealth, keeping track of this object's max HP
-        tempColor = this.gameObject.GetComponent<Renderer>().material.color;
+        if (this.tag == "White" || this.tag == "Grey" || this.tag == "Purple")
+        {
+            tempColor = this.gameObject.GetComponent<Renderer>().material.color;
+        }
     }
 
     void Update()
