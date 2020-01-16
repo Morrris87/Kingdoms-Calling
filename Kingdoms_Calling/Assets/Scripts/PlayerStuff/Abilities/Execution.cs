@@ -37,6 +37,7 @@ public class Execution : MonoBehaviour
         // Play the ability animation
 
         // Calculate how much damage is done to the enemy
+        if(target)
         {
             // Grab the enemy's health remaining
             int enemyHealth = target.GetComponent<Health>().currentHealth;

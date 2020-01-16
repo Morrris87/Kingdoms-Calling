@@ -51,6 +51,7 @@ public class CharacterManager : MonoBehaviour
     Taunt paladinTaunt;
     //Warrior
     AxeWhirlwind warriorAxeWhirlwind;
+    FlamingLeap warriorFalmingLeap;
 
     //Assassin    
     ThunderStrike thunderStrike;
@@ -101,6 +102,7 @@ public class CharacterManager : MonoBehaviour
         else if (characterClass == CharacterClass.Warrior)
         {
             warriorAxeWhirlwind = this.GetComponent<AxeWhirlwind>();
+            warriorFalmingLeap = this.GetComponent<FlamingLeap>();
         }
     }
 
@@ -125,8 +127,8 @@ public class CharacterManager : MonoBehaviour
         UpdatePlayerRotation();
 
         //Update the cycle timer
-        if(cycleTimer >= 0)
-        cycleTimer -= Time.deltaTime;
+        if (cycleTimer >= 0)
+            cycleTimer -= Time.deltaTime;
 
         //Draw where the player is currently facing
         //UsefullFunctions.DebugRay(transform.position, transform.forward * 5.0f, Color.red);
@@ -180,11 +182,11 @@ public class CharacterManager : MonoBehaviour
         {
             //Update the players rigidbody
             Quaternion newRotation = Quaternion.LookRotation(lookRot);
-            playerRBody.MoveRotation(newRotation);            
+            playerRBody.MoveRotation(newRotation);
         }
 
         //Handle right analog targeting
-        if(cycleTimer <= 0)
+        if (cycleTimer <= 0)
         {
             RaycastHit hit;
             // Does the ray intersect any objects in the enemy layer
@@ -194,7 +196,7 @@ public class CharacterManager : MonoBehaviour
                 Debug.Log("Right analog targeting did hit: " + hit.collider.gameObject.name);
                 targetedEnemy = hit.collider.gameObject;
                 targetedEnemy.GetComponent<AI>().isTargeted = true;
-                
+
             }
             // Else we didn't hit anyone reset the targeted enemy
             else
@@ -238,7 +240,7 @@ public class CharacterManager : MonoBehaviour
     {
         if (characterClass == CharacterClass.Paladin)
         {
-            
+
         }
         else if (characterClass == CharacterClass.Assassin)
         {
@@ -252,6 +254,7 @@ public class CharacterManager : MonoBehaviour
         }
         else if (characterClass == CharacterClass.Warrior)
         {
+            warriorFalmingLeap.UseAbility(rotationDirection);
 
         }
     }
@@ -274,7 +277,7 @@ public class CharacterManager : MonoBehaviour
         }
         else if (characterClass == CharacterClass.Warrior)
         {
-            if(context.performed)
+            if (context.performed)
                 warriorAxeWhirlwind.UseAbility();
         }
     }
@@ -412,7 +415,7 @@ public class CharacterManager : MonoBehaviour
         Collider[] hitColliders = Physics.OverlapSphere(pos, r, layer);
 
         return hitColliders;
-    }    
+    }
 
     //public void Move(InputAction.CallbackContext context)
     //{
