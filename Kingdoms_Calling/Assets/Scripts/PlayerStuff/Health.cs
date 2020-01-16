@@ -16,17 +16,30 @@ public class Health : MonoBehaviour
     public  int currentHealth;  // This int keeps track of what HP this object is currently at
     private bool isDead;        // If currentHealth reaches 0, this bool is set to true, otherwise is false
     float timerForFlash = 0;
-
+    bool colorBool = false;
+    Color tempColor;
 
     // Start is called before the first frame update
     void Start()
     {
         isDead = false;                 // Object starts off alive
         currentHealth = maxHealth;      // Transfers the value from startingHealth to currentHealth, keeping track of this object's max HP
+        tempColor = this.gameObject.GetComponent<Renderer>().material.color;
     }
 
     void Update()
     {
+        timerForFlash += Time.deltaTime; 
+        if (this.tag == "White" || this.tag == "Grey" || this.tag == "Purple")
+        {
+            
+            if (colorBool == true && timerForFlash >= 2)
+            {
+            this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", tempColor);
+            timerForFlash = 0;
+                colorBool = false;
+            }
+        }
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             Damage(10); // DEBUG: When Q is pressed, 10 damage is done to player 1, changing the health bar
@@ -37,27 +50,23 @@ public class Health : MonoBehaviour
             Damage(-10);
         }
         
+        
     }
 
     // Damage function is used to subtract health from currentHealth when damage is taken
     public void Damage(int damage)  // Pass in the amount to subtract from currentHealth
     {
-        Color tempColor = this.gameObject.GetComponent<Renderer>().material.color;
+        
         currentHealth -= damage;
         if(this.tag == "White" || this.tag == "Grey" || this.tag == "Purple")
         {
-            timerForFlash += Time.deltaTime;
+            
             if (timerForFlash <= 2)// 2 seconds
             {
+                colorBool = true;
                 //flash red
                 this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
-            }
-            else if(timerForFlash >= 2)
-            {
-                this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", tempColor);
-                timerForFlash = 0;
-            }
-            
+            }         
         }
         //healthUI.fillAmount = CalculateHealthLeftPercent(currentHealth, maxHealth);    // Adjusts the fill amount of the health bar based on the % of health left
 
