@@ -85,7 +85,6 @@ public class AI : AdvancedFSM
         if(isTargeted == true)
         {
             targetSymbol.SetActive(true);
-            //Instantiate(placeHolder, this.transform.position, Quaternion.identity);
         }
         else
         {

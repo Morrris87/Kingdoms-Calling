@@ -15,6 +15,8 @@ public class Health : MonoBehaviour
     [HideInInspector]
     public  int currentHealth;  // This int keeps track of what HP this object is currently at
     private bool isDead;        // If currentHealth reaches 0, this bool is set to true, otherwise is false
+    float timerForFlash = 0;
+
 
     // Start is called before the first frame update
     void Start()
@@ -34,15 +36,27 @@ public class Health : MonoBehaviour
         {
             Damage(-10);
         }
+        
     }
 
     // Damage function is used to subtract health from currentHealth when damage is taken
     public void Damage(int damage)  // Pass in the amount to subtract from currentHealth
     {
+        Color tempColor = this.gameObject.GetComponent<Renderer>().material.color;
         currentHealth -= damage;
         if(this.tag == "White" || this.tag == "Grey" || this.tag == "Purple")
         {
-            //flash red
+            timerForFlash += Time.deltaTime;
+            if (timerForFlash == 2)// 2 seconds
+            {
+                //flash red
+                this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
+            }
+            else
+            {
+                this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", tempColor);
+                timerForFlash = 0;
+            }
             
         }
         //healthUI.fillAmount = CalculateHealthLeftPercent(currentHealth, maxHealth);    // Adjusts the fill amount of the health bar based on the % of health left
