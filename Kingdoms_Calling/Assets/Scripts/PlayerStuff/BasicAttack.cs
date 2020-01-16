@@ -32,7 +32,7 @@ public class BasicAttack : MonoBehaviour
     public float AttackStaminaLoss;
 
     RaycastHit[] hits;
-    private Vector3[] RaycastLocations = { new Vector3(0f, 0, 1.3f), new Vector3(-1f, 0, 1f), new Vector3(-0.5f, 0, 1f), new Vector3(1f, 0, 1f), new Vector3(0.5f, 0, 1f) };
+    private Vector3[] RaycastLocations = { new Vector3(0f, 0, 1.3f ), new Vector3(-1f, 0, 1f), new Vector3(-0.5f, 0, 1f), new Vector3(1f, 0, 1f), new Vector3(0.5f, 0, 1f) };
     public float attackTimer = 0;
 
     //Current class enum type

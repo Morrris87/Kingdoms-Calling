@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 2357826745972530793}
   - component: {fileID: 4225770948336764392}
   - component: {fileID: 6637319660618601289}
+  - component: {fileID: 6621744903650764076}
   m_Layer: 8
   m_Name: TestPlayer
   m_TagString: Player
@@ -314,6 +315,8 @@ MonoBehaviour:
   whirlwindDuration: 5
   whirlwindDamage: 1
   whirlwindAttackSpeed: 1
+  attackDuration: 0
+  attackInterval: 0
 --- !u!114 &2357826745972530793
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,3 +365,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxStamina: 20
   staminaUI: {fileID: 0}
+--- !u!114 &6621744903650764076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694699486586812718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1083a841f10304240827c4a811786313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityUI: {fileID: 0}
+  leapCooldown: 1
+  leapRadius: 5
+  leapDuration: 2
+  leapDamage: 1
+  animationLength: 0
+  leapDistance: 5

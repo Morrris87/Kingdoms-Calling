@@ -51,6 +51,7 @@ public class CharacterManager : MonoBehaviour
     Taunt paladinTaunt;
     //Warrior
     AxeWhirlwind warriorAxeWhirlwind;
+    FlamingLeap warriorFlamingLeap;
 
     //Assassin    
     ThunderStrike thunderStrike;
@@ -100,6 +101,7 @@ public class CharacterManager : MonoBehaviour
         else if (characterClass == CharacterClass.Warrior)
         {
             warriorAxeWhirlwind = this.GetComponent<AxeWhirlwind>();
+            warriorFlamingLeap = this.gameObject.GetComponent<FlamingLeap>();
         }
     }
 
@@ -249,7 +251,8 @@ public class CharacterManager : MonoBehaviour
         }
         else if (characterClass == CharacterClass.Warrior)
         {
-
+            if (context.performed == false)
+                warriorFlamingLeap.UseAbility(rotationDirection);
         }
     }
 
@@ -261,7 +264,8 @@ public class CharacterManager : MonoBehaviour
         }
         else if (characterClass == CharacterClass.Assassin)
         {
-            execution.UseAbility(targetedEnemy);
+            if (context.performed == false)
+                execution.UseAbility(targetedEnemy);
         }
         else if (characterClass == CharacterClass.Archer)
         {
