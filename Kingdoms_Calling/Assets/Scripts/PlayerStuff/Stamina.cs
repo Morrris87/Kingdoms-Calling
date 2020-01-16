@@ -58,6 +58,16 @@ public class Stamina : MonoBehaviour
         }
     }
 
+    public float GetStamina()
+    {
+        return currentStamina;
+    }
+
+    public void UpdateStamina(int value)
+    {
+        currentStamina += value;
+    }
+
     private void Sprinting(bool sprint)
     {
         isSprinting = sprint;

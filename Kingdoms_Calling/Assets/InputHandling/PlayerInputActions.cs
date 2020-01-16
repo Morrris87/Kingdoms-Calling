@@ -240,8 +240,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""f32377ef-91ae-43ac-90ed-8b79153225e9"",
-                    ""path"": """",
-                    ""interactions"": """",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": ""Press"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Attack"",
