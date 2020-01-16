@@ -40,6 +40,11 @@ public class Health : MonoBehaviour
     public void Damage(int damage)  // Pass in the amount to subtract from currentHealth
     {
         currentHealth -= damage;
+        if(this.tag == "White" || this.tag == "Grey" || this.tag == "Purple")
+        {
+            //flash red
+            
+        }
         //healthUI.fillAmount = CalculateHealthLeftPercent(currentHealth, maxHealth);    // Adjusts the fill amount of the health bar based on the % of health left
 
         if (currentHealth <= 0) // When currentHealth reaches 0...

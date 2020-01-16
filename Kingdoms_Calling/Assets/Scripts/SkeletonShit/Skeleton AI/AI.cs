@@ -27,6 +27,8 @@ public class AI : AdvancedFSM
     public float tauntDuration = 0;
     public bool isTargeted = false;
 
+    public GameObject targetSymbol;
+
     [HideInInspector]
     public SkeletonStats skeletonStats;
     [HideInInspector]
@@ -46,8 +48,14 @@ public class AI : AdvancedFSM
         }
         return state;
     }
+    //-------------------------------------
+    //
+    //think need to make the skeleton turn red when live deplets 
+    //
+    //-------------------------------------
 
-    // Initialize the FSM for the NPC tank.
+
+    // Initialize the FSM for the NPC skeleton.
     protected override void Initialize()
     {
         rigBody = GetComponent<Rigidbody>();
@@ -71,6 +79,17 @@ public class AI : AdvancedFSM
         if(CurrentState.ID == FSMStateID.Dead)
         {
             Destroy(this.gameObject);
+        }
+
+        //making the target pop up on the skeleton
+        if(isTargeted == true)
+        {
+            targetSymbol.SetActive(true);
+            //Instantiate(placeHolder, this.transform.position, Quaternion.identity);
+        }
+        else
+        {
+            targetSymbol.SetActive(false);
         }
     }
 
