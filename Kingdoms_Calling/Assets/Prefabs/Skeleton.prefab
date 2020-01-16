@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6806265072987964384}
   - component: {fileID: 6720366827950241728}
   - component: {fileID: -1244373510792504526}
+  - component: {fileID: 5560489524280317445}
   m_Layer: 9
   m_Name: Skeleton
   m_TagString: White
@@ -181,6 +182,7 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+<<<<<<< HEAD
 --- !u!1001 &8618596682126003965
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -282,3 +284,20 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8618596682126003965}
   m_PrefabAsset: {fileID: 0}
+=======
+--- !u!114 &5560489524280317445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4012977831338809075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fe87bf589d14f4984f0a76d8d08cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  healthUI: {fileID: 0}
+  currentHealth: 0
+>>>>>>> 01215e2bbeb1ddf5eaca35334e4e11f4089cdcc1

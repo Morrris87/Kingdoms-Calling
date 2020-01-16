@@ -14,7 +14,7 @@ using UnityEngine.InputSystem;
 public class CharacterManager : MonoBehaviour
 {
     // Public Variables
-    public enum CharacterClass { Paladin, Warrior, Assassin, Archer };
+    public enum CharacterClass { NONE, Paladin, Warrior, Assassin, Archer };
 
     [Header("Character Class")]
     public CharacterClass characterClass;
@@ -44,7 +44,8 @@ public class CharacterManager : MonoBehaviour
     Vector3 camForward, camRight;
     GameObject targetedEnemy;
 
-    // Character Abilities
+    // Character Abilities/scripts
+    BasicAttack basicAttack;
     //Paladin
     EarthHealingSpring paladinEarthHealingSpring;
     Taunt paladinTaunt;
@@ -77,7 +78,9 @@ public class CharacterManager : MonoBehaviour
         else
             Debug.Log(this.gameObject + " needs a rigid body");
 
-        //Handle loading and grabbing character abilities here
+        //Handle loading and grabbing character abilities/scripts here
+        basicAttack = this.gameObject.GetComponent<BasicAttack>();
+
         if (characterClass == CharacterClass.Paladin)
         {
             paladinEarthHealingSpring = this.GetComponent<EarthHealingSpring>();
@@ -124,7 +127,17 @@ public class CharacterManager : MonoBehaviour
         cycleTimer -= Time.deltaTime;
 
         //Draw where the player is currently facing
-        UsefullFunctions.DebugRay(transform.position, transform.forward * 5.0f, Color.red);
+        //UsefullFunctions.DebugRay(transform.position, transform.forward * 5.0f, Color.red);
+
+        //Debug draw testing left
+        //UsefullFunctions.DebugRay(transform.position, new Vector3( -1f, 0, 1f), Color.blue);
+        //Debug draw testing left
+        //UsefullFunctions.DebugRay(transform.position, new Vector3(-0.5f, 0, 1f)* 1.2f, Color.blue);
+
+        //Debug draw testing right
+        //UsefullFunctions.DebugRay(transform.position, new Vector3( 1f, 0, 1f), Color.green);
+        //Debug draw testing right
+        //UsefullFunctions.DebugRay(transform.position, new Vector3( 0.5f, 0, 1f) * 1.2f, Color.green);
     }
 
     /// <summary>
@@ -209,9 +222,9 @@ public class CharacterManager : MonoBehaviour
 
     //-------------------------------------------------------------------------------------------------------------------------------------------
     //Input Functions below (Examples of how the call are made context being the information given back to us by the input casting that results in our data)
-    public void Fire(InputAction.CallbackContext context)
+    public void Attack(InputAction.CallbackContext context)
     {
-        Debug.Log("Fire");
+        basicAttack.CallBasicAttack();
     }
 
     public void Move(InputAction.CallbackContext context)

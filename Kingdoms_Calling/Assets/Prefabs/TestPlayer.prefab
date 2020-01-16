@@ -20,6 +20,8 @@ GameObject:
   - component: {fileID: 2069919996819865090}
   - component: {fileID: 5038867189017873765}
   - component: {fileID: 2357826745972530793}
+  - component: {fileID: 4225770948336764392}
+  - component: {fileID: 6637319660618601289}
   m_Layer: 8
   m_Name: TestPlayer
   m_TagString: Player
@@ -327,3 +329,36 @@ MonoBehaviour:
   maxHealth: 0
   healthUI: {fileID: 0}
   currentHealth: 0
+--- !u!114 &4225770948336764392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694699486586812718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85809ecce4fb7e74aa96d4aa89a5b69c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponType: 0
+  AttackRateSpeed: 0
+  AttackRange: 0
+  AttackDamage: 0
+  AttackHitChance: 0
+  AttackStaminaLoss: 0
+  attackTimer: 0
+--- !u!114 &6637319660618601289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 694699486586812718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d005d860941dc0f4e9db5c55ea4bf516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxStamina: 20
+  staminaUI: {fileID: 0}
