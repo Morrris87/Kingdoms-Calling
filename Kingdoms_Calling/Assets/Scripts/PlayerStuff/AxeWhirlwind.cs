@@ -17,9 +17,8 @@ public class AxeWhirlwind : MonoBehaviour
     private bool isUsable;          // When ability is available for use, set this to true
     private bool inUse;          // When ability is in use, set this to false
     private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
-    private SphereCollider whirlwindCollider;   // Collider to handle enemies in the AOE  
     private int playerLayerIndex, enemyLayerIndex;      //Player and enemy layer index
-    private float attackDuration, attackInterval;
+    public float attackDuration, attackInterval;
 
 
     // Start is called before the first frame update
@@ -31,11 +30,6 @@ public class AxeWhirlwind : MonoBehaviour
         attackDuration = whirlwindDuration; // Set the duration to the inpsector value
         attackInterval = whirlwindAttackSpeed; // Set the interval for attacking
 
-        //Grab and setup the sphere collider responsible for the ability
-        whirlwindCollider = this.gameObject.GetComponent<SphereCollider>();
-        whirlwindCollider.enabled = false;
-        whirlwindCollider.radius = whirlwindRadius;
-
         //Get the player and enemy layermask id's
         playerLayerIndex = LayerMask.NameToLayer("Player");
         enemyLayerIndex = LayerMask.NameToLayer("Enemy");
@@ -45,18 +39,28 @@ public class AxeWhirlwind : MonoBehaviour
     void Update()
     {
         //if unusable decrease the timer
-        if(isUsable == false)
+        if (isUsable == false)
         {
             cooldownElapsed -= Time.deltaTime;                  // Count the cooldown down
-            if(cooldownElapsed <= 0)
+            if (cooldownElapsed <= 0)
             {
                 isUsable = true;                                // Reset the isUsable field
             }
-            if(inUse)                                           // If we are currently using the ability
+            if (inUse)                                           // If we are currently using the ability
             {
-                attackDuration -= Time.deltaTime;               // Count the duration left down
-                attackInterval -= Time.deltaTime;               // Count down attack interval
-            }            
+                if (attackDuration >= 0)
+                    attackDuration -= Time.deltaTime;               // Count the duration left down
+                else
+                {
+                    inUse = false;                                  // Disable the ability
+                }
+                if (attackInterval >= 0)
+                    attackInterval -= Time.deltaTime;               // Count down attack interval
+                else if (attackInterval <= 0)
+                {
+                    AttackAroundCharacter();                        //If timer is less than or 0 we attack around the character
+                }
+            }
         }
     }
 
@@ -68,7 +72,7 @@ public class AxeWhirlwind : MonoBehaviour
         if (isUsable == true)
         {
             // Ability has been used, so it needs to cooldown
-            //isUsable = false;
+            isUsable = false;
 
             // Start the cooldown timer
             cooldownElapsed = whirlwindCooldown;
@@ -76,9 +80,8 @@ public class AxeWhirlwind : MonoBehaviour
 
             // Play the ability animation            
 
-            // Enable sphere collider on player which handles everything and change the inUse bool
-            whirlwindCollider.enabled = true;
-            inUse = true;   
+            // Change the inUse bool
+            inUse = true;
 
             // Give enemies procs if appliciable
             //if (target.GetComponent<SkeletonStats>().proc == SkeletonStats.Proc.None)
@@ -89,17 +92,23 @@ public class AxeWhirlwind : MonoBehaviour
         }
     }
 
-    void OnCollisionStay(Collision collision)
+    void AttackAroundCharacter()
     {
-        //Check if we are dealing with a enemy
-        if(collision.gameObject.layer == enemyLayerIndex)
+        //Debug.Log("Attacking Started");
+        //Grab all colliders inside of the sphere which in our case acts as a circle with enemy layer mask 
+        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, whirlwindRadius, 1 << enemyLayerIndex);
+
+        //Loop through the colliders checking if its either a player or a enemy
+        int i = 0;
+        while (i < hitColliders.Length)
         {
-            if(attackInterval <= 0) // Check if we are ready to attack again
-            {
-                Debug.Log("Whirlwind attempting to attack: " + collision.gameObject.name);
-                collision.gameObject.GetComponent<Health>().Damage(-whirlwindDamage); // Deal damage to the enemy
-                attackInterval = whirlwindAttackSpeed;                                // Reset our attack interval timer
-            }
+            Debug.Log("Whirlwind Damage " + hitColliders[i].name);
+            hitColliders[i].gameObject.GetComponentInChildren<Health>().Damage(whirlwindDamage); //Damage the current colliders health by the current damageValue
+
+            i++;
         }
+        //Reset the tick timer 
+        attackInterval = whirlwindAttackSpeed;
+        //Debug.Log("Attacking Ended");
     }
 }

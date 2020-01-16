@@ -50,6 +50,7 @@ public class CharacterManager : MonoBehaviour
     EarthHealingSpring paladinEarthHealingSpring;
     Taunt paladinTaunt;
     //Warrior
+    AxeWhirlwind warriorAxeWhirlwind;
 
     //Assassin    
     ThunderStrike thunderStrike;
@@ -98,7 +99,7 @@ public class CharacterManager : MonoBehaviour
         }
         else if (characterClass == CharacterClass.Warrior)
         {
-
+            warriorAxeWhirlwind = this.GetComponent<AxeWhirlwind>();
         }
     }
 
@@ -268,7 +269,8 @@ public class CharacterManager : MonoBehaviour
         }
         else if (characterClass == CharacterClass.Warrior)
         {
-
+            if(context.performed)
+                warriorAxeWhirlwind.UseAbility();
         }
     }
 
