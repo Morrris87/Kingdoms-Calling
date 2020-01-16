@@ -40,17 +40,6 @@ public class Health : MonoBehaviour
                 colorBool = false;
             }
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            Damage(10); // DEBUG: When Q is pressed, 10 damage is done to player 1, changing the health bar
-        }
-
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            Damage(-10);
-        }
-        
-        
     }
 
     // Damage function is used to subtract health from currentHealth when damage is taken
@@ -85,11 +74,11 @@ public class Health : MonoBehaviour
 
     public void DebugHealthLoss()
     {
-
+        Damage(10);
     }
 
     public void DebugHealthGain()
     {
-
+        Damage(-10);
     }
 }
