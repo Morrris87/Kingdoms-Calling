@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿//  Name: AttackState.cs
+//  Author: ZAC KINDY
+//  Function:
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Complete;
@@ -38,7 +41,7 @@ public class AttackState : FSMState
         if (Vector3.Distance(enemyAI.transform.position, enemyAI.objPlayer.transform.position) > enemyAI.attackRange)
         {
             enemyAI.PerformTransition(Transition.NotInAttackRange);
-            Debug.Log("chasing");
+            //Debug.Log("chasing");
             return;
         }
     }

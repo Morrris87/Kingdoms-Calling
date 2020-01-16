@@ -1,3 +1,6 @@
+//  Name: FSMState.cs
+//  Author: ZAC KINDY
+//  Function:
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;

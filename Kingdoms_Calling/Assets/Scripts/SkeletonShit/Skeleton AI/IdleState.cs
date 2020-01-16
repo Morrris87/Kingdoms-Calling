@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿//  Name: IdleState.cs
+//  Author: ZAC KINDY
+//  Function:
+using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
@@ -39,7 +42,7 @@ public class IdleState : FSMState
         if (Vector3.Distance(enemyAI.transform.position, enemyAI.objPlayer.transform.position) <= enemyAI.chaseRange)
         {
             enemyAI.PerformTransition(Transition.SawPlayer);
-            Debug.Log("Chasing");
+            //Debug.Log("Chasing");
             return;
         }
     }

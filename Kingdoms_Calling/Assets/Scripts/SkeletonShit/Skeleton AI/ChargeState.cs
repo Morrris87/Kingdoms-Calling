@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿//  Name: ChargeState.cs
+//  Author: ZAC KINDY
+//  Function:
+using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
@@ -39,7 +42,7 @@ public class ChargeState : FSMState
         if (Vector3.Distance(enemyAI.transform.position, enemyAI.objPlayer.transform.position) <= enemyAI.attackRange)
         {
             enemyAI.PerformTransition(Transition.ReachPlayer);
-            Debug.Log("attacking");
+            //Debug.Log("attacking");
             return;
         }
     }

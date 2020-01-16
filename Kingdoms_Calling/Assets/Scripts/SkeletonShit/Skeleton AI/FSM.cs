@@ -1,3 +1,6 @@
+//  Name: FSM.cs
+//  Author: ZAC KINDY
+//  Function:
 using UnityEngine;
 using System.Collections;
 

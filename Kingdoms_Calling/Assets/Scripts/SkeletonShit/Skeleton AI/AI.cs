@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿//  Name: AI.cs
+//  Author: ZAC KINDY
+//  Function:
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;

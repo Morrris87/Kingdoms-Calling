@@ -1,4 +1,7 @@
-﻿using System.Collections;
+﻿//  Name: SkeletonStats.cs
+//  Author: ZAC KINDY
+//  Function:
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
