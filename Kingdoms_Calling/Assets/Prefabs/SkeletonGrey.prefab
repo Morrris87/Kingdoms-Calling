@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8562027258424235847}
   - component: {fileID: 3853751152922664107}
   - component: {fileID: 2163037438973608791}
+  - component: {fileID: -7128607567714600169}
   m_Layer: 9
   m_Name: SkeletonGrey
   m_TagString: Grey
@@ -180,6 +181,21 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &-7128607567714600169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1252390567163562131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fe87bf589d14f4984f0a76d8d08cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  healthUI: {fileID: 0}
+  currentHealth: 0
 --- !u!1001 &280312765023404408
 PrefabInstance:
   m_ObjectHideFlags: 0

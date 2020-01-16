@@ -201,7 +201,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSkeletonNumber: 1
-  skeletonWhite: {fileID: 4012977831338809075, guid: 0c49c0304c7772b4db1b782883ce898c,
+  skeletonWhite: {fileID: 346738287514511091, guid: 6029e1f5b4af35a4e963ab81aa9cd9e9,
     type: 3}
   skeletonGrey: {fileID: 1252390567163562131, guid: 4915266e590de7d469e0276e18674bed,
     type: 3}
@@ -466,7 +466,7 @@ PrefabInstance:
     - target: {fileID: 694699486586812705, guid: c49fb9b228367e741be9205a523b5423,
         type: 3}
       propertyPath: characterClass
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 694699486586812704, guid: c49fb9b228367e741be9205a523b5423,
         type: 3}

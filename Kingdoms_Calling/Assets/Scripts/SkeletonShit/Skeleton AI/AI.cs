@@ -10,11 +10,7 @@ public class AI : AdvancedFSM
     
     public FSMStateID id;
 
-    public static int SLOT_DIST = 1;
-    public static int WAYPOINT_DIST = 1;
-
     public int m_CharNumber = 1;
-    //public SlotManager coverPositionsSlotManager;
     public NavMeshAgent navAgent;
 
     [HideInInspector]
@@ -85,7 +81,6 @@ public class AI : AdvancedFSM
         if(isTargeted == true)
         {
             targetSymbol.SetActive(true);
-            //Instantiate(placeHolder, this.transform.position, Quaternion.identity);
         }
         else
         {
