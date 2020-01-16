@@ -47,12 +47,12 @@ public class Health : MonoBehaviour
         if(this.tag == "White" || this.tag == "Grey" || this.tag == "Purple")
         {
             timerForFlash += Time.deltaTime;
-            if (timerForFlash == 2)// 2 seconds
+            if (timerForFlash <= 2)// 2 seconds
             {
                 //flash red
                 this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
             }
-            else
+            else if(timerForFlash >= 2)
             {
                 this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", tempColor);
                 timerForFlash = 0;
