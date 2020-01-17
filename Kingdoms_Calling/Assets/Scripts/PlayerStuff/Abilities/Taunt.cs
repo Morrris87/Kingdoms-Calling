@@ -26,15 +26,15 @@ public class Taunt : MonoBehaviour
         enemyLayerIndex = LayerMask.NameToLayer("Enemy");
     }
 
-    public void tauntEnemies(float range, float strength)
+    public void tauntEnemies()
     {
-        taunt(range, strength);
+        taunt(range, strengthLifetime);
     }
 
     void taunt(float range, float strength)
     {
         //Grab all colliders inside of the sphere which in our case acts as a circle with the enemy layer mask 
-        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, range, 1 << enemyLayerIndex);
+        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, range, 1 << 9);
 
         //Uncomment to determine which colliders are being chosen
         //for (int j = 0; j < hitColliders.Length; j++)
@@ -46,6 +46,7 @@ public class Taunt : MonoBehaviour
         int i = 0;
         while (i < hitColliders.Length)
         {
+            Debug.Log(hitColliders[i] + " is now taunted");
             hitColliders[i].gameObject.GetComponentInChildren<AI>().isTaunted = true;
             hitColliders[i].gameObject.GetComponentInChildren<AI>().tauntDuration = strength;
             i++;

@@ -14,7 +14,7 @@ public class CharacterAbilityTemplate : MonoBehaviour
     private bool isUsable;          // When ability is available for use, set this to true
     private float waitTime = 40;    // Time in seconds needed to wait for ability cooldown
     private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
-    
+
 
     // Start is called before the first frame update
     void Start()

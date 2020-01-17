@@ -37,8 +37,8 @@ public class ArrowVolley : MonoBehaviour
     void Update()
     {
         // DEBUG
-        circleDestPos = enemyTest.transform.position;
-        createrArrowVolley = GameObject.FindGameObjectWithTag("ArrowVolley");
+        //circleDestPos = enemyTest.transform.position;
+        //createrArrowVolley = GameObject.FindGameObjectWithTag("ArrowVolley");
 
         if(isUsable == false)
         {

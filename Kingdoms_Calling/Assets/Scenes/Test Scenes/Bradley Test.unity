@@ -525,6 +525,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4915266e590de7d469e0276e18674bed, type: 3}
+--- !u!1 &750298618 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 694699486586812718, guid: c49fb9b228367e741be9205a523b5423,
+    type: 3}
+  m_PrefabInstance: {fileID: 803759015}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &803759015
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -532,6 +538,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 694699486586812718, guid: c49fb9b228367e741be9205a523b5423,
         type: 3}
       propertyPath: m_Name
@@ -542,6 +556,22 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 8726354388955613358, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: totemPrefab
+      value: 
+      objectReference: {fileID: 4381673199104421256, guid: d29892b286278b24bacd7e020081f809,
+        type: 3}
+    - target: {fileID: 8726354388955613358, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: coolDown
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8726354388955613358, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 750298618}
     - target: {fileID: 694699486586812704, guid: c49fb9b228367e741be9205a523b5423,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -631,6 +661,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.size
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 694699486586812719, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 694699486586812719, guid: c49fb9b228367e741be9205a523b5423,
         type: 3}
@@ -767,6 +802,38 @@ PrefabInstance:
       propertyPath: m_ActionEvents.Array.data[11].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 694699486586812719, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_TypeName
+      value: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 694699486586812719, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_ActionId
+      value: aeb329f9-1ed8-463d-9428-7dec461cd4c5
+      objectReference: {fileID: 0}
+    - target: {fileID: 694699486586812719, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[12].m_ActionName
+      value: Player Controls/HealthLoss
+      objectReference: {fileID: 0}
+    - target: {fileID: 694699486586812719, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_TypeName
+      value: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem, Version=1.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      objectReference: {fileID: 0}
+    - target: {fileID: 694699486586812719, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_ActionId
+      value: 71b44987-ed4d-4eca-9f97-0d303228556d
+      objectReference: {fileID: 0}
+    - target: {fileID: 694699486586812719, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[13].m_ActionName
+      value: Player Controls/HealthGain
+      objectReference: {fileID: 0}
     - target: {fileID: 694699486586812705, guid: c49fb9b228367e741be9205a523b5423,
         type: 3}
       propertyPath: mainCamera
@@ -775,22 +842,12 @@ PrefabInstance:
     - target: {fileID: 694699486586812705, guid: c49fb9b228367e741be9205a523b5423,
         type: 3}
       propertyPath: characterClass
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1243144371559103190, guid: c49fb9b228367e741be9205a523b5423,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6657086711940997317, guid: c49fb9b228367e741be9205a523b5423,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2069919996819865090, guid: c49fb9b228367e741be9205a523b5423,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5038867189017873765, guid: c49fb9b228367e741be9205a523b5423,
         type: 3}
@@ -842,8 +899,7 @@ PrefabInstance:
       propertyPath: staminaUI
       value: 
       objectReference: {fileID: 164454807}
-    m_RemovedComponents:
-    - {fileID: 1243144371559103190, guid: c49fb9b228367e741be9205a523b5423, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c49fb9b228367e741be9205a523b5423, type: 3}
 --- !u!114 &1239707871 stripped
 MonoBehaviour:
@@ -851,7 +907,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 803759015}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 750298618}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 63515f6a6becfbc4896258887ed9679b, type: 3}
