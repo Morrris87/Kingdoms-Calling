@@ -20,7 +20,7 @@ public class CharacterManager : MonoBehaviour
     public CharacterClass characterClass;
 
     [Header("Movement")]
-    public float speed = 4.5f;
+    public float speed = 4.5f;   // Original = 4.5f
     public float rotSpeed = 10.0f;
 
     [Header("Camera")]
@@ -152,7 +152,7 @@ public class CharacterManager : MonoBehaviour
     {
         //Debug.Log("Moving" + dir);
         //Generate the new position based on our speed and time passed
-        dir = dir * speed * Time.deltaTime;
+        dir = dir * speed * 5 * Time.deltaTime;
         //Update that position
         playerRBody.MovePosition(transform.position + dir);
     }
