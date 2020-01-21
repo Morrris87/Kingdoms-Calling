@@ -46,6 +46,10 @@ public class ElementManager : MonoBehaviour
                 effectedTimer -= Time.deltaTime;
 
             DisplayElement();
+            if(effectedTimer <= 0)
+            {
+                effected = false;
+            }
         }
     }
 
