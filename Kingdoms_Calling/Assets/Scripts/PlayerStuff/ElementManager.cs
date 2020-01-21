@@ -13,6 +13,7 @@ public class ElementManager : MonoBehaviour
 {
     //public enum ElementClass { NONE, Paladin, Warrior, Assassin, Archer };
 
+    //Public Data
     public enum ClassElement { NONE, Earth, Fire, Lightning, Wind };
 
     [Header("Element Manager")]
@@ -22,6 +23,7 @@ public class ElementManager : MonoBehaviour
     [HideInInspector]
     public bool effected;
 
+    //Private Data
     ClassElement effectedElement;
     float effectedTimer;
 
@@ -37,10 +39,10 @@ public class ElementManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(effected)
+        if (effected)
         {
             //countdown timer of effected element
-            if(effectedTimer >= 0)
+            if (effectedTimer >= 0)
                 effectedTimer -= Time.deltaTime;
 
             DisplayElement();
@@ -66,7 +68,7 @@ public class ElementManager : MonoBehaviour
         //Grab the objects manager we are trying to manipulate
         ElementManager eManager = obj.GetComponent<ElementManager>();
         //If we have a element then update our variables and our timer
-        if(inElement != ClassElement.NONE)
+        if (inElement != ClassElement.NONE)
         {
             eManager.effected = true;
             eManager.effectedElement = inElement;
@@ -88,7 +90,7 @@ public class ElementManager : MonoBehaviour
     /// <returns>The element that is currently effecting the object</returns>
     public ClassElement GetElement(GameObject obj)
     {
-        ClassElement targetElement = obj.GetComponent<ElementManager>().effectedElement;  
+        ClassElement targetElement = obj.GetComponent<ElementManager>().effectedElement;
 
         return targetElement;
     }
