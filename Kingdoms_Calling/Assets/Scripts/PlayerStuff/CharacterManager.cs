@@ -15,9 +15,12 @@ public class CharacterManager : MonoBehaviour
 {
     // Public Variables
     public enum CharacterClass { NONE, Paladin, Warrior, Assassin, Archer };
+    
 
     [Header("Character Class")]
     public CharacterClass characterClass;
+
+    
 
     [Header("Movement")]
     public float speed = 4.5f;   // Original = 4.5f
