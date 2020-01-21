@@ -26,5 +26,9 @@ namespace Complete
                 return v;
 
         }
+        public static float RandomNumber(float min, float max)
+        {
+            return Random.Range(min, max);
+        }
     }
 }

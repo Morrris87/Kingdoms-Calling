@@ -18,7 +18,8 @@ public class ElementManager : MonoBehaviour
 
     [Header("Element Manager")]
     public ClassElement thisElement;
-    public float elementTimeoutTime = 0;
+    public float elementTimeoutTime = 0;    
+    public float igniteTick = 0;
 
     [HideInInspector]
     public bool effected;
@@ -26,29 +27,62 @@ public class ElementManager : MonoBehaviour
     //Private Data
     ClassElement effectedElement;
     float effectedTimer;
+    float igniteTimer;
+    float igniteTotalTimePassed;
+    float igniteDuration;
+    int igniteDamage;
+    bool ignited;
+    
 
     // Start is called before the first frame update
     void Start()
     {
         //initialize all of our variables
         effectedTimer = 0;
+        igniteDuration = 0;
+        igniteTick = 0;
         effected = false;
         effectedElement = ClassElement.NONE;
+        ignited = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //if effected by a element
         if (effected)
         {
             //countdown timer of effected element
             if (effectedTimer >= 0)
                 effectedTimer -= Time.deltaTime;
 
+            //update the element effect graphics
             DisplayElement();
             if(effectedTimer <= 0)
             {
                 effected = false;
+                effectedElement = ClassElement.NONE;
+            }
+        }
+        //check if we are ignited
+        if(ignited)
+        {
+            //update the ignite timer
+            igniteTimer -= Time.deltaTime;
+
+            //check if enough time has passed to damage 
+            if(igniteTimer <= 0)
+            {
+                this.gameObject.GetComponent<Health>().Damage(igniteDamage);
+                igniteTimer = igniteTick;
+            }
+
+            //check if the ignite should expire
+            if(igniteTotalTimePassed >= igniteDuration)
+            {
+                //reset our values
+                ignited = false;
+                igniteTimer = 0;
             }
         }
     }
@@ -105,5 +139,11 @@ public class ElementManager : MonoBehaviour
     void DisplayElement()
     {
 
+    }
+
+    public void IgniteThis(int dmgValue)
+    {
+        ignited = true;
+        igniteDamage = dmgValue;
     }
 }
