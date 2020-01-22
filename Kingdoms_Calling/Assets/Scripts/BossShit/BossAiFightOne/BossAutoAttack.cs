@@ -65,6 +65,7 @@ public class BossAutoAttack : BossFightOneFSMState
         //find the closest player to the lich
         AssignPlayersToArray();
         // get the closest player here you dumb fuck you need sleep wake up fuck heads
+        // i need to vegitate at home and eat food
         
 
 
