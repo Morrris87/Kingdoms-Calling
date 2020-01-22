@@ -13,6 +13,10 @@ public class paladinHealingSpring : MonoBehaviour
     private bool isUsable;          // When ability is available for use, set this to true
     private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
 
+    // Combo variables
+    private ArcherPaladinCombo archerPaladinCombo;      // Used for calling the archer combo
+    private AssassinPaladinCombo assassinPaladinCombo;  // Used for calling the assassin combo
+    private PaladinWarriorCombo paladinWarriorCombo;    // Used for calling the warrior combo
 
     // Start is called before the first frame update
     void Start()
