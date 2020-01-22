@@ -25,8 +25,8 @@ public class ArrowVolley : MonoBehaviour
 
     // Combo variables
     private ArcherAssassinCombo archerAssassinCombo;    // Used for calling the assassin combo
-    // private AssassinWarriorCombo archerWarriorCombo;   // Used for calling the warrior combo
-    // private AssassinPaladinCombo archerPaladinCombo;   // Used for calling the paladin combo
+    private AssassinWarriorCombo archerWarriorCombo;    // Used for calling the warrior combo
+    private AssassinPaladinCombo archerPaladinCombo;    // Used for calling the paladin combo
 
     private Vector3 circleDestPos;  // The destination position for the player when ability is used
 
@@ -114,10 +114,12 @@ public class ArrowVolley : MonoBehaviour
                     else if (enemy.GetComponentInParent<ElementManager>().thisElement == ElementManager.ClassElement.Earth)    // If enemy has a lightning proc...
                     {
                         // Activate the Paladin combo
+                        //archerPaladinCombo.ActivateCombo(target, archerDmg, ElementManager.ClassElement.Wind);
                     }
                     else if (enemy.GetComponentInParent<ElementManager>().thisElement == ElementManager.ClassElement.Fire) // If enemy has a fire proc...
                     {
                         // Activate the Warrior combo
+                        //archerWarriorCombo.ActivateCombo(target, archerDmg, ElementManager.ClassElement.Wind);
                     }
                     else
                     {
