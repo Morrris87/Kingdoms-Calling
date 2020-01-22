@@ -99,8 +99,15 @@ public class ArrowVolley : MonoBehaviour
                 // Draw Circle On ground Around the targeted enemys position
                 Instantiate(areaOfEffect, target.transform.position, Quaternion.identity);
 
+<<<<<<< HEAD
                 // Create an array of all enemies caught in the areaOfEffect
                 ScanForEnemies(areaOfEffect.GetComponent<SphereCollider>());
+=======
+                //foreach ()//enemy colliding with circle
+                //{
+                    
+                //}
+>>>>>>> 9f7b638b6ca19587a82b48e801c98b10b04cb63f
 
                 // Deal damage to each enemy in the array
                 foreach (Collider enemy in enemiesInTarget)
