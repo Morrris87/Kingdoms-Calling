@@ -13,7 +13,7 @@ public class ArrowVolley : MonoBehaviour
 
     // DEBUG
     public GameObject enemyTest;
-    public GameObject circle;
+    public GameObject areaOfEffect;
 
     private bool isUsable;          // When ability is available for use, set this to true
     private float waitTime = 20;    // Time in seconds needed to wait for ability cooldown
@@ -21,8 +21,17 @@ public class ArrowVolley : MonoBehaviour
     private float durationTimer;
     private float durationTime = 5;
     private GameObject createrArrowVolley;
+    private Collider[] enemiesInTarget;
+
+    // Combo variables
+    private ArcherAssassinCombo archerAssassinCombo;    // Used for calling the assassin combo
+    // private AssassinWarriorCombo archerWarriorCombo;   // Used for calling the warrior combo
+    // private AssassinPaladinCombo archerPaladinCombo;   // Used for calling the paladin combo
 
     private Vector3 circleDestPos;  // The destination position for the player when ability is used
+
+    // DEBUG
+    private int archerDmg = 10;   // Debug value for archer damage to be used until stats are fully implemented
 
     // Start is called before the first frame update
     void Start()
@@ -66,7 +75,7 @@ public class ArrowVolley : MonoBehaviour
             }
             else
             {
-                createrArrowVolley = circle;
+                createrArrowVolley = areaOfEffect;
             }
         }
     }
@@ -76,36 +85,72 @@ public class ArrowVolley : MonoBehaviour
     {
         if (isUsable == true)
         {
+            // Ability has been used, so it needs to cool down
+            isUsable = false;
+
             if (target != null)
             {
-                Debug.Log("Ability 1 Used (Archer)");
+                // Start the cooldown timer
 
-                // Ability has been used, so it needs to cooldown
-                isUsable = false;
+                // Update the UI with time remaining
 
-                // Play the ability animation and update the UI
-                abilityUI.enabled = false; //not sure if this works need to test with the targeting bull
+                // Play the ability animation
 
                 // Draw Circle On ground Around the targeted enemys position
-                Instantiate(circle, target.transform.position, Quaternion.identity);
-                
-                //apply damage to all enemys in circle range
+                Instantiate(areaOfEffect, target.transform.position, Quaternion.identity);
 
+<<<<<<< HEAD
+                // Create an array of all enemies caught in the areaOfEffect
+                ScanForEnemies(areaOfEffect.GetComponent<SphereCollider>());
+=======
                 //foreach ()//enemy colliding with circle
-               // {
+                //{
                     
                 //}
+>>>>>>> 9f7b638b6ca19587a82b48e801c98b10b04cb63f
 
-                //ADD TIMER FOR PROC AND SHIT!!!!!!!!!!!!!
-                if(target.GetComponent<SkeletonStats>().proc == SkeletonStats.Proc.None)
+                // Deal damage to each enemy in the array
+                foreach (Collider enemy in enemiesInTarget)
                 {
-                    // Give enemies procs if appliciable
-                    target.GetComponent<SkeletonStats>().proc = SkeletonStats.Proc.Wind;
+                    // Check enemy proc for combos
+                    if (enemy.GetComponentInParent<ElementManager>().thisElement == ElementManager.ClassElement.Lightning)  // If enemy has a lightning proc...
+                    {
+                        // Activate the Assassin combo
+                        archerAssassinCombo.ActivateCombo(target, archerDmg, ElementManager.ClassElement.Wind);
+                    }
+                    else if (enemy.GetComponentInParent<ElementManager>().thisElement == ElementManager.ClassElement.Earth)    // If enemy has a lightning proc...
+                    {
+                        // Activate the Paladin combo
+                    }
+                    else if (enemy.GetComponentInParent<ElementManager>().thisElement == ElementManager.ClassElement.Fire) // If enemy has a fire proc...
+                    {
+                        // Activate the Warrior combo
+                    }
+                    else
+                    {
+                        // Enemy has no proc and ability happens as normal
+                        enemy.GetComponentInParent<Health>().Damage(archerDmg);
+
+                        // Give enemies procs if appliciable
+                        if (enemy.GetComponentInParent<ElementManager>().thisElement == ElementManager.ClassElement.NONE)
+                        {
+                            enemy.GetComponentInParent<ElementManager>().thisElement = ElementManager.ClassElement.Wind;
+                        }
+                    }
                 }
             }
         }
-
     }
+
+    // When called, scans the areaOfEffect for all enemies
+    private void ScanForEnemies(SphereCollider targetArea)
+    {
+        Vector3 center = targetArea.transform.position + targetArea.center;
+        float radius = targetArea.radius;
+
+        enemiesInTarget = Physics.OverlapSphere(center, radius);
+    }
+
     public void OnGUI()// Update the UI with the time remaining
     {
         GUI.Label(new Rect(60, 60, 30, 30), cooldownElapsed.ToString());
