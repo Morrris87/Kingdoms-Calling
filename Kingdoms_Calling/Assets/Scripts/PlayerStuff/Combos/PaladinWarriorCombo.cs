@@ -15,4 +15,10 @@ public class PaladinWarriorCombo : MonoBehaviour
     {
         
     }
+
+    // ActivateCombo is called when an ability triggers an elemental proc on an enemy it hits
+    public void ActivateCombo()
+    {
+
+    }
 }
