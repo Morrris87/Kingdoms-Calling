@@ -15,7 +15,15 @@ public class ThunderStrike : MonoBehaviour
     private float waitTime = 40;    // Time in seconds needed to wait for ability cooldown
     private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
 
+    // Combo variables
+    private ArcherAssassinCombo archerAssassinCombo;    // Used for calling the archer combo
+    // private AssassinWarriorCombo assassinWarriorCombo;   // Used for calling the warrior combo
+    // private AssassinPaladinCombo assassinPaladinCombo;   // Used for calling the paladin combo
+
     private Vector3 playerDestPos;  // The destination position for the player when ability is used
+
+    // DEBUG
+    private int assassinDmg = 10;   // Debug value for assassin damage to be used until stats are fully implemented
 
     // Start is called before the first frame update
     void Start()
@@ -55,12 +63,35 @@ public class ThunderStrike : MonoBehaviour
                 if (playerDestPos != null)
                 {
                     this.transform.position = playerDestPos;
-                }
 
-                // Give enemies procs if appliciable
-                if (target.GetComponent<SkeletonStats>().proc == SkeletonStats.Proc.None)
-                {
-                    target.GetComponent<SkeletonStats>().proc = SkeletonStats.Proc.Lightning;
+                    // Do 3x damage to the enemy hit
+                    int dmgDealt = assassinDmg * 3;
+
+                    // Check enemy procs for combos
+                    if (target.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Wind)  // If enemy has a wind proc...
+                    {
+                        // Activate the Archer combo
+                        archerAssassinCombo.ActivateCombo(target, dmgDealt, ElementManager.ClassElement.Lightning);
+                    }
+                    else if (target.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Earth)    // If enemy has a lightning proc...
+                    {
+                        // Activate the Paladin combo
+                    }
+                    else if (target.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Fire) // If enemy has a fire proc...
+                    {
+                        // Activate the Warrior combo
+                    }
+                    else
+                    {
+                        // Enemy has no proc and ability happens as normal
+                        target.GetComponent<Health>().Damage(dmgDealt);
+
+                        // Give enemies procs if appliciable
+                        if (target.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.NONE)
+                        {
+                            target.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.Lightning;
+                        }
+                    }
                 }
             }
         }
