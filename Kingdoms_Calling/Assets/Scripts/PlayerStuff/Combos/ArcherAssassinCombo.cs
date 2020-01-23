@@ -10,22 +10,22 @@ public class ArcherAssassinCombo : MonoBehaviour
         // Determine who activated the combo (Archer or Assassin)
         if (element == ElementManager.ClassElement.Lightning)   // If assassin...
         {
-            // Double the damage value
-            int newDmg = dmg * 2;
-
             // Remove proc
             target.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.NONE;
+
+            // Double the damage value
+            int newDmg = dmg * 2;
 
             // Send the new damage value to the enemy's health
             target.GetComponent<Health>().Damage(newDmg);
         }
         else if (element == ElementManager.ClassElement.Wind)   // If archer...
         {
-            // Double the damage value
-            int newDmg = dmg * 2;
-
             // Remove proc
             target.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.NONE;
+
+            // Double the damage value
+            int newDmg = dmg * 2;
 
             // Send the new damage value to the enemy's health
             target.GetComponent<Health>().Damage(newDmg);
