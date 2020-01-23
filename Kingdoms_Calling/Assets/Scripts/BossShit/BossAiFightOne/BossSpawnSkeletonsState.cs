@@ -40,7 +40,7 @@ public class BossSpawnSkeletonsState : BossFightOneFSMState
 
     public override void Act()
     {
-
+        enemyAI.spawnScript.spawnSkeletonsForBoss(colour);//call from spawn
     }
 
     public override void Reason()
@@ -49,13 +49,11 @@ public class BossSpawnSkeletonsState : BossFightOneFSMState
         if (fightOne == true && fightTwo == false)
         {
             colour = "white";
-            enemyAI.spawnScript.spawnSkeletonsForBoss(colour);//call from spawn
         }
         // if fight 2 spawn grey
         else if(fightOne == false && fightTwo == true)
         {
             colour = "grey";
-            enemyAI.spawnScript.spawnSkeletonsForBoss(colour);
         }
     }
 }
