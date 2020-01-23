@@ -71,7 +71,7 @@ public class ThunderStrike : MonoBehaviour
                     if (target.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Wind)  // If enemy has a wind proc...
                     {
                         // Activate the Archer combo
-                        archerAssassinCombo.ActivateCombo(target, dmgDealt, ElementManager.ClassElement.Lightning);
+                        archerAssassinCombo.ActivateCombo(target, dmgDealt);
                     }
                     else if (target.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Earth)    // If enemy has a lightning proc...
                     {

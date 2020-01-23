@@ -12,7 +12,5 @@ public class PaladinWarriorCombo : MonoBehaviour
 
         // Sets the enemy to recieve true damage
         target.GetComponent<Health>().ActivateTrueDamage(true);
-
-        }
     }
 }
