@@ -27,7 +27,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     public GameObject targetSymbol;
 
     [HideInInspector]
-    public SkeletonStats skeletonStats;
+    public BossStats bossStats;
     [HideInInspector]
     public GameObject objPlayer;
     [HideInInspector]
@@ -55,6 +55,8 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     // Initialize the FSM for the NPC skeleton.
     protected override void Initialize()
     {
+        rigBody = GetComponent<Rigidbody>();
+        bossStats = gameObject.GetComponent<BossStats>();
         // Create the FSM for the player.
         ConstructFSM();
 

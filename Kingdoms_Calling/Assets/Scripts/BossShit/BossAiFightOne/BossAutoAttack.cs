@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using CompleteBossOne;
 
 public class BossAutoAttack : BossFightOneFSMState
@@ -36,7 +37,12 @@ public class BossAutoAttack : BossFightOneFSMState
     public override void Act()
     {
         //damage the closest player
-        
+        // make timer
+
+        //attack only on the time for the timer
+        enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
+
+
     }
 
     public override void Reason()
@@ -64,9 +70,25 @@ public class BossAutoAttack : BossFightOneFSMState
 
         //find the closest player to the lich
         AssignPlayersToArray();
+        if(Players.Min() == rangeFromPlayerOne)
+        {
+            currentClosestPlayer = playerOne;
+        }
+        if (Players.Min() == rangeFromPlayerTwo)
+        {
+            currentClosestPlayer = playerTwo;
+        }
+        if (Players.Min() == rangeFromPlayerThree)
+        {
+            currentClosestPlayer = playerThree;
+        }
+        if (Players.Min() == rangeFromPlayerFour)
+        {
+            currentClosestPlayer = playerFour;
+        }
         // get the closest player here you dumb fuck you need sleep wake up fuck heads
         // i need to vegitate at home and eat food
-        
+
 
 
     }
