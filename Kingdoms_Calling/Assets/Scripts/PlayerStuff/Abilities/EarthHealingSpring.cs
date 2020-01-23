@@ -63,6 +63,8 @@ public class EarthHealingSpring : MonoBehaviour
                 {
                     Debug.Log("Damage " + hitColliders[i].name);
                     hitColliders[i].gameObject.GetComponentInChildren<Health>().Damage(-damageValue); //Damage the current colliders health by the current damageValue
+
+                    hitColliders[i].GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.Earth);
                 }
                 i++;
             }

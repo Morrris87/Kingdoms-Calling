@@ -19,12 +19,19 @@ public class AxeWhirlwind : MonoBehaviour
     public float whirlwindDuration;     //How long the skill lasts
     public int whirlwindDamage;       //How much damage the skill does at each tick
     public float whirlwindAttackSpeed;  //How often damage ticks on enemies in the area
+    public float comboCooldown;
+
+    [Header("ComboAbility Prefabs")]
+    public GameObject ArcherWarriorComboPrefab;
+
 
     private bool isUsable;          // When ability is available for use, set this to true
     private bool inUse;          // When ability is in use, set this to false
     private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
     private int playerLayerIndex, enemyLayerIndex;      //Player and enemy layer index
-    public float attackDuration, attackInterval;
+    private float attackDuration, attackInterval;
+    private ElementManager eManager;
+    private AssassinWarriorCombo assassinWarriorCombo;
 
 
     // Start is called before the first frame update
@@ -68,6 +75,11 @@ public class AxeWhirlwind : MonoBehaviour
                 }
             }
         }
+        //if our combo is on cooldown decrease the timer
+        if(comboCooldown >=0)
+        {
+            comboCooldown -= Time.deltaTime;
+        }
     }
 
     // Calling this function uses the ability
@@ -101,8 +113,40 @@ public class AxeWhirlwind : MonoBehaviour
         int i = 0;
         while (i < hitColliders.Length)
         {
-            //Debug.Log("Whirlwind Damage " + hitColliders[i].name);
-            hitColliders[i].gameObject.GetComponentInChildren<Health>().Damage(whirlwindDamage); //Damage the current colliders health by the current damageValue
+            eManager = hitColliders[i].GetComponent<ElementManager>();
+            //if our combo is off cooldown then check elements
+            if (comboCooldown <= 0)
+            {
+                // Check enemy procs for combos
+                if (eManager.thisElement == ElementManager.ClassElement.Wind)  // If enemy has a wind proc...
+                {
+                    // Activate the Archer combo
+                    //instantiate the archer warrior combo prefab on target location
+                    Instantiate(ArcherWarriorComboPrefab, hitColliders[i].transform.position, Quaternion.identity);
+                }
+                else if (eManager.thisElement == ElementManager.ClassElement.Earth)    // If enemy has a earth proc...
+                {
+                    // Activate the Paladin combo
+                }
+                else if (eManager.thisElement == ElementManager.ClassElement.Lightning) // If enemy has a lightning proc...
+                {
+                    // Activate the Assassin combo
+                    assassinWarriorCombo.UseAbility();
+                }
+            }
+            //else our combo is on cooldown just do the normal damage
+            else
+            {
+                // Enemy has no proc and ability happens as normal
+                //Debug.Log("Whirlwind Damage " + hitColliders[i].name);
+                hitColliders[i].gameObject.GetComponentInChildren<Health>().Damage(whirlwindDamage); //Damage the current colliders health by the current damageValue
+
+                // Give enemies procs if appliciable
+                if (eManager.thisElement == ElementManager.ClassElement.NONE)
+                {
+                    eManager.thisElement = ElementManager.ClassElement.Fire;
+                }
+            }
 
             i++;
         }

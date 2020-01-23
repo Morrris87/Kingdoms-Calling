@@ -90,10 +90,10 @@ public class ElementManager : MonoBehaviour
     /// <summary>
     /// Function to call our element setting function
     /// </summary>
-    public void ApplyElement(GameObject obj, ClassElement inElement)
+    public void ApplyElement(ClassElement inElement)
     {
         //Call the set element function
-        SetElement(obj, inElement);
+        SetElement(inElement);
     }
 
     /// <summary>
@@ -101,10 +101,10 @@ public class ElementManager : MonoBehaviour
     /// </summary>
     /// <param name="obj">The object we are effecting</param>
     /// <param name="inElement">The element we are applying</param>
-    void SetElement(GameObject obj, ClassElement inElement)
+    void SetElement(ClassElement inElement)
     {
         //Grab the objects manager we are trying to manipulate
-        ElementManager eManager = obj.GetComponent<ElementManager>();
+        ElementManager eManager = this.GetComponent<ElementManager>();
         //If we have a element then update our variables and our timer
         if (inElement != ClassElement.NONE)
         {
@@ -126,9 +126,9 @@ public class ElementManager : MonoBehaviour
     /// </summary>
     /// <param name="obj">The object we are checking</param>
     /// <returns>The element that is currently effecting the object</returns>
-    public ClassElement GetElement(GameObject obj)
+    public ClassElement GetElement()
     {
-        ClassElement targetElement = obj.GetComponent<ElementManager>().effectedElement;
+        ClassElement targetElement = this.GetComponent<ElementManager>().effectedElement;
 
         return targetElement;
     }

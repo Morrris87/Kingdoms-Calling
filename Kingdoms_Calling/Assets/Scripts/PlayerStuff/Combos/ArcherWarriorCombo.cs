@@ -24,11 +24,7 @@ public class ArcherWarriorCombo : MonoBehaviour
 
     // Private Variables
     int enemyLayerIndex;
-    float abilityTick;    
-
-    private bool isUsable;          // When ability is available for use, set this to true
-    private float waitTime = 40;    // Time in seconds needed to wait for ability cooldown
-    private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
+    float abilityTick;
     
     // Start is called before the first frame update
     void Start()
@@ -36,9 +32,6 @@ public class ArcherWarriorCombo : MonoBehaviour
         //Get the player and enemy layermask id's
         enemyLayerIndex = LayerMask.NameToLayer("Enemy");
         abilityTick = damageInterval;
-
-        isUsable = true;        // Ability starts as usable
-        cooldownElapsed = 0;    // Cooldown timer starts at 0
     }
 
     // Update is called once per frame
@@ -71,6 +64,7 @@ public class ArcherWarriorCombo : MonoBehaviour
                     if(UsefullFunctions.RandomNumber(0.0f, 100.0f) >= igniteChance)
                     {
                         hitColliders[i].gameObject.GetComponent<ElementManager>().IgniteThis(damageValue);
+
                     }
                 }
                 i++;
