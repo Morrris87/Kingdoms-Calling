@@ -19,7 +19,7 @@ namespace CompleteBossOne
     /// </summary>
     public abstract class BossFightOneFSMState
     {
-
+        
         protected Dictionary<Transition, FSMStateID> map = new Dictionary<Transition, FSMStateID>();
         protected FSMStateID stateID;
         public FSMStateID ID { get { return stateID; } }
