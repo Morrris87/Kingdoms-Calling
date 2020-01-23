@@ -5,30 +5,15 @@ using UnityEngine;
 public class ArcherAssassinCombo : MonoBehaviour
 {
     // ActivateCombo is called when an ability triggers an elemental proc on an enemy it hits
-    public void ActivateCombo(GameObject target, int dmg, ElementManager.ClassElement element)
+    public void ActivateCombo(GameObject target, int dmg)
     {
-        // Determine who activated the combo (Archer or Assassin)
-        if (element == ElementManager.ClassElement.Lightning)   // If assassin...
-        {
-            // Remove proc
-            target.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.NONE;
+        // Remove proc
+        target.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.NONE;
 
-            // Double the damage value
-            int newDmg = dmg * 2;
+        // Double the damage value
+        int newDmg = dmg * 2;
 
-            // Send the new damage value to the enemy's health
-            target.GetComponent<Health>().Damage(newDmg);
-        }
-        else if (element == ElementManager.ClassElement.Wind)   // If archer...
-        {
-            // Remove proc
-            target.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.NONE;
-
-            // Double the damage value
-            int newDmg = dmg * 2;
-
-            // Send the new damage value to the enemy's health
-            target.GetComponent<Health>().Damage(newDmg);
-        }
+        // Send the new damage value to the enemy's health
+        target.GetComponent<Health>().Damage(newDmg);
     }
 }

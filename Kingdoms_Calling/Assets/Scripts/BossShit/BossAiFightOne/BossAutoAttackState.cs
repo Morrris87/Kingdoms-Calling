@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Linq;
 using CompleteBossOne;
 
-public class BossAutoAttack : BossFightOneFSMState
+public class BossAutoAttackState : BossFightOneFSMState
 {
     BossFightOneAI enemyAI;
 
@@ -12,10 +12,7 @@ public class BossAutoAttack : BossFightOneFSMState
     float intervalTime;
 
 
-    GameObject playerOne;
-    GameObject playerTwo;
-    GameObject playerThree;
-    GameObject playerFour;
+    
 
     int attackRange = 10;
 
@@ -27,7 +24,7 @@ public class BossAutoAttack : BossFightOneFSMState
     GameObject currentClosestPlayer;
 
     float[] Players;
-    public BossAutoAttack(BossFightOneAI Lich)
+    public BossAutoAttackState(BossFightOneAI Lich)
     {
         enemyAI = Lich;
         curSpeed = 0;
@@ -48,43 +45,43 @@ public class BossAutoAttack : BossFightOneFSMState
     public override void Reason()
     {
         //player one distance
-        if (IsInCurrentRange(enemyAI.gameObject.transform, playerOne.transform.position, attackRange))
+        if (IsInCurrentRange(enemyAI.gameObject.transform, enemyAI.playerOne.transform.position, attackRange))
         {
-            rangeFromPlayerOne = Vector3.Distance(enemyAI.gameObject.transform.position, playerOne.transform.position);
+            rangeFromPlayerOne = Vector3.Distance(enemyAI.gameObject.transform.position, enemyAI.playerOne.transform.position);
         }
         //player two distance
-        if (IsInCurrentRange(enemyAI.gameObject.transform, playerTwo.transform.position, attackRange))
+        if (IsInCurrentRange(enemyAI.gameObject.transform, enemyAI.playerTwo.transform.position, attackRange))
         {
-            rangeFromPlayerTwo = Vector3.Distance(enemyAI.gameObject.transform.position, playerTwo.transform.position);
+            rangeFromPlayerTwo = Vector3.Distance(enemyAI.gameObject.transform.position, enemyAI.playerTwo.transform.position);
         }
         //player three distance
-        if (IsInCurrentRange(enemyAI.gameObject.transform, playerThree.transform.position, attackRange))
+        if (IsInCurrentRange(enemyAI.gameObject.transform, enemyAI.playerThree.transform.position, attackRange))
         {
-            rangeFromPlayerThree = Vector3.Distance(enemyAI.gameObject.transform.position, playerThree.transform.position);
+            rangeFromPlayerThree = Vector3.Distance(enemyAI.gameObject.transform.position, enemyAI.playerThree.transform.position);
         }
         //player four distance 
-        if (IsInCurrentRange(enemyAI.gameObject.transform, playerFour.transform.position, attackRange))
+        if (IsInCurrentRange(enemyAI.gameObject.transform, enemyAI.playerFour.transform.position, attackRange))
         {
-            rangeFromPlayerFour = Vector3.Distance(enemyAI.gameObject.transform.position, playerFour.transform.position);
+            rangeFromPlayerFour = Vector3.Distance(enemyAI.gameObject.transform.position, enemyAI.playerFour.transform.position);
         }
 
         //find the closest player to the lich
         AssignPlayersToArray();
         if(Players.Min() == rangeFromPlayerOne)
         {
-            currentClosestPlayer = playerOne;
+            currentClosestPlayer = enemyAI.playerOne;
         }
         if (Players.Min() == rangeFromPlayerTwo)
         {
-            currentClosestPlayer = playerTwo;
+            currentClosestPlayer = enemyAI.playerTwo;
         }
         if (Players.Min() == rangeFromPlayerThree)
         {
-            currentClosestPlayer = playerThree;
+            currentClosestPlayer = enemyAI.playerThree;
         }
         if (Players.Min() == rangeFromPlayerFour)
         {
-            currentClosestPlayer = playerFour;
+            currentClosestPlayer = enemyAI.playerFour;
         }
         // get the closest player here you dumb fuck you need sleep wake up fuck heads
         // i need to vegitate at home and eat food

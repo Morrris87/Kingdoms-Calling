@@ -23,11 +23,23 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     public bool isTaunted = false;
     public float tauntDuration = 0;
     public bool isTargeted = false;
+    
+    public GameObject playerOne;
+    public GameObject playerTwo;
+    public GameObject playerThree;
+    public GameObject playerFour;
 
     public GameObject targetSymbol;
 
+    public GameObject spawnZoneOne;
+    public GameObject spawnZoneTwo;
+    public GameObject spawnZoneThree;
+    public GameObject spawnZoneFour;
+
     [HideInInspector]
     public BossStats bossStats;
+    [HideInInspector]
+    public Spawn spawnScript;
     [HideInInspector]
     public GameObject objPlayer;
     [HideInInspector]
@@ -45,18 +57,14 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         }
         return state;
     }
-    //-------------------------------------
-    //
-    //think need to make the skeleton turn red when live deplets 
-    //
-    //-------------------------------------
 
 
-    // Initialize the FSM for the NPC skeleton.
+    // Initialize the FSM for the NPC skeleton.s
     protected override void Initialize()
     {
         rigBody = GetComponent<Rigidbody>();
         bossStats = gameObject.GetComponent<BossStats>();
+        spawnScript = gameObject.GetComponent<Spawn>();
         // Create the FSM for the player.
         ConstructFSM();
 
@@ -90,6 +98,14 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
 
     private void ConstructFSM()
     {
-        //BossDeathState death = new BossDeathState(this);
+        BossDeathState death = new BossDeathState(this);
+        BossAutoAttackState auto = new BossAutoAttackState(this);
+
+
+
+        AddFSMState(auto);
+        //AddFSMState();
+        //AddFSMState();
+        AddFSMState(death);
     }
 }

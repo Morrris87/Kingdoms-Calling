@@ -109,17 +109,17 @@ public class ArrowVolley : MonoBehaviour
                     if (enemy.GetComponentInParent<ElementManager>().thisElement == ElementManager.ClassElement.Lightning)  // If enemy has a lightning proc...
                     {
                         // Activate the Assassin combo
-                        archerAssassinCombo.ActivateCombo(target, archerDmg, ElementManager.ClassElement.Wind);
+                        archerAssassinCombo.ActivateCombo(target, archerDmg);
                     }
                     else if (enemy.GetComponentInParent<ElementManager>().thisElement == ElementManager.ClassElement.Earth)    // If enemy has a lightning proc...
                     {
                         // Activate the Paladin combo
-                        //archerPaladinCombo.ActivateCombo(target, archerDmg, ElementManager.ClassElement.Wind);
+                        //archerPaladinCombo.ActivateCombo(target, archerDmg);
                     }
                     else if (enemy.GetComponentInParent<ElementManager>().thisElement == ElementManager.ClassElement.Fire) // If enemy has a fire proc...
                     {
                         // Activate the Warrior combo
-                        //archerWarriorCombo.ActivateCombo(target, archerDmg, ElementManager.ClassElement.Wind);
+                        //archerWarriorCombo.ActivateCombo(target, archerDmg);
                     }
                     else
                     {

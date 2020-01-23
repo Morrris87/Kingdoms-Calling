@@ -146,6 +146,59 @@ public class Spawn : MonoBehaviour
 
     }
 
+    public void spawnSkeletonsForBoss(string tempColour)
+    {
+        if (tempColour == "white")
+        {
+            packSize = whitePackNumber;
+            for (int i = 0; i < packSize; i++)
+            {
+                if (i == 0)
+                {
+                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
+                }
+                else if (i == 1)
+                {
+                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 2f), Quaternion.identity);
+                }
+                else if (i == 2)
+                {
+                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 1f), Quaternion.identity);
+                }
+                else if (i == 3)
+                {
+                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
+                }
+                else if (i == 4)
+                {
+                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 2f), Quaternion.identity);
+                }
+                else if (i == 5)
+                {
+                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 1f), Quaternion.identity);
+                }
+            }
+        }
+        else if (tempColour == "grey")
+        {
+            packSize = greyPackNUmber;
+            for (int i = 0; i < packSize; i++)
+            {
+                if (i == 0)
+                {
+                    Instantiate(skeletonGrey, spawnZone.transform.position, Quaternion.identity);
+                }
+                else if (i == 1)
+                {
+                    Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x + 1f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
+                }
+                else if (i == 2)
+                {
+                    Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x - 1f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
+                }
+            }
+        }
+    }
     private void OnGUI()
     {
         GUI.Label(new Rect(60, 30, 30, 30), totalSkeletoNumber.ToString());

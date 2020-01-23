@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
     //[HideInInspector]
     public  int currentHealth;  // This int keeps track of what HP this object is currently at
     private bool isDead;        // If currentHealth reaches 0, this bool is set to true, otherwise is false
+    private bool trueDamage;    // If true, player/enemy recieves true damage, which ignores armor value
     float timerForFlash = 0;
     bool colorBool = false;
     Color tempColor;
@@ -48,8 +49,6 @@ public class Health : MonoBehaviour
     // Damage function is used to subtract health from currentHealth when damage is taken
     public void Damage(int damage)  // Pass in the amount to subtract from currentHealth
     {
-        
-        currentHealth -= damage;
         if(this.tag == "White" || this.tag == "Grey" || this.tag == "Purple")
         {
             
@@ -60,8 +59,22 @@ public class Health : MonoBehaviour
                 this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
             }         
         }
+
         if(this.tag == "Player")
-        healthUI.fillAmount = CalculateHealthLeftPercent(currentHealth, maxHealth);    // Adjusts the fill amount of the health bar based on the % of health left
+        {
+            healthUI.fillAmount = CalculateHealthLeftPercent(currentHealth, maxHealth);    // Adjusts the fill amount of the health bar based on the % of health left
+        }
+
+        if (trueDamage)
+        {
+            // Deal true damage to the player/enemy
+            currentHealth -= damage;
+        }
+        else
+        {
+            // Deal normal damage to the player/enemy
+            currentHealth -= damage;    // subtract armor from damage in this calc when implemented
+        }
 
         if (currentHealth <= 0) // When currentHealth reaches 0...
         {
@@ -74,6 +87,11 @@ public class Health : MonoBehaviour
     {
         float damagePercent = (float)current / (float)starting;
         return damagePercent;
+    }
+
+    public void ActivateTrueDamage(bool value)
+    {
+        trueDamage = value;
     }
 
     public void DebugHealthLoss()
