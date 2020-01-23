@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class PaladinWarriorCombo : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     // ActivateCombo is called when an ability triggers an elemental proc on an enemy it hits
-    public void ActivateCombo()
+    public void ActivateCombo(GameObject target, ElementManager.ClassElement element)
     {
+        // Determine who activated the combo (Archer or Paladin)
+        if (element == ElementManager.ClassElement.Earth)    // If paladin...
+        {
+            // Remove proc
+            target.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.NONE;
 
-    }
+            // 
+        }
+        else if (element == ElementManager.ClassElement.Fire)   // If warrior...
+        {
+
+        }
 }
