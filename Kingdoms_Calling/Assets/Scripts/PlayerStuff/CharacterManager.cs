@@ -46,7 +46,7 @@ public class CharacterManager : MonoBehaviour
     //Camera information
     Vector3 camForward, camRight;
     GameObject targetedEnemy;
-
+    Quaternion newRotation;
     // Character Abilities/scripts
     BasicAttack basicAttack;
     //Paladin
@@ -73,6 +73,7 @@ public class CharacterManager : MonoBehaviour
         //Using the input performed method to retrieve the input value and assign to the new created variables in the fixed update
         inputAction.PlayerControls.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
         inputAction.PlayerControls.RotateCharacter.performed += ctx => rotationDirection = ctx.ReadValue<Vector2>();
+        
 
         //Get the player and enemy layermask id's
         playerLayerIndex = LayerMask.NameToLayer("Player");
@@ -133,6 +134,8 @@ public class CharacterManager : MonoBehaviour
         if (cycleTimer >= 0)
             cycleTimer -= Time.deltaTime;
 
+        
+
         //Draw where the player is currently facing
         //UsefullFunctions.DebugRay(transform.position, transform.forward * 5.0f, Color.red);
 
@@ -157,7 +160,12 @@ public class CharacterManager : MonoBehaviour
         //Generate the new position based on our speed and time passed
         dir = dir * speed * 5 * Time.deltaTime;
         //Update that position
-        playerRBody.MovePosition(transform.position + dir);
+        //playerRBody.MovePosition(transform.position + dir);
+        //Debug.Log(dir);
+        playerRBody.AddForce(dir * 500);
+
+
+
     }
 
     /// <summary>
@@ -183,9 +191,18 @@ public class CharacterManager : MonoBehaviour
         //Verify we actually have input
         if (lookRot != Vector3.zero)
         {
+            //reset the constraints
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             //Update the players rigidbody
-            Quaternion newRotation = Quaternion.LookRotation(lookRot);
+            newRotation = Quaternion.LookRotation(lookRot);
+            Debug.Log("updating move rotation");
             playerRBody.MoveRotation(newRotation);
+        }
+        //else we dont have input prevent spinning
+        else
+        {
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         }
 
         //Handle right analog targeting
