@@ -10,7 +10,7 @@ using UnityEngine.SceneManagement;
 public class GameStatus : MonoBehaviour
 {
     // Variables to be stored when switching scenes
-    [HideInInspector] public Health p1Health, p2Health, p3Health, p4Health;
+    private Health p1Health, p2Health, p3Health, p4Health;
 
     // Start is called before the first frame update
     void Start()
