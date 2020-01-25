@@ -11,16 +11,20 @@ public class Spawn : MonoBehaviour
     public int maxSkeletonNumber;
     int packSize;
     int spawnerNumber;
+
+    //Pack Size
     int whitePackNumber = 6;
     int greyPackNUmber = 3;
     int purplePackNumber = 1;
 
+    //skeletons
     public GameObject skeletonWhite;
     public GameObject skeletonGrey;
     public GameObject skeletonPurple;
 
     GameObject spawnZone;
 
+    // will turn to list of spawners later
     public GameObject spawnerOne;
     public GameObject spawnerTwo;
     public GameObject spawnerThree;
@@ -198,6 +202,22 @@ public class Spawn : MonoBehaviour
                 }
             }
         }
+    }
+    public void SpawnClones(GameObject bossPrefab, GameObject SpawnZoneOne, GameObject SpawnZoneTwo, GameObject SpawnZoneThree,GameObject SpawnZoneFour)
+    {
+        int maxClones = 4;
+
+        //Spawn BossPrefab
+        //Spawn at CloneOneSpawn ect
+        //for loop 
+        // GET GAME OBJECT FOR BOSS AI SCRIPT
+
+        //for(int i = 0; i < maxClones; i++)
+        //{
+
+        //Instantiate(bossPrefab, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
+
+        //}
     }
     private void OnGUI()
     {

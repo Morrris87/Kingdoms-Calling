@@ -11,9 +11,6 @@ public class BossAutoAttackState : BossFightOneFSMState
     float elapsedTime;
     float intervalTime;
 
-
-    
-
     int attackRange = 10;
 
     float rangeFromPlayerOne;
@@ -37,7 +34,33 @@ public class BossAutoAttackState : BossFightOneFSMState
         // make timer
 
         //attack only on the time for the timer
-        enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
+
+        if (enemyAI.bossTimer <= 0)
+        {
+            enemyAI.bossTimer = 2;
+
+
+            if (currentClosestPlayer == enemyAI.playerOne)
+            {
+                //Attack Player? not the boss!!!!!
+                // how to make it hit player one?
+                //enemyAI.playerOne;
+                // more shit have to figure that out
+                enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
+            }
+            else if (currentClosestPlayer == enemyAI.playerTwo)
+            {
+                enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
+            }
+            else if (currentClosestPlayer == enemyAI.playerThree)
+            {
+                enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
+            }
+            else if (currentClosestPlayer == enemyAI.playerFour)
+            {
+                enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
+            }
+        }
 
 
     }

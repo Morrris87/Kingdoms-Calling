@@ -775,7 +775,7 @@ GameObject:
   - component: {fileID: 1371279882}
   - component: {fileID: 1371279883}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: BOSS BOICube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -879,12 +879,17 @@ MonoBehaviour:
   isTaunted: 0
   tauntDuration: 0
   isTargeted: 0
+  playerOne: {fileID: 0}
+  playerTwo: {fileID: 0}
+  playerThree: {fileID: 0}
+  playerFour: {fileID: 0}
   targetSymbol: {fileID: 1485140454962217269, guid: 755a709aca06b3e4baf33c90f5bef31f,
     type: 3}
   spawnZoneOne: {fileID: 1293830667}
   spawnZoneTwo: {fileID: 276390708}
   spawnZoneThree: {fileID: 130239221}
   spawnZoneFour: {fileID: 562113046}
+  bossTimer: 2
   bossStats: {fileID: 0}
   spawnScript: {fileID: 0}
   objPlayer: {fileID: 0}

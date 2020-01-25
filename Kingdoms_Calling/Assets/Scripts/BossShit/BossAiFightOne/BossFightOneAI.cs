@@ -24,17 +24,33 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     public float tauntDuration = 0;
     public bool isTargeted = false;
     
+    //Players
     public GameObject playerOne;
     public GameObject playerTwo;
     public GameObject playerThree;
     public GameObject playerFour;
 
+    //Target Symbol
     public GameObject targetSymbol;
 
+
+    //Spawn Zones for the Skeletons
     public GameObject spawnZoneOne;
     public GameObject spawnZoneTwo;
     public GameObject spawnZoneThree;
     public GameObject spawnZoneFour;
+
+    //BossPrefab
+    public GameObject bossPrefab;
+
+    //boss Timer
+    public float bossTimer;
+
+    //Spawn Zones for the Boss Clones
+    public GameObject CloneOneSpawn;
+    public GameObject CloneTwoSpawn;
+    public GameObject CloneThreeSpawn;
+    public GameObject CloneFourSpawn;
 
     [HideInInspector]
     public BossStats bossStats;
@@ -62,6 +78,8 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     // Initialize the FSM for the NPC skeleton.s
     protected override void Initialize()
     {
+        bossTimer = 2;
+
         rigBody = GetComponent<Rigidbody>();
         bossStats = gameObject.GetComponent<BossStats>();
         spawnScript = gameObject.GetComponent<Spawn>();
@@ -83,6 +101,11 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         }
         if (CurrentState.ID == FSMStateID.Dead)
         {
+        }
+
+        if(bossTimer <= 2)
+        {
+            bossTimer -= Time.deltaTime;
         }
 
         //making the target pop up on the skeleton
