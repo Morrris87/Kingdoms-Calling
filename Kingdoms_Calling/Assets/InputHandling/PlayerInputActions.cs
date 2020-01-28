@@ -20,7 +20,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""Move"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Value"",
                     ""id"": ""4454ef00-6368-4a04-84a9-e65fa128035b"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -75,8 +75,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Rotate Character"",
-                    ""type"": ""PassThrough"",
+                    ""name"": ""Rotate"",
+                    ""type"": ""Value"",
                     ""id"": ""7668c7da-32f9-44c9-8617-d5cee4da4d69"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
@@ -168,7 +168,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""45766794-659f-4004-a9b8-e96b179b8971"",
-                    ""path"": """",
+                    ""path"": ""<Gamepad>/select"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -216,7 +216,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Rotate Character"",
+                    ""action"": ""Rotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -312,7 +312,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_PlayerControls_DropItem = m_PlayerControls.FindAction("DropItem", throwIfNotFound: true);
         m_PlayerControls_CycleTargetF = m_PlayerControls.FindAction("CycleTargetF", throwIfNotFound: true);
         m_PlayerControls_CycleTargetB = m_PlayerControls.FindAction("CycleTargetB", throwIfNotFound: true);
-        m_PlayerControls_RotateCharacter = m_PlayerControls.FindAction("Rotate Character", throwIfNotFound: true);
+        m_PlayerControls_Rotate = m_PlayerControls.FindAction("Rotate", throwIfNotFound: true);
         m_PlayerControls_Ability1 = m_PlayerControls.FindAction("Ability1", throwIfNotFound: true);
         m_PlayerControls_Ability2 = m_PlayerControls.FindAction("Ability2", throwIfNotFound: true);
         m_PlayerControls_Special = m_PlayerControls.FindAction("Special", throwIfNotFound: true);
@@ -375,7 +375,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_PlayerControls_DropItem;
     private readonly InputAction m_PlayerControls_CycleTargetF;
     private readonly InputAction m_PlayerControls_CycleTargetB;
-    private readonly InputAction m_PlayerControls_RotateCharacter;
+    private readonly InputAction m_PlayerControls_Rotate;
     private readonly InputAction m_PlayerControls_Ability1;
     private readonly InputAction m_PlayerControls_Ability2;
     private readonly InputAction m_PlayerControls_Special;
@@ -393,7 +393,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @DropItem => m_Wrapper.m_PlayerControls_DropItem;
         public InputAction @CycleTargetF => m_Wrapper.m_PlayerControls_CycleTargetF;
         public InputAction @CycleTargetB => m_Wrapper.m_PlayerControls_CycleTargetB;
-        public InputAction @RotateCharacter => m_Wrapper.m_PlayerControls_RotateCharacter;
+        public InputAction @Rotate => m_Wrapper.m_PlayerControls_Rotate;
         public InputAction @Ability1 => m_Wrapper.m_PlayerControls_Ability1;
         public InputAction @Ability2 => m_Wrapper.m_PlayerControls_Ability2;
         public InputAction @Special => m_Wrapper.m_PlayerControls_Special;
@@ -430,9 +430,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @CycleTargetB.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnCycleTargetB;
                 @CycleTargetB.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnCycleTargetB;
                 @CycleTargetB.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnCycleTargetB;
-                @RotateCharacter.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnRotateCharacter;
-                @RotateCharacter.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnRotateCharacter;
-                @RotateCharacter.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnRotateCharacter;
+                @Rotate.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnRotate;
                 @Ability1.started -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAbility1;
                 @Ability1.performed -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAbility1;
                 @Ability1.canceled -= m_Wrapper.m_PlayerControlsActionsCallbackInterface.OnAbility1;
@@ -476,9 +476,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @CycleTargetB.started += instance.OnCycleTargetB;
                 @CycleTargetB.performed += instance.OnCycleTargetB;
                 @CycleTargetB.canceled += instance.OnCycleTargetB;
-                @RotateCharacter.started += instance.OnRotateCharacter;
-                @RotateCharacter.performed += instance.OnRotateCharacter;
-                @RotateCharacter.canceled += instance.OnRotateCharacter;
+                @Rotate.started += instance.OnRotate;
+                @Rotate.performed += instance.OnRotate;
+                @Rotate.canceled += instance.OnRotate;
                 @Ability1.started += instance.OnAbility1;
                 @Ability1.performed += instance.OnAbility1;
                 @Ability1.canceled += instance.OnAbility1;
@@ -519,7 +519,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnDropItem(InputAction.CallbackContext context);
         void OnCycleTargetF(InputAction.CallbackContext context);
         void OnCycleTargetB(InputAction.CallbackContext context);
-        void OnRotateCharacter(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
         void OnAbility1(InputAction.CallbackContext context);
         void OnAbility2(InputAction.CallbackContext context);
         void OnSpecial(InputAction.CallbackContext context);
