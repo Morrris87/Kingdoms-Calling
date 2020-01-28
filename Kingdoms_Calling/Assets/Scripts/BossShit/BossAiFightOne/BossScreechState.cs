@@ -19,11 +19,15 @@ public class BossScreechState : BossFightOneFSMState
 
     public override void Act()
     {
-        //die
+
     }
 
     public override void Reason()
     {
-
+        if (enemyAI.bossStats.health <= 0)
+        {
+            enemyAI.PerformTransition(Transition.NoHealth);
+            return;
+        }
     }
 }
