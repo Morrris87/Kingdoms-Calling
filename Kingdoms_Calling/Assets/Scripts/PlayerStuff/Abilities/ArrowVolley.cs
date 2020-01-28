@@ -148,6 +148,6 @@ public class ArrowVolley : MonoBehaviour
 
     public void OnGUI()// Update the UI with the time remaining
     {
-        GUI.Label(new Rect(60, 60, 30, 30), cooldownElapsed.ToString());
+        //GUI.Label(new Rect(60, 60, 30, 30), cooldownElapsed.ToString());
     }
 }

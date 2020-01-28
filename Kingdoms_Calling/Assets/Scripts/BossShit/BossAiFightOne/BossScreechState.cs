@@ -7,19 +7,29 @@ public class BossScreechState : BossFightOneFSMState
 {
     BossFightOneAI enemyAI;
 
-    float elapsedTime;
-    float intervalTime;
+    float randomTimer;
     public BossScreechState(BossFightOneAI Lich)
     {
         enemyAI = Lich;
         curSpeed = 0;
-        stateID = FSMStateID.Dead;
+        stateID = FSMStateID.Sceach;
+        randomTimer = enemyAI.randomizPlayersInputsTimer;
         //enemyAI.navAgent.speed = curSpeed;
     }
 
     public override void Act()
     {
+        enemyAI.bossScreechHitBox.gameObject.SetActive(true);
 
+        //check if collided objects are tagged player
+        //Dammage collided players
+        if(enemyAI.randomizPlayersInputsTimer <= 0)
+        {
+            //randomize the players input for randomizPlayersInputsTimer amount of time
+            enemyAI.randomizPlayersInputsTimer = randomTimer;
+            // do randomize shit here
+            RandomizePlayersInput();
+        }
     }
 
     public override void Reason()
@@ -29,5 +39,9 @@ public class BossScreechState : BossFightOneFSMState
             enemyAI.PerformTransition(Transition.NoHealth);
             return;
         }
+    }
+    public void RandomizePlayersInput()
+    {
+
     }
 }
