@@ -24,7 +24,11 @@ public class BossMultiplyState : BossFightOneFSMState
 
     public override void Reason()
     {
-    
+        if (enemyAI.bossStats.health <= 0)
+        {
+            enemyAI.PerformTransition(Transition.NoHealth);
+            return;
+        }
     }
     
 }

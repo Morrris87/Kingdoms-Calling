@@ -23,6 +23,8 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     public bool isTaunted = false;
     public float tauntDuration = 0;
     public bool isTargeted = false;
+
+    public float bossAutoAttackCooldown = 2;
     
     //Players
     public GameObject playerOne;
@@ -79,6 +81,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     protected override void Initialize()
     {
         bossTimer = 2;
+        bossAutoAttackCooldown = bossTimer;
 
         rigBody = GetComponent<Rigidbody>();
         bossStats = gameObject.GetComponent<BossStats>();

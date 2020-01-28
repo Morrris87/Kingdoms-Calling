@@ -37,7 +37,7 @@ public class BossAutoAttackState : BossFightOneFSMState
 
         if (enemyAI.bossTimer <= 0)
         {
-            enemyAI.bossTimer = 2;
+            enemyAI.bossTimer = enemyAI.bossAutoAttackCooldown;
 
 
             if (currentClosestPlayer == enemyAI.playerOne)
@@ -67,6 +67,11 @@ public class BossAutoAttackState : BossFightOneFSMState
 
     public override void Reason()
     {
+        if (enemyAI.bossStats.health <= 0)
+        {
+            enemyAI.PerformTransition(Transition.NoHealth);
+            return;
+        }
         //player one distance
         if (IsInCurrentRange(enemyAI.gameObject.transform, enemyAI.playerOne.transform.position, attackRange))
         {
