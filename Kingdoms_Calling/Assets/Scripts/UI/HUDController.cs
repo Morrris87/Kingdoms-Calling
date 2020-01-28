@@ -21,9 +21,9 @@ public class HUDController : MonoBehaviour
         // If a player is not in the game, remove their HUD from the canvas
         for (int i = 0; i < players.Length; i++)
         {
-            if (players[i].activeSelf == false)
+            if (players[i].activeSelf == true)
             {
-                playerHUD[i].SetActive(false);
+                playerHUD[i].SetActive(true);
             }
         }
 

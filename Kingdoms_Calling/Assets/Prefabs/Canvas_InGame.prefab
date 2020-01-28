@@ -2904,8 +2904,6 @@ GameObject:
   - component: {fileID: 823600226269302118}
   - component: {fileID: 823600226269302119}
   - component: {fileID: 823600226269302112}
-  - component: {fileID: 823600226269302114}
-  - component: {fileID: 823600226269302115}
   - component: {fileID: 3167718144576906027}
   m_Layer: 5
   m_Name: Canvas_InGame
@@ -2995,35 +2993,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &823600226269302114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 823600226269302113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d005d860941dc0f4e9db5c55ea4bf516, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxStamina: 20
-  staminaUI: {fileID: 823600225582447628}
---- !u!114 &823600226269302115
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 823600226269302113}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75fe87bf589d14f4984f0a76d8d08cb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 100
-  healthUI: {fileID: 823600225540578856}
-  currentHealth: 0
 --- !u!114 &3167718144576906027
 MonoBehaviour:
   m_ObjectHideFlags: 0
