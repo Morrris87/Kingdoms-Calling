@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2366070365349016267}
   - component: {fileID: 840511907221040439}
   - component: {fileID: 629561773031445879}
+  - component: {fileID: 5857780170001138474}
   m_Layer: 9
   m_Name: SkeletonWhite
   m_TagString: White
@@ -196,6 +197,22 @@ MonoBehaviour:
   maxHealth: 10
   healthUI: {fileID: 0}
   currentHealth: 0
+--- !u!114 &5857780170001138474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 346738287514511091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe408a5bae0cd8344be4b187bd0e0576, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thisElement: 0
+  elementTimeoutTime: 0
+  igniteTick: 0
+  effected: 0
 --- !u!1001 &1607047084009828120
 PrefabInstance:
   m_ObjectHideFlags: 0
