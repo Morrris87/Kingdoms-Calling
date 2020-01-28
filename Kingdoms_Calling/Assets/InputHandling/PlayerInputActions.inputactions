@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "4454ef00-6368-4a04-84a9-e65fa128035b",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -62,8 +62,8 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Rotate Character",
-                    "type": "PassThrough",
+                    "name": "Rotate",
+                    "type": "Value",
                     "id": "7668c7da-32f9-44c9-8617-d5cee4da4d69",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -155,7 +155,7 @@
                 {
                     "name": "",
                     "id": "45766794-659f-4004-a9b8-e96b179b8971",
-                    "path": "",
+                    "path": "<Gamepad>/select",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -203,7 +203,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Rotate Character",
+                    "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

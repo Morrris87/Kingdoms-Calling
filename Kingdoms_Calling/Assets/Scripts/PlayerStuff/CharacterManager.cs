@@ -14,13 +14,10 @@ using UnityEngine.InputSystem;
 public class CharacterManager : MonoBehaviour
 {
     // Public Variables
-    public enum CharacterClass { NONE, Paladin, Warrior, Assassin, Archer };
-    
+    public enum CharacterClass { NONE, Paladin, Warrior, Assassin, Archer };    
 
     [Header("Character Class")]
-    public CharacterClass characterClass;
-
-    
+    public CharacterClass characterClass;    
 
     [Header("Movement")]
     public float speed = 4.5f;   // Original = 4.5f
@@ -41,7 +38,7 @@ public class CharacterManager : MonoBehaviour
     Rigidbody playerRBody;
     //Character Input variables
     Vector2 rotationDirection, movementInput;
-    Vector3 inputDirection, inputRotation;
+    Vector3 inputDirection, inputRotation, desiredDirection, lookRot;
     float xMove, yMove, xRot, yRot, cycleTimer;
     //Camera information
     Vector3 camForward, camRight;
@@ -69,10 +66,11 @@ public class CharacterManager : MonoBehaviour
 
     private void Awake()
     {
-        inputAction = new PlayerInputActions();// Generate new PlayerInputActions
+        //inputAction = new PlayerInputActions();// Generate new PlayerInputActions
+        //inputAction = this.GetComponent<PlayerInputActions>();
         //Using the input performed method to retrieve the input value and assign to the new created variables in the fixed update
-        inputAction.PlayerControls.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
-        inputAction.PlayerControls.RotateCharacter.performed += ctx => rotationDirection = ctx.ReadValue<Vector2>();
+        //inputAction.PlayerControls.Move.performed += ctx => movementInput = ctx.ReadValue<Vector2>();
+        //inputAction.PlayerControls.Rotate.performed += ctx => rotationDirection = ctx.ReadValue<Vector2>();
         
 
         //Get the player and enemy layermask id's
@@ -87,6 +85,10 @@ public class CharacterManager : MonoBehaviour
 
         //Handle loading and grabbing character abilities/scripts here
         basicAttack = this.gameObject.GetComponent<BasicAttack>();
+
+        desiredDirection = Vector3.zero;
+
+
 
         if (characterClass == CharacterClass.Paladin)
         {
@@ -110,44 +112,32 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    void Update()
     {
-        //Grab movement input x and y 2D
-        xMove = movementInput.x;
-        yMove = movementInput.y;
+        ////Grab movement input x and y 2D
+        //xMove = movementInput.x;
+        //yMove = movementInput.y;
 
-        //Fill input direction with the Lerp of current pos and destination direction as well as rotation direction
-        Vector3 targetInputDir = new Vector3(xMove, 0, yMove);
-        inputDirection = Vector3.Lerp(inputDirection, targetInputDir, Time.deltaTime * 10f);
+        ////Fill input direction with the Lerp of current pos and destination direction as well as rotation direction
+        //Vector3 targetInputDir = new Vector3(xMove, 0, yMove);
+        //inputDirection = Vector3.Lerp(inputDirection, targetInputDir, Time.deltaTime * 10f);
 
-        //Fill the desired direction, rotation vector with the basic directions 
-        Vector3 desiredDirection = new Vector3(inputDirection.x, 0, inputDirection.z);
+        ////Fill the desired direction, rotation vector with the basic directions 
+        //Vector3 desiredDirection = new Vector3(inputDirection.x, 0, inputDirection.z);
 
         //Verify there was input
         if (desiredDirection != Vector3.zero)
             UpdatePlayer(desiredDirection);//Move the player
 
-        //Call update rotation to change rotation of the player  
+        
+
+        //Debug.Log(lookRot);
+        ////Call update rotation to change rotation of the player  
         UpdatePlayerRotation();
 
         //Update the cycle timer
         if (cycleTimer >= 0)
             cycleTimer -= Time.deltaTime;
-
-        
-
-        //Draw where the player is currently facing
-        //UsefullFunctions.DebugRay(transform.position, transform.forward * 5.0f, Color.red);
-
-        //Debug draw testing left
-        //UsefullFunctions.DebugRay(transform.position, new Vector3( -1f, 0, 1f), Color.blue);
-        //Debug draw testing left
-        //UsefullFunctions.DebugRay(transform.position, new Vector3(-0.5f, 0, 1f)* 1.2f, Color.blue);
-
-        //Debug draw testing right
-        //UsefullFunctions.DebugRay(transform.position, new Vector3( 1f, 0, 1f), Color.green);
-        //Debug draw testing right
-        //UsefullFunctions.DebugRay(transform.position, new Vector3( 0.5f, 0, 1f) * 1.2f, Color.green);
     }
 
     /// <summary>
@@ -162,32 +152,14 @@ public class CharacterManager : MonoBehaviour
         //Update that position
         //playerRBody.MovePosition(transform.position + dir);
         //Debug.Log(dir);
-        playerRBody.AddForce(dir * 500);
-
-
-
+        this.GetComponent<Rigidbody>().AddForce(dir * 500);
     }
 
     /// <summary>
     /// Player update rotation function handling the rotation of the player based on right analog stick input
     /// </summary>
     void UpdatePlayerRotation()
-    {
-        //Camera Direction for calculating rotation
-        camForward = mainCamera.transform.forward;
-        camRight = mainCamera.transform.right;
-
-        camForward.y = 0f;
-        camRight.y = 0f;
-
-        Vector2 input = rotationDirection;
-
-        //Convert "input" to a Vector3 where the Y axis will be used as the Z axis
-        Vector3 lookDirection = new Vector3(input.x, 0, input.y);
-        //Convert the direction from local space to world space then projecting to get the Vector to rotate to
-        Vector3 lookRot = mainCamera.transform.TransformDirection(lookDirection);
-        lookRot = Vector3.ProjectOnPlane(lookRot, Vector3.up);
-
+    {      
         //Verify we actually have input
         if (lookRot != Vector3.zero)
         {
@@ -235,15 +207,16 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    void OnEnable()
-    {
-        inputAction.Enable();
-    }
-    void OnDisable()
-    {
-        inputAction.Disable();
-    }
+    //void OnEnable()
+    //{
+    //    inputAction.Enable();
+    //}
+    //void OnDisable()
+    //{
+    //    inputAction.Disable();
+    //}
 
+ 
     //-------------------------------------------------------------------------------------------------------------------------------------------
     //Input Functions below (Examples of how the call are made context being the information given back to us by the input casting that results in our data)
     public void Attack(InputAction.CallbackContext context)
@@ -254,6 +227,44 @@ public class CharacterManager : MonoBehaviour
     public void Move(InputAction.CallbackContext context)
     {
         //Debug.Log("Move");
+        movementInput = context.ReadValue<Vector2>();
+
+        //Grab movement input x and y 2D
+        xMove = movementInput.x;
+        yMove = movementInput.y;
+
+        //Fill input direction with the Lerp of current pos and destination direction as well as rotation direction
+        Vector3 targetInputDir = new Vector3(xMove, 0, yMove);
+        inputDirection = Vector3.Lerp(inputDirection, targetInputDir, Time.deltaTime * 10f);
+
+        //Fill the desired direction, rotation vector with the basic directions 
+        desiredDirection = new Vector3(inputDirection.x, 0, inputDirection.z);
+
+        //UpdatePlayer(desiredDirection);//Move the player
+    }
+
+    public void Rotate(InputAction.CallbackContext context)
+    {
+        
+        rotationDirection = context.ReadValue<Vector2>();
+        Debug.Log("rotation value" + rotationDirection);
+
+        //Camera Direction for calculating rotation
+        camForward = mainCamera.transform.forward;
+        camRight = mainCamera.transform.right;
+
+        camForward.y = 0f;
+        camRight.y = 0f;
+
+        //Convert "input" to a Vector3 where the Y axis will be used as the Z axis
+        Vector3 lookDirection = new Vector3(rotationDirection.x, 0, rotationDirection.y);
+        Debug.Log("lookDirection value" + lookDirection + " Rotation Direction " + rotationDirection);
+        //Convert the direction from local space to world space then projecting to get the Vector to rotate to
+        lookRot = mainCamera.transform.TransformDirection(lookDirection);
+        //Debug.Log("lookRot value " + lookRot);
+        lookRot = Vector3.ProjectOnPlane(lookRot, Vector3.up);
+        //Debug.Log("lookRot value2 " + lookRot);
+        //UpdatePlayerRotation(rotationDirection);
     }
 
     public void Ability1(InputAction.CallbackContext context) // For the character's first ability (left bumper)
@@ -446,9 +457,5 @@ public class CharacterManager : MonoBehaviour
 
         return hitColliders;
     }
-
-    //public void Move(InputAction.CallbackContext context)
-    //{
-    //Debug.Log("Move");
-    //}
+    
 }

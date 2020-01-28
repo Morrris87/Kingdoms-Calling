@@ -460,6 +460,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkeletonGrey
       objectReference: {fileID: 0}
+    - target: {fileID: 1252390567163562131, guid: 4915266e590de7d469e0276e18674bed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1252390567163562127, guid: 4915266e590de7d469e0276e18674bed,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -546,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 621567455fd1c4ceb811cc8a00b6a1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_NotificationBehavior: 2
+  m_NotificationBehavior: 0
   m_MaxPlayerCount: -1
   m_AllowJoining: 1
   m_JoinBehavior: 0
@@ -621,7 +626,7 @@ PrefabInstance:
     - target: {fileID: 694699486586812718, guid: c49fb9b228367e741be9205a523b5423,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 694699486586812704, guid: c49fb9b228367e741be9205a523b5423,
         type: 3}
@@ -698,6 +703,52 @@ PrefabInstance:
       propertyPath: staminaUI
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 694699486586812716, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 694699486586812719, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 694699486586812719, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 694699486586812719, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 694699486586812719, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 694699486586812705, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+    - target: {fileID: 694699486586812719, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Rotate
+      objectReference: {fileID: 0}
+    - target: {fileID: 694699486586812719, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 694699486586812719, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 694699486586812719, guid: c49fb9b228367e741be9205a523b5423,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1269944857}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c49fb9b228367e741be9205a523b5423, type: 3}
 --- !u!1 &1269944855
@@ -794,6 +845,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SkeletonGrey (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252390567163562131, guid: 4915266e590de7d469e0276e18674bed,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1252390567163562127, guid: 4915266e590de7d469e0276e18674bed,
         type: 3}
