@@ -8,6 +8,9 @@ using UnityEngine.SceneManagement;
 
 public class GameStatus : MonoBehaviour
 {
+    // Public Variables
+    [HideInInspector] public GateControl gateToNextLevel;
+
     // Private Variables
     static private GameStatus instance;  // Keeps track of this instance of GameStatus, in the case of duplicates
     private Health p1Health, p2Health, p3Health, p4Health;  // Keeps track of each player's health values
