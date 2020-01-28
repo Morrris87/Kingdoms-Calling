@@ -1,5 +1,6 @@
 ﻿//  Name: Health.cs
 //  Author: Connor Larsen
+//  Date: 1/7/2020
 //  Function: Universal health script for both the players and enemies
 
 using System.Collections;
