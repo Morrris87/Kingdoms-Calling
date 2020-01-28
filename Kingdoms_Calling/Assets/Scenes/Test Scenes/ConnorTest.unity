@@ -271,7 +271,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &80382754
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -852,6 +852,26 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3167718144576906027, guid: b5ed09d5543ea73409d996456d6b2dd2,
+        type: 3}
+      propertyPath: players.Array.data[0]
+      value: 
+      objectReference: {fileID: 694699486663187301}
+    - target: {fileID: 3167718144576906027, guid: b5ed09d5543ea73409d996456d6b2dd2,
+        type: 3}
+      propertyPath: players.Array.data[1]
+      value: 
+      objectReference: {fileID: 1870116224}
+    - target: {fileID: 3167718144576906027, guid: b5ed09d5543ea73409d996456d6b2dd2,
+        type: 3}
+      propertyPath: players.Array.data[2]
+      value: 
+      objectReference: {fileID: 844158215}
+    - target: {fileID: 3167718144576906027, guid: b5ed09d5543ea73409d996456d6b2dd2,
+        type: 3}
+      propertyPath: players.Array.data[3]
+      value: 
+      objectReference: {fileID: 80382753}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5ed09d5543ea73409d996456d6b2dd2, type: 3}
 --- !u!1 &199144294
@@ -1107,7 +1127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &844158216
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1703,7 +1723,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!136 &1870116225
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2472,7 +2492,18 @@ MonoBehaviour:
     m_ActionId: c53663b0-e4cc-4fad-a686-805d9a0a1bca
     m_ActionName: Player Controls/Show Items
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 694699486663187306}
+        m_MethodName: PauseGame
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: 3d5334b9-22db-48c3-b9c5-0a7afb16b04f

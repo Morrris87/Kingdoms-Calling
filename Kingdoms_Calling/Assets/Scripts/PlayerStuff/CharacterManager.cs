@@ -304,6 +304,14 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
+    public void PauseGame(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            FindObjectOfType<HUDController>().PauseGame();
+        }
+    }
+
     public void HealthLoss()
     {
         GetComponent<Health>().DebugHealthLoss();
