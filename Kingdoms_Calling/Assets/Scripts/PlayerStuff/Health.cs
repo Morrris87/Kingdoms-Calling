@@ -33,6 +33,12 @@ public class Health : MonoBehaviour
 
     void Update()
     {
+        // If the player, update their healthbar
+        if (this.tag == "Player")
+        {
+            healthUI.fillAmount = CalculateHealthLeftPercent(currentHealth, maxHealth);    // Adjusts the fill amount of the health bar based on the % of health left
+        }
+
         timerForFlash += Time.deltaTime; 
         if (this.tag == "White" || this.tag == "Grey" || this.tag == "Purple")
         {
@@ -58,11 +64,6 @@ public class Health : MonoBehaviour
                 //flash red
                 this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", Color.red);
             }         
-        }
-
-        if(this.tag == "Player")
-        {
-            healthUI.fillAmount = CalculateHealthLeftPercent(currentHealth, maxHealth);    // Adjusts the fill amount of the health bar based on the % of health left
         }
 
         if (trueDamage)
