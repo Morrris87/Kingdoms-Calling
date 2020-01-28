@@ -19,16 +19,18 @@ public class BossScreechState : BossFightOneFSMState
 
     public override void Act()
     {
-        enemyAI.bossScreechHitBox.gameObject.SetActive(true);
+        
 
-        //check if collided objects are tagged player
-        //Dammage collided players
-        if(enemyAI.randomizPlayersInputsTimer <= 0)
+        //timer for the attack length (maybe just have it lenght of the animation)
+        if (enemyAI.screechTimer >= 2)
         {
-            //randomize the players input for randomizPlayersInputsTimer amount of time
-            enemyAI.randomizPlayersInputsTimer = randomTimer;
-            // do randomize shit here
-            RandomizePlayersInput();
+            enemyAI.bossScreechHitBox.gameObject.SetActive(true);
+            
+        }
+        else
+        {
+            enemyAI.bossScreechHitBox.gameObject.SetActive(false);
+            enemyAI.screechTimer = 2;
         }
     }
 
@@ -43,5 +45,22 @@ public class BossScreechState : BossFightOneFSMState
     public void RandomizePlayersInput()
     {
 
+    }
+    void OnCollisionEnter(Collision collision)
+    {
+        //check if collided objects are tagged player
+        if (collision.gameObject.tag == "Player")
+        {
+            //Dammage collided players
+            enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
+
+            if (enemyAI.randomizPlayersInputsTimer <= 0)
+            {
+                //randomize the players input for randomizPlayersInputsTimer amount of time
+                enemyAI.randomizPlayersInputsTimer = randomTimer;
+                // do randomize shit here
+                RandomizePlayersInput();
+            }
+        }
     }
 }

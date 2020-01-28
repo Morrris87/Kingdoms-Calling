@@ -28,6 +28,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
 
     public GameObject bossScreechHitBox;
     public float randomizPlayersInputsTimer = 3;
+    public float screechTimer = 2;
 
     //Players
     public GameObject playerOne;
@@ -49,7 +50,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     public GameObject bossPrefab;
 
     //boss Timer
-    public float bossTimer;
+    public float bossTimer = 2;
 
     //Spawn Zones for the Boss Clones
     public GameObject CloneOneSpawn;
@@ -83,7 +84,6 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     // Initialize the FSM for the NPC skeleton.s
     protected override void Initialize()
     {
-        bossTimer = 2;
         bossAutoAttackCooldown = bossTimer;
 
         rigBody = GetComponent<Rigidbody>();
@@ -108,8 +108,12 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         if (CurrentState.ID == FSMStateID.Dead)
         {
         }
+        if(randomizPlayersInputsTimer <= 3)
+        {
+            randomizPlayersInputsTimer -= Time.deltaTime;
+        }
 
-        if(bossTimer <= 2)
+        if(bossTimer <= bossAutoAttackCooldown)
         {
             bossTimer -= Time.deltaTime;
         }
