@@ -45,6 +45,11 @@ public class BossSpawnSkeletonsState : BossFightOneFSMState
 
     public override void Reason()
     {
+        if (enemyAI.bossStats.health <= 0)
+        {
+            enemyAI.PerformTransition(Transition.NoHealth);
+            return;
+        }
         //if fight one spawn white
         if (fightOne == true && fightTwo == false)
         {
