@@ -34,7 +34,7 @@ public class BossSpawnSkeletonsState : BossFightOneFSMState
     {
         enemyAI = Lich;
         curSpeed = 0;
-        stateID = FSMStateID.Dead;
+        stateID = FSMStateID.SpawnSkeletons;
         //enemyAI.navAgent.speed = curSpeed;
     }
 

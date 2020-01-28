@@ -203,21 +203,24 @@ public class Spawn : MonoBehaviour
             }
         }
     }
+
     public void SpawnClones(GameObject bossPrefab, GameObject SpawnZoneOne, GameObject SpawnZoneTwo, GameObject SpawnZoneThree,GameObject SpawnZoneFour)
     {
         int maxClones = 4;
-
+        GameObject[] SpawnZoneArray = {SpawnZoneOne,SpawnZoneTwo,SpawnZoneThree,SpawnZoneFour};
         //Spawn BossPrefab
+
         //Spawn at CloneOneSpawn ect
+
         //for loop 
         // GET GAME OBJECT FOR BOSS AI SCRIPT
 
-        //for(int i = 0; i < maxClones; i++)
-        //{
+        for(int i = 0; i < maxClones; i++)
+        {
 
-        //Instantiate(bossPrefab, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
+        Instantiate(bossPrefab, new Vector3(SpawnZoneArray[i].transform.position.x, SpawnZoneArray[i].transform.position.y, SpawnZoneArray[i].transform.position.z), Quaternion.identity);
 
-        //}
+        }
     }
     private void OnGUI()
     {
