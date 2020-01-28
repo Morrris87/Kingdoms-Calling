@@ -67,8 +67,12 @@ public class AI : AdvancedFSM
     // Update each frame.
     protected override void FSMUpdate()
     {
+
         objPlayer = GameObject.FindGameObjectWithTag("Player");
-        playerHealth = objPlayer.GetComponent<Health>();
+        if (objPlayer != null)
+        {
+            playerHealth = objPlayer.GetComponent<Health>();
+        }
         if (CurrentState != null)
         {
             CurrentState.Reason();

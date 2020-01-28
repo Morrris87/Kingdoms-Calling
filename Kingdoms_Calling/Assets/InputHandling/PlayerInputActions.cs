@@ -157,7 +157,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""3b765103-1713-4426-972d-414677475bf9"",
-                    ""path"": """",
+                    ""path"": ""<Gamepad>/start"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

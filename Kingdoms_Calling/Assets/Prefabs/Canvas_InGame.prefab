@@ -990,7 +990,7 @@ MonoBehaviour:
   m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &589530517096839173
@@ -1898,7 +1898,7 @@ MonoBehaviour:
   m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &589530518131035128
@@ -2906,6 +2906,7 @@ GameObject:
   - component: {fileID: 823600226269302112}
   - component: {fileID: 823600226269302114}
   - component: {fileID: 823600226269302115}
+  - component: {fileID: 3167718144576906027}
   m_Layer: 5
   m_Name: Canvas_InGame
   m_TagString: Untagged
@@ -3023,6 +3024,30 @@ MonoBehaviour:
   maxHealth: 100
   healthUI: {fileID: 823600225540578856}
   currentHealth: 0
+--- !u!114 &3167718144576906027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823600226269302113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a7fbe4fe28bef140b0a80c297dd73be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  playerHUD:
+  - {fileID: 823600225588781163}
+  - {fileID: 589530518131035128}
+  - {fileID: 589530516347422517}
+  - {fileID: 5731933667377166927}
+  gameHUD: {fileID: 589530518061369283}
+  pauseScreen: {fileID: 589530516070123343}
 --- !u!1 &1229296182787180091
 GameObject:
   m_ObjectHideFlags: 0
@@ -3322,7 +3347,7 @@ MonoBehaviour:
   m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5333070522363811022
@@ -3473,7 +3498,7 @@ MonoBehaviour:
   m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
-  m_FillOrigin: 0
+  m_FillOrigin: 1
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
 --- !u!1 &5731933667377166927

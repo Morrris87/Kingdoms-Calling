@@ -25,7 +25,10 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     public bool isTargeted = false;
 
     public float bossAutoAttackCooldown = 2;
-    
+
+    public GameObject bossScreechHitBox;
+    public float randomizPlayersInputsTimer = 3;
+
     //Players
     public GameObject playerOne;
     public GameObject playerTwo;
