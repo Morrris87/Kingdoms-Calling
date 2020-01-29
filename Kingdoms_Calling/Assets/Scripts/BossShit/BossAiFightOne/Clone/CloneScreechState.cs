@@ -38,7 +38,7 @@ public class CloneScreechState : CloneFightOneFSMState
     {
         if (enemyAI.bossStats.health <= 0)
         {
-            enemyAI.PerformTransition(Transition.NoHealth);
+            //enemyAI.PerformTransition(Transition.NoHealth);
             return;
         }
     }

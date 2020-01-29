@@ -24,7 +24,7 @@ public class CharacterManager : MonoBehaviour
     public float rotSpeed = 10.0f;
 
     [Header("Camera")]
-    public Camera mainCamera;
+    private Camera mainCamera;
 
     [Header("CycleInputTimer")]
     public float cycleSpeed = 0.5f;
@@ -37,8 +37,8 @@ public class CharacterManager : MonoBehaviour
     PlayerInputActions inputAction; // InputActions    
     Rigidbody playerRBody;
     //Character Input variables
-    Vector2 rotationDirection, movementInput;
-    Vector3 inputDirection, inputRotation, desiredDirection, lookRot;
+    Vector2 movementInput;
+    Vector3 inputDirection, inputRotation, desiredDirection, lookRot, lookDirection, rotationDirection;
     float xMove, yMove, xRot, yRot, cycleTimer;
     //Camera information
     Vector3 camForward, camRight;
@@ -88,7 +88,7 @@ public class CharacterManager : MonoBehaviour
 
         desiredDirection = Vector3.zero;
 
-
+        mainCamera = Camera.main;
 
         if (characterClass == CharacterClass.Paladin)
         {
@@ -124,20 +124,34 @@ public class CharacterManager : MonoBehaviour
 
         ////Fill the desired direction, rotation vector with the basic directions 
         //Vector3 desiredDirection = new Vector3(inputDirection.x, 0, inputDirection.z);
+        
+
+        //Camera Direction for calculating rotation
+        camForward = mainCamera.transform.forward;
+        camRight = mainCamera.transform.right;
+
+        camForward.y = 0f;
+        camRight.y = 0f;
 
         //Verify there was input
         if (desiredDirection != Vector3.zero)
-            UpdatePlayer(desiredDirection);//Move the player
+            UpdatePlayer(desiredDirection);//Move the player     
 
-        
-
-        //Debug.Log(lookRot);
-        ////Call update rotation to change rotation of the player  
-        UpdatePlayerRotation();
+        //check if we are rotating
+        if (rotationDirection != Vector3.zero)
+        {
+            this.GetComponent<Rigidbody>().freezeRotation = false;
+            Quaternion newRotation = Quaternion.LookRotation(lookRot);
+            Debug.Log(newRotation);
+            this.GetComponent<Rigidbody>().MoveRotation(newRotation);
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            //lookRot = Vector3.zero;
+        }
 
         //Update the cycle timer
         if (cycleTimer >= 0)
             cycleTimer -= Time.deltaTime;
+        
     }
 
     /// <summary>
@@ -149,8 +163,8 @@ public class CharacterManager : MonoBehaviour
         //Debug.Log("Moving" + dir);
         //Generate the new position based on our speed and time passed
         dir = dir * speed * 5 * Time.deltaTime;
+
         //Update that position
-        //playerRBody.MovePosition(transform.position + dir);
         //Debug.Log(dir);
         this.GetComponent<Rigidbody>().AddForce(dir * 500);
     }
@@ -158,24 +172,25 @@ public class CharacterManager : MonoBehaviour
     /// <summary>
     /// Player update rotation function handling the rotation of the player based on right analog stick input
     /// </summary>
-    void UpdatePlayerRotation()
-    {      
+    void UpdatePlayerRotation(Vector3 lookRotation)
+    {
         //Verify we actually have input
-        if (lookRot != Vector3.zero)
-        {
-            //reset the constraints
-            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
-            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-            //Update the players rigidbody
-            newRotation = Quaternion.LookRotation(lookRot);
-            Debug.Log("updating move rotation");
-            playerRBody.MoveRotation(newRotation);
-        }
-        //else we dont have input prevent spinning
-        else
-        {
-            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-        }
+        //if (lookRotation != Vector3.zero)
+        //{
+        //    //reset the constraints
+        //    this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+        //    this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        //}
+        ////else we dont have input prevent spinning
+        //else
+        //{
+        //    this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+        //}
+
+
+
+        //-----------------------------------------------------------
+        //Right analog stick targeting code vvv
 
         //Handle right analog targeting
         if (cycleTimer <= 0)
@@ -236,7 +251,7 @@ public class CharacterManager : MonoBehaviour
         //Fill input direction with the Lerp of current pos and destination direction as well as rotation direction
         Vector3 targetInputDir = new Vector3(xMove, 0, yMove);
         inputDirection = Vector3.Lerp(inputDirection, targetInputDir, Time.deltaTime * 10f);
-
+        //Debug.Log(inputDirection);
         //Fill the desired direction, rotation vector with the basic directions 
         desiredDirection = new Vector3(inputDirection.x, 0, inputDirection.z);
 
@@ -245,26 +260,41 @@ public class CharacterManager : MonoBehaviour
 
     public void Rotate(InputAction.CallbackContext context)
     {
-        
-        rotationDirection = context.ReadValue<Vector2>();
-        Debug.Log("rotation value" + rotationDirection);
 
+        //rotationDirection = context.ReadValue<Vector2>();
+        ////Debug.Log("rotation value" + rotationDirection);
+
+
+
+        ////Convert "input" to a Vector3 where the Y axis will be used as the Z axis
+        //Vector3 lookDirection = new Vector3(rotationDirection.x, 0, rotationDirection.y);
+        ////Debug.Log("lookDirection value" + lookDirection + " Rotation Direction " + rotationDirection);
+        ////Convert the direction from local space to world space then projecting to get the Vector to rotate to
+        //lookRot = Camera.main.transform.TransformDirection(lookDirection);
+        ////Debug.Log("lookRot value " + lookRot);
+        //lookRot = Vector3.ProjectOnPlane(lookRot, Vector3.up);
+        ////Debug.Log("lookRot value2 " + lookRot);
+        //UpdatePlayerRotation(lookRot);
         //Camera Direction for calculating rotation
-        camForward = mainCamera.transform.forward;
-        camRight = mainCamera.transform.right;
+        camForward = Camera.main.transform.forward;
+        camRight = Camera.main.transform.right;
 
         camForward.y = 0f;
         camRight.y = 0f;
 
-        //Convert "input" to a Vector3 where the Y axis will be used as the Z axis
-        Vector3 lookDirection = new Vector3(rotationDirection.x, 0, rotationDirection.y);
-        Debug.Log("lookDirection value" + lookDirection + " Rotation Direction " + rotationDirection);
-        //Convert the direction from local space to world space then projecting to get the Vector to rotate to
-        lookRot = mainCamera.transform.TransformDirection(lookDirection);
-        //Debug.Log("lookRot value " + lookRot);
-        lookRot = Vector3.ProjectOnPlane(lookRot, Vector3.up);
-        //Debug.Log("lookRot value2 " + lookRot);
-        //UpdatePlayerRotation(rotationDirection);
+        // Old Input system
+        Vector2 input = context.ReadValue<Vector2>();
+        if(input.x != 0 || input.y != 0)
+        {
+            // Convert "input" to a Vector3 where the Y axis will be used as the Z axis
+            lookDirection = new Vector3(input.x, 0, input.y);
+            lookRot = Camera.main.transform.TransformDirection(lookDirection);
+            lookRot = Vector3.ProjectOnPlane(lookRot, Vector3.up);
+            Debug.Log(lookRot);
+            if (lookRot != Vector3.zero)
+                rotationDirection = lookRot;
+
+        }
     }
 
     public void Ability1(InputAction.CallbackContext context) // For the character's first ability (left bumper)
