@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using CompleteBossOne;
+using CompleteClone;
 
-public class BossScreechState : BossFightOneFSMState
+public class CloneScreechState : CloneFightOneFSMState
 {
     BossFightOneAI enemyAI;
 
     float randomTimer;
-    public BossScreechState(BossFightOneAI Lich)
+    public CloneScreechState(BossFightOneAI Lich)
     {
         enemyAI = Lich;
         curSpeed = 0;

@@ -1,14 +1,8 @@
-﻿//  Name: FSM.cs
-//  Author: ZAC KINDY
-//  Function:
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.UI;
-using CompleteBossOne;
-
-public class BossFightOneAI : BossFIghtOneAdvancedFSM
+using CompleteClone;
+public class CloneAI : CloneFIghtOneAdvancedFSM
 {
     public FSMStateID id;
 
@@ -87,7 +81,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         bossAutoAttackCooldown = bossTimer;
 
         rigBody = GetComponent<Rigidbody>();
-        bossStats = gameObject.GetComponent<BossStats>();
+        bossStats = gameObject.GetComponent<BossStats>();//clone stats MUST MAKE
         spawnScript = gameObject.GetComponent<Spawn>();
         // Create the FSM for the player.
         ConstructFSM();
@@ -108,12 +102,12 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         if (CurrentState.ID == FSMStateID.Dead)
         {
         }
-        if(randomizPlayersInputsTimer <= 3)
+        if (randomizPlayersInputsTimer <= 3)
         {
             randomizPlayersInputsTimer -= Time.deltaTime;
         }
 
-        if(bossTimer <= bossAutoAttackCooldown)
+        if (bossTimer <= bossAutoAttackCooldown)
         {
             bossTimer -= Time.deltaTime;
         }
@@ -132,34 +126,28 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     private void ConstructFSM()
     {
         // Add transitions
-        
-        BossAutoAttackState auto = new BossAutoAttackState(this);
+            
+        CloneAutoAttackState auto = new CloneAutoAttackState(this);
         auto.AddTransition(Transition.NoHealth, FSMStateID.Dead);
         auto.AddTransition(Transition.CastMultiply, FSMStateID.Multiply);
         auto.AddTransition(Transition.CastSpawnSkeletons, FSMStateID.SpawnSkeletons);
         auto.AddTransition(Transition.CastScreech, FSMStateID.Sceach);
 
-        BossSpawnSkeletonsState spawn = new BossSpawnSkeletonsState(this);
+        CloneSpawnSkeletonsState spawn = new CloneSpawnSkeletonsState(this);
         spawn.AddTransition(Transition.NoHealth, FSMStateID.Dead);
         spawn.AddTransition(Transition.AllClonesKilled, FSMStateID.AutoAttack);
 
 
-        BossMultiplyState multply = new BossMultiplyState(this);
-        multply.AddTransition(Transition.NoHealth, FSMStateID.Dead);
-        multply.AddTransition(Transition.AllClonesKilled, FSMStateID.AutoAttack);
-
-
-        BossScreechState screech = new BossScreechState(this);
+        CloneScreechState screech = new CloneScreechState(this);
         screech.AddTransition(Transition.NoHealth, FSMStateID.Dead);
         screech.AddTransition(Transition.ScreechOnCooldown, FSMStateID.AutoAttack);
 
 
-        BossDeathState death = new BossDeathState(this);
+        CloneDeathState death = new CloneDeathState(this);
 
 
         AddFSMState(auto);
         AddFSMState(spawn);
-        AddFSMState(multply);
         AddFSMState(screech);
         AddFSMState(death);
     }
