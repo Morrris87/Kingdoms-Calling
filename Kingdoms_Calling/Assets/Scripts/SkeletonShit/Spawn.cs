@@ -11,6 +11,8 @@ public class Spawn : MonoBehaviour
     public int maxSkeletonNumber;
     int packSize;
     int spawnerNumberA;
+    int spawnerNumberB;
+    int spawnerNumberC;
 
     //Pack Size
     int whitePackNumber = 6;
@@ -18,9 +20,9 @@ public class Spawn : MonoBehaviour
     int purplePackNumber = 1;
 
     //skeletons
-     GameObject skeletonWhite;
-     GameObject skeletonGrey;
-     GameObject skeletonPurple;
+     public GameObject skeletonWhite;
+     public GameObject skeletonGrey;
+     public GameObject skeletonPurple;
 
     GameObject spawnZone;
 
@@ -40,16 +42,20 @@ public class Spawn : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        skeletonWhite = GameObject.FindGameObjectWithTag("White");
-        skeletonGrey = GameObject.FindGameObjectWithTag("Grey");
-        skeletonPurple = GameObject.FindGameObjectWithTag("Purple");
+        //skeletonWhite = GameObject.FindGameObjectWithTag("White");
+        //skeletonGrey = GameObject.FindGameObjectWithTag("Grey");
+        //skeletonPurple = GameObject.FindGameObjectWithTag("Purple");
 
         SpawnZoneA = GameObject.FindGameObjectWithTag("SpawnZoneA");
         SpawnZoneB = GameObject.FindGameObjectWithTag("SpawnZoneB");
         SpawnZoneC = GameObject.FindGameObjectWithTag("SpawnZoneC");
 
         SpawnersZoneA = GameObject.FindGameObjectsWithTag("SpawnerA");
+        SpawnersZoneB = GameObject.FindGameObjectsWithTag("SpawnerB");
+        SpawnersZoneC = GameObject.FindGameObjectsWithTag("SpawnerC");
         spawnerNumberA = SpawnersZoneA.Length;
+        spawnerNumberB = SpawnersZoneB.Length;
+        spawnerNumberC = SpawnersZoneC.Length;
     }
 
     // Update is called once per frame
@@ -76,7 +82,7 @@ public class Spawn : MonoBehaviour
                 //else if SpawnZoneB is triggered
                 else if (spawnZoneBisTriggered == true)
                 {
-                    for (int d = 0; d < spawnerNumberA; d++)
+                    for (int d = 0; d < spawnerNumberB; d++)
                     {
                         spawnZone = SpawnersZoneB[d];
                         SpawnSkeletons();
@@ -85,7 +91,7 @@ public class Spawn : MonoBehaviour
                 //else if SpawnZoneC is triggered
                 else if (spawnZoneCisTriggered == true)
                 {
-                    for (int d = 0; d < spawnerNumberA; d++)
+                    for (int d = 0; d < spawnerNumberC; d++)
                     {
                         spawnZone = SpawnersZoneC[d];
                         SpawnSkeletons();

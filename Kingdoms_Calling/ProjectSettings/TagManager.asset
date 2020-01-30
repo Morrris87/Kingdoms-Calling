@@ -12,6 +12,8 @@ TagManager:
   - SpawnZoneA
   - SpawnZoneB
   - SpawnZoneC
+  - SpawnerB
+  - SpawnerC
   layers:
   - Default
   - TransparentFX
