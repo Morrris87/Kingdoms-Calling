@@ -55,17 +55,17 @@ public class Spawn : MonoBehaviour
 
                 if (spawnerNumber == 1)
                 {
-                    spawnZone = spawnerOne;
+                    //spawnZone = spawnerOne;
                     SpawnSkeletons();
                 }
                 else if (spawnerNumber == 2)
                 {
-                    spawnZone = spawnerTwo;
+                    //spawnZone = spawnerTwo;
                     SpawnSkeletons();
                 }
                 else if (spawnerNumber == 3)
                 {
-                    spawnZone = spawnerThree;
+                    //spawnZone = spawnerThree;
                     SpawnSkeletons();
                 }
             }
