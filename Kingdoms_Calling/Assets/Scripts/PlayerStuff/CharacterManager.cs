@@ -39,7 +39,7 @@ public class CharacterManager : MonoBehaviour
     Rigidbody playerRBody;
     //Character Input variables
     Vector2 movementInput;
-    Vector3 inputDirection, inputRotation, desiredDirection, lookRot, lookDirection, rotationDirection;
+    Vector3 inputDirection, inputRotation, desiredDirection, lookRot, lookDirection, rotationDirection, targetInputDir;
     float xMove, yMove, xRot, yRot, cycleTimer;
     //Camera information
     Vector3 camForward, camRight;
@@ -88,6 +88,7 @@ public class CharacterManager : MonoBehaviour
         basicAttack = this.gameObject.GetComponent<BasicAttack>();
 
         desiredDirection = Vector3.zero;
+        targetInputDir = Vector3.zero;
 
         mainCamera = Camera.main;
 
@@ -136,16 +137,32 @@ public class CharacterManager : MonoBehaviour
         camForward.y = 0f;
         camRight.y = 0f;
 
-        //Verify there was input
-        if (desiredDirection != Vector3.zero)
-            UpdatePlayer(desiredDirection);//Move the player     
+        //left stick right stick
 
-        //check if we are rotating
+        //Verify there was input left stick
+        if (desiredDirection != Vector3.zero)
+        {
+            UpdatePlayer(desiredDirection);//Move the player  
+            CalcRotation(movementInput);
+            //if we have no input on right stick make the character face movement direction
+            if (rotationDirection == Vector3.zero)
+            {                
+                this.GetComponent<Rigidbody>().freezeRotation = false;
+                Quaternion newRotation = Quaternion.LookRotation(rotationDirection);
+                Debug.Log(newRotation);
+                this.GetComponent<Rigidbody>().MoveRotation(newRotation);
+                this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+                Debug.Log("left stick rotation");
+                rotationDirection = new Vector3(newRotation.x, newRotation.y, newRotation.z);
+            }
+        }
+
+        //check if we are rotating right stick
         if (rotationDirection != Vector3.zero)
         {
             this.GetComponent<Rigidbody>().freezeRotation = false;
-            Quaternion newRotation = Quaternion.LookRotation(lookRot);
-            Debug.Log(newRotation);
+            Quaternion newRotation = Quaternion.LookRotation(rotationDirection);
+            //Debug.Log(newRotation);
             this.GetComponent<Rigidbody>().MoveRotation(newRotation);
             this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             //lookRot = Vector3.zero;
@@ -234,6 +251,17 @@ public class CharacterManager : MonoBehaviour
     //    inputAction.Disable();
     //}
 
+    void CalcRotation(Vector2 input)
+    {
+        // Convert "input" to a Vector3 where the Y axis will be used as the Z axis
+        lookDirection = new Vector3(input.x, 0, input.y);
+        lookRot = Camera.main.transform.TransformDirection(lookDirection);
+        lookRot = Vector3.ProjectOnPlane(lookRot, Vector3.up);
+        //Debug.Log(lookRot);
+        if (lookRot != Vector3.zero)
+            rotationDirection = lookRot;
+    }
+
  
     //-------------------------------------------------------------------------------------------------------------------------------------------
     //Input Functions below (Examples of how the call are made context being the information given back to us by the input casting that results in our data)
@@ -270,7 +298,7 @@ public class CharacterManager : MonoBehaviour
         }
 
         //Fill input direction with the Lerp of current pos and destination direction as well as rotation direction
-        Vector3 targetInputDir = new Vector3(xMove, 0, yMove);
+        targetInputDir = new Vector3(xMove, 0, yMove);
         inputDirection = Vector3.Lerp(inputDirection, targetInputDir, Time.deltaTime * 10f);
         //Debug.Log(inputDirection);
         //Fill the desired direction, rotation vector with the basic directions 
@@ -307,14 +335,7 @@ public class CharacterManager : MonoBehaviour
         Vector2 input = context.ReadValue<Vector2>();
         if(input.x != 0 || input.y != 0)
         {
-            // Convert "input" to a Vector3 where the Y axis will be used as the Z axis
-            lookDirection = new Vector3(input.x, 0, input.y);
-            lookRot = Camera.main.transform.TransformDirection(lookDirection);
-            lookRot = Vector3.ProjectOnPlane(lookRot, Vector3.up);
-            Debug.Log(lookRot);
-            if (lookRot != Vector3.zero)
-                rotationDirection = lookRot;
-
+            CalcRotation(input);
         }
     }
 
