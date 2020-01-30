@@ -112,7 +112,7 @@ public class CharacterManager : MonoBehaviour
             warriorFalmingLeap = this.GetComponent<FlamingLeap>();
         }
 
-        this.GetComponentInChildren<Animator>().Play("Idle");
+        //this.GetComponentInChildren<Animator>().Play("Idle");
     }
 
     void Update()
@@ -250,6 +250,16 @@ public class CharacterManager : MonoBehaviour
         //Grab movement input x and y 2D
         xMove = movementInput.x;
         yMove = movementInput.y;
+
+        // Sets the isWalking bool to true if the character is moving, otherwise set to false to control animations
+        if (xMove > 0 || yMove > 0)
+        {
+            GetComponentInChildren<Animator>().SetBool("isWalking", true);
+        }
+        else
+        {
+            GetComponentInChildren<Animator>().SetBool("isWalking", false);
+        }
 
         //Fill input direction with the Lerp of current pos and destination direction as well as rotation direction
         Vector3 targetInputDir = new Vector3(xMove, 0, yMove);
