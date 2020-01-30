@@ -1,0 +1,13 @@
+attack anim
+	-archer f53 f70
+	-warrior f23 f34
+	-pali f2 f19
+	-assassin f37 f50
+
+all characters 
+	- idle f76 f116
+	- walk f177 f222
+	- run f226 f243
+	- walk up somthing (unfinshed) f122 f156
+
+MORDHAU
