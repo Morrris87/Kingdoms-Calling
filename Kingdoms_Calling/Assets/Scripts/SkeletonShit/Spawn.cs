@@ -71,9 +71,7 @@ public class Spawn : MonoBehaviour
                     {
                         spawnZone = SpawnersZoneA[d];
                         SpawnSkeletons();
-                    }
-                    
-                    SpawnSkeletons();
+                    }    
                 }
                 //else if SpawnZoneB is triggered
                 else if (spawnZoneBisTriggered == true)
@@ -83,7 +81,6 @@ public class Spawn : MonoBehaviour
                         spawnZone = SpawnersZoneB[d];
                         SpawnSkeletons();
                     }
-                    SpawnSkeletons();
                 }
                 //else if SpawnZoneC is triggered
                 else if (spawnZoneCisTriggered == true)
@@ -93,7 +90,6 @@ public class Spawn : MonoBehaviour
                         spawnZone = SpawnersZoneC[d];
                         SpawnSkeletons();
                     }
-                    SpawnSkeletons();
                 }
             }
         } 
