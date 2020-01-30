@@ -132,7 +132,7 @@ MonoBehaviour:
   m_CharNumber: 1
   navAgent: {fileID: 840511907221040439}
   rigBody: {fileID: 0}
-  attackRange: 1
+  attackRange: 5
   chaseRange: 50
   isTaunted: 0
   tauntDuration: 0
