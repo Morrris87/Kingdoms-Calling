@@ -9,6 +9,7 @@ using Complete;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.InputSystem;
 
 public class CharacterManager : MonoBehaviour
@@ -110,6 +111,8 @@ public class CharacterManager : MonoBehaviour
             warriorAxeWhirlwind = this.GetComponent<AxeWhirlwind>();
             warriorFalmingLeap = this.GetComponent<FlamingLeap>();
         }
+
+        this.GetComponentInChildren<Animator>().Play("Idle");
     }
 
     void Update()
