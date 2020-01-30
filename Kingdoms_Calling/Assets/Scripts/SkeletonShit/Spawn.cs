@@ -129,6 +129,7 @@ public class Spawn : MonoBehaviour
         //20% for grey pack size 3
         //70% for white pack size 6
 
+
         //look up off setting enemys
         if (Random.value > 0.7)
         {
