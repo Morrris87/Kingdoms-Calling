@@ -64,29 +64,44 @@ public class Spawn : MonoBehaviour
                 //if SpawnZoneA is triggered
                 if (SpawnZoneA)
                 {
+<<<<<<< HEAD
                     for (int d = 0; d < spawnerNumberA; d++)
                     {
                         spawnZone = SpawnersZoneA[d];
                         SpawnSkeletons();
                     }
+=======
+                    //spawnZone = spawnerOne;
+                    SpawnSkeletons();
+>>>>>>> 5a0fe55bd64ab2173f0f195f54174047af6dd644
                 }
                 //else if SpawnZoneB is triggered
                 else if (SpawnZoneB)
                 {
+<<<<<<< HEAD
                     for (int d = 0; d < spawnerNumberA; d++)
                     {
                         spawnZone = SpawnersZoneB[d];
                         SpawnSkeletons();
                     }
+=======
+                    //spawnZone = spawnerTwo;
+                    SpawnSkeletons();
+>>>>>>> 5a0fe55bd64ab2173f0f195f54174047af6dd644
                 }
                 //else if SpawnZoneC is triggered
                 else if (SpawnZoneC)
                 {
+<<<<<<< HEAD
                     for (int d = 0; d < spawnerNumberA; d++)
                     {
                         spawnZone = SpawnersZoneC[d];
                         SpawnSkeletons();
                     }
+=======
+                    //spawnZone = spawnerThree;
+                    SpawnSkeletons();
+>>>>>>> 5a0fe55bd64ab2173f0f195f54174047af6dd644
                 }
             }
         } 
