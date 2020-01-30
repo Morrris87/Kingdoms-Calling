@@ -13,8 +13,8 @@ ModelImporter:
       74: 5522812681064789136
     second: Run
   - first:
-      74: 6720303635017113406
-    second: Attack
+      74: -2570817285357637083
+    second: Archer Attack
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -24,8 +24,23 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Default Material
+    second: {fileID: 2100000, guid: e8b2a1918f6b3d648beae13095b60299, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #24'
+    second: {fileID: 2100000, guid: d0b9aa5a3a70717409ebd38863a3caa2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Material_001
     second: {fileID: 2100000, guid: d5cfabe373827ec4cb793125c55e49f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: d6ff9d1def2c42b4a82876a3191934a9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -70,7 +85,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -99,7 +114,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -120,15 +135,15 @@ ModelImporter:
       name: Run
       takeName: Take 001
       internalID: 0
-      firstFrame: 100
-      lastFrame: 226
+      firstFrame: 226
+      lastFrame: 243
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -146,7 +161,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Attack
+      name: Archer Attack
       takeName: Take 001
       internalID: 0
       firstFrame: 53
