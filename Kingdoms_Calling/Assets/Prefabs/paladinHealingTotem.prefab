@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2348226286239206520}
   - component: {fileID: 7816959521709891799}
   - component: {fileID: 5744425530948300566}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: paladinHealingTotem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 1
-  lifeTime: 10
+  totalLifeTime: 10
   damageHealInterval: 2
   healValue: 1
   damageValue: 1

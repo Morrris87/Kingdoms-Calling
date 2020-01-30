@@ -26,6 +26,7 @@ public class ElementManager : MonoBehaviour
 
     //Private Data
     ClassElement effectedElement;
+
     float effectedTimer;
     float igniteTimer;
     float igniteTotalTimePassed;
@@ -129,6 +130,13 @@ public class ElementManager : MonoBehaviour
     public ClassElement GetElement()
     {
         ClassElement targetElement = this.GetComponent<ElementManager>().effectedElement;
+
+        return targetElement;
+    }
+
+    public ClassElement GetElementObject(GameObject objIn)
+    {
+        ClassElement targetElement = objIn.GetComponent<ElementManager>().effectedElement;
 
         return targetElement;
     }

@@ -14,15 +14,15 @@ public class EarthHealingSpring : MonoBehaviour
     // Public Variables
     [Header("Totem Specs")]
     public float range = 1f;
-    public float lifeTime = 10f;
+    public float totalLifeTime = 10;
     public float damageHealInterval = 2f;
     public int healValue = 1;
     public int damageValue = 1;
 
     // Private Variables
-    int playerLayerIndex;
-    int enemyLayerIndex;
-    float totemTick;
+    AssassinPaladinCombo assPalCombo;
+    int playerLayerIndex, enemyLayerIndex;
+    float totemTick, oldHealValue, oldDamageValue, oldRange, lifeTime;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +30,7 @@ public class EarthHealingSpring : MonoBehaviour
         //Get the player and enemy layermask id's
         playerLayerIndex = LayerMask.NameToLayer("Player");
         enemyLayerIndex = LayerMask.NameToLayer("Enemy");
+        lifeTime = totalLifeTime;
         totemTick = damageHealInterval;
     }
 
@@ -63,8 +64,15 @@ public class EarthHealingSpring : MonoBehaviour
                 {
                     Debug.Log("Damage " + hitColliders[i].name);
                     hitColliders[i].gameObject.GetComponentInChildren<Health>().Damage(-damageValue); //Damage the current colliders health by the current damageValue
-
-                    hitColliders[i].GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.Earth);
+                    if (hitColliders[i].GetComponent<ElementManager>().GetElementObject(hitColliders[i].gameObject) == ElementManager.ClassElement.Lightning) // if effected by lightning
+                    {
+                        assPalCombo.UseAbility();
+                    }
+                    //Else we have no element on the enemy apply the earth element
+                    else
+                    {
+                        hitColliders[i].GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.Earth);
+                    }
                 }
                 i++;
             }
@@ -84,14 +92,18 @@ public class EarthHealingSpring : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
-    
-    //void GetInRadius()
-    //{
-    //    foreach (Transform trans in enemyArray)
-    //    {
-    //        float distanceSqr = (transform.position - trans.position).sqrMagnitude;
-    //        if (distanceSqr < range)
-    //          //Do smthn
-    //    }
-    //}
+
+    public void TotemBoost(float rangeMultiplier, int damageHealMultiplier)
+    {
+        //hold old values
+        oldRange = range;
+        oldHealValue = healValue;
+        oldDamageValue = damageValue;
+
+        //update the specs of the totem and reset its life boosted
+        range *= rangeMultiplier;
+        damageValue *= damageHealMultiplier;
+        healValue *= damageHealMultiplier;
+        lifeTime = totalLifeTime;
+    }
 }
