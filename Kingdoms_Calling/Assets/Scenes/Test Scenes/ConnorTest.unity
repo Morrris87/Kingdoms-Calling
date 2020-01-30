@@ -130,7 +130,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: ca27afdbcdf2ede449bcf8243aa476dc,
         type: 3}
       propertyPath: m_Name
-      value: ArcherDone
+      value: CharacterModel_Archer
       objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: ca27afdbcdf2ede449bcf8243aa476dc,
         type: 3}
