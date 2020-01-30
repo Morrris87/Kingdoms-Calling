@@ -18,22 +18,22 @@ public class Spawn : MonoBehaviour
     int purplePackNumber = 1;
 
     //skeletons
-    public GameObject skeletonWhite;
-    public GameObject skeletonGrey;
-    public GameObject skeletonPurple;
+     GameObject skeletonWhite;
+     GameObject skeletonGrey;
+     GameObject skeletonPurple;
 
     GameObject spawnZone;
 
-    // will turn to list of spawners later
-    public GameObject spawnerOne;
-    public GameObject spawnerTwo;
-    public GameObject spawnerThree;
+    // make a GameObject list for the spawners
+    Stack<GameObject> spawners = new Stack<GameObject>();
 
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        skeletonWhite = GameObject.FindGameObjectWithTag("White");
+        skeletonGrey = GameObject.FindGameObjectWithTag("Grey");
+        skeletonPurple = GameObject.FindGameObjectWithTag("Purple");
     }
 
     // Update is called once per frame
@@ -115,7 +115,7 @@ public class Spawn : MonoBehaviour
                     totalSkeletoNumber++;
                 }
             }
-        }
+        }//white 70%
         else if(Random.value > 0.2)
         {
             packSize = greyPackNUmber;
@@ -137,7 +137,7 @@ public class Spawn : MonoBehaviour
                     totalSkeletoNumber++;
                 }
             }
-        }
+        }//grey 20%
         else if(Random.value > 0.1)
         {
             packSize = purplePackNumber;
@@ -146,7 +146,7 @@ public class Spawn : MonoBehaviour
                 Instantiate(skeletonPurple, spawnZone.transform.position, Quaternion.identity);
                 totalSkeletoNumber++;
             }
-        }
+        }//purple 10%
 
     }
 
