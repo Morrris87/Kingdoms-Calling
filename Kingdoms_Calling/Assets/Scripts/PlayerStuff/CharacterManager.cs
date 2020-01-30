@@ -252,14 +252,14 @@ public class CharacterManager : MonoBehaviour
         yMove = movementInput.y;
 
         // Sets the isWalking bool to true if the character is moving, otherwise set to false to control animations
-        if (xMove > 0 || yMove > 0)
-        {
-            GetComponentInChildren<Animator>().SetBool("isWalking", true);
-        }
-        else
-        {
-            GetComponentInChildren<Animator>().SetBool("isWalking", false);
-        }
+        //if (xMove > 0 || yMove > 0)
+        //{
+        //    GetComponentInChildren<Animator>().SetBool("isWalking", true);
+        //}
+        //else
+        //{
+        //    GetComponentInChildren<Animator>().SetBool("isWalking", false);
+        //}
 
         //Fill input direction with the Lerp of current pos and destination direction as well as rotation direction
         Vector3 targetInputDir = new Vector3(xMove, 0, yMove);
