@@ -21,7 +21,7 @@ public class CharacterManager : MonoBehaviour
     public CharacterClass characterClass;    
 
     [Header("Movement")]
-    public float speed = 4.5f;   // Original = 4.5f
+    public float speed = 7.5f;   // Original = 4.5f
     public float rotSpeed = 10.0f;
 
     [Header("Camera")]
@@ -254,19 +254,19 @@ public class CharacterManager : MonoBehaviour
         // Sets the isWalking bool to true if the character is moving, otherwise set to false to control animations
         if (xMove > 0 || yMove > 0)
         {
-            GetComponentInChildren<Animator>().SetBool("isWalking", true);
+            GetComponentInChildren<Animator>().SetBool("isMoving", true);
         }
         else
         {
-            GetComponentInChildren<Animator>().SetBool("isWalking", false);
+            GetComponentInChildren<Animator>().SetBool("isMoving", false);
         }
         if (xMove > 0 || xMove < 0 || yMove > 0 || yMove < 0)
         {
-            GetComponentInChildren<Animator>().SetBool("isWalking", true);
+            GetComponentInChildren<Animator>().SetBool("isMoving", true);
         }
         else
         {
-            GetComponentInChildren<Animator>().SetBool("isWalking", false);
+            GetComponentInChildren<Animator>().SetBool("isMoving", false);
         }
 
         //Fill input direction with the Lerp of current pos and destination direction as well as rotation direction
