@@ -75,8 +75,15 @@ public class Spawn : MonoBehaviour
                 {
                     for (int d = 0; d < spawnerNumberA; d++)
                     {
-                        spawnZone = SpawnersZoneA[d];
-                        SpawnSkeletons();
+                        if (totalSkeletoNumber >= maxSkeletonNumber)
+                        {
+                            //no more spawning
+                        }
+                        else
+                        {
+                            spawnZone = SpawnersZoneA[d];
+                            SpawnSkeletons();
+                        }
                     }    
                 }
                 //else if SpawnZoneB is triggered
@@ -84,8 +91,15 @@ public class Spawn : MonoBehaviour
                 {
                     for (int d = 0; d < spawnerNumberB; d++)
                     {
-                        spawnZone = SpawnersZoneB[d];
-                        SpawnSkeletons();
+                        if (totalSkeletoNumber >= maxSkeletonNumber)
+                        {
+                            //no more spawning
+                        }
+                        else
+                        {
+                            spawnZone = SpawnersZoneB[d];
+                            SpawnSkeletons();
+                        }
                     }
                 }
                 //else if SpawnZoneC is triggered
@@ -93,8 +107,15 @@ public class Spawn : MonoBehaviour
                 {
                     for (int d = 0; d < spawnerNumberC; d++)
                     {
-                        spawnZone = SpawnersZoneC[d];
-                        SpawnSkeletons();
+                        if (totalSkeletoNumber >= maxSkeletonNumber)
+                        {
+                            //no more spawning
+                        }
+                        else
+                        {
+                            spawnZone = SpawnersZoneC[d];
+                            SpawnSkeletons();
+                        }
                     }
                 }
             }

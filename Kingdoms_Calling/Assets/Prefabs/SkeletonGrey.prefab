@@ -133,7 +133,7 @@ MonoBehaviour:
   navAgent: {fileID: 2163037438973608791}
   rigBody: {fileID: 0}
   attackRange: 1
-  chaseRange: 5
+  chaseRange: 50
   isTaunted: 0
   tauntDuration: 0
   isTargeted: 0
