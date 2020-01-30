@@ -33,6 +33,9 @@ public class Spawn : MonoBehaviour
     GameObject[] SpawnersZoneB;
     GameObject[] SpawnersZoneC;
 
+    bool spawnZoneAisTriggered = false;
+    bool spawnZoneBisTriggered = false;
+    bool spawnZoneCisTriggered = false;
 
     // Start is called before the first frame update
     void Start()
@@ -62,7 +65,7 @@ public class Spawn : MonoBehaviour
             else
             {
                 //if SpawnZoneA is triggered
-                if (SpawnZoneA)
+                if (spawnZoneAisTriggered == true)
                 {
                     for (int d = 0; d < spawnerNumberA; d++)
                     {
@@ -73,7 +76,7 @@ public class Spawn : MonoBehaviour
                     SpawnSkeletons();
                 }
                 //else if SpawnZoneB is triggered
-                else if (SpawnZoneB)
+                else if (spawnZoneBisTriggered == true)
                 {
                     for (int d = 0; d < spawnerNumberA; d++)
                     {
@@ -83,7 +86,7 @@ public class Spawn : MonoBehaviour
                     SpawnSkeletons();
                 }
                 //else if SpawnZoneC is triggered
-                else if (SpawnZoneC)
+                else if (spawnZoneCisTriggered == true)
                 {
                     for (int d = 0; d < spawnerNumberA; d++)
                     {
@@ -249,5 +252,23 @@ public class Spawn : MonoBehaviour
     private void OnGUI()
     {
         //GUI.Label(new Rect(60, 30, 30, 30), totalSkeletoNumber.ToString());
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            if (this.tag == "SpawnZoneA")
+            {
+                spawnZoneAisTriggered = true;
+            }
+            else if(this.tag == "SpawnZoneB")
+            {
+                spawnZoneBisTriggered = true;
+            }
+            else if (this.tag == "SpawnZoneC")
+            {
+                spawnZoneCisTriggered = true;
+            }
+        }
     }
 }
