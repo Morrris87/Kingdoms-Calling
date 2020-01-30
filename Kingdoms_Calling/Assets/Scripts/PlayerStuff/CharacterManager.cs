@@ -252,7 +252,7 @@ public class CharacterManager : MonoBehaviour
         yMove = movementInput.y;
 
         // Sets the isWalking bool to true if the character is moving, otherwise set to false to control animations
-        if (xMove > 0 || yMove > 0)
+        if (xMove > 0 || xMove < 0 || yMove > 0 || yMove < 0)
         {
             GetComponentInChildren<Animator>().SetBool("isWalking", true);
         }
