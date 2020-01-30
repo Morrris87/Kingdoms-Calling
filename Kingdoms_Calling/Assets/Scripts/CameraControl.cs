@@ -82,7 +82,7 @@ public class CameraControl : MonoBehaviour
             averagePos /= playerCount;  // Divide players by averagePos
         }
 
-        averagePos.y = transform.position.y;    // Keep the y coordinate the default
+        //averagePos.y = transform.position.y;    // Keep the y coordinate the default
         finalPosition = averagePos;             // Stores averagePos in finalPosition
 
         // Move the camera
