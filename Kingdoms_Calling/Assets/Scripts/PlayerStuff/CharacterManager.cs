@@ -146,6 +146,11 @@ public class CharacterManager : MonoBehaviour
             //Debug.Log(newRotation);
             this.GetComponent<Rigidbody>().MoveRotation(newRotation);
             this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            //if we are not moving freeze the position
+            if (!GetComponentInChildren<Animator>().GetBool("isMoving"))
+            {
+                this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            }
             //lookRot = Vector3.zero;
         }
 
@@ -165,6 +170,7 @@ public class CharacterManager : MonoBehaviour
                     Debug.Log(newRotation);
                     this.GetComponent<Rigidbody>().MoveRotation(newRotation);
                     this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+                    
                     Debug.Log("left stick rotation");
                     rotationDirection = new Vector3(newRotation.x, newRotation.y, newRotation.z);
                 }
@@ -299,12 +305,12 @@ public class CharacterManager : MonoBehaviour
         if (xMove > 0 || xMove < 0 || yMove > 0 || yMove < 0)
         {
             GetComponentInChildren<Animator>().SetBool("isMoving", true);
-            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         }
         else
         {
             GetComponentInChildren<Animator>().SetBool("isMoving", false);
-            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         }
 
         //Fill input direction with the Lerp of current pos and destination direction as well as rotation direction
