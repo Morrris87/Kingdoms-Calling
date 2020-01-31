@@ -152,6 +152,7 @@ public class CharacterManager : MonoBehaviour
         //Verify there was input left stick
         if (desiredDirection != Vector3.zero)
         {
+            this.GetComponent<Rigidbody>().isKinematic = false;
             UpdatePlayer(desiredDirection);//Move the player
             if (rightStick == false)
             {
@@ -168,7 +169,6 @@ public class CharacterManager : MonoBehaviour
                     rotationDirection = new Vector3(newRotation.x, newRotation.y, newRotation.z);
                 }
             }
-
         }
 
         //Update the cycle timer
@@ -289,18 +289,22 @@ public class CharacterManager : MonoBehaviour
         if (xMove > 0 || yMove > 0)
         {
             GetComponentInChildren<Animator>().SetBool("isMoving", true);
+            //this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         }
         else
         {
             GetComponentInChildren<Animator>().SetBool("isMoving", false);
+            //this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
         }
         if (xMove > 0 || xMove < 0 || yMove > 0 || yMove < 0)
         {
             GetComponentInChildren<Animator>().SetBool("isMoving", true);
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         }
         else
         {
             GetComponentInChildren<Animator>().SetBool("isMoving", false);
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
         }
 
         //Fill input direction with the Lerp of current pos and destination direction as well as rotation direction
