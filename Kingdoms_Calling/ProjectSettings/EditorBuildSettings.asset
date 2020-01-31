@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/GraveYard Map.unity
-    guid: e4924d99f5b396c4da88b0e507f9ef4f
+    path: Assets/Scenes/Kingdoms calling - The Plains.unity
+    guid: 6a6a31158d5af6b42ba112b2ea7cc558
   m_configObjects: {}
