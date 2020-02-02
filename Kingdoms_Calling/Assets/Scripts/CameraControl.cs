@@ -13,7 +13,7 @@ public class CameraControl : MonoBehaviour
     public Transform[] players = new Transform[4];  // Array to store positions of all active players
     public float focusTime = 0.2f;                  // Time for camera to focus on the averagePos
     public float screenEdgeBuffer = 4f;             // Bounds for the camera
-    public float minSize = 6.5f;                    // Minimum size for the camera
+    public float minSize = 10f;                    	// Minimum size for the camera
 
     [SerializeField] private Camera mainCamera; // The main camera
     private float zoomSpeed;                    // Speed for the camera zoom
@@ -41,7 +41,7 @@ public class CameraControl : MonoBehaviour
         // Loop through each of the targets
         for (int i = 0; i < players.Length; i++)
         {
-            if (!players[i].gameObject.activeSelf)  // If player isn't active, skip
+            if (players[i].gameObject.activeSelf == false)  // If player isn't active, skip
             {
                 continue;
             }

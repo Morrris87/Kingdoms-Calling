@@ -34,7 +34,7 @@ Transform:
   m_GameObject: {fileID: 3407011404333093446}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20.953356, y: 0.5, z: 4.0928082}
-  m_LocalScale: {x: 0.5, y: 1, z: 0.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 8781661567118608060}
   m_Father: {fileID: 0}
@@ -132,8 +132,8 @@ MonoBehaviour:
   m_CharNumber: 1
   navAgent: {fileID: 2318763717284305282}
   rigBody: {fileID: 0}
-  attackRange: 1
-  chaseRange: 5
+  attackRange: 5
+  chaseRange: 50
   isTaunted: 0
   tauntDuration: 0
   isTargeted: 0

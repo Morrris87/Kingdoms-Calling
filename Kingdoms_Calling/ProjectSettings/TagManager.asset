@@ -8,6 +8,12 @@ TagManager:
   - Grey
   - Purple
   - ArrowVolley
+  - SpawnerA
+  - SpawnZoneA
+  - SpawnZoneB
+  - SpawnZoneC
+  - SpawnerB
+  - SpawnerC
   layers:
   - Default
   - TransparentFX

@@ -10,7 +10,9 @@ public class Spawn : MonoBehaviour
     int totalSkeletoNumber;
     public int maxSkeletonNumber;
     int packSize;
-    int spawnerNumber;
+    int spawnerNumberA;
+    int spawnerNumberB;
+    int spawnerNumberC;
 
     //Pack Size
     int whitePackNumber = 6;
@@ -18,22 +20,43 @@ public class Spawn : MonoBehaviour
     int purplePackNumber = 1;
 
     //skeletons
-    public GameObject skeletonWhite;
-    public GameObject skeletonGrey;
-    public GameObject skeletonPurple;
+     public GameObject skeletonWhite;
+     public GameObject skeletonGrey;
+     public GameObject skeletonPurple;
 
     GameObject spawnZone;
 
-    // will turn to list of spawners later
-    public GameObject spawnerOne;
-    public GameObject spawnerTwo;
-    public GameObject spawnerThree;
+    // make a GameObject array for the spawners
+    GameObject SpawnZoneA;
+    GameObject SpawnZoneB;
+    GameObject SpawnZoneC;
 
-    
+    GameObject[] SpawnersZoneA;
+    GameObject[] SpawnersZoneB;
+    GameObject[] SpawnersZoneC;
+
+    bool spawnZoneAisTriggered = false;
+    bool spawnZoneBisTriggered = false;
+    bool spawnZoneCisTriggered = false;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        //skeletonWhite = GameObject.FindGameObjectWithTag("White");
+        //skeletonGrey = GameObject.FindGameObjectWithTag("Grey");
+        //skeletonPurple = GameObject.FindGameObjectWithTag("Purple");
+
+        SpawnZoneA = GameObject.FindGameObjectWithTag("SpawnZoneA");
+        SpawnZoneB = GameObject.FindGameObjectWithTag("SpawnZoneB");
+        SpawnZoneC = GameObject.FindGameObjectWithTag("SpawnZoneC");
+
+        SpawnersZoneA = GameObject.FindGameObjectsWithTag("SpawnerA");
+        SpawnersZoneB = GameObject.FindGameObjectsWithTag("SpawnerB");
+        SpawnersZoneC = GameObject.FindGameObjectsWithTag("SpawnerC");
+
+        spawnerNumberA = SpawnersZoneA.Length;
+        spawnerNumberB = SpawnersZoneB.Length;
+        spawnerNumberC = SpawnersZoneC.Length;
     }
 
     // Update is called once per frame
@@ -48,28 +71,56 @@ public class Spawn : MonoBehaviour
             }
             else
             {
-                spawnerNumber = Random.Range(1, 4);
-                //pick spawner close to each player 
-
-                //for now randomly pick spawner location
-
-                if (spawnerNumber == 1)
+                //if SpawnZoneA is triggered
+                if (spawnZoneAisTriggered == true)
                 {
-                    spawnZone = spawnerOne;
-                    SpawnSkeletons();
+                    for (int d = 0; d < spawnerNumberA; d++)
+                    {
+                        if (totalSkeletoNumber >= maxSkeletonNumber)
+                        {
+                            //no more spawning
+                        }
+                        else
+                        {
+                            spawnZone = SpawnersZoneA[d];
+                            SpawnSkeletons();
+                        }
+                    }    
                 }
-                else if (spawnerNumber == 2)
+                //else if SpawnZoneB is triggered
+                else if (spawnZoneBisTriggered == true)
                 {
-                    spawnZone = spawnerTwo;
-                    SpawnSkeletons();
+                    for (int d = 0; d < spawnerNumberB; d++)
+                    {
+                        if (totalSkeletoNumber >= maxSkeletonNumber)
+                        {
+                            //no more spawning
+                        }
+                        else
+                        {
+                            spawnZone = SpawnersZoneB[d];
+                            SpawnSkeletons();
+                        }
+                    }
                 }
-                else if (spawnerNumber == 3)
+                //else if SpawnZoneC is triggered
+                else if (spawnZoneCisTriggered == true)
                 {
-                    spawnZone = spawnerThree;
-                    SpawnSkeletons();
+                    for (int d = 0; d < spawnerNumberC; d++)
+                    {
+                        if (totalSkeletoNumber >= maxSkeletonNumber)
+                        {
+                            //no more spawning
+                        }
+                        else
+                        {
+                            spawnZone = SpawnersZoneC[d];
+                            SpawnSkeletons();
+                        }
+                    }
                 }
             }
-         } 
+        } 
 
     }
     public void SpawnSkeletons()
@@ -77,6 +128,7 @@ public class Spawn : MonoBehaviour
         //10% for purple pack size 1
         //20% for grey pack size 3
         //70% for white pack size 6
+
 
         //look up off setting enemys
         if (Random.value > 0.7)
@@ -115,7 +167,7 @@ public class Spawn : MonoBehaviour
                     totalSkeletoNumber++;
                 }
             }
-        }
+        }//white 70%
         else if(Random.value > 0.2)
         {
             packSize = greyPackNUmber;
@@ -137,7 +189,7 @@ public class Spawn : MonoBehaviour
                     totalSkeletoNumber++;
                 }
             }
-        }
+        }//grey 20%
         else if(Random.value > 0.1)
         {
             packSize = purplePackNumber;
@@ -146,7 +198,7 @@ public class Spawn : MonoBehaviour
                 Instantiate(skeletonPurple, spawnZone.transform.position, Quaternion.identity);
                 totalSkeletoNumber++;
             }
-        }
+        }//purple 10%
 
     }
 
@@ -159,27 +211,27 @@ public class Spawn : MonoBehaviour
             {
                 if (i == 0)
                 {
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
+                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 2f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                 }
                 else if (i == 1)
                 {
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 2f), Quaternion.identity);
+                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 8f), Quaternion.identity);
                 }
                 else if (i == 2)
                 {
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 1f), Quaternion.identity);
+                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 4f), Quaternion.identity);
                 }
                 else if (i == 3)
                 {
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
+                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 2f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                 }
                 else if (i == 4)
                 {
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 2f), Quaternion.identity);
+                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 8f), Quaternion.identity);
                 }
                 else if (i == 5)
                 {
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 1f), Quaternion.identity);
+                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 4f), Quaternion.identity);
                 }
             }
         }
@@ -194,11 +246,11 @@ public class Spawn : MonoBehaviour
                 }
                 else if (i == 1)
                 {
-                    Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x + 1f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
+                    Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x + 4f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                 }
                 else if (i == 2)
                 {
-                    Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x - 1f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
+                    Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x - 4f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                 }
             }
         }
@@ -218,12 +270,30 @@ public class Spawn : MonoBehaviour
         for(int i = 0; i < maxClones; i++)
         {
 
-        Instantiate(bossPrefab, new Vector3(SpawnZoneArray[i].transform.position.x, SpawnZoneArray[i].transform.position.y, SpawnZoneArray[i].transform.position.z), Quaternion.identity);
+            Instantiate(bossPrefab, new Vector3(SpawnZoneArray[i].transform.position.x, SpawnZoneArray[i].transform.position.y, SpawnZoneArray[i].transform.position.z), Quaternion.identity);
 
         }
     }
     private void OnGUI()
     {
-        //GUI.Label(new Rect(60, 30, 30, 30), totalSkeletoNumber.ToString());
+        GUI.Label(new Rect(60, 30, 30, 30), totalSkeletoNumber.ToString());
+    }
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            if (this.tag == "SpawnZoneA")
+            {
+                spawnZoneAisTriggered = true;
+            }
+            else if(this.tag == "SpawnZoneB")
+            {
+                spawnZoneBisTriggered = true;
+            }
+            else if (this.tag == "SpawnZoneC")
+            {
+                spawnZoneCisTriggered = true;
+            }
+        }
     }
 }
