@@ -147,17 +147,18 @@ public class CharacterManager : MonoBehaviour
             this.GetComponent<Rigidbody>().MoveRotation(newRotation);
             this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             //if we are not moving freeze the position
-            if (!GetComponentInChildren<Animator>().GetBool("isMoving"))
-            {
-                this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-            }
+            //if (!GetComponentInChildren<Animator>().GetBool("isMoving"))
+            //{
+            //    this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            //}
             //lookRot = Vector3.zero;
         }
 
         //Verify there was input left stick
         if (desiredDirection != Vector3.zero)
         {
-            this.GetComponent<Rigidbody>().isKinematic = false;
+            //this.GetComponent<Rigidbody>().isKinematic = false;
+            //desiredDirection.y
             UpdatePlayer(desiredDirection);//Move the player
             if (rightStick == false)
             {
@@ -184,6 +185,14 @@ public class CharacterManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Used for handling physics updates
+    /// </summary>
+    private void FixedUpdate()
+    {
+        UpdatePlayer(desiredDirection);
+    }
+
+    /// <summary>
     /// Player update function handling the movement/speed of the player
     /// </summary>
     /// <param name="dir">The desired direction of the left analog stick</param>
@@ -191,11 +200,12 @@ public class CharacterManager : MonoBehaviour
     {
         //Debug.Log("Moving" + dir);
         //Generate the new position based on our speed and time passed
-        dir = dir * speed * 5 * Time.deltaTime;
+        dir = dir * speed * Time.deltaTime;
 
         //Update that position
+        dir.y = GetComponent<Rigidbody>().velocity.y;
         //Debug.Log(dir);
-        this.GetComponent<Rigidbody>().AddForce(dir * 500);
+        GetComponent<Rigidbody>().velocity = dir;
     }
 
     /// <summary>
@@ -305,12 +315,12 @@ public class CharacterManager : MonoBehaviour
         if (xMove > 0 || xMove < 0 || yMove > 0 || yMove < 0)
         {
             GetComponentInChildren<Animator>().SetBool("isMoving", true);
-            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            //this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         }
         else
         {
             GetComponentInChildren<Animator>().SetBool("isMoving", false);
-            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            //this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         }
 
         //Fill input direction with the Lerp of current pos and destination direction as well as rotation direction
