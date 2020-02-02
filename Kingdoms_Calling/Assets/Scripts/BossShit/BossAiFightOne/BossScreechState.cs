@@ -54,6 +54,7 @@ public class BossScreechState : BossFightOneFSMState
             if (rand == 0)
             {
                 //fucking randomize 
+                
             }
             else if (rand == 1)
             {

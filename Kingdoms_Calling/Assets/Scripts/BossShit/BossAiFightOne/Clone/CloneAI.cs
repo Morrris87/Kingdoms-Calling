@@ -126,29 +126,29 @@ public class CloneAI : CloneFIghtOneAdvancedFSM
     private void ConstructFSM()
     {
         // Add transitions
-            
-        //CloneAutoAttackState auto = new CloneAutoAttackState(this);
-        //auto.AddTransition(Transition.NoHealth, FSMStateID.Dead);
-        //auto.AddTransition(Transition.CastMultiply, FSMStateID.Multiply);
-        //auto.AddTransition(Transition.CastSpawnSkeletons, FSMStateID.SpawnSkeletons);
-        //auto.AddTransition(Transition.CastScreech, FSMStateID.Sceach);
 
-        //CloneSpawnSkeletonsState spawn = new CloneSpawnSkeletonsState(this);
-        //spawn.AddTransition(Transition.NoHealth, FSMStateID.Dead);
-        //spawn.AddTransition(Transition.AllClonesKilled, FSMStateID.AutoAttack);
+        CloneAutoAttackState auto = new CloneAutoAttackState(this);
+        auto.AddTransition(Transition.NoHealth, FSMStateID.Dead);
+        auto.AddTransition(Transition.CastMultiply, FSMStateID.Multiply);
+        auto.AddTransition(Transition.CastSpawnSkeletons, FSMStateID.SpawnSkeletons);
+        auto.AddTransition(Transition.CastScreech, FSMStateID.Sceach);
 
-
-        //CloneScreechState screech = new CloneScreechState(this);
-        //screech.AddTransition(Transition.NoHealth, FSMStateID.Dead);
-        //screech.AddTransition(Transition.ScreechOnCooldown, FSMStateID.AutoAttack);
+        CloneSpawnSkeletonsState spawn = new CloneSpawnSkeletonsState(this);
+        spawn.AddTransition(Transition.NoHealth, FSMStateID.Dead);
+        spawn.AddTransition(Transition.AllClonesKilled, FSMStateID.AutoAttack);
 
 
-        //CloneDeathState death = new CloneDeathState(this);
+        CloneScreechState screech = new CloneScreechState(this);
+        screech.AddTransition(Transition.NoHealth, FSMStateID.Dead);
+        screech.AddTransition(Transition.ScreechOnCooldown, FSMStateID.AutoAttack);
 
 
-        //AddFSMState(auto);
-        //AddFSMState(spawn);
-        //AddFSMState(screech);
-        //AddFSMState(death);
+        CloneDeathState death = new CloneDeathState(this);
+
+
+        AddFSMState(auto);
+        AddFSMState(spawn);
+        AddFSMState(screech);
+        AddFSMState(death);
     }
 }
