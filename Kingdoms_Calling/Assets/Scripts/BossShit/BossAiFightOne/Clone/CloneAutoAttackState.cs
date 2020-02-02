@@ -6,7 +6,7 @@ using CompleteClone;
 
 public class CloneAutoAttackState : CloneFightOneFSMState
 {
-    BossFightOneAI enemyAI;
+    CloneAI enemyAI;
 
     float elapsedTime;
     float intervalTime;
@@ -21,7 +21,7 @@ public class CloneAutoAttackState : CloneFightOneFSMState
     GameObject currentClosestPlayer;
 
     float[] Players;
-    public CloneAutoAttackState(BossFightOneAI Lich)
+    public CloneAutoAttackState(CloneAI Lich)
     {
         enemyAI = Lich;
         curSpeed = 0;

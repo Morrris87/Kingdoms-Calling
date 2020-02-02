@@ -5,10 +5,10 @@ using CompleteClone;
 
 public class CloneScreechState : CloneFightOneFSMState
 {
-    BossFightOneAI enemyAI;
+    CloneAI enemyAI;
 
     float randomTimer;
-    public CloneScreechState(BossFightOneAI Lich)
+    public CloneScreechState(CloneAI Lich)
     {
         enemyAI = Lich;
         curSpeed = 0;

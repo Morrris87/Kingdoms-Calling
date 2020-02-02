@@ -6,7 +6,7 @@ using CompleteClone;
 
 public class CloneSpawnSkeletonsState : CloneFightOneFSMState
 {
-    BossFightOneAI enemyAI;
+    CloneAI enemyAI;
 
     public GameObject BossSpawnOne;
 
@@ -30,7 +30,7 @@ public class CloneSpawnSkeletonsState : CloneFightOneFSMState
     public bool fightTwo = false;
 
     string colour;
-    public CloneSpawnSkeletonsState(BossFightOneAI Lich)
+    public CloneSpawnSkeletonsState(CloneAI Lich)
     {
         enemyAI = Lich;
         curSpeed = 0;

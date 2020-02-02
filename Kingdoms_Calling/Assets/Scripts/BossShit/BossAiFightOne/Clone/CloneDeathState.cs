@@ -5,11 +5,11 @@ using CompleteClone;
 
 public class CloneDeathState : CloneFightOneFSMState
 {
-    BossFightOneAI enemyAI;
+    CloneAI enemyAI;
 
     float elapsedTime;
     float intervalTime;
-    public CloneDeathState(BossFightOneAI Lich)
+    public CloneDeathState(CloneAI Lich)
     {
         enemyAI = Lich;
         curSpeed = 0;
