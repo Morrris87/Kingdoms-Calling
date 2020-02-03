@@ -10,7 +10,8 @@ using Complete;
 
 public class AI : AdvancedFSM
 {
-    
+    string skeletonClass;
+
     public FSMStateID id;
 
     public int m_CharNumber = 1;
@@ -59,6 +60,18 @@ public class AI : AdvancedFSM
     {
         rigBody = GetComponent<Rigidbody>();
         skeletonStats = gameObject.GetComponent<SkeletonStats>();
+        if(Random.value > 0.5)
+        {
+            skeletonClass = "Sword";
+        }
+        else if (Random.value > 0.3)
+        {
+            skeletonClass = "Mace";
+        }
+        else if (Random.value > 0.2)
+        {
+            skeletonClass = "Bow";
+        }
         // Create the FSM for the player.
         ConstructFSM();
 
