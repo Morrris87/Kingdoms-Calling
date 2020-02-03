@@ -14,6 +14,8 @@ using UnityEngine.InputSystem;
 
 public class CharacterManager : MonoBehaviour
 {
+    //Slot machine
+
     // Public Variables
     public enum CharacterClass { NONE, Paladin, Warrior, Assassin, Archer };
 
@@ -550,4 +552,8 @@ public class CharacterManager : MonoBehaviour
         return hitColliders;
     }
 
+    private void OnGUI()
+    {
+        
+    }
 }

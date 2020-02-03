@@ -10,8 +10,6 @@ using Complete;
 
 public class AI : AdvancedFSM
 {
-    string skeletonClass;
-
     public FSMStateID id;
 
     public int m_CharNumber = 1;
@@ -19,6 +17,8 @@ public class AI : AdvancedFSM
 
     [HideInInspector]
     public Rigidbody rigBody;
+
+    public string thisSkeletonClass; // might have to use this to set up classes 
 
     public int attackRange;
     public int chaseRange;
@@ -35,6 +35,10 @@ public class AI : AdvancedFSM
     public GameObject objPlayer;
     [HideInInspector]
     public Health playerHealth;
+
+    //slot manager stuff
+    //float pathTime = 0f;
+    //int slot = -1;
 
     private string GetStateString()
     {
@@ -60,18 +64,6 @@ public class AI : AdvancedFSM
     {
         rigBody = GetComponent<Rigidbody>();
         skeletonStats = gameObject.GetComponent<SkeletonStats>();
-        if(Random.value > 0.5)
-        {
-            skeletonClass = "Sword";
-        }
-        else if (Random.value > 0.3)
-        {
-            skeletonClass = "Mace";
-        }
-        else if (Random.value > 0.2)
-        {
-            skeletonClass = "Bow";
-        }
         // Create the FSM for the player.
         ConstructFSM();
 
@@ -97,15 +89,34 @@ public class AI : AdvancedFSM
             Destroy(this.gameObject);
         }
 
+        ////slot machine stff
+        //pathTime += Time.deltaTime;
+        //if (pathTime > 0.5f)
+        //{
+        //    pathTime = 0f;
+        //    var slotManager = objPlayer.GetComponent<SlotManager>();
+        //    if (slotManager != null)
+        //    {
+        //        if (slot == -1)
+        //            slot = slotManager.Reserve(gameObject);
+        //        if (slot == -1)
+        //            return;
+        //        var agent = GetComponent<NavMeshAgent>();
+        //        if (agent == null)
+        //            return;
+        //        agent.destination = slotManager.GetSlotPosition(slot);
+        //    }
+        //}
+
         //making the target pop up on the skeleton
-        if(isTargeted == true)
+        if (isTargeted == true)
         {
             targetSymbol.SetActive(true);
         }
         else
         {
             targetSymbol.SetActive(false);
-        }
+        }   
     }
 
     private void ConstructFSM()

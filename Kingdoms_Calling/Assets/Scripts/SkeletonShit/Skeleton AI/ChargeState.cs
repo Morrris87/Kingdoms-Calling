@@ -5,11 +5,16 @@ using System.Collections;
 using System.Collections.Generic;
 using System;
 using UnityEngine;
+using UnityEngine.AI;
 using Complete;
 
 public class ChargeState : FSMState
 {
     AI enemyAI;
+    Spawn spawn;
+
+    float pathTime = 0f;
+    int slot = -1;
 
     float elapsedTime;
     float intervalTime;  
@@ -26,8 +31,34 @@ public class ChargeState : FSMState
     {
         float speed = enemyAI.skeletonStats.speed * Time.deltaTime;
         // Move to player 
-        enemyAI.transform.LookAt(enemyAI.objPlayer.transform);
-        enemyAI.transform.position += enemyAI.transform.forward * speed;
+        if (spawn.skeletonClass == "Sword" || spawn.skeletonClass == "Mace")
+        {
+            enemyAI.transform.LookAt(enemyAI.objPlayer.transform);
+            enemyAI.transform.position += enemyAI.transform.forward * speed;
+        }
+        else if(spawn.skeletonClass == "Bow")
+        {
+            //Make it run to the slot manager on the player 
+            //(still have to make it)
+            //slot machine stff
+            pathTime += Time.deltaTime;
+            if (pathTime > 0.5f)
+            {
+                pathTime = 0f;
+                var slotManager = enemyAI.objPlayer.GetComponent<SlotManager>();
+                if (slotManager != null)
+                {
+                    if (slot == -1)
+                        slot = slotManager.Reserve(enemyAI.gameObject);
+                    if (slot == -1)
+                        return;
+                    var agent = enemyAI.GetComponent<NavMeshAgent>();
+                    if (agent == null)
+                        return;
+                    agent.destination = slotManager.GetSlotPosition(slot);
+                }
+            }
+        }
     }
 
     public override void Reason()
