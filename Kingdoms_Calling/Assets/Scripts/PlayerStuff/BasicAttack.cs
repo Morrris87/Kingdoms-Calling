@@ -58,11 +58,18 @@ public class BasicAttack : MonoBehaviour
 
     public void AttackRanged()
     {
-        // Play Archer's attack animation
+        // Check to see if player has enough stamina
+        if (GetComponent<Stamina>().GetStamina() >= 10)
+        {
+            // Play Archer's attack animation
 
-        // Create the arrow prefab
-        arrowPrefab.transform.rotation = transform.rotation;
-        Instantiate(arrowPrefab, arrowSpawn.position, Quaternion.LookRotation(transform.forward, Vector3.up));
+            // Take away player's stamina
+            GetComponent<Stamina>().DepleteStamina(10);
+
+            // Create the arrow prefab
+            arrowPrefab.transform.rotation = transform.rotation;
+            Instantiate(arrowPrefab, arrowSpawn.position, Quaternion.LookRotation(transform.forward, Vector3.up));
+        }
     }
 
     public void AttackMelee()
