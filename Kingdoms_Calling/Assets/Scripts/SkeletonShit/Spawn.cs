@@ -34,9 +34,9 @@ public class Spawn : MonoBehaviour
 
 
     //skeletons
-     GameObject skeletonWhite;
-     GameObject skeletonGrey;
-     GameObject skeletonPurple;
+    GameObject skeletonWhite;
+    GameObject skeletonGrey;
+    GameObject skeletonPurple;
 
     GameObject spawnZone;
 
@@ -153,36 +153,42 @@ public class Spawn : MonoBehaviour
                 {
                     skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
                     Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
+                    //skeletonWhite.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     totalSkeletoNumber++;
                 }
                 else if (i == 1)
                 {
                     skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
                     Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 2f), Quaternion.identity);
+                   // skeletonWhite.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     totalSkeletoNumber++;
                 }
                 else if (i == 2)
                 {
                     skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
                     Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 1f), Quaternion.identity);
+                   // skeletonWhite.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     totalSkeletoNumber++;
                 }
                 else if (i == 3)
                 {
                     skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
                     Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
+                   // skeletonWhite.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     totalSkeletoNumber++;
                 }
                 else if (i == 4)
                 {
                     skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
                     Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 2f), Quaternion.identity);
+                   // skeletonWhite.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     totalSkeletoNumber++;
                 }
                 else if (i == 5)
                 {
                     skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
                     Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 1f), Quaternion.identity);
+                    //skeletonWhite.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     totalSkeletoNumber++;
                 }
             }
@@ -196,18 +202,21 @@ public class Spawn : MonoBehaviour
                 {
                     skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
                     Instantiate(skeletonGrey, spawnZone.transform.position, Quaternion.identity);
+                    //skeletonGrey.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     totalSkeletoNumber++;
                 }
                 else if(i == 1)
                 {
                     skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
                     Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x + 1f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
+                   // skeletonGrey.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     totalSkeletoNumber++;
                 }
                 else if(i == 2)
                 {
                     skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
                     Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x - 1f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
+                    //skeletonGrey.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     totalSkeletoNumber++;
                 }
             }
@@ -219,6 +228,7 @@ public class Spawn : MonoBehaviour
             {
                 skeletonPurple = ChooseSkeletonClass(skeletonPurpleSword, skeletonPurpleMace, skeletonPurpleBow);
                 Instantiate(skeletonPurple, spawnZone.transform.position, Quaternion.identity);
+                //skeletonPurple.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                 totalSkeletoNumber++;
             }
         }//purple 10%

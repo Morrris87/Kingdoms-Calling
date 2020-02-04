@@ -11,7 +11,6 @@ using Complete;
 public class ChargeState : FSMState
 {
     AI enemyAI;
-    Spawn spawn;
 
     float pathTime = 0f;
     int slot = -1;
@@ -31,12 +30,12 @@ public class ChargeState : FSMState
     {
         float speed = enemyAI.skeletonStats.speed * Time.deltaTime;
         // Move to player 
-        if (spawn.skeletonClass == "Sword" || spawn.skeletonClass == "Mace")
+        if (enemyAI.thisSkeletonClass == "Sword" || enemyAI.thisSkeletonClass == "Mace")
         {
             enemyAI.transform.LookAt(enemyAI.objPlayer.transform);
             enemyAI.transform.position += enemyAI.transform.forward * speed;
         }
-        else if(spawn.skeletonClass == "Bow")
+        else if(enemyAI.thisSkeletonClass == "Bow")
         {
             //Make it run to the slot manager on the player 
             //(still have to make it)
