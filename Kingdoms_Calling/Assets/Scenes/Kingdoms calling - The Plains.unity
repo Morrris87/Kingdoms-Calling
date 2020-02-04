@@ -104140,7 +104140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033f385016acedc4b9d486d47fe865ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSkeletonNumber: 1
+  maxSkeletonNumber: 10
   skeletonWhiteSword: {fileID: 805810054923732350, guid: 9e78bc8374d6cbb4495bc36febbb992e,
     type: 3}
   skeletonWhiteMace: {fileID: 2282747733535318817, guid: c42a82307f5fe0d4192710ec37f6b4c7,
