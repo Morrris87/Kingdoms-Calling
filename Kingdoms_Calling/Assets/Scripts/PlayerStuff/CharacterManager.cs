@@ -291,7 +291,14 @@ public class CharacterManager : MonoBehaviour
     //Input Functions below (Examples of how the call are made context being the information given back to us by the input casting that results in our data)
     public void Attack(InputAction.CallbackContext context)
     {
-        basicAttack.CallBasicAttack();
+        if (characterClass == CharacterClass.Archer)
+        {
+            basicAttack.AttackRanged();
+        }
+        else
+        {
+            basicAttack.AttackMelee();
+        }
     }
 
     public void Move(InputAction.CallbackContext context)
