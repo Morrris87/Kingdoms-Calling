@@ -191,7 +191,18 @@ MonoBehaviour:
     m_ActionId: 598227f3-7300-452a-a946-e8326b0d4f85
     m_ActionName: Player Controls/Cycle Target(Backwards)
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6850935412393349423}
+        m_MethodName: Rotate
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: 7668c7da-32f9-44c9-8617-d5cee4da4d69

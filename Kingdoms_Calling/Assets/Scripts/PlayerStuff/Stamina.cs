@@ -10,12 +10,12 @@ using UnityEngine.UI;
 
 public class Stamina : MonoBehaviour
 {
-    public float maxStamina = 20f;    // Sets the max value the stamina can go to for the object this script is attached to
+    public float maxStamina = 100f;  // Sets the max value the stamina can go to for the object this script is attached to
     public Image staminaUI;         // UI element for this object's stamina bar
 
-    private float currentStamina; // This int keeps track of the current stamina the object currently has
-    private bool isSprinting;   // True when using stamina
-    private bool isDepleted;    // If currentStamina reaches 0, this bool is set to true, otherwise false
+    private float currentStamina;   // This int keeps track of the current stamina the object currently has
+    private float cooldown;          // Value for the stamina cooldown
+    private bool isDepleted;        // If currentStamina reaches 0, this bool is set to true, otherwise false
 
     // Start is called before the first frame update
     void Start()
@@ -27,34 +27,15 @@ public class Stamina : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // If holding down shift...
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Sprinting(true);    // Start sprinting
-        }
-        // If releasing shift...
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            Sprinting(false);   // Stop sprinting
-        }
-
-        if (isSprinting)
-        {
-            currentStamina -= 2;   // Decrease stamina over time
-            staminaUI.fillAmount = CalculateStaminaLeftPercent(currentStamina, maxStamina); // Updates the UI
-
-            // If stamina hits 0...
-            if (currentStamina <= 0)
-            {
-                Debug.Log("Stamina Depleted");
-                currentStamina = 0;     // Reset currentStamina to 0
-                isSprinting = false;    // Stop sprinting
-            }
-        }
-        else if (!isSprinting && currentStamina < maxStamina)
+        if (currentStamina < maxStamina && cooldown <= 0f)
         {
             currentStamina += 1;
             staminaUI.fillAmount = CalculateStaminaLeftPercent(currentStamina, maxStamina); // Updates the UI
+        }
+
+        if (cooldown > 0f)
+        {
+            cooldown -= Time.deltaTime;
         }
     }
 
@@ -63,14 +44,11 @@ public class Stamina : MonoBehaviour
         return currentStamina;
     }
 
-    public void UpdateStamina(int value)
+    public void DepleteStamina(int value)
     {
-        currentStamina += value;
-    }
-
-    private void Sprinting(bool sprint)
-    {
-        isSprinting = sprint;
+        currentStamina -= value;
+        staminaUI.fillAmount = CalculateStaminaLeftPercent(currentStamina, maxStamina); // Updates the UI
+        cooldown = 2f;
     }
 
     private float CalculateStaminaLeftPercent(float current, float max)
