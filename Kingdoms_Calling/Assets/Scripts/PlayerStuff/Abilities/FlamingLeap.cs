@@ -22,7 +22,8 @@ public class FlamingLeap : MonoBehaviour
     public int leapDamage;       //How much damage the skill does at each tick
     public float animationLength;
     public float leapDistance;
-    Vector2 leapLocation;
+    public GameObject destinationMarker;
+    Vector2 leapLocation;   
 
     private bool isUsable;          // When ability is available for use, set this to true
     private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
@@ -52,7 +53,7 @@ public class FlamingLeap : MonoBehaviour
             {
                 isUsable = true;                                // Reset the isUsable field
             } 
-        }        
+        }
     }
 
     // Calling this function uses the ability
@@ -70,17 +71,15 @@ public class FlamingLeap : MonoBehaviour
 
             // Update the UI with the time remaining
 
-            // Play the ability animation          
+            // Play the ability animation (handle player location)
 
-            //get the input 
+            // get the input 
             leapLocation = input;
-            //Debug.Log(input);
+            // Debug.Log(input);
 
-            //preform the ability
+            // preform the ability
             leapCharacter(input);
             AttackAroundCharacter();
-
-            //leapCharacter(input);
         }
     }
 

@@ -36,9 +36,13 @@ public class CharacterManager : MonoBehaviour
     [Header("Right Analog Stick Targeting Range")]
     public float analogTargetRange = 5.0f;
 
+    [Header("Characters Target")]
+    public GameObject abilityIndicator;
+
     // Private Variables
     PlayerInputActions inputAction; // InputActions    
     Rigidbody playerRBody;
+    bool displayLocation = false;
     //Character Input variables
     Vector2 movementInput;
     Vector3 inputDirection, inputRotation, desiredDirection, lookRot, lookDirection, rotationDirection, targetInputDir;
@@ -170,15 +174,17 @@ public class CharacterManager : MonoBehaviour
                 {
                     this.GetComponent<Rigidbody>().freezeRotation = false;
                     Quaternion newRotation = Quaternion.LookRotation(rotationDirection);
-                    Debug.Log(newRotation);
+                    //Debug.Log(newRotation);
                     this.GetComponent<Rigidbody>().MoveRotation(newRotation);
                     this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-                    
-                    Debug.Log("left stick rotation");
+
+                    //Debug.Log("left stick rotation");
                     rotationDirection = new Vector3(newRotation.x, newRotation.y, newRotation.z);
                 }
             }
         }
+
+        DrawLocation(desiredDirection);
 
         //Update the cycle timer
         if (cycleTimer >= 0)
@@ -263,15 +269,6 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    //void OnEnable()
-    //{
-    //    inputAction.Enable();
-    //}
-    //void OnDisable()
-    //{
-    //    inputAction.Disable();
-    //}
-
     void CalcRotation(Vector2 input)
     {
         if (input.x != 0 || input.y != 0)
@@ -350,14 +347,14 @@ public class CharacterManager : MonoBehaviour
         {
             if (!rightStick)
                 rightStick = true;
-            Debug.Log(rightStick);
+            //Debug.Log(rightStick);
             CalcRotation(input);
         }
         else
         {
             if (rightStick)
                 rightStick = false;
-            Debug.Log(rightStick);
+            //Debug.Log(rightStick);
         }
     }
 
@@ -380,8 +377,17 @@ public class CharacterManager : MonoBehaviour
         }
         else if (characterClass == CharacterClass.Warrior)
         {
-            warriorFalmingLeap.UseAbility(rotationDirection);
-
+            //if (context.ReadValue<int>() == 1)
+            //{
+            //    displayLocation = true;
+            //    Debug.Log("Started");
+            //}
+            //else if (context.ReadValue<int>() == 0)
+            //{
+            //    warriorFalmingLeap.UseAbility(rotationDirection);
+            //    //displayLocation = false;
+            //    Debug.Log("Performed");
+            //}
         }
     }
 
@@ -552,8 +558,32 @@ public class CharacterManager : MonoBehaviour
         return hitColliders;
     }
 
+    private void DrawLocation(Vector2 inp)
+    {
+        if(displayLocation)
+        {
+            //if our indicator isnt active yet activate it
+            if(!abilityIndicator.activeInHierarchy && displayLocation)
+            {
+                abilityIndicator.SetActive(true);
+            }
+
+            //if active update the location
+            if (abilityIndicator.activeInHierarchy)
+            {
+                abilityIndicator.transform.localPosition = new Vector3(0.0f, 0.0f, lookDirection.magnitude * 10);
+                //Debug.Log(indicatorLocation);
+            }
+
+            if (abilityIndicator.activeInHierarchy && !displayLocation)
+            {
+                abilityIndicator.SetActive(false);
+            }
+        }
+    }
+
     private void OnGUI()
     {
-        
+
     }
 }
