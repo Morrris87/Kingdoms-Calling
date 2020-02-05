@@ -86,7 +86,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""name"": ""Ability1"",
                     ""type"": ""Button"",
                     ""id"": ""ba05a133-0b47-4c39-961c-a4c3e6d41fe2"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
