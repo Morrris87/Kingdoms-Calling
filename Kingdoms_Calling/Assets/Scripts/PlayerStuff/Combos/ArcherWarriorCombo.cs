@@ -17,7 +17,6 @@ public class ArcherWarriorCombo : MonoBehaviour
     public float range = 1;
     public float lifeTime = 10f;
     public float damageInterval = 2f;
-    //public int healValue = 1;
     public float igniteDuration = 1;
     public int damageValue = 1;
     public float igniteChance = 50;
@@ -45,12 +44,6 @@ public class ArcherWarriorCombo : MonoBehaviour
             //Grab all colliders inside of the sphere which in our case acts as a circle with the player and enemy layer mask 
             Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, range, 1 << enemyLayerIndex);
 
-            //Uncomment to determine which colliders are being chosen
-            //for (int j = 0; j < hitColliders.Length; j++)
-            //{
-            //    Debug.Log(hitColliders[j].name);
-            //}
-
             //Loop through the colliders checking if its either a player or a enemy
             int i = 0;
             while (i < hitColliders.Length)
@@ -64,13 +57,15 @@ public class ArcherWarriorCombo : MonoBehaviour
                     if(UsefullFunctions.RandomNumber(0.0f, 100.0f) >= igniteChance)
                     {
                         hitColliders[i].gameObject.GetComponent<ElementManager>().IgniteThis(damageValue);
-
                     }
                 }
                 i++;
             }
             //Reset the tick timer 
             abilityTick = damageInterval;
+
+            //Play animation
+            
         }
 
         //Timer to keep the ability alive for only its lifetime
