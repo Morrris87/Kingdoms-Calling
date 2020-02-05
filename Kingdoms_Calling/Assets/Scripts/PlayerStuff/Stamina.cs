@@ -2,25 +2,24 @@
 //  Author: Connor Larsen
 //  Function: Stamina script for the player characters
 
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Stamina : MonoBehaviour
 {
-    public float maxStamina = 100f;  // Sets the max value the stamina can go to for the object this script is attached to
+    public float maxStamina = 100f; // Sets the max value the stamina can go to for the object this script is attached to
+    public float cooldownTime = 2f; // Set this value to however long you want the timer to run for
     public Image staminaUI;         // UI element for this object's stamina bar
 
     private float currentStamina;   // This int keeps track of the current stamina the object currently has
-    private float cooldown;          // Value for the stamina cooldown
-    private bool isDepleted;        // If currentStamina reaches 0, this bool is set to true, otherwise false
+    private float cooldown;         // Value for the stamina cooldown
+    private bool cooldownActive;    // Bool which sets timer on and off
 
     // Start is called before the first frame update
     void Start()
     {
-        isDepleted = false;             // Object starts with all stamina
+        cooldownActive = false;             // Object starts with all stamina
+        cooldown = cooldownTime;
         currentStamina = maxStamina;    // Transfers the value from maxStamina to currentStamina
     }
 
@@ -29,11 +28,12 @@ public class Stamina : MonoBehaviour
     {
         if (currentStamina < maxStamina && cooldown <= 0f)
         {
+            cooldownActive = false;
             currentStamina += 1;
             staminaUI.fillAmount = CalculateStaminaLeftPercent(currentStamina, maxStamina); // Updates the UI
         }
 
-        if (cooldown > 0f)
+        if (cooldown > 0.0f && cooldownActive)
         {
             cooldown -= Time.deltaTime;
         }
@@ -48,7 +48,8 @@ public class Stamina : MonoBehaviour
     {
         currentStamina -= value;
         staminaUI.fillAmount = CalculateStaminaLeftPercent(currentStamina, maxStamina); // Updates the UI
-        cooldown = 2f;
+        cooldown = cooldownTime;
+        cooldownActive = true;
     }
 
     private float CalculateStaminaLeftPercent(float current, float max)

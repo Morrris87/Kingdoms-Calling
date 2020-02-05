@@ -505,6 +505,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxStamina: 100
+  cooldownTime: 2
   staminaUI: {fileID: 0}
 --- !u!114 &844158224
 MonoBehaviour:
@@ -521,11 +522,6 @@ MonoBehaviour:
   weaponType: 0
   arrowPrefab: {fileID: 0}
   arrowSpawn: {fileID: 0}
-  AttackRateSpeed: 1
-  AttackRange: 1
-  AttackDamage: 1
-  AttackHitChance: 1
-  AttackStaminaLoss: 1
   attackTimer: 1
 --- !u!114 &844158225
 MonoBehaviour:
@@ -969,6 +965,11 @@ PrefabInstance:
       propertyPath: weaponType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6850935412393349420, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
+        type: 3}
+      propertyPath: AttackStaminaLoss
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 6850935412393349421, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
       propertyPath: healthUI
@@ -979,6 +980,11 @@ PrefabInstance:
       propertyPath: staminaUI
       value: 
       objectReference: {fileID: 823600225619815125}
+    - target: {fileID: 6850935412393349418, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
+        type: 3}
+      propertyPath: maxStamina
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6850935412393349419, guid: 5e5a4c85c6d71004ea94f79a64a9a63a, type: 3}
     - {fileID: 6850935412393349416, guid: 5e5a4c85c6d71004ea94f79a64a9a63a, type: 3}
@@ -1088,6 +1094,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxStamina: 100
+  cooldownTime: 2
   staminaUI: {fileID: 0}
 --- !u!114 &1870116233
 MonoBehaviour:
@@ -1104,11 +1111,6 @@ MonoBehaviour:
   weaponType: 0
   arrowPrefab: {fileID: 0}
   arrowSpawn: {fileID: 0}
-  AttackRateSpeed: 1
-  AttackRange: 1
-  AttackDamage: 1
-  AttackHitChance: 1
-  AttackStaminaLoss: 1
   attackTimer: 1
 --- !u!114 &1870116234
 MonoBehaviour:
@@ -4925,6 +4927,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxStamina: 20
+  cooldownTime: 2
   staminaUI: {fileID: 823600225619815125}
 --- !u!224 &823600226281675708
 RectTransform:
@@ -5424,11 +5427,6 @@ MonoBehaviour:
   weaponType: 0
   arrowPrefab: {fileID: 0}
   arrowSpawn: {fileID: 0}
-  AttackRateSpeed: 1
-  AttackRange: 1
-  AttackDamage: 1
-  AttackHitChance: 1
-  AttackStaminaLoss: 1
   attackTimer: 1
 --- !u!222 &4497722376505930234
 CanvasRenderer:
@@ -5582,6 +5580,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxStamina: 100
+  cooldownTime: 2
   staminaUI: {fileID: 823600225619815125}
 --- !u!114 &6657086712938021518
 MonoBehaviour:

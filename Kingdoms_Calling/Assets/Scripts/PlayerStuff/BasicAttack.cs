@@ -28,14 +28,16 @@ public class BasicAttack : MonoBehaviour
     public Transform arrowSpawn;
 
     //Current weapons specs
-    [Header("Current Attack Specs(Testing Feature)")]
-    public float AttackRateSpeed = 2;
-    public float AttackRange;
-    public float AttackDamage;
-    public float AttackHitChance;
-    public float AttackStaminaLoss;
+    private float AttackRateSpeed;
+    private float AttackRange;
+    private float AttackDamage;
+    private float AttackHitChance;
+    private float AttackStaminaLoss;
 
-    public float attackTimer = 0;
+    [Header("Cooldown Variables")]
+    public float attackTimer;
+    private float cooldown;
+    private bool cooldownActive;
 
     //Current class enum type
     enum CharacterClass { NONE, Paladin, Warrior, Assassin, Archer };
@@ -47,24 +49,39 @@ public class BasicAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        cooldown = attackTimer;
+        cooldownActive = true;
+        DetermineClass();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (cooldown > 0.0f && cooldownActive)
+        {
+            cooldown -= Time.deltaTime;
+        }
 
+        if (cooldown <= 0.0f)
+        {
+            cooldownActive = false;
+        }
     }
 
     public void AttackRanged()
     {
         // Check to see if player has enough stamina
-        if (GetComponent<Stamina>().GetStamina() >= 10)
+        if (GetComponent<Stamina>().GetStamina() >= AttackStaminaLoss && cooldown <= 0f)
         {
+            // Reset timer
+            cooldownActive = true;
+            cooldown = attackTimer;
+
             // Play Archer's attack animation
+            GetComponentInChildren<Animator>().SetTrigger("Attacked");
 
             // Take away player's stamina
-            GetComponent<Stamina>().DepleteStamina(10);
+            GetComponent<Stamina>().DepleteStamina((int)AttackStaminaLoss);
 
             // Create the arrow prefab
             arrowPrefab.transform.rotation = transform.rotation;
@@ -104,7 +121,7 @@ public class BasicAttack : MonoBehaviour
                 AttackRange = 5.0f;
                 AttackDamage = 1.0f;
                 AttackHitChance = 80.0f;
-                AttackStaminaLoss = 12.0f;
+                AttackStaminaLoss = 10.0f;
             }
             else if (currentClass == CharacterClass.Warrior)
             {
