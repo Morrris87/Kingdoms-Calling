@@ -84,9 +84,9 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Ability1"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""ba05a133-0b47-4c39-961c-a4c3e6d41fe2"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Integer"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -137,7 +137,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""id"": ""88b7ef19-0897-4c55-8bf3-17c077f7688e"",
                     ""path"": ""<Gamepad>/leftStick"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""StickDeadzone(min=0.125,max=1)"",
                     ""groups"": """",
                     ""action"": ""Move"",
                     ""isComposite"": false,

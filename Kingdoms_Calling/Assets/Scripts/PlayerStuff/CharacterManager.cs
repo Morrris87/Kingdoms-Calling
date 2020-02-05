@@ -151,12 +151,15 @@ public class CharacterManager : MonoBehaviour
             Quaternion newRotation = Quaternion.LookRotation(rotationDirection);
             //Debug.Log(newRotation);
             this.GetComponent<Rigidbody>().MoveRotation(newRotation);
-            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
             //if we are not moving freeze the position
-            //if (!GetComponentInChildren<Animator>().GetBool("isMoving"))
-            //{
-            //    this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-            //}
+            if (!GetComponentInChildren<Animator>().GetBool("isMoving"))
+            {
+                this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            }
+            else
+            {
+                this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            }
             //lookRot = Vector3.zero;
         }
 
@@ -198,6 +201,8 @@ public class CharacterManager : MonoBehaviour
     private void FixedUpdate()
     {
         UpdatePlayer(desiredDirection);
+
+        
     }
 
     /// <summary>
@@ -326,7 +331,7 @@ public class CharacterManager : MonoBehaviour
         else
         {
             GetComponentInChildren<Animator>().SetBool("isMoving", false);
-            //this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
         }
 
         //Fill input direction with the Lerp of current pos and destination direction as well as rotation direction
@@ -384,17 +389,17 @@ public class CharacterManager : MonoBehaviour
         }
         else if (characterClass == CharacterClass.Warrior)
         {
-            //if (context.ReadValue<int>() == 1)
-            //{
-            //    displayLocation = true;
-            //    Debug.Log("Started");
-            //}
-            //else if (context.ReadValue<int>() == 0)
-            //{
-            //    warriorFalmingLeap.UseAbility(rotationDirection);
-            //    //displayLocation = false;
-            //    Debug.Log("Performed");
-            //}
+            if (context.ReadValue<int>() == 1)
+            {
+                displayLocation = true;
+                Debug.Log("Started");
+            }
+            else if (context.ReadValue<int>() == 0)
+            {
+                warriorFalmingLeap.UseAbility(rotationDirection);
+                //displayLocation = false;
+                Debug.Log("Performed");
+            }
         }
     }
 
