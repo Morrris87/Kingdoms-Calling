@@ -36,6 +36,8 @@ public class AI : AdvancedFSM
     [HideInInspector]
     public Health playerHealth;
 
+    Spawn spawn;
+
     //slot manager stuff
     //float pathTime = 0f;
     //int slot = -1;
@@ -66,6 +68,7 @@ public class AI : AdvancedFSM
         skeletonStats = gameObject.GetComponent<SkeletonStats>();
         // Create the FSM for the player.
         ConstructFSM();
+       //thisSkeletonClass = spawn.skeletonClass;
 
     }
 

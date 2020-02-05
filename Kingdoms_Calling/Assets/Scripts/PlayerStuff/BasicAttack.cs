@@ -19,9 +19,13 @@ public class BasicAttack : MonoBehaviour
     public enum Weapon { NONE, MACE, SWORD, BOW, WARRIORAXE, HAMMER, DAGGERS, ARCHERBOW };
     //static int enumCount = Enum.GetValues(typeof(Weapon)).Length;
 
-    [Header("Character Weapon(does nothing yet)")]
+    [Header("Character Weapon")]
     public Weapon weaponType;
     //public WeaponSpecs[] weaponSpecs;
+
+    [Header("Archer Assets")]
+    public GameObject arrowPrefab;
+    public Transform arrowSpawn;
 
     //Current weapons specs
     [Header("Current Attack Specs(Testing Feature)")]
@@ -31,8 +35,6 @@ public class BasicAttack : MonoBehaviour
     public float AttackHitChance;
     public float AttackStaminaLoss;
 
-    RaycastHit[] hits;
-    private Vector3[] RaycastLocations = { new Vector3(0f, 0, 1.3f), new Vector3(-1f, 0, 1f), new Vector3(-0.5f, 0, 1f), new Vector3(1f, 0, 1f), new Vector3(0.5f, 0, 1f) };
     public float attackTimer = 0;
 
     //Current class enum type
@@ -45,111 +47,34 @@ public class BasicAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //int enumCount = Enum.GetValues(typeof(Weapon)).Length;
-        //weaponInfo = new WeaponSpecs[8];
-
-        //Get the current class
-        currentClass = (CharacterClass)this.gameObject.GetComponent<CharacterManager>().characterClass;
-        //Get the player and enemy layermask id's
-        playerLayerIndex = LayerMask.NameToLayer("Player");
-        enemyLayerIndex = LayerMask.NameToLayer("Enemy");
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        //check if we have a class
-        if (currentClass == CharacterClass.NONE)
-        {
-            //If our current selected class doesnt match the characters update stats
-            if (currentClass != (CharacterClass)this.gameObject.GetComponent<CharacterManager>().characterClass)
-                DetermineClass();
-        }
-        else if (currentClass != (CharacterClass)this.gameObject.GetComponent<CharacterManager>().characterClass)
-        {
-            DetermineClass();
-        }
-        if (attackTimer > 0)
-            attackTimer -= Time.deltaTime;
-    }
-
-    public void CallBasicAttack()
-    {
-        if (attackTimer <= 0)
-        {
-            Debug.Log("stats: " + " " + AttackRateSpeed + " " + AttackRange + " " + AttackDamage + " " + AttackHitChance + " " + AttackStaminaLoss);
-            PreformBasicAttack(AttackRateSpeed, AttackRange, AttackDamage, AttackHitChance, AttackStaminaLoss);
-        }
-    }
-
-    /// <summary>
-    /// Preform the detection and damage dealing of a basic attack using RaycastAndDamage function
-    /// </summary>
-    /// <param name="atkRate">Attack rate/Tick interval</param>
-    /// <param name="atkRange">Distance that the Raycast will go</param>
-    /// <param name="atkDamage">Amount of damage that will be passed to the target</param>
-    /// <param name="atkChance">Chance of the damage going through</param>
-    /// <param name="atkStamina">Amount of stamina that will be taken by the attack</param>
-    void PreformBasicAttack(float atkRate, float atkRange, float atkDamage, float atkChance, float atkStamina)
-    {
-
-        //Verify we can attack with our current stamina pool
-        if (this.gameObject.GetComponent<Stamina>().GetStamina() >= atkStamina)
-        {
-            //Attack forward as all characters do this
-            RaycastAndDamage(atkRate, atkRange, atkDamage, atkChance, atkStamina, RaycastLocations[0]);
-
-            //Handle if we arnt the archer attacking to the left and the right to cover the front of the character
-            if (currentClass != CharacterClass.Archer)
-            {
-                RaycastAndDamage(atkRate, atkRange, atkDamage, atkChance, atkStamina, RaycastLocations[1]);
-
-                RaycastAndDamage(atkRate, atkRange, atkDamage, atkChance, atkStamina, RaycastLocations[2]);
-
-                //Handle the furthest left and right raycasts to not work when you are paladin or assassin as they are smaller attackers
-                if (currentClass != CharacterClass.Paladin || currentClass != CharacterClass.Assassin)
-                {
-                    RaycastAndDamage(atkRate, atkRange, atkDamage, atkChance, atkStamina, RaycastLocations[3]);
-
-                    RaycastAndDamage(atkRate, atkRange, atkDamage, atkChance, atkStamina, RaycastLocations[4]);
-                }
-            }
-            this.gameObject.GetComponent<Stamina>().UpdateStamina((int)-atkStamina);
-            attackTimer = AttackRateSpeed;
-        }
 
     }
 
-    /// <summary>
-    /// Function that handles raycasting and dealing damage to the enemies hit
-    /// </summary>
-    /// <param name="atkRate">Attack rate/Tick interval</param>
-    /// <param name="atkRange">Distance that the Raycast will go</param>
-    /// <param name="atkDamage">Amount of damage that will be passed to the target</param>
-    /// <param name="atkChance">Chance of the damage going through</param>
-    /// <param name="atkStamina">Amount of stamina that will be taken by the attack</param>
-    /// <param name="raycastDir">Direction that the raycast will face</param>
-    void RaycastAndDamage(float atkRate, float atkRange, float atkDamage, float atkChance, float atkStamina, Vector3 raycastDir)
+    public void AttackRanged()
     {
-        if (currentClass != CharacterClass.Archer)
+        // Check to see if player has enough stamina
+        if (GetComponent<Stamina>().GetStamina() >= 10)
         {
-            hits = Physics.RaycastAll(transform.position, raycastDir, atkRange, 1 << enemyLayerIndex);
-            foreach (RaycastHit r in hits)
-            {
-                Debug.Log(r.collider.name + " at : " + raycastDir);
-                r.collider.gameObject.GetComponent<Health>().Damage((int)atkDamage);
-            }
+            // Play Archer's attack animation
+
+            // Take away player's stamina
+            GetComponent<Stamina>().DepleteStamina(10);
+
+            // Create the arrow prefab
+            arrowPrefab.transform.rotation = transform.rotation;
+            Instantiate(arrowPrefab, arrowSpawn.position, Quaternion.LookRotation(transform.forward, Vector3.up));
         }
-        else
-        {
-            RaycastHit hit;
-            if (Physics.Raycast(transform.position, raycastDir, out hit, atkRange, 1 << enemyLayerIndex))
-            {
-                Debug.Log(hit.collider.name + " at : " + raycastDir);
-                hit.collider.gameObject.GetComponent<Health>().Damage((int)atkDamage);
-            }
-        }
+    }
+
+    public void AttackMelee()
+    {
+
     }
 
     void DetermineClass()
