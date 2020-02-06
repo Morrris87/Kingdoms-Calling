@@ -25,9 +25,13 @@ public class CloneAI : CloneFIghtOneAdvancedFSM
     public float screechTimer = 2;
 
     //Players
+    [HideInInspector]
     public GameObject playerOne;
+    [HideInInspector]
     public GameObject playerTwo;
+    [HideInInspector]
     public GameObject playerThree;
+    [HideInInspector]
     public GameObject playerFour;
 
     //Target Symbol
@@ -40,6 +44,7 @@ public class CloneAI : CloneFIghtOneAdvancedFSM
     public GameObject spawnZoneThree;
     public GameObject spawnZoneFour;
 
+    GameObject[] playerArray;
     //BossPrefab
     public GameObject bossPrefab;
 
@@ -47,10 +52,10 @@ public class CloneAI : CloneFIghtOneAdvancedFSM
     public float bossTimer = 2;
 
     //Spawn Zones for the Boss Clones
-    public GameObject CloneOneSpawn;
-    public GameObject CloneTwoSpawn;
-    public GameObject CloneThreeSpawn;
-    public GameObject CloneFourSpawn;
+    //public GameObject CloneOneSpawn;
+    //public GameObject CloneTwoSpawn;
+    //public GameObject CloneThreeSpawn;
+    //public GameObject CloneFourSpawn;
 
     [HideInInspector]
     public BossStats bossStats;
@@ -85,6 +90,27 @@ public class CloneAI : CloneFIghtOneAdvancedFSM
         spawnScript = gameObject.GetComponent<Spawn>();
         // Create the FSM for the player.
         ConstructFSM();
+        playerArray = GameObject.FindGameObjectsWithTag("Player");
+        //set up a Array of players
+        for (int i = 0; i < playerArray.Length; i++)
+        {
+            if(i == 1)
+            {
+                playerOne = playerArray[i];
+            }
+            else if(i == 2)
+            {
+                playerTwo = playerArray[i];
+            }
+            else if (i == 3)
+            {
+                playerThree = playerArray[i];
+            }
+            else if (i == 4)
+            {
+                playerFour = playerArray[i];
+            }
+        }
 
     }
 

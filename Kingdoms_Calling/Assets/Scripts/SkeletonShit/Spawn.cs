@@ -56,7 +56,11 @@ public class Spawn : MonoBehaviour
     bool spawnZoneBisTriggered = false;
     bool spawnZoneCisTriggered = false;
 
+    [HideInInspector]
     public string skeletonClass;
+    bool SpawningAInProgress = false;
+    bool SpawningBInProgress = false; 
+    bool SpawningCInProgress = false;
 
     // Start is called before the first frame update
     void Start()
@@ -90,25 +94,8 @@ public class Spawn : MonoBehaviour
                 //if SpawnZoneA is triggered
                 if (spawnZoneAisTriggered == true)
                 {
+                    SpawningAInProgress = true;
                         for (int d = 0; d < spawnerNumberA; d++)
-                        {
-                            if (totalSkeletoNumber >= maxSkeletonNumber)
-                            {
-                                //no more spawning
-                            }
-                            else
-                            {
-                                spawnZone = SpawnersZoneA[d];
-
-                                StartCoroutine(SpawnSkeletons());
-
-                            }
-                        }
-                }
-                //else if SpawnZoneB is triggered
-                else if (spawnZoneBisTriggered == true)
-                {
-                        for (int d = 0; d < spawnerNumberB; d++)
                         {
                             if (totalSkeletoNumber >= maxSkeletonNumber)
                             {
@@ -117,15 +104,43 @@ public class Spawn : MonoBehaviour
                         }
                             else
                             {
+                                spawnZone = SpawnersZoneA[d];
+                            if (SpawningAInProgress == true)
+                            {
+                                StartCoroutine(SpawnSkeletons());
+                                SpawningAInProgress = false;
+                            }
+
+                            }
+                        }
+                }
+                //else if SpawnZoneB is triggered
+                else if (spawnZoneBisTriggered == true)
+                {
+                    SpawningBInProgress = true;
+                    for (int d = 0; d < spawnerNumberB; d++)
+                        {
+                            if (totalSkeletoNumber >= maxSkeletonNumber)
+                            {
+                            //no more spawning
+                            StopCoroutine(SpawnSkeletons());
+                            }
+                            else
+                            {
                                 spawnZone = SpawnersZoneB[d];
 
+                            if (SpawningBInProgress == true)
+                            {
                                 StartCoroutine(SpawnSkeletons());
+                                SpawningBInProgress = false;
                             }
+                        }
                         }
                 }
                 //else if SpawnZoneC is triggered
                 else if (spawnZoneCisTriggered == true)
                 {
+                    SpawningCInProgress = true;
                         for (int d = 0; d < spawnerNumberC; d++)
                         {
                             if (totalSkeletoNumber >= maxSkeletonNumber)
@@ -136,9 +151,13 @@ public class Spawn : MonoBehaviour
                             else
                             {
                                 spawnZone = SpawnersZoneC[d];
+                            if (SpawningCInProgress == true)
+                            {
                                 StartCoroutine(SpawnSkeletons());
-
+                                SpawningCInProgress = false;
                             }
+
+                        }
                         } 
                 }
             }
@@ -150,7 +169,7 @@ public class Spawn : MonoBehaviour
         //10% for purple pack size 1
         //20% for grey pack size 3
         //70% for white pack size 6
-
+        Debug.Log("Spawned");
             //look up off setting enemys
             if (Random.value > 0.7)
             {
@@ -198,49 +217,55 @@ public class Spawn : MonoBehaviour
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 1f), Quaternion.identity);
                         //skeletonWhite.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                         totalSkeletoNumber++;
-                    }           
+                    }    
+                    
                 }
-        }//white 70%
+            yield return new WaitForSeconds(skeletonTimerLength);
+
+        }
+        //white 70%
             else if (Random.value > 0.2)
+        {
+            packSize = greyPackNUmber;
+            for (int i = 0; i < packSize; i++)
             {
-                packSize = greyPackNUmber;
-                for (int i = 0; i < packSize; i++)
+                if (i == 0)
                 {
-                    if (i == 0)
-                    {
-                        skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
-                        Instantiate(skeletonGrey, spawnZone.transform.position, Quaternion.identity);
-                        //skeletonGrey.GetComponent<AI>().thisSkeletonClass = skeletonClass;
-                        totalSkeletoNumber++;
-                    }
-                    else if (i == 1)
-                    {
-                        skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
-                        Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x + 1f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
-                        // skeletonGrey.GetComponent<AI>().thisSkeletonClass = skeletonClass;
-                        totalSkeletoNumber++;
-                    }
-                    else if (i == 2)
-                    {
-                        skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
-                        Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x - 1f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
-                        //skeletonGrey.GetComponent<AI>().thisSkeletonClass = skeletonClass;
-                        totalSkeletoNumber++;
-                    }
-                }
-        }//grey 20%
-            else if (Random.value > 0.1)
-            {
-                packSize = purplePackNumber;
-                for (int i = 0; i < packSize; i++)
-                {
-                    skeletonPurple = ChooseSkeletonClass(skeletonPurpleSword, skeletonPurpleMace, skeletonPurpleBow);
-                    Instantiate(skeletonPurple, spawnZone.transform.position, Quaternion.identity);
-                    //skeletonPurple.GetComponent<AI>().thisSkeletonClass = skeletonClass;
+                    skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
+                    Instantiate(skeletonGrey, spawnZone.transform.position, Quaternion.identity);
+                    //skeletonGrey.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     totalSkeletoNumber++;
                 }
+                else if (i == 1)
+                {
+                    skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
+                    Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x + 1f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
+                    // skeletonGrey.GetComponent<AI>().thisSkeletonClass = skeletonClass;
+                    totalSkeletoNumber++;
+                }
+                else if (i == 2)
+                {
+                    skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
+                    Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x - 1f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
+                    //skeletonGrey.GetComponent<AI>().thisSkeletonClass = skeletonClass;
+                    totalSkeletoNumber++;
+                }
+            }
+            yield return new WaitForSeconds(skeletonTimerLength);
+        }//grey 20%
+        else if (Random.value > 0.1)
+        {
+            packSize = purplePackNumber;
+            for (int i = 0; i < packSize; i++)
+            {
+                skeletonPurple = ChooseSkeletonClass(skeletonPurpleSword, skeletonPurpleMace, skeletonPurpleBow);
+                Instantiate(skeletonPurple, spawnZone.transform.position, Quaternion.identity);
+                //skeletonPurple.GetComponent<AI>().thisSkeletonClass = skeletonClass;
+                totalSkeletoNumber++;
+            }
+            yield return new WaitForSeconds(skeletonTimerLength);
         }//purple 10%
-        yield return new WaitForSeconds(skeletonTimerLength);
+        
     }
     public GameObject ChooseSkeletonClass(GameObject sword, GameObject mace, GameObject bow)
     {

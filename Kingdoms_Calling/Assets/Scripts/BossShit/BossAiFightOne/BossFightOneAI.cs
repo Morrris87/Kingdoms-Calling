@@ -31,11 +31,16 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     public float screechTimer = 2;
 
     //Players
+    [HideInInspector]
     public GameObject playerOne;
+    [HideInInspector]
     public GameObject playerTwo;
+    [HideInInspector]
     public GameObject playerThree;
+    [HideInInspector]
     public GameObject playerFour;
 
+    GameObject[] playerArray;
     //Target Symbol
     public GameObject targetSymbol;
 
@@ -91,6 +96,26 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         spawnScript = gameObject.GetComponent<Spawn>();
         // Create the FSM for the player.
         ConstructFSM();
+        //set up a Array of players
+        for (int i = 0; i < playerArray.Length; i++)
+        {
+            if (i == 1)
+            {
+                playerOne = playerArray[i];
+            }
+            else if (i == 2)
+            {
+                playerTwo = playerArray[i];
+            }
+            else if (i == 3)
+            {
+                playerThree = playerArray[i];
+            }
+            else if (i == 4)
+            {
+                playerFour = playerArray[i];
+            }
+        }
 
     }
 

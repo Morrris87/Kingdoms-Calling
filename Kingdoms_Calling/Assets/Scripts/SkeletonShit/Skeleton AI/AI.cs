@@ -91,26 +91,6 @@ public class AI : AdvancedFSM
         {
             Destroy(this.gameObject);
         }
-
-        ////slot machine stff
-        //pathTime += Time.deltaTime;
-        //if (pathTime > 0.5f)
-        //{
-        //    pathTime = 0f;
-        //    var slotManager = objPlayer.GetComponent<SlotManager>();
-        //    if (slotManager != null)
-        //    {
-        //        if (slot == -1)
-        //            slot = slotManager.Reserve(gameObject);
-        //        if (slot == -1)
-        //            return;
-        //        var agent = GetComponent<NavMeshAgent>();
-        //        if (agent == null)
-        //            return;
-        //        agent.destination = slotManager.GetSlotPosition(slot);
-        //    }
-        //}
-
         //making the target pop up on the skeleton
         if (isTargeted == true)
         {
