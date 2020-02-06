@@ -87,7 +87,8 @@ public class FlamingLeap : MonoBehaviour
 
     void leapCharacter(Vector2 inp)
     {
-        transform.position = (new Vector3(transform.position.x, transform.position.y, transform.position.z) + new Vector3(inp.x * leapDistance,0, inp.y * leapDistance));
+        //Handle Moving the character
+        //transform.position = (new Vector3(transform.position.x, transform.position.y, transform.position.z) + new Vector3(inp.x * leapDistance,0, inp.y * leapDistance));
         //transform.position = (new Vector3(transform.position.x, 0, transform.position.z) + new Vector3(inp.x * leapDistance, transform.position.y, inp.y * leapDistance));
     }
 
