@@ -32450,6 +32450,12 @@ PrefabInstance:
       propertyPath: speed
       value: 800
       objectReference: {fileID: 0}
+    - target: {fileID: 6850935412393349423, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
+        type: 3}
+      propertyPath: abilityIndicator
+      value: 
+      objectReference: {fileID: 1485140454962217269, guid: 3cf5da2bfe6172446a1831b0c6b37cea,
+        type: 3}
     - target: {fileID: 6850935412393349414, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -62519,8 +62525,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265860247}
-  m_LocalRotation: {x: -0.24137451, y: 0.4750204, z: 0.13731392, w: 0.8350083}
-  m_LocalPosition: {x: -599.507, y: 32.54364, z: 346.48523}
+  m_LocalRotation: {x: 0.087172285, y: 0.89959055, z: 0.21045254, w: -0.37262255}
+  m_LocalPosition: {x: -514.1018, y: 19.17543, z: 238.71521}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -104602,7 +104608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033f385016acedc4b9d486d47fe865ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSkeletonNumber: 40
+  maxSkeletonNumber: 90
   skeletonTimerLength: 2
   skeletonWhiteSword: {fileID: 805810054923732350, guid: 9e78bc8374d6cbb4495bc36febbb992e,
     type: 3}

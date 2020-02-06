@@ -66,6 +66,7 @@ public class CharacterManager : MonoBehaviour
     //Assassin    
     ThunderStrike thunderStrike;
     Execution execution;
+    ElectricDash electricDash;
 
     //Archer
     ArrowVolley arrowVolley;
@@ -110,6 +111,8 @@ public class CharacterManager : MonoBehaviour
         {
             thunderStrike = this.GetComponent<ThunderStrike>();
             execution = this.GetComponent<Execution>();
+            if(GetComponent<ElectricDash>())
+                electricDash = GetComponent<ElectricDash>(); // prevent errors for people not using the prefab
         }
         else if (characterClass == CharacterClass.Archer)
         {
@@ -586,7 +589,26 @@ public class CharacterManager : MonoBehaviour
             //if active update the location
             if (abilityIndicator.activeInHierarchy && displayLocation)
             {
-                abilityIndicator.transform.localPosition = new Vector3(0.0f, 0.0f, lookDirection.magnitude * 10);
+                float range = 0;
+                if(characterClass == CharacterClass.Archer)
+                {
+                    // set the range to the archers volley range
+                    // range = arrowVolley.range;?
+                }
+                else if(characterClass == CharacterClass.Assassin)
+                {
+                    // set the range to the assassins electric dash range
+                    range = electricDash.dashLength;
+                }
+                else if (characterClass == CharacterClass.Warrior)
+                {
+                    // set the range to the warriors flaming leap range
+                    range = warriorFalmingLeap.leapDistance;
+                }
+                if (range == 0)
+                    range = 1;
+
+                abilityIndicator.transform.localPosition = new Vector3(0.0f, 0.0f, lookDirection.magnitude * range);
                 //Debug.Log(indicatorLocation);
             }
 
