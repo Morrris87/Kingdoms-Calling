@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class ProjectileDamage : MonoBehaviour
 {
-    public enum Attacker { NONE, PLAYER, SKELETON };
+    public enum Attacker { PLAYER, SKELETON, NONE };
     public Attacker attacker;
 
     private float arrowLife;

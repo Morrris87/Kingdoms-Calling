@@ -4,6 +4,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Threading;
 
 public class Spawn : MonoBehaviour
 {
@@ -82,89 +83,90 @@ public class Spawn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         for (int i = 0; i < maxSkeletonNumber; i++)
-         {
-            if (totalSkeletoNumber >= maxSkeletonNumber)
+        if (totalSkeletoNumber >= maxSkeletonNumber)
+        {
+
+        }
+        else
+        {
+            for (int i = 0; i < maxSkeletonNumber; i++)
             {
-                //no more spawning
-                StopCoroutine(SpawnSkeletons());
-            }
-            else
-            {
+
                 //if SpawnZoneA is triggered
                 if (spawnZoneAisTriggered == true)
                 {
-                    SpawningAInProgress = true;
-                        for (int d = 0; d < spawnerNumberA; d++)
-                        {
-                            if (totalSkeletoNumber >= maxSkeletonNumber)
-                            {
-                            //no more spawning
-                            StopCoroutine(SpawnSkeletons());
-                        }
-                            else
-                            {
-                                spawnZone = SpawnersZoneA[d];
-                            if (SpawningAInProgress == true)
-                            {
-                                StartCoroutine(SpawnSkeletons());
-                                SpawningAInProgress = false;
-                            }
+                    int d = 0;
 
-                            }
-                        }
+                    skeletonSpawnTimer -= Time.deltaTime;
+
+                    if (totalSkeletoNumber >= maxSkeletonNumber && skeletonSpawnTimer > 0)
+                    {
+                        //no more spawning
+                    }
+                    else if (skeletonSpawnTimer <= 0 && d != spawnerNumberA)
+                    {
+                        spawnZone = SpawnersZoneA[d];
+                        skeletonSpawnTimer = skeletonTimerLength;
+
+                        SpawnSkeletons();
+                        skeletonSpawnTimer = 0;
+                        d++;
+
+
+                    }
+
                 }
                 //else if SpawnZoneB is triggered
                 else if (spawnZoneBisTriggered == true)
                 {
-                    SpawningBInProgress = true;
-                    for (int d = 0; d < spawnerNumberB; d++)
-                        {
-                            if (totalSkeletoNumber >= maxSkeletonNumber)
-                            {
-                            //no more spawning
-                            StopCoroutine(SpawnSkeletons());
-                            }
-                            else
-                            {
-                                spawnZone = SpawnersZoneB[d];
 
-                            if (SpawningBInProgress == true)
-                            {
-                                StartCoroutine(SpawnSkeletons());
-                                SpawningBInProgress = false;
-                            }
-                        }
-                        }
+                    int d = 0;
+
+                    skeletonSpawnTimer = skeletonTimerLength;
+                    if (totalSkeletoNumber >= maxSkeletonNumber && skeletonSpawnTimer > 0)
+                    {
+                        //no more spawning
+                    }
+                    else if (skeletonSpawnTimer <= 0 && d != spawnerNumberB)
+                    {
+                        spawnZone = SpawnersZoneB[d];
+
+                        SpawnSkeletons();
+                        skeletonSpawnTimer = 0;
+                        d++;
+
+
+                    }
+
                 }
                 //else if SpawnZoneC is triggered
                 else if (spawnZoneCisTriggered == true)
                 {
-                    SpawningCInProgress = true;
-                        for (int d = 0; d < spawnerNumberC; d++)
-                        {
-                            if (totalSkeletoNumber >= maxSkeletonNumber)
-                            {
-                            //no more spawning
-                            StopCoroutine(SpawnSkeletons());
-                        }
-                            else
-                            {
-                                spawnZone = SpawnersZoneC[d];
-                            if (SpawningCInProgress == true)
-                            {
-                                StartCoroutine(SpawnSkeletons());
-                                SpawningCInProgress = false;
-                            }
 
-                        }
-                        } 
+                    int d = 0;
+
+                    skeletonSpawnTimer = skeletonTimerLength;
+                    if (totalSkeletoNumber >= maxSkeletonNumber && skeletonSpawnTimer > 0)
+                    {
+                        //no more spawning
+                    }
+                    else if (skeletonSpawnTimer <= 0 && d != spawnerNumberC)
+                    {
+                        spawnZone = SpawnersZoneC[d];
+
+                        SpawnSkeletons();
+                        skeletonSpawnTimer = 0;
+                        d++;
+
+
+                    }
                 }
+
             }
-        } 
+        }
 
     }
-    public IEnumerator SpawnSkeletons()
+    public void SpawnSkeletons()
     {
         //10% for purple pack size 1
         //20% for grey pack size 3
@@ -220,8 +222,7 @@ public class Spawn : MonoBehaviour
                     }    
                     
                 }
-            yield return new WaitForSeconds(skeletonTimerLength);
-
+          
         }
         //white 70%
             else if (Random.value > 0.2)
@@ -251,7 +252,7 @@ public class Spawn : MonoBehaviour
                     totalSkeletoNumber++;
                 }
             }
-            yield return new WaitForSeconds(skeletonTimerLength);
+            
         }//grey 20%
         else if (Random.value > 0.1)
         {
@@ -263,7 +264,7 @@ public class Spawn : MonoBehaviour
                 //skeletonPurple.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                 totalSkeletoNumber++;
             }
-            yield return new WaitForSeconds(skeletonTimerLength);
+           
         }//purple 10%
         
     }
