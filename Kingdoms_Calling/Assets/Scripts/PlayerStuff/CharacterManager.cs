@@ -39,10 +39,12 @@ public class CharacterManager : MonoBehaviour
     [Header("Characters Target")]
     public GameObject abilityIndicator;
 
+    [HideInInspector]
+    public bool displayLocation = false;
+
     // Private Variables
     PlayerInputActions inputAction; // InputActions    
     Rigidbody playerRBody;
-    bool displayLocation = false;
     //Character Input variables
     Vector2 movementInput;
     Vector3 inputDirection, inputRotation, desiredDirection, lookRot, lookDirection, rotationDirection, targetInputDir;
@@ -374,27 +376,28 @@ public class CharacterManager : MonoBehaviour
     {
         if (characterClass == CharacterClass.Paladin)
         {
-            if (context.performed)
+            if (context.ReadValue<float>() == 1)
                 paladinEarthHealingSpring.UseAbility();
         }
         else if (characterClass == CharacterClass.Assassin)
         {
-            if (context.performed)
+            if (context.ReadValue<float>() == 1)
                 thunderStrike.UseAbility(targetedEnemy);
         }
         else if (characterClass == CharacterClass.Archer)
         {
-            if (context.performed)
+            if (context.ReadValue<float>() == 1)
                 arrowVolley.UseAbility(targetedEnemy);
         }
         else if (characterClass == CharacterClass.Warrior)
         {
-            if (context.ReadValue<int>() == 1)
+            if (context.ReadValue<float>() == 1)
             {
                 displayLocation = true;
                 Debug.Log("Started");
             }
-            else if (context.ReadValue<int>() == 0)
+
+            if (context.ReadValue<float>() == 0)
             {
                 warriorFalmingLeap.UseAbility(rotationDirection);
                 //displayLocation = false;
@@ -407,22 +410,22 @@ public class CharacterManager : MonoBehaviour
     {
         if (characterClass == CharacterClass.Paladin)
         {
-            if (context.performed)
+            if (context.ReadValue<float>() == 1)
                 paladinTaunt.tauntEnemies();
         }
         else if (characterClass == CharacterClass.Assassin)
         {
-            if (context.performed)
+            if (context.ReadValue<float>() == 1)
                 execution.UseAbility(targetedEnemy);
         }
         else if (characterClass == CharacterClass.Archer)
         {
-            if (context.performed)
+            if (context.ReadValue<float>() == 1)
                 piercingArrow.UseAbility();
         }
         else if (characterClass == CharacterClass.Warrior)
         {
-            if (context.performed)
+            if (context.ReadValue<float>() == 1)
                 warriorAxeWhirlwind.UseAbility();
         }
     }
@@ -572,7 +575,7 @@ public class CharacterManager : MonoBehaviour
 
     private void DrawLocation(Vector2 inp)
     {
-        if(displayLocation)
+        if(abilityIndicator)
         {
             //if our indicator isnt active yet activate it
             if(!abilityIndicator.activeInHierarchy && displayLocation)
@@ -581,7 +584,7 @@ public class CharacterManager : MonoBehaviour
             }
 
             //if active update the location
-            if (abilityIndicator.activeInHierarchy)
+            if (abilityIndicator.activeInHierarchy && displayLocation)
             {
                 abilityIndicator.transform.localPosition = new Vector3(0.0f, 0.0f, lookDirection.magnitude * 10);
                 //Debug.Log(indicatorLocation);
@@ -591,6 +594,10 @@ public class CharacterManager : MonoBehaviour
             {
                 abilityIndicator.SetActive(false);
             }
+        }
+        else if(abilityIndicator == null)
+        {
+            Debug.Log("Please set a ability indicator GameObject");
         }
     }
 
