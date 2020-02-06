@@ -23,6 +23,9 @@ public class BasicAttack : MonoBehaviour
     public Weapon weaponType;
     //public WeaponSpecs[] weaponSpecs;
 
+    [Header("Melee Assets")]
+    public Collider hitBox;
+
     [Header("Archer Assets")]
     public GameObject arrowPrefab;
     public Transform arrowSpawn;
@@ -91,6 +94,16 @@ public class BasicAttack : MonoBehaviour
 
     public void AttackMelee()
     {
+        // Reset timer
+        cooldownActive = true;
+        cooldown = attackTimer;
+
+        // Play character's attack animation
+        GetComponentInChildren<Animator>().SetTrigger("Attacked");
+
+        // Take away player's stamina
+        GetComponent<Stamina>().DepleteStamina((int)AttackStaminaLoss);
+
 
     }
 
