@@ -10,9 +10,6 @@ using UnityEngine.UI;
 public class ArrowVolley : MonoBehaviour
 {
     public Image abilityUI; // UI sprite for the ability in the HUD
-
-    // DEBUG
-    public GameObject enemyTest;
     public GameObject areaOfEffect;
 
     private bool isUsable;          // When ability is available for use, set this to true
@@ -29,9 +26,6 @@ public class ArrowVolley : MonoBehaviour
     private AssassinPaladinCombo archerPaladinCombo;    // Used for calling the paladin combo
 
     private Vector3 circleDestPos;  // The destination position for the player when ability is used
-
-    // DEBUG
-    private int archerDmg = 10;   // Debug value for archer damage to be used until stats are fully implemented
 
     // Start is called before the first frame update
     void Start()

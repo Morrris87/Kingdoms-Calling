@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿//  Name: BasicAttack.cs
+//  Author: Connor Larsen, Bradley Williamson
+//  Date: 2/7/2020
+
 using UnityEngine;
 using Complete;
 
 public class BasicAttack : MonoBehaviour
 {
-
     [System.Serializable]
     public class WeaponSpecs
     {
@@ -24,18 +24,18 @@ public class BasicAttack : MonoBehaviour
     //public WeaponSpecs[] weaponSpecs;
 
     [Header("Melee Assets")]
-    public MeleeDamage hitBox;
+    public Collider weaponHitbox;
 
     [Header("Archer Assets")]
     public GameObject arrowPrefab;
-    public Transform arrowSpawn;
+    public Transform spawner;
 
     //Current weapons specs
-    private float AttackRateSpeed;
-    private float AttackRange;
-    private float AttackDamage;
-    private float AttackHitChance;
-    private float AttackStaminaLoss;
+    [HideInInspector] public float AttackRateSpeed;
+    [HideInInspector] public float AttackRange;
+    [HideInInspector] public float AttackDamage;
+    [HideInInspector] public float AttackHitChance;
+    [HideInInspector] public float AttackStaminaLoss;
 
     [Header("Cooldown Variables")]
     public float attackTimer;
@@ -43,7 +43,7 @@ public class BasicAttack : MonoBehaviour
     private bool cooldownActive;
 
     //Current class enum type
-    enum CharacterClass { NONE, Paladin, Warrior, Assassin, Archer };
+    public enum CharacterClass { NONE, Paladin, Warrior, Assassin, Archer };
     //Current class
     CharacterClass currentClass;
     //Player and enemy layer index
@@ -52,9 +52,9 @@ public class BasicAttack : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cooldown = attackTimer;
-        cooldownActive = true;
-        DetermineClass();
+        DetermineClass();           // Fills in weapon specs based on which class the character is
+        cooldown = AttackRateSpeed; // Sets up the cooldown timer based on the attack rate speed
+        cooldownActive = true;      // Sets the cooldown check to true
     }
 
     // Update is called once per frame
@@ -68,7 +68,6 @@ public class BasicAttack : MonoBehaviour
         if (cooldown <= 0.0f)
         {
             cooldownActive = false;
-            hitBox.Attacking(false);
         }
     }
 
@@ -89,7 +88,8 @@ public class BasicAttack : MonoBehaviour
 
             // Create the arrow prefab
             arrowPrefab.transform.rotation = transform.rotation;
-            Instantiate(arrowPrefab, arrowSpawn.position, Quaternion.LookRotation(transform.forward, Vector3.up));
+            arrowPrefab.GetComponent<ProjectileDamage>().attacker = ProjectileDamage.Attacker.PLAYER;
+            Instantiate(arrowPrefab, spawner.position, Quaternion.LookRotation(transform.forward, Vector3.up));
         }
     }
 
@@ -105,8 +105,45 @@ public class BasicAttack : MonoBehaviour
         // Take away player's stamina
         GetComponent<Stamina>().DepleteStamina((int)AttackStaminaLoss);
 
-        // Activate the character's hitbox
-        hitBox.Attacking(true);
+        // Grab all colliders in the hitbox for the weapon
+        Collider[] cols = Physics.OverlapBox(weaponHitbox.bounds.center, weaponHitbox.bounds.extents, weaponHitbox.transform.rotation, LayerMask.GetMask("Enemy"));
+
+        // Cycle through each collider in the cols array and deal damage to each enemy inside
+        foreach (Collider c in cols)
+        {
+            c.GetComponent<Health>().Damage((int)AttackDamage);
+        }
+    }
+
+    public float CharacterAttackValue(CharacterClass characterClass)
+    {
+        if (currentClass != CharacterClass.NONE)
+        {
+            if (currentClass == CharacterClass.Paladin)
+            {
+                return 1f;
+            }
+            else if (currentClass == CharacterClass.Assassin)
+            {
+                return 1f;
+            }
+            else if (currentClass == CharacterClass.Archer)
+            {
+                return 1f;
+            }
+            else if (currentClass == CharacterClass.Warrior)
+            {
+                return 1f;
+            }
+            else
+            {
+                return 0f;
+            }
+        }
+        else
+        {
+            return 0f;
+        }
     }
 
     void DetermineClass()

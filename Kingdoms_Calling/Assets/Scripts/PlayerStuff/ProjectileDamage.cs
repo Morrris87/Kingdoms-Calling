@@ -14,7 +14,6 @@ public class ProjectileDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        attacker = Attacker.NONE;
         arrowLife = 1.5f;
     }
 
@@ -29,26 +28,13 @@ public class ProjectileDamage : MonoBehaviour
         else
         {
             arrowLife -= Time.deltaTime;
-        }
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (attacker == Attacker.PLAYER)
-        {
-            if (other.tag == "White" || other.tag == "Grey" || other.tag == "Purple")
+            Collider[] cols = Physics.OverlapBox(GetComponent<Collider>().bounds.center, GetComponent<Collider>().bounds.extents, GetComponent<Collider>().transform.rotation, LayerMask.GetMask("Enemy"));
+            foreach (Collider c in cols)
             {
-                other.GetComponent<Health>().Damage(10);
+                c.GetComponent<Health>().Damage((1));
+                Destroy(gameObject);
             }
         }
-        else if (attacker == Attacker.SKELETON)
-        {
-            if (other.tag == "Player")
-            {
-                other.GetComponent<Health>().Damage(10);
-            }
-        }
-
-        Destroy(this.gameObject);
     }
 }
