@@ -85,80 +85,66 @@ public class Spawn : MonoBehaviour
     {
         if (totalSkeletoNumber >= maxSkeletonNumber)
         {
-
         }
-        else
-        {
+        else { 
             for (int i = 0; i < maxSkeletonNumber; i++)
             {
-
                 //if SpawnZoneA is triggered
                 if (spawnZoneAisTriggered == true)
                 {
-                    int d = 0;
-
-                    skeletonSpawnTimer -= Time.deltaTime;
-
-                    if (totalSkeletoNumber >= maxSkeletonNumber && skeletonSpawnTimer > 0)
+                    for (int d = 0; d < spawnerNumberA; d++)
                     {
-                        //no more spawning
-                    }
-                    else if (skeletonSpawnTimer <= 0 && d != spawnerNumberA)
-                    {
-                        spawnZone = SpawnersZoneA[d];
-                        skeletonSpawnTimer = skeletonTimerLength;
-
-                        SpawnSkeletons();
-                        skeletonSpawnTimer = 0;
-                        d++;
-
-
+                        if (totalSkeletoNumber >= maxSkeletonNumber)
+                        {
+                            //no more spawning
+                        }
+                        else
+                        {
+                            spawnZone = SpawnersZoneA[d];
+                            SpawnSkeletons();
+                        }
                     }
 
                 }
                 //else if SpawnZoneB is triggered
                 else if (spawnZoneBisTriggered == true)
                 {
-
-                    int d = 0;
-
-                    skeletonSpawnTimer = skeletonTimerLength;
-                    if (totalSkeletoNumber >= maxSkeletonNumber && skeletonSpawnTimer > 0)
+                    //if SpawnZoneB is triggered
+                    if (spawnZoneBisTriggered == true)
                     {
-                        //no more spawning
+                        for (int d = 0; d < spawnerNumberA; d++)
+                        {
+                            if (totalSkeletoNumber >= maxSkeletonNumber)
+                            {
+                                //no more spawning
+                            }
+                            else
+                            {
+                                spawnZone = SpawnersZoneB[d];
+                                SpawnSkeletons();
+                            }
+                        }
+
                     }
-                    else if (skeletonSpawnTimer <= 0 && d != spawnerNumberB)
+                    //else if SpawnZoneC is triggered
+                    else if (spawnZoneCisTriggered == true)
                     {
-                        spawnZone = SpawnersZoneB[d];
-
-                        SpawnSkeletons();
-                        skeletonSpawnTimer = 0;
-                        d++;
-
-
-                    }
-
-                }
-                //else if SpawnZoneC is triggered
-                else if (spawnZoneCisTriggered == true)
-                {
-
-                    int d = 0;
-
-                    skeletonSpawnTimer = skeletonTimerLength;
-                    if (totalSkeletoNumber >= maxSkeletonNumber && skeletonSpawnTimer > 0)
-                    {
-                        //no more spawning
-                    }
-                    else if (skeletonSpawnTimer <= 0 && d != spawnerNumberC)
-                    {
-                        spawnZone = SpawnersZoneC[d];
-
-                        SpawnSkeletons();
-                        skeletonSpawnTimer = 0;
-                        d++;
-
-
+                        //if SpawnZoneC is triggered
+                        if (spawnZoneCisTriggered == true)
+                        {
+                            for (int d = 0; d < spawnerNumberA; d++)
+                            {
+                                if (totalSkeletoNumber >= maxSkeletonNumber)
+                                {
+                                    //no more spawning
+                                }
+                                else
+                                {
+                                    spawnZone = SpawnersZoneC[d];
+                                    SpawnSkeletons();
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -175,6 +161,7 @@ public class Spawn : MonoBehaviour
             //look up off setting enemys
             if (Random.value > 0.7)
             {
+            Debug.Log("white");
                 packSize = whitePackNumber;
                 for (int i = 0; i < packSize; i++)
                 {
@@ -227,6 +214,7 @@ public class Spawn : MonoBehaviour
         //white 70%
             else if (Random.value > 0.2)
         {
+            Debug.Log("Grey");
             packSize = greyPackNUmber;
             for (int i = 0; i < packSize; i++)
             {
@@ -256,6 +244,7 @@ public class Spawn : MonoBehaviour
         }//grey 20%
         else if (Random.value > 0.1)
         {
+            Debug.Log("Purple");
             packSize = purplePackNumber;
             for (int i = 0; i < packSize; i++)
             {
