@@ -20,6 +20,11 @@ public class MeleeDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (GetComponent<Animator>().)
+
+    }
+
+    public void Attacking(bool value)
+    {
+        GetComponent<Collider>().enabled = value;
     }
 }

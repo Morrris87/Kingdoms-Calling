@@ -24,7 +24,7 @@ public class BasicAttack : MonoBehaviour
     //public WeaponSpecs[] weaponSpecs;
 
     [Header("Melee Assets")]
-    public Collider hitBox;
+    public MeleeDamage hitBox;
 
     [Header("Archer Assets")]
     public GameObject arrowPrefab;
@@ -68,6 +68,7 @@ public class BasicAttack : MonoBehaviour
         if (cooldown <= 0.0f)
         {
             cooldownActive = false;
+            hitBox.Attacking(false);
         }
     }
 
@@ -104,7 +105,8 @@ public class BasicAttack : MonoBehaviour
         // Take away player's stamina
         GetComponent<Stamina>().DepleteStamina((int)AttackStaminaLoss);
 
-
+        // Activate the character's hitbox
+        hitBox.Attacking(true);
     }
 
     void DetermineClass()
