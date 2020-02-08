@@ -10,9 +10,6 @@ using UnityEngine.UI;
 public class ArrowVolley : MonoBehaviour
 {
     public Image abilityUI; // UI sprite for the ability in the HUD
-
-    // DEBUG
-    public GameObject enemyTest;
     public GameObject areaOfEffect;
 
     private bool isUsable;          // When ability is available for use, set this to true
@@ -20,6 +17,7 @@ public class ArrowVolley : MonoBehaviour
     private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
     private float durationTimer;
     private float durationTime = 5;
+    private float archerDmg;
     private GameObject createrArrowVolley;
     private Collider[] enemiesInTarget;
 
@@ -30,14 +28,13 @@ public class ArrowVolley : MonoBehaviour
 
     private Vector3 circleDestPos;  // The destination position for the player when ability is used
 
-    // DEBUG
-    private int archerDmg = 10;   // Debug value for archer damage to be used until stats are fully implemented
-
     // Start is called before the first frame update
     void Start()
     {
         isUsable = true;        // Ability starts as usable
         cooldownElapsed = 0;    // Cooldown timer starts at 0
+        archerDmg = 1f;
+        //archerDmg = GetComponent<BasicAttack>().CharacterAttackValue(BasicAttack.CharacterClass.Archer);
 
         //enemyTest = TargetedEnemy;
     }
@@ -109,7 +106,7 @@ public class ArrowVolley : MonoBehaviour
                     if (enemy.GetComponentInParent<ElementManager>().thisElement == ElementManager.ClassElement.Lightning)  // If enemy has a lightning proc...
                     {
                         // Activate the Assassin combo
-                        archerAssassinCombo.ActivateCombo(target, archerDmg);
+                        archerAssassinCombo.ActivateCombo(target, (int)archerDmg);
                     }
                     else if (enemy.GetComponentInParent<ElementManager>().thisElement == ElementManager.ClassElement.Earth)    // If enemy has a lightning proc...
                     {
@@ -124,7 +121,7 @@ public class ArrowVolley : MonoBehaviour
                     else
                     {
                         // Enemy has no proc and ability happens as normal
-                        enemy.GetComponentInParent<Health>().Damage(archerDmg);
+                        enemy.GetComponentInParent<Health>().Damage((int)archerDmg);
 
                         // Give enemies procs if appliciable
                         if (enemy.GetComponentInParent<ElementManager>().thisElement == ElementManager.ClassElement.NONE)

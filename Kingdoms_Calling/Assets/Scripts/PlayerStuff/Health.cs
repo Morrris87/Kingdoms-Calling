@@ -95,14 +95,4 @@ public class Health : MonoBehaviour
     {
         trueDamage = value;
     }
-
-    public void DebugHealthLoss()
-    {
-        Damage(10);
-    }
-
-    public void DebugHealthGain()
-    {
-        Damage(-10);
-    }
 }

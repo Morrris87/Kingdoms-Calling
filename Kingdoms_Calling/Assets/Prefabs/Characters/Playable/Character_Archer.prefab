@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642801837506864233}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.6, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0.4, z: 0.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6850935412393349414}
@@ -299,6 +299,8 @@ MonoBehaviour:
   cycleSpeed: 1
   cycleRange: 10
   analogTargetRange: 5
+  abilityIndicator: {fileID: 0}
+  displayLocation: 0
 --- !u!114 &6850935412393349420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,14 +314,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponType: 3
+  weaponHitbox: {fileID: 0}
   arrowPrefab: {fileID: 3544053858262687705, guid: 48d61060b421ebc40b7b8b054c55894d,
     type: 3}
-  arrowSpawn: {fileID: 3347577505664671575}
-  AttackRateSpeed: 1
-  AttackRange: 1
-  AttackDamage: 1
-  AttackHitChance: 1
-  AttackStaminaLoss: 1
+  spawner: {fileID: 0}
   attackTimer: 1
 --- !u!114 &6850935412393349421
 MonoBehaviour:
@@ -349,6 +347,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxStamina: 100
+  cooldownTime: 2
   staminaUI: {fileID: 0}
 --- !u!114 &1063371864473402099
 MonoBehaviour:
