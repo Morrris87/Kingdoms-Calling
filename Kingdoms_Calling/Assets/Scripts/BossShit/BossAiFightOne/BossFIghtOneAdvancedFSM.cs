@@ -16,6 +16,8 @@ namespace CompleteBossOne
         CastSpawnSkeletons,
         AllClonesKilled,
         AllSkeletonsDead,
+        HitHealthThing,
+        BossSkeletonsDead,
         NoHealth
     }
     public enum FSMStateID
@@ -25,6 +27,7 @@ namespace CompleteBossOne
         Sceach,
         AutoAttack,
         SpawnSkeletons,
+        Sit,
         Dead
     }
     public class BossFIghtOneAdvancedFSM : BossFightOneFSM

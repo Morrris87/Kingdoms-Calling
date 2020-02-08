@@ -24,6 +24,6 @@ public class BossDeathState : BossFightOneFSMState
 
     public override void Reason()
     {
-       
+
     }
 }

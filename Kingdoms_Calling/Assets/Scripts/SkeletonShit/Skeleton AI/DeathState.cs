@@ -23,6 +23,7 @@ public class DeathState : FSMState
     public override void Act()
     {
         //die
+        GameObject.Destroy(enemyAI.thisSkeleton, 5);
         
     }
 

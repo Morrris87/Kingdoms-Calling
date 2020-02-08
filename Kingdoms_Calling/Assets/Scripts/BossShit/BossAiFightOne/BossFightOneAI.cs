@@ -44,6 +44,10 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     //Target Symbol
     public GameObject targetSymbol;
 
+    [HideInInspector]
+    public int TimerThroneHasBeenActivated = 0;
+    [HideInInspector]
+    public int currentHealth;
 
     //Spawn Zones for the Skeletons
     public GameObject spawnZoneOne;
@@ -178,7 +182,8 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         screech.AddTransition(Transition.NoHealth, FSMStateID.Dead);
         screech.AddTransition(Transition.ScreechOnCooldown, FSMStateID.AutoAttack);
 
-
+        SitOnThroneState sit = new SitOnThroneState(this);
+        sit.AddTransition(Transition.BossSkeletonsDead, FSMStateID.AutoAttack);
         BossDeathState death = new BossDeathState(this);
 
 
