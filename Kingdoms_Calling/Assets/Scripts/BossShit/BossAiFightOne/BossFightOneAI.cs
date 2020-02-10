@@ -58,6 +58,10 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     //BossPrefab
     public GameObject bossPrefab;
 
+
+    // i want the lich to dissapear into a puff of smoke and then reappear on the throne
+    public GameObject Throne;
+
     //boss Timer
     public float bossTimer = 2;
 
