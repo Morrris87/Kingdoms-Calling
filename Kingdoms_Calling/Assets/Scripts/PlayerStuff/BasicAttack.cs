@@ -42,6 +42,7 @@ public class BasicAttack : MonoBehaviour
     private float cooldown;
     private bool cooldownActive;
 
+    FocusShot shot;
     //Current class enum type
     public enum CharacterClass { NONE, Paladin, Warrior, Assassin, Archer };
     //Current class
@@ -85,11 +86,16 @@ public class BasicAttack : MonoBehaviour
 
             // Take away player's stamina
             GetComponent<Stamina>().DepleteStamina((int)AttackStaminaLoss);
-
+            //zac stuff
+            shot.passiveReady = false;
+            shot.Timer = 0;
+            shot.PassiveIndicator.SetActive(false);
             // Create the arrow prefab
             arrowPrefab.transform.rotation = transform.rotation;
             arrowPrefab.GetComponent<ProjectileDamage>().attacker = ProjectileDamage.Attacker.PLAYER;
             Instantiate(arrowPrefab, spawner.position, Quaternion.LookRotation(transform.forward, Vector3.up));
+
+            
         }
     }
 

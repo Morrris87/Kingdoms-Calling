@@ -8,7 +8,7 @@ public class ProjectileDamage : MonoBehaviour
 {
     public enum Attacker { PLAYER, SKELETON, NONE };
     public Attacker attacker;
-
+    FocusShot shot;
     private float arrowLife;
 
     // Start is called before the first frame update
@@ -32,8 +32,15 @@ public class ProjectileDamage : MonoBehaviour
             Collider[] cols = Physics.OverlapBox(GetComponent<Collider>().bounds.center, GetComponent<Collider>().bounds.extents, GetComponent<Collider>().transform.rotation, LayerMask.GetMask("Enemy"));
             foreach (Collider c in cols)
             {
-                c.GetComponent<Health>().Damage((1));
-                Destroy(gameObject);
+                if (shot.passiveReady == true)
+                {
+                    c.GetComponent<Health>().Damage((2));               
+                    Destroy(gameObject);
+                }
+                else {
+                    c.GetComponent<Health>().Damage((1));
+                    Destroy(gameObject);
+                }
             }
         }
     }
