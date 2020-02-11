@@ -13028,11 +13028,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84286d82eefecba4e8e32b73453469d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
-  totemPrefab: {fileID: 4381673199104421256, guid: d29892b286278b24bacd7e020081f809,
-    type: 3}
-  player: {fileID: 262869714}
-  coolDown: 10
+  abilityCooldownUI: {fileID: 0}
+  areaOfEffect: {fileID: 0}
+  waitTime: 20
 --- !u!114 &262869717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13059,7 +13057,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc763eac32f1dc40a90edbd06a7eda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
+  abilityCooldownUI: {fileID: 0}
+  waitTime: 20
   isUsable: 0
 --- !u!114 &262869719
 MonoBehaviour:
@@ -13076,6 +13075,7 @@ MonoBehaviour:
   abilityCooldownUI: {fileID: 0}
   areaOfEffect: {fileID: 0}
   colliderDestPos: {fileID: 0}
+  waitTime: 20
 --- !u!114 &262869720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14251,6 +14251,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 283797081}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &283797083 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: f7712935e83257a49b139c801ac5b6d3,
+    type: 3}
+  m_PrefabInstance: {fileID: 283797081}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &283797084
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283797083}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0394453, y: 0.67, z: 1.6799449}
+  m_Center: {x: 0, y: 0.0000076293945, z: -0.20922944}
+--- !u!114 &283797085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283797083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20cbc0ebd343a874c93d1bb75b137bd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  map: {fileID: 0}
 --- !u!1 &284413683
 GameObject:
   m_ObjectHideFlags: 0
@@ -16163,11 +16195,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84286d82eefecba4e8e32b73453469d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
-  totemPrefab: {fileID: 4381673199104421256, guid: d29892b286278b24bacd7e020081f809,
-    type: 3}
-  player: {fileID: 312235670}
-  coolDown: 10
+  abilityCooldownUI: {fileID: 0}
+  areaOfEffect: {fileID: 0}
+  waitTime: 20
 --- !u!114 &312235673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16194,7 +16224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc763eac32f1dc40a90edbd06a7eda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
+  abilityCooldownUI: {fileID: 0}
+  waitTime: 20
   isUsable: 0
 --- !u!114 &312235675
 MonoBehaviour:
@@ -16211,6 +16242,7 @@ MonoBehaviour:
   abilityCooldownUI: {fileID: 0}
   areaOfEffect: {fileID: 0}
   colliderDestPos: {fileID: 0}
+  waitTime: 20
 --- !u!114 &312235676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32692,11 +32724,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4988758205936517710, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
-        type: 3}
-      propertyPath: PassiveIndicator
-      value: 
-      objectReference: {fileID: 1523373946}
     - target: {fileID: 6850935412393349415, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
       propertyPath: m_Name
@@ -32848,6 +32875,11 @@ PrefabInstance:
       propertyPath: distance
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 4988758205936517710, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
+        type: 3}
+      propertyPath: PassiveIndicator
+      value: 
+      objectReference: {fileID: 1523373946}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e5a4c85c6d71004ea94f79a64a9a63a, type: 3}
 --- !u!1 &644889183 stripped
@@ -63132,8 +63164,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265860247}
-  m_LocalRotation: {x: 0.087172285, y: 0.89959055, z: 0.21045254, w: -0.37262255}
-  m_LocalPosition: {x: -526.50964, y: 17.45346, z: 238.25684}
+  m_LocalRotation: {x: -0.31520197, y: 0.5060668, z: 0.20556381, w: 0.77607197}
+  m_LocalPosition: {x: -518.17725, y: 23.438953, z: 282.40015}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -100844,11 +100876,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84286d82eefecba4e8e32b73453469d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
-  totemPrefab: {fileID: 4381673199104421256, guid: d29892b286278b24bacd7e020081f809,
-    type: 3}
-  player: {fileID: 2033903167}
-  coolDown: 10
+  abilityCooldownUI: {fileID: 0}
+  areaOfEffect: {fileID: 0}
+  waitTime: 20
 --- !u!114 &2033903170
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100875,7 +100905,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc763eac32f1dc40a90edbd06a7eda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
+  abilityCooldownUI: {fileID: 0}
+  waitTime: 20
   isUsable: 0
 --- !u!114 &2033903172
 MonoBehaviour:
@@ -100892,6 +100923,7 @@ MonoBehaviour:
   abilityCooldownUI: {fileID: 0}
   areaOfEffect: {fileID: 0}
   colliderDestPos: {fileID: 0}
+  waitTime: 20
 --- !u!114 &2033903173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106995,6 +107027,7 @@ MonoBehaviour:
   abilityCooldownUI: {fileID: 0}
   areaOfEffect: {fileID: 0}
   colliderDestPos: {fileID: 0}
+  waitTime: 20
 --- !u!114 &2326171932716776010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107007,7 +107040,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dc763eac32f1dc40a90edbd06a7eda1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
+  abilityCooldownUI: {fileID: 0}
+  waitTime: 20
   isUsable: 0
 --- !u!114 &2357826745390578169
 MonoBehaviour:
@@ -108062,8 +108096,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84286d82eefecba4e8e32b73453469d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
-  totemPrefab: {fileID: 4381673199104421256, guid: d29892b286278b24bacd7e020081f809,
-    type: 3}
-  player: {fileID: 694699487076490942}
-  coolDown: 10
+  abilityCooldownUI: {fileID: 0}
+  areaOfEffect: {fileID: 0}
+  waitTime: 20
