@@ -592,6 +592,12 @@ PrefabInstance:
       propertyPath: spawner
       value: 
       objectReference: {fileID: 866495802}
+    - target: {fileID: 6850935412393349420, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
+        type: 3}
+      propertyPath: arrowPrefab
+      value: 
+      objectReference: {fileID: 9076422881442198651, guid: ab6bfdf8ccbcdcd4f93cb2e6ebd3a82c,
+        type: 3}
     - target: {fileID: 6850935412393349421, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
       propertyPath: healthUI
