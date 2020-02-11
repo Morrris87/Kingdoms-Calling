@@ -6576,7 +6576,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Timer: 0
   passiveReady: 0
-  PassiveIndicator: {fileID: 0}
+  PassiveIndicator: {fileID: 1523373946}
 --- !u!114 &138704641 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6850935412393349423, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
@@ -13108,6 +13108,7 @@ MonoBehaviour:
   AttackHitChance: 0
   AttackStaminaLoss: 0
   attackTimer: 1
+  zacAttackBool: 0
 --- !u!114 &262869724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16236,6 +16237,7 @@ MonoBehaviour:
   AttackHitChance: 0
   AttackStaminaLoss: 0
   attackTimer: 1
+  zacAttackBool: 0
 --- !u!114 &312235680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32734,6 +32736,16 @@ PrefabInstance:
       propertyPath: weaponType
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6850935412393349420, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
+        type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 735045402}
+    - target: {fileID: 6850935412393349420, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
+        type: 3}
+      propertyPath: zacAttackBool
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6850935412393349421, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
       propertyPath: healthUI
@@ -36764,6 +36776,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734971465}
   m_Mesh: {fileID: 3581458263022219551, guid: d882ad79ff4e45a449a0ce472a3d236d, type: 3}
+--- !u!4 &735045402 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3347577505664671575, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
+    type: 3}
+  m_PrefabInstance: {fileID: 643599195}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &735075501
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62972,8 +62990,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265860247}
-  m_LocalRotation: {x: -0.13116835, y: 0.5956096, z: 0.0993687, w: 0.78623784}
-  m_LocalPosition: {x: -562.5127, y: 21.853283, z: 216.9831}
+  m_LocalRotation: {x: -0.51877326, y: 0, z: 0, w: 0.85491186}
+  m_LocalPosition: {x: -519, y: -29.059998, z: 215}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -74150,8 +74168,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479292308}
-  m_LocalRotation: {x: -0.2744101, y: 0.19110218, z: 0.055741303, w: 0.94078267}
-  m_LocalPosition: {x: -623.0663, y: -66.75824, z: 130.8746}
+  m_LocalRotation: {x: -0.51877326, y: 0, z: 0, w: 0.85491186}
+  m_LocalPosition: {x: -519, y: -29.059998, z: 215}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -76710,7 +76728,7 @@ GameObject:
   - component: {fileID: 1523373949}
   - component: {fileID: 1523373948}
   m_Layer: 8
-  m_Name: Capsule
+  m_Name: PassiveTest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100699,6 +100717,7 @@ MonoBehaviour:
   AttackHitChance: 0
   AttackStaminaLoss: 0
   attackTimer: 1
+  zacAttackBool: 0
 --- !u!114 &2033903177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106976,6 +106995,7 @@ MonoBehaviour:
   AttackHitChance: 0
   AttackStaminaLoss: 0
   attackTimer: 1
+  zacAttackBool: 0
 --- !u!33 &4254823103006267232
 MeshFilter:
   m_ObjectHideFlags: 0
