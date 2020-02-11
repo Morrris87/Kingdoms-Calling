@@ -623,6 +623,17 @@ PrefabInstance:
       propertyPath: abilityCooldownUI
       value: 
       objectReference: {fileID: 552433168}
+    - target: {fileID: 2345498833140326227, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
+        type: 3}
+      propertyPath: abilityCooldownUI
+      value: 
+      objectReference: {fileID: 1547751757}
+    - target: {fileID: 2345498833140326227, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
+        type: 3}
+      propertyPath: piercingArrowPrefab
+      value: 
+      objectReference: {fileID: 3544053858262687705, guid: 2ddfa3d942e53c04c8a0398f3ace68bf,
+        type: 3}
     m_RemovedComponents:
     - {fileID: 6850935412393349419, guid: 5e5a4c85c6d71004ea94f79a64a9a63a, type: 3}
     - {fileID: 6850935412393349416, guid: 5e5a4c85c6d71004ea94f79a64a9a63a, type: 3}
@@ -716,6 +727,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3673495573729050289, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
     type: 3}
   m_PrefabInstance: {fileID: 1050254467}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1547751757 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8863542652062060436, guid: 3126e2b090e229644a42aeda1fc2535b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8863542652804407001}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1770020267 stripped
 GameObject:
