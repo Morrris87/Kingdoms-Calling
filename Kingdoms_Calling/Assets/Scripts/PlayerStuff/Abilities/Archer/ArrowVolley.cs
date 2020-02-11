@@ -10,11 +10,11 @@ public class ArrowVolley : MonoBehaviour
     // Public Variables
     public GameObject abilityCooldownUI;    // UI element for the ability cooldown in the HUD
     public GameObject areaOfEffect;         // The collider for the ArrowVolley ability
-    public Transform colliderDestPos;       // The destination position for the player when ability is used
+    public Transform colliderDestPos;       // The destination position for the collider when ability is used
+    public float waitTime = 20f;            // Time in seconds needed to wait for ability cooldown
 
     // Private Variables
     private bool isUsable;          // When ability is available for use, set this to true
-    private float waitTime = 20;    // Time in seconds needed to wait for ability cooldown
     private float cooldownTimer;    // When in cooldown, increments until waitTime is reached
 
     // Start is called before the first frame update
