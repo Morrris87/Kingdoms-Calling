@@ -179,7 +179,7 @@ Material:
     - _UnderwaterColor: {r: 0.6950323, g: 0.89552236, b: 0.7502397, a: 1}
     - _WaveOffset: {r: 1, g: 1, b: -0.01, a: -0.01}
     - _WaveScale4: {r: 0.1, g: 0.1, b: 0.01, a: 0.01}
-    - _WavesColor: {r: 0, g: 0.2901961, b: 1, a: 1}
+    - _WavesColor: {r: 0.11764707, g: 0.31764707, b: 0.97647065, a: 1}
     - _WorldLightDir: {r: 0.013992369, g: -0.17359081, b: -0.9847186, a: 0}
 --- !u!1002 &2100001
 EditorExtensionImpl:
