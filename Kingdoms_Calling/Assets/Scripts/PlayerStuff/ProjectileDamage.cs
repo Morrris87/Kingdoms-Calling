@@ -8,7 +8,7 @@ public class ProjectileDamage : MonoBehaviour
 {
     public enum Attacker { PLAYER, SKELETON, NONE };
     public Attacker attacker;
-    FocusShot shot;
+    BasicAttack shot;
     private float arrowLife;
 
     // Start is called before the first frame update
@@ -32,12 +32,14 @@ public class ProjectileDamage : MonoBehaviour
             Collider[] cols = Physics.OverlapBox(GetComponent<Collider>().bounds.center, GetComponent<Collider>().bounds.extents, GetComponent<Collider>().transform.rotation, LayerMask.GetMask("Enemy"));
             foreach (Collider c in cols)
             {
-                if (shot.passiveReady == true)
+                if (shot.zacAttackBool == true)
                 {
-                    c.GetComponent<Health>().Damage((2));               
+                    c.GetComponent<Health>().Damage((2));
+                    shot.zacAttackBool = false;
                     Destroy(gameObject);
                 }
-                else {
+                else if(shot.zacAttackBool == false)
+                {
                     c.GetComponent<Health>().Damage((1));
                     Destroy(gameObject);
                 }

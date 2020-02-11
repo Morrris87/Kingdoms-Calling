@@ -50,9 +50,14 @@ public class BasicAttack : MonoBehaviour
     //Player and enemy layer index
     int playerLayerIndex, enemyLayerIndex;
 
+
+    //zac stuff
+    [HideInInspector]
+    public bool zacAttackBool;
     // Start is called before the first frame update
     void Start()
     {
+        zacAttackBool = false;
         DetermineClass();           // Fills in weapon specs based on which class the character is
         cooldown = AttackRateSpeed; // Sets up the cooldown timer based on the attack rate speed
         cooldownActive = true;      // Sets the cooldown check to true
@@ -74,6 +79,7 @@ public class BasicAttack : MonoBehaviour
 
     public void AttackRanged()
     {
+        
         // Check to see if player has enough stamina
         if (GetComponent<Stamina>().GetStamina() >= AttackStaminaLoss && cooldown <= 0f)
         {
@@ -88,9 +94,14 @@ public class BasicAttack : MonoBehaviour
             GetComponent<Stamina>().DepleteStamina((int)AttackStaminaLoss);
             //zac stuff
             //might have to make a nother bool that is set true here and false when in projectile damage after checking if its true
-            shot.passiveReady = false;
-            shot.Timer = 0;
-            shot.PassiveIndicator.SetActive(false);
+            if (zacAttackBool == false && shot.Timer >= 12)
+            {
+                shot.PassiveIndicator.SetActive(false);
+                shot.passiveReady = false;
+                zacAttackBool = true;
+                shot.Timer = 0;
+                
+            }
             // Create the arrow prefab
             arrowPrefab.transform.rotation = transform.rotation;
             arrowPrefab.GetComponent<ProjectileDamage>().attacker = ProjectileDamage.Attacker.PLAYER;
