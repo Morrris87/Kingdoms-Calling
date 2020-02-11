@@ -5,7 +5,7 @@ using UnityEngine;
 public class ArcherPaladinCombo : MonoBehaviour
 {
     // ActivateCombo is called when an ability triggers an elemental proc on an enemy it hits
-    public void ActivateCombo(GameObject target, ElementManager.ClassElement element)
+    public void ActivateCombo(GameObject target)
     {
         // Remove proc
         target.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.NONE;

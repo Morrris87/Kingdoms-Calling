@@ -390,7 +390,7 @@ public class CharacterManager : MonoBehaviour
         else if (characterClass == CharacterClass.Archer)
         {
             if (context.ReadValue<float>() == 1)
-                arrowVolley.UseAbility(targetedEnemy);
+                arrowVolley.UseAbility();
         }
         else if (characterClass == CharacterClass.Warrior)
         {
@@ -609,7 +609,7 @@ public class CharacterManager : MonoBehaviour
         }
         else if(abilityIndicator == null)
         {
-            Debug.Log("Please set a ability indicator GameObject");
+            //Debug.Log("Please set a ability indicator GameObject");
         }
     }
 

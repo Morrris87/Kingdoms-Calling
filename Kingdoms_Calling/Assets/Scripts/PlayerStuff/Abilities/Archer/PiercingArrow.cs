@@ -9,54 +9,73 @@ using UnityEngine.UI;
 
 public class PiercingArrow : MonoBehaviour
 {
-    public Image abilityUI; // The UI Images for the abilities
+    // Public Variables
+    public GameObject abilityCooldownUI;    // UI element for the ability cooldown in the HUD
+    public GameObject piercingArrowPrefab;  // Prefab for the piercing arrow shot
 
+    // Private Variables
     private bool isUsable;          // When ability is available for use, set this to true
-    private float waitTime = 40;    // Time in seconds needed to wait for ability cooldown
-    private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
-    private RaycastHit[] hits;      // Array to store all enemies hit by the ability
-    private int enemyLayerIndex;    // Index for the enemy layer
-    private int damage;             // Damage the ability does
+    private float waitTime = 40f;   // Time in seconds needed to wait for ability cooldown
+    private float cooldownTimer;    // When in cooldown, increments until waitTime is reached
+    private float archerDmg;        // Damage the archer does
 
     // Start is called before the first frame update
     void Start()
     {
-        isUsable = true;                                    // Ability starts as usable
-        cooldownElapsed = 0;                                // Cooldown timer starts at 0
-        enemyLayerIndex = LayerMask.NameToLayer("Enemy");   // Set the index to the value of the enemy layer
-        damage = 10;                                        // Set the damage of the ability
+        isUsable = true;            // Ability starts as usable
+        cooldownTimer = waitTime;   // Cooldown timer starts at 0
+
+        // Grab the value of the archers damage from BasicAttack.cs
+        archerDmg = GetComponent<BasicAttack>().CharacterAttackValue(BasicAttack.CharacterClass.Archer);
     }
 
     // Update is called once per frame
     void Update()
     {
+        // If ability has been used and hasn't refreshed...
+        if (isUsable == false)
+        {
+            // If cooldownTimer hasn't completed...
+            if (cooldownTimer >= 0f)
+            {
+                // Subtract cooldownTimer by deltaTime
+                cooldownTimer -= Time.deltaTime;
 
+                // Update the UI with the abount of time remaining
+                abilityCooldownUI.GetComponentInChildren<Text>().text = "" + ((int)cooldownTimer + 1);
+            }
+            // Otherwise cooldownTimer has completed
+            else
+            {
+                isUsable = true;                    // Make ability useable again
+                abilityCooldownUI.SetActive(false); // Hide the cooldown UI
+                cooldownTimer = waitTime;           // Reset the cooldownTimer
+            }
+        }
     }
 
     // Calling this function uses the ability
     public void UseAbility()
     {
-        //Debug.Log("Piercing Arrow Used");
-
-        // Ability has been used, so it needs to cooldown
-        isUsable = false;
-
-        // Start the cooldown timer
-
-        // Update the UI with the time remaining
-
-        // Play the ability animation
-
-        // Make a raycast for the projectile
-        hits = Physics.RaycastAll(this.transform.position, this.transform.forward, 50, 1 << enemyLayerIndex);
-        foreach (RaycastHit r in hits)
+        // If the ability is usable...
+        if (isUsable == true)
         {
-            Debug.Log(r.collider.name);
-            r.collider.gameObject.GetComponent<Health>().Damage(damage);
-        }
+            // Ability has been used, so it needs to cooldown
+            isUsable = false;
 
-        // DEBUG
-        // Draw a debug ray to see the line
-        Debug.DrawRay(this.transform.position, this.transform.forward * 50, Color.red);
+            // Enable the cooldown UI
+            abilityCooldownUI.SetActive(true);
+
+            // Play the ability animation
+
+            // Set the arrow's rotation to that of the player
+            piercingArrowPrefab.transform.rotation = transform.rotation;
+
+            // Set the attacker to the player
+            piercingArrowPrefab.GetComponent<ProjectileDamage>().attacker = ProjectileDamage.Attacker.PLAYER;
+
+            // Fire the piercing arrow shot
+            Instantiate(piercingArrowPrefab, GetComponent<BasicAttack>().spawner.position, Quaternion.LookRotation(transform.forward, Vector3.up));
+        }
     }
 }
