@@ -84,6 +84,22 @@ public class Health : MonoBehaviour
         }
     }
 
+    // Heal function is used to add health to currentHealth when damage is taken
+    public void Heal(int health)
+    {
+        // If currentHealth is less than maxHealth...
+        if (currentHealth < maxHealth)
+        {
+            currentHealth += health;    // Give health to the object
+
+            // If currentHealth is above maxHealth after being healed...
+            if (currentHealth > maxHealth)
+            {
+                currentHealth = maxHealth;  // Set currentHealth to maxHealth
+            }
+        }
+    }
+
     // Calculates the remaining health in a percentage out of 100
     public float CalculateHealthLeftPercent(int current, int starting)  // Pass in the currentHealth and the startingHealth
     {

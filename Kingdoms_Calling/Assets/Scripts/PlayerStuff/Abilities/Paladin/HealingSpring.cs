@@ -1,17 +1,17 @@
-﻿//  Name: ArrowVolley.cs
-//  Author: Zac Kindy, Connor Larsen
-//  Function: 
+﻿//  Name: HealingSpring.cs
+//  Author: Bradley Williamson, Connor Larsen
+//  Function: Spawns a healing spring when the Paladin's Ability 1 is used
 
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ArrowVolley : MonoBehaviour
+public class HealingSpring : MonoBehaviour
 {
     // Public Variables
     public GameObject abilityCooldownUI;    // UI element for the ability cooldown in the HUD
-    public GameObject areaOfEffect;         // The collider for the ArrowVolley ability
-    public Transform colliderDestPos;       // The destination position for the collider when ability is used
+    public GameObject areaOfEffect;         // The collider for the HealingSpring ability
     public float waitTime = 20f;            // Time in seconds needed to wait for ability cooldown
+    //public GameObject player;
 
     // Private Variables
     private bool isUsable;          // When ability is available for use, set this to true
@@ -36,7 +36,7 @@ public class ArrowVolley : MonoBehaviour
                 // Subtract cooldownTimer by deltaTime
                 cooldownTimer -= Time.deltaTime;
 
-                // Update the UI with the abount of time remaining
+                // Update the UI with the amount of time remaining
                 abilityCooldownUI.GetComponentInChildren<Text>().text = "" + ((int)cooldownTimer + 1);
             }
             // Otherwise cooldownTimer has completed
@@ -63,8 +63,8 @@ public class ArrowVolley : MonoBehaviour
 
             // Play the ability animation
 
-            // Place the collder for the ability in the spawn area
-            Instantiate(areaOfEffect, colliderDestPos.position, Quaternion.identity);
+            // Instantiate the ability collider prefab on character location
+            Instantiate(areaOfEffect, transform.position, Quaternion.identity);
         }
     }
 }
