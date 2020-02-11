@@ -1,150 +1,64 @@
 ﻿//  Name: ArrowVolley.cs
-//  Author: ZAC KINDY
+//  Author: Zac Kindy, Connor Larsen
 //  Function: 
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ArrowVolley : MonoBehaviour
 {
-    public Image abilityUI; // UI sprite for the ability in the HUD
-    public GameObject areaOfEffect;
+    // Public Variables
+    public Image abilityUI;             // UI sprite for the ability in the HUD
+    public GameObject areaOfEffect;     // The collider for the ArrowVolley ability
+    public Transform colliderDestPos;   // The destination position for the player when ability is used
 
+    // Private Variables
     private bool isUsable;          // When ability is available for use, set this to true
     private float waitTime = 20;    // Time in seconds needed to wait for ability cooldown
-    private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
-    private float durationTimer;
-    private float durationTime = 5;
-    private float archerDmg;
-    private GameObject createrArrowVolley;
-    private Collider[] enemiesInTarget;
-
-    // Combo variables
-    private ArcherAssassinCombo archerAssassinCombo;    // Used for calling the assassin combo
-    private AssassinWarriorCombo archerWarriorCombo;    // Used for calling the warrior combo
-    private AssassinPaladinCombo archerPaladinCombo;    // Used for calling the paladin combo
-
-    private Vector3 circleDestPos;  // The destination position for the player when ability is used
+    private float cooldownTimer;    // When in cooldown, increments until waitTime is reached
+    private float archerDmg;        // Amount of damage the archer currently does
 
     // Start is called before the first frame update
     void Start()
     {
-        isUsable = true;        // Ability starts as usable
-        cooldownElapsed = 0;    // Cooldown timer starts at 0
-        archerDmg = 1f;
-        //archerDmg = GetComponent<BasicAttack>().CharacterAttackValue(BasicAttack.CharacterClass.Archer);
-
-        //enemyTest = TargetedEnemy;
+        isUsable = true;            // Ability starts as usable
+        cooldownTimer = waitTime;   // Cooldown timer starts at the value of waitTime
+        archerDmg = GetComponent<BasicAttack>().CharacterAttackValue(BasicAttack.CharacterClass.Archer);    // Grabs the archer's attack value
     }
 
     // Update is called once per frame
     void Update()
     {
-        // DEBUG
-        //circleDestPos = enemyTest.transform.position;
-        //createrArrowVolley = GameObject.FindGameObjectWithTag("ArrowVolley");
-
-        if(isUsable == false)
+        // If ability has been used and hasn't refreshed...
+        if (isUsable == false)
         {
-            if(cooldownElapsed <= waitTime) // Start the cooldown timer
+            // If cooldownTimer hasn't completed...
+            if (cooldownTimer >= 0f)
             {
-                cooldownElapsed += Time.deltaTime;
+                // Subtract cooldownTimer by deltaTime
+                cooldownTimer -= Time.deltaTime;
             }
+            // Otherwise cooldownTimer has completed
             else
             {
-                isUsable = true;
-                abilityUI.enabled = true; //not sure if this works need to test with the targeting bull
-                cooldownElapsed = 0;
-            }
-            if (createrArrowVolley != null)
-            {
-                if (durationTimer <= durationTime)
-                {
-                    durationTimer += Time.deltaTime;
-                }
-                else
-                {
-                    Destroy(createrArrowVolley);
-                    durationTimer = 0;
-                }
-            }
-            else
-            {
-                createrArrowVolley = areaOfEffect;
+                isUsable = true;            // Make ability useable again
+                cooldownTimer = waitTime;   // Reset the cooldownTimer
             }
         }
     }
 
     // Calling this function uses the ability
-    public void UseAbility(GameObject target)
+    public void UseAbility()
     {
         if (isUsable == true)
         {
-            // Ability has been used, so it needs to cool down
+            // Ability has been used, so start the cooldownTimer
             isUsable = false;
 
-            if (target != null)
-            {
-                // Start the cooldown timer
+            // Play the ability animation
 
-                // Update the UI with time remaining
-
-                // Play the ability animation
-
-                // Draw Circle On ground Around the targeted enemys position
-                Instantiate(areaOfEffect, target.transform.position, Quaternion.identity);
-
-                // Create an array of all enemies caught in the areaOfEffect
-                ScanForEnemies(areaOfEffect.GetComponent<SphereCollider>());
-
-                // Deal damage to each enemy in the array
-                foreach (Collider enemy in enemiesInTarget)
-                {
-                    // Check enemy proc for combos
-                    if (enemy.GetComponentInParent<ElementManager>().thisElement == ElementManager.ClassElement.Lightning)  // If enemy has a lightning proc...
-                    {
-                        // Activate the Assassin combo
-                        archerAssassinCombo.ActivateCombo(target, (int)archerDmg);
-                    }
-                    else if (enemy.GetComponentInParent<ElementManager>().thisElement == ElementManager.ClassElement.Earth)    // If enemy has a lightning proc...
-                    {
-                        // Activate the Paladin combo
-                        //archerPaladinCombo.ActivateCombo(target, archerDmg);
-                    }
-                    else if (enemy.GetComponentInParent<ElementManager>().thisElement == ElementManager.ClassElement.Fire) // If enemy has a fire proc...
-                    {
-                        // Activate the Warrior combo
-                        //archerWarriorCombo.ActivateCombo(target, archerDmg);
-                    }
-                    else
-                    {
-                        // Enemy has no proc and ability happens as normal
-                        enemy.GetComponentInParent<Health>().Damage((int)archerDmg);
-
-                        // Give enemies procs if appliciable
-                        if (enemy.GetComponentInParent<ElementManager>().thisElement == ElementManager.ClassElement.NONE)
-                        {
-                            enemy.GetComponentInParent<ElementManager>().thisElement = ElementManager.ClassElement.Wind;
-                        }
-                    }
-                }
-            }
+            // Place the collder for the ability in the spawn area
+            Instantiate(areaOfEffect, colliderDestPos.position, Quaternion.identity);
         }
-    }
-
-    // When called, scans the areaOfEffect for all enemies
-    private void ScanForEnemies(SphereCollider targetArea)
-    {
-        Vector3 center = targetArea.transform.position + targetArea.center;
-        float radius = targetArea.radius;
-
-        enemiesInTarget = Physics.OverlapSphere(center, radius);
-    }
-
-    public void OnGUI()// Update the UI with the time remaining
-    {
-        //GUI.Label(new Rect(60, 60, 30, 30), cooldownElapsed.ToString());
     }
 }
