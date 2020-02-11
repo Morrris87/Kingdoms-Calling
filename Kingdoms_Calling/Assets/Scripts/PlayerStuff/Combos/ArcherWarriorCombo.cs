@@ -77,4 +77,10 @@ public class ArcherWarriorCombo : MonoBehaviour
             Destroy(this.gameObject);
         }
     }
+
+    // Call this to activate the combo
+    public void ActivateCombo()
+    {
+
+    }
 }
