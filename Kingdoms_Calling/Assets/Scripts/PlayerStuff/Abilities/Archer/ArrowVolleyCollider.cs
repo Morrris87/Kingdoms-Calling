@@ -13,7 +13,7 @@ public class ArrowVolleyCollider : MonoBehaviour
     private float damageInterval = 1f;  // Interval value for how much time passes between damage being dealt
     private float damageTimer;          // Timer for timing damage intervals
     private float abilityLifeTimer;     // The ability timer
-    private float archerDmg;              // Variable for the archer's attack damage
+    private float archerDmg;            // Variable for the archer's attack damage
     private bool cooldownActive;        // Bool which determines if the cooldown is running
 
     // Combo variables
@@ -75,7 +75,7 @@ public class ArrowVolleyCollider : MonoBehaviour
             // Deal damage to the enemy
             c.GetComponent<Health>().Damage((int)archerDmg);
 
-            // If the enemy currently has no element assigned in it's Element Manager
+            // If the enemy currently has no element assigned in it's Element Manager...
             if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.NONE)
             {
                 // Set the elemental proc to Wind
