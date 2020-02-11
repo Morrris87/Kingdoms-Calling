@@ -413,7 +413,7 @@ public class CharacterManager : MonoBehaviour
     {
         if (characterClass == CharacterClass.Paladin)
         {
-            if (context.ReadValue<float>() == 1)
+            if (context.ReadValue<float>() == 1)//Button pressed
                 paladinTaunt.tauntEnemies();
         }
         else if (characterClass == CharacterClass.Assassin)
@@ -430,6 +430,61 @@ public class CharacterManager : MonoBehaviour
         {
             if (context.ReadValue<float>() == 1)
                 warriorAxeWhirlwind.UseAbility();
+        }
+    }
+
+    public void Special(InputAction.CallbackContext context)   // For the character's Evasion/Special
+    {
+        if (characterClass == CharacterClass.Paladin)
+        {
+            if (context.ReadValue<float>() == 1)//Button pressed
+            {
+
+            }
+
+            if (context.ReadValue<float>() == 0)//Button released
+            {
+
+            }
+
+        }
+        else if (characterClass == CharacterClass.Assassin)
+        {
+            if (context.ReadValue<float>() == 1)//Button pressed
+            {
+                displayLocation = true;
+                Debug.Log("Special Started");
+            }
+
+            if (context.ReadValue<float>() == 0)//Button released
+            {
+                electricDash.UseAbility(abilityIndicator.transform.position);
+                Debug.Log("Special performed");
+            }
+        }
+        else if (characterClass == CharacterClass.Archer)
+        {
+            if (context.ReadValue<float>() == 1)//Button pressed
+            {
+
+            }
+
+            if (context.ReadValue<float>() == 0)//Button released
+            {
+
+            }
+        }
+        else if (characterClass == CharacterClass.Warrior)
+        {
+            if (context.ReadValue<float>() == 1)//Button pressed
+            {
+
+            }
+
+            if (context.ReadValue<float>() == 0)//Button released
+            {
+
+            }
         }
     }
 
@@ -582,7 +637,7 @@ public class CharacterManager : MonoBehaviour
                 float range = 0;
                 if(characterClass == CharacterClass.Archer)
                 {
-                    // set the range to the archers volley range
+                    // set the range to the archers volley range                    
                     // range = arrowVolley.range;?
                 }
                 else if(characterClass == CharacterClass.Assassin)

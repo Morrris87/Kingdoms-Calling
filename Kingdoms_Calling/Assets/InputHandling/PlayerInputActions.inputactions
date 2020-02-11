@@ -232,8 +232,8 @@
                 {
                     "name": "",
                     "id": "94c418e8-6b7f-4302-9ef6-bf2cde6c4947",
-                    "path": "",
-                    "interactions": "",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "Press(behavior=2)",
                     "processors": "",
                     "groups": "",
                     "action": "Special",
