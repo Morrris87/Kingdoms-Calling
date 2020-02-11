@@ -92,8 +92,10 @@ public class BasicAttack : MonoBehaviour
 
             // Take away player's stamina
             GetComponent<Stamina>().DepleteStamina((int)AttackStaminaLoss);
+
             //zac stuff
             //might have to make a nother bool that is set true here and false when in projectile damage after checking if its true
+<<<<<<< HEAD
             if (zacAttackBool == false && shot.Timer >= 12)
             {
                 shot.PassiveIndicator.SetActive(false);
@@ -106,8 +108,16 @@ public class BasicAttack : MonoBehaviour
             arrowPrefab.transform.rotation = transform.rotation;
             arrowPrefab.GetComponent<ProjectileDamage>().attacker = ProjectileDamage.Attacker.PLAYER;
             Instantiate(arrowPrefab, spawner.position, Quaternion.LookRotation(transform.forward, Vector3.up));
+=======
+            shot.passiveReady = false;
+            shot.Timer = 0;
+            shot.PassiveIndicator.SetActive(false);
+>>>>>>> 1c4ca2f9d94c45726a710a6e976ae675aa0d2b4e
 
-            
+            // Create the arrow prefab
+            arrowPrefab.transform.rotation = transform.rotation;                                                // Set the arrow's rotation to that of the player
+            arrowPrefab.GetComponent<ProjectileDamage>().attacker = ProjectileDamage.Attacker.PLAYER;           // Set the attacker to the player
+            Instantiate(arrowPrefab, spawner.position, Quaternion.LookRotation(transform.forward, Vector3.up)); // Fire the arrow
         }
     }
 
