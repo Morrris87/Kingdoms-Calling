@@ -14,6 +14,7 @@ public class ProjectileDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        shot = GetComponent<BasicAttack>();
         arrowLife = 1.5f;
     }
 
@@ -35,7 +36,6 @@ public class ProjectileDamage : MonoBehaviour
                 if (shot.zacAttackBool == true)
                 {
                     c.GetComponent<Health>().Damage((2));
-                    shot.zacAttackBool = false;
                     Destroy(gameObject);
                 }
                 else if(shot.zacAttackBool == false)
@@ -46,4 +46,5 @@ public class ProjectileDamage : MonoBehaviour
             }
         }
     }
+
 }

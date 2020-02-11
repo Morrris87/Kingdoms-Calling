@@ -25,7 +25,8 @@ public class FlamingLeap : MonoBehaviour
     public GameObject destinationMarker;
     Vector2 leapLocation;   
 
-    private bool isUsable;          // When ability is available for use, set this to true
+    [HideInInspector]
+    public bool isUsable;          // When ability is available for use, set this to true
     private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
     private int playerLayerIndex, enemyLayerIndex;      //Player and enemy layer index
     float attackDuration, attackInterval;
