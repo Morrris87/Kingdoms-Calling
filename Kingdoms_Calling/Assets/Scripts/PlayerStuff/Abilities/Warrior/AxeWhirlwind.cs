@@ -24,8 +24,8 @@ public class AxeWhirlwind : MonoBehaviour
     [Header("ComboAbility Prefabs")]
     public GameObject ArcherWarriorComboPrefab;
 
-
-    private bool isUsable;          // When ability is available for use, set this to true
+    [HideInInspector]
+    public bool isUsable;          // When ability is available for use, set this to true
     private bool inUse;          // When ability is in use, set this to false
     private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
     private int playerLayerIndex, enemyLayerIndex;      //Player and enemy layer index

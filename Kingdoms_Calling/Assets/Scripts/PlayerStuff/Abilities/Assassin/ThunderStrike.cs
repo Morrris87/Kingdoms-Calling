@@ -17,6 +17,7 @@ public class ThunderStrike : MonoBehaviour
     private float assassinDmg;      // Variable for the assassin's attack damage
     private Vector3 playerDestPos;  // The destination position for the player when ability is used
 
+
     // Combo variables
     private ArcherAssassinCombo archerAssassinCombo;    // Used for calling the archer combo
     private AssassinWarriorCombo assassinWarriorCombo;  // Used for calling the warrior combo
