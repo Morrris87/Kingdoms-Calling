@@ -102,9 +102,7 @@ public class BasicAttack : MonoBehaviour
                 shot.passiveReady = false;
                 zacAttackBool = true;
                 shot.Timer = 0;
-                
             }
-
 
             // Create the arrow prefab
             arrowPrefab.transform.rotation = transform.rotation;                                                // Set the arrow's rotation to that of the player
