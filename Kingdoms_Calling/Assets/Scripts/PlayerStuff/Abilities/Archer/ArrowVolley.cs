@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class ArrowVolley : MonoBehaviour
 {
     // Public Variables
-    public GameObject abilityCooldownUI;    // UI sprite for the ability in the HUD
+    public GameObject abilityCooldownUI;    // UI element for the ability cooldown in the HUD
     public GameObject areaOfEffect;         // The collider for the ArrowVolley ability
     public Transform colliderDestPos;       // The destination position for the player when ability is used
 
@@ -52,6 +52,7 @@ public class ArrowVolley : MonoBehaviour
     // Calling this function uses the ability
     public void UseAbility()
     {
+        // If the ability is usable...
         if (isUsable == true)
         {
             // Ability has been used, so set ability as unusable

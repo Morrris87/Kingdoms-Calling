@@ -94,9 +94,9 @@ public class BasicAttack : MonoBehaviour
             shot.PassiveIndicator.SetActive(false);
 
             // Create the arrow prefab
-            arrowPrefab.transform.rotation = transform.rotation;
-            arrowPrefab.GetComponent<ProjectileDamage>().attacker = ProjectileDamage.Attacker.PLAYER;
-            Instantiate(arrowPrefab, spawner.position, Quaternion.LookRotation(transform.forward, Vector3.up));
+            arrowPrefab.transform.rotation = transform.rotation;                                                // Set the arrow's rotation to that of the player
+            arrowPrefab.GetComponent<ProjectileDamage>().attacker = ProjectileDamage.Attacker.PLAYER;           // Set the attacker to the player
+            Instantiate(arrowPrefab, spawner.position, Quaternion.LookRotation(transform.forward, Vector3.up)); // Fire the arrow
         }
     }
 
