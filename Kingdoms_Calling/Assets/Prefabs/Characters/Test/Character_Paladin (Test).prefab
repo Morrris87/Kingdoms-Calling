@@ -285,10 +285,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 5
   weaponHitbox: {fileID: 4180191736941410710}
-  arrowPrefab: {fileID: 3544053858262687705, guid: 48d61060b421ebc40b7b8b054c55894d,
-    type: 3}
+  arrowPrefab: {fileID: 0}
   spawner: {fileID: 0}
+  AttackRateSpeed: 0
+  AttackRange: 0
+  AttackDamage: 0
+  AttackHitChance: 0
+  AttackStaminaLoss: 0
   attackTimer: 1
+  zacAttackBool: 0
 --- !u!114 &2241186763897451432
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -436,7 +441,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: e994183d1ca06fc468d84e96fe5f9991, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -477,16 +482,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2241186763897451427}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: ca27afdbcdf2ede449bcf8243aa476dc,
-        type: 3}
-      propertyPath: m_Name
-      value: ArcherDone
-      objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: ca27afdbcdf2ede449bcf8243aa476dc,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 0f7003822e0ebed488e350829905e987, type: 2}
     - target: {fileID: -4216859302048453862, guid: ca27afdbcdf2ede449bcf8243aa476dc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -542,6 +537,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: ca27afdbcdf2ede449bcf8243aa476dc,
+        type: 3}
+      propertyPath: m_Name
+      value: ArcherDone
+      objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: ca27afdbcdf2ede449bcf8243aa476dc,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0f7003822e0ebed488e350829905e987, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca27afdbcdf2ede449bcf8243aa476dc, type: 3}
 --- !u!4 &6512486202514827988 stripped
