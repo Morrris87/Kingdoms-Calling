@@ -16,14 +16,12 @@ public class ArrowVolley : MonoBehaviour
     private bool isUsable;          // When ability is available for use, set this to true
     private float waitTime = 20;    // Time in seconds needed to wait for ability cooldown
     private float cooldownTimer;    // When in cooldown, increments until waitTime is reached
-    private float archerDmg;        // Amount of damage the archer currently does
 
     // Start is called before the first frame update
     void Start()
     {
         isUsable = true;            // Ability starts as usable
         cooldownTimer = waitTime;   // Cooldown timer starts at the value of waitTime
-        archerDmg = GetComponent<BasicAttack>().CharacterAttackValue(BasicAttack.CharacterClass.Archer);    // Grabs the archer's attack value
     }
 
     // Update is called once per frame
