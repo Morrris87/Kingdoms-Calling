@@ -38,7 +38,7 @@ public class ElectricDash : MonoBehaviour
     }
 
     // Calling this function uses the ability
-    public void UseAbility()
+    public void UseAbility(Vector3 destPos)
     {
         // Ability has been used, so it needs to cooldown
         isUsable = false;
@@ -49,5 +49,27 @@ public class ElectricDash : MonoBehaviour
 
         // Play the ability animation
 
+        // Start Ability
+        StartCoroutine(MoveToPosition(transform, destPos, dashDuration));
+
+    }
+
+    /// <summary>
+    /// Coroutine to move the players transform from its current position to a destination position in a given amount of time
+    /// </summary>
+    /// <param name="transform">Our current location</param>
+    /// <param name="position">Our destination Position</param>
+    /// <param name="timeToMove">Time to move to position</param>
+    /// <returns></returns>
+    IEnumerator MoveToPosition(Transform transform, Vector3 position, float timeToMove)
+    {
+        Vector3 currentPos = transform.position;
+        float t = 0f;
+        while (t < 1)
+        {
+            t += Time.deltaTime / timeToMove;
+            transform.position = Vector3.Lerp(currentPos, position, t);
+            yield return null;
+        }
     }
 }
