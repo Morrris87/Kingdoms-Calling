@@ -57,7 +57,7 @@ public class CharacterManager : MonoBehaviour
     // Character Abilities/scripts
     BasicAttack basicAttack;
     //Paladin
-    paladinHealingSpring paladinEarthHealingSpring;
+    HealingSpring paladinEarthHealingSpring;
     Taunt paladinTaunt;
     //Warrior
     AxeWhirlwind warriorAxeWhirlwind;
@@ -104,7 +104,7 @@ public class CharacterManager : MonoBehaviour
 
         if (characterClass == CharacterClass.Paladin)
         {
-            paladinEarthHealingSpring = this.GetComponent<paladinHealingSpring>();
+            paladinEarthHealingSpring = this.GetComponent<HealingSpring>();
             paladinTaunt = this.GetComponent<Taunt>();
         }
         else if (characterClass == CharacterClass.Assassin)
