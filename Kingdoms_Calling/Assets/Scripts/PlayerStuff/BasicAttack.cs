@@ -58,6 +58,7 @@ public class BasicAttack : MonoBehaviour
     void Start()
     {
         zacAttackBool = false;
+        shot = new FocusShot();
         DetermineClass();           // Fills in weapon specs based on which class the character is
         cooldown = AttackRateSpeed; // Sets up the cooldown timer based on the attack rate speed
         cooldownActive = true;      // Sets the cooldown check to true
@@ -95,7 +96,6 @@ public class BasicAttack : MonoBehaviour
 
             //zac stuff
             //might have to make a nother bool that is set true here and false when in projectile damage after checking if its true
-<<<<<<< HEAD
             if (zacAttackBool == false && shot.Timer >= 12)
             {
                 shot.PassiveIndicator.SetActive(false);
@@ -104,15 +104,7 @@ public class BasicAttack : MonoBehaviour
                 shot.Timer = 0;
                 
             }
-            // Create the arrow prefab
-            arrowPrefab.transform.rotation = transform.rotation;
-            arrowPrefab.GetComponent<ProjectileDamage>().attacker = ProjectileDamage.Attacker.PLAYER;
-            Instantiate(arrowPrefab, spawner.position, Quaternion.LookRotation(transform.forward, Vector3.up));
-=======
-            shot.passiveReady = false;
-            shot.Timer = 0;
-            shot.PassiveIndicator.SetActive(false);
->>>>>>> 1c4ca2f9d94c45726a710a6e976ae675aa0d2b4e
+
 
             // Create the arrow prefab
             arrowPrefab.transform.rotation = transform.rotation;                                                // Set the arrow's rotation to that of the player
