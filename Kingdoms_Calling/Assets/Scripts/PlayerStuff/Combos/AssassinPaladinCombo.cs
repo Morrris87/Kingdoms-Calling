@@ -52,7 +52,7 @@ public class AssassinPaladinCombo : MonoBehaviour
         //loop through all totems in the range
         foreach(Collider t in hitColliders)
         {
-            t.gameObject.GetComponent<EarthHealingSpring>().TotemBoost(range, damageHealMultiplier);
+            t.gameObject.GetComponent<HealingSpringCollider>().TotemBoost(range, damageHealMultiplier);
         }
     }
 }
