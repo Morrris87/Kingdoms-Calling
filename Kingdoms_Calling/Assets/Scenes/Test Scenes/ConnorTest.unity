@@ -500,7 +500,7 @@ PrefabInstance:
     - target: {fileID: 6850935412393349415, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6850935412393349414, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
@@ -922,11 +922,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_Paladin (Test)
       objectReference: {fileID: 0}
-    - target: {fileID: 2241186763897451426, guid: cceb7dbc57405904a8c0e93e68f26c48,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2241186763897451427, guid: cceb7dbc57405904a8c0e93e68f26c48,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -997,21 +992,6 @@ PrefabInstance:
       propertyPath: staminaUI
       value: 
       objectReference: {fileID: 823600225619815125}
-    - target: {fileID: 2241186763897451433, guid: cceb7dbc57405904a8c0e93e68f26c48,
-        type: 3}
-      propertyPath: hitBox
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252480177939875564, guid: cceb7dbc57405904a8c0e93e68f26c48,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7509945087642908675, guid: cceb7dbc57405904a8c0e93e68f26c48,
-        type: 3}
-      propertyPath: attacker
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cceb7dbc57405904a8c0e93e68f26c48, type: 3}
 --- !u!4 &3696064490358221157 stripped

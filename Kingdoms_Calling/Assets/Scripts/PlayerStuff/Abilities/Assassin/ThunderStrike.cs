@@ -1,99 +1,107 @@
 ﻿//  Name: ThunderStrike.cs
 //  Author: Connor Larsen
-//  Function: 
+//  Function: Teleports to a nearby enemy, dealing damage based on enemy health remaining
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ThunderStrike : MonoBehaviour
 {
-    public Image abilityUI; // UI sprite for the ability in the HUD
+    // Public Variables
+    public GameObject abilityCooldownUI;    // UI element for the ability cooldown in the HUD
+    public float waitTime = 20;             // Time in seconds needed to wait for ability cooldown
 
+    // Private Variables
     private bool isUsable;          // When ability is available for use, set this to true
-    private float waitTime = 40;    // Time in seconds needed to wait for ability cooldown
-    private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
+    private float cooldownTimer;    // When in cooldown, increments until waitTime is reached
+    private float assassinDmg;      // Variable for the assassin's attack damage
+    private Vector3 playerDestPos;  // The destination position for the player when ability is used
 
     // Combo variables
     private ArcherAssassinCombo archerAssassinCombo;    // Used for calling the archer combo
-    // private AssassinWarriorCombo assassinWarriorCombo;   // Used for calling the warrior combo
-    // private AssassinPaladinCombo assassinPaladinCombo;   // Used for calling the paladin combo
-
-    private Vector3 playerDestPos;  // The destination position for the player when ability is used
-
-    // DEBUG
-    private int assassinDmg = 10;   // Debug value for assassin damage to be used until stats are fully implemented
+    private AssassinWarriorCombo assassinWarriorCombo;  // Used for calling the warrior combo
+    private AssassinPaladinCombo assassinPaladinCombo;  // Used for calling the paladin combo
 
     // Start is called before the first frame update
     void Start()
     {
-        isUsable = true;        // Ability starts as usable
-        cooldownElapsed = 0;    // Cooldown timer starts at 0
+        isUsable = true;            // Ability starts as usable
+        cooldownTimer = waitTime;   // Cooldown timer starts at the value of waitTime
     }
 
     // Update is called once per frame
     void Update()
     {
+        // If ability has been used and hasn't refreshed...
+        if (isUsable == false)
+        {
+            // If cooldownTimer hasn't completed...
+            if (cooldownTimer >= 0)
+            {
+                // Subtract cooldownTimer by deltaTime
+                cooldownTimer -= Time.deltaTime;
 
+                // Update the UI with the amount of time remaining
+                abilityCooldownUI.GetComponentInChildren<Text>().text = "" + ((int)cooldownTimer + 1);
+            }
+            // Otherwise cooldownTimer has completed
+            else
+            {
+                isUsable = true;                    // Make ability useable again
+                abilityCooldownUI.SetActive(false); // Hide the cooldown UI
+                cooldownTimer = waitTime;           // Reset the cooldownTimer
+            }
+        }
     }
 
     // Calling this function uses the ability
-    public void UseAbility(GameObject target)
+    public void UseAbility()
     {
-        Debug.Log("Ability 1 Used (Assassin)");
-
+        // If the ability is usable...
         if (isUsable == true)
         {
-            // Ability has been used, so it needs to cooldown
+            // Ability has been used, so set ability as unusable
             isUsable = false;
 
-            if (target != null)
-            {
-                // Start the cooldown timer
+            // Enable the cooldown UI
+            abilityCooldownUI.SetActive(true);
 
-                // Update the UI with the time remaining
+            // Play the ability animation
 
-                // Play the ability animation
+            // OLD CODE
+            //// Find the targeted enemy
+            //playerDestPos = target.transform.position;
 
-                // Find the targeted enemy
-                playerDestPos = target.transform.position;
+            //this.transform.position = playerDestPos;
 
-                // Teleport the player to the enemy targeted if enemy has been found
-                if (playerDestPos != null)
-                {
-                    this.transform.position = playerDestPos;
+            //// Do 3x damage to the enemy hit
+            //int dmgDealt = assassinDmg * 3;
 
-                    // Do 3x damage to the enemy hit
-                    int dmgDealt = assassinDmg * 3;
+            //// Check enemy procs for combos
+            //if (target.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Wind)  // If enemy has a wind proc...
+            //{
+            //    // Activate the Archer combo
+            //    archerAssassinCombo.ActivateCombo(target, dmgDealt);
+            //}
+            //else if (target.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Earth)    // If enemy has a lightning proc...
+            //{
+            //    // Activate the Paladin combo
+            //}
+            //else if (target.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Fire) // If enemy has a fire proc...
+            //{
+            //    // Activate the Warrior combo
+            //}
+            //else
+            //{
+            //    // Enemy has no proc and ability happens as normal
+            //    target.GetComponent<Health>().Damage(dmgDealt);
 
-                    // Check enemy procs for combos
-                    if (target.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Wind)  // If enemy has a wind proc...
-                    {
-                        // Activate the Archer combo
-                        archerAssassinCombo.ActivateCombo(target, dmgDealt);
-                    }
-                    else if (target.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Earth)    // If enemy has a lightning proc...
-                    {
-                        // Activate the Paladin combo
-                    }
-                    else if (target.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Fire) // If enemy has a fire proc...
-                    {
-                        // Activate the Warrior combo
-                    }
-                    else
-                    {
-                        // Enemy has no proc and ability happens as normal
-                        target.GetComponent<Health>().Damage(dmgDealt);
-
-                        // Give enemies procs if appliciable
-                        if (target.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.NONE)
-                        {
-                            target.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.Lightning;
-                        }
-                    }
-                }
-            }
+            //    // Give enemies procs if appliciable
+            //    if (target.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.NONE)
+            //    {
+            //        target.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.Lightning;
+            //    }
+            //}
         }
     }
 }

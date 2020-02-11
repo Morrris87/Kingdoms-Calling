@@ -1,6 +1,6 @@
 ﻿//  Name: ArrowVolley.cs
 //  Author: Zac Kindy, Connor Larsen
-//  Function: 
+//  Function: Places a collider at a point in front of the player which damages enemies inside over time
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -36,7 +36,7 @@ public class ArrowVolley : MonoBehaviour
                 // Subtract cooldownTimer by deltaTime
                 cooldownTimer -= Time.deltaTime;
 
-                // Update the UI with the abount of time remaining
+                // Update the UI with the amount of time remaining
                 abilityCooldownUI.GetComponentInChildren<Text>().text = "" + ((int)cooldownTimer + 1);
             }
             // Otherwise cooldownTimer has completed

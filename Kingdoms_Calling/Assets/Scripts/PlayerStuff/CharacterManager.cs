@@ -385,7 +385,7 @@ public class CharacterManager : MonoBehaviour
         else if (characterClass == CharacterClass.Assassin)
         {
             if (context.ReadValue<float>() == 1)
-                thunderStrike.UseAbility(targetedEnemy);
+                thunderStrike.UseAbility();
         }
         else if (characterClass == CharacterClass.Archer)
         {
