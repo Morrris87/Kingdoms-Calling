@@ -8,9 +8,9 @@ using UnityEngine.UI;
 public class ArrowVolley : MonoBehaviour
 {
     // Public Variables
-    public Image abilityUI;             // UI sprite for the ability in the HUD
-    public GameObject areaOfEffect;     // The collider for the ArrowVolley ability
-    public Transform colliderDestPos;   // The destination position for the player when ability is used
+    public GameObject abilityCooldownUI;    // UI sprite for the ability in the HUD
+    public GameObject areaOfEffect;         // The collider for the ArrowVolley ability
+    public Transform colliderDestPos;       // The destination position for the player when ability is used
 
     // Private Variables
     private bool isUsable;          // When ability is available for use, set this to true
@@ -35,12 +35,16 @@ public class ArrowVolley : MonoBehaviour
             {
                 // Subtract cooldownTimer by deltaTime
                 cooldownTimer -= Time.deltaTime;
+
+                // Update the UI with the abount of time remaining
+                abilityCooldownUI.GetComponentInChildren<Text>().text = "" + ((int)cooldownTimer + 1);
             }
             // Otherwise cooldownTimer has completed
             else
             {
-                isUsable = true;            // Make ability useable again
-                cooldownTimer = waitTime;   // Reset the cooldownTimer
+                isUsable = true;                    // Make ability useable again
+                abilityCooldownUI.SetActive(false); // Hide the cooldown UI
+                cooldownTimer = waitTime;           // Reset the cooldownTimer
             }
         }
     }
@@ -50,8 +54,11 @@ public class ArrowVolley : MonoBehaviour
     {
         if (isUsable == true)
         {
-            // Ability has been used, so start the cooldownTimer
+            // Ability has been used, so set ability as unusable
             isUsable = false;
+
+            // Enable the cooldown UI
+            abilityCooldownUI.SetActive(true);
 
             // Play the ability animation
 
