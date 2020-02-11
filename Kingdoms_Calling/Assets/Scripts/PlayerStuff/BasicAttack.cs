@@ -106,6 +106,10 @@ public class BasicAttack : MonoBehaviour
                 zacAttackBool = true;
                 shot.Timer = 0;
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 40cf892b1dcffffa930d866fa7ce561c136b9de9
             // Create the arrow prefab
             arrowPrefab.transform.rotation = transform.rotation;                                                // Set the arrow's rotation to that of the player
             arrowPrefab.GetComponent<ProjectileDamage>().attacker = ProjectileDamage.Attacker.PLAYER;           // Set the attacker to the player
