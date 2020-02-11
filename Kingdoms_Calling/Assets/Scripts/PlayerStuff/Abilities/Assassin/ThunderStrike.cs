@@ -8,11 +8,11 @@ using UnityEngine.UI;
 public class ThunderStrike : MonoBehaviour
 {
     // Public Variables
-    public GameObject abilityCooldownUI;    // UI element for the ability cooldown in the HUD
-    public float waitTime = 20;             // Time in seconds needed to wait for ability cooldown
+    public GameObject abilityCooldownUI;            // UI element for the ability cooldown in the HUD
+    public float waitTime = 20;                     // Time in seconds needed to wait for ability cooldown
+    [HideInInspector] public bool isUsable;         // When ability is available for use, set this to true
 
     // Private Variables
-    private bool isUsable;          // When ability is available for use, set this to true
     private float cooldownTimer;    // When in cooldown, increments until waitTime is reached
     private float assassinDmg;      // Variable for the assassin's attack damage
     private Vector3 playerDestPos;  // The destination position for the player when ability is used

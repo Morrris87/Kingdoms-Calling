@@ -11,7 +11,6 @@ public class HealingSpring : MonoBehaviour
     public GameObject abilityCooldownUI;    // UI element for the ability cooldown in the HUD
     public GameObject areaOfEffect;         // The collider for the HealingSpring ability
     public float waitTime = 20f;            // Time in seconds needed to wait for ability cooldown
-    //public GameObject player;
 
     // Private Variables
     private bool isUsable;          // When ability is available for use, set this to true

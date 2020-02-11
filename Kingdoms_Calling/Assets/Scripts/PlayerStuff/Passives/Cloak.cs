@@ -23,10 +23,10 @@ public class Cloak : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(exicution.isUsable == false || strike.isUsable == false)//ability one OR ability two are on cooldown
+        if (exicution.isUsable == false || strike.isUsable == false)//ability one OR ability two are on cooldown
         {
             timer += Time.deltaTime;
-            if(timer >= cloakTime)// check timer 2 seconds
+            if (timer >= cloakTime)// check timer 2 seconds
             {
                 color.a = 0.5F;
                 this.GetComponent<MeshRenderer>().material.color = color;
