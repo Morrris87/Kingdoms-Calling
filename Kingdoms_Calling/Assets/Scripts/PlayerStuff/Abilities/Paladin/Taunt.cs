@@ -1,56 +1,71 @@
 ﻿/*
  * Paladin Taunt Functionality
  * Resource: https://docs.unity3d.com/ScriptReference/Physics.OverlapSphere.html
- * Created by: Bradley Williamson
+ * Created by: Bradley Williamson, Connor Larsen
  * On: 1/11/20
  */
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Taunt : MonoBehaviour
 {
     // Public Variables
-    [Header("Taunt Range")]
-    public float range;
-    [Header("Taunt Duration/Lifetime")]
-    public float strengthLifetime;
+    public GameObject abilityCooldownUI;    // UI Element for the ability cooldown in the HUD
+    public GameObject areaOfEffect;         // The collider for the Taunt ability
+    public float waitTime = 40f;            // Time in seconds needed to wait for ability cooldown
+    [HideInInspector] public bool isUsable; // When ability is available for use, set this to true
 
     // Private Variables
-    int enemyLayerIndex;
+    private float cooldownTimer;    // When in cooldown, increments until waitTime is reached
 
     // Start is called before the first frame update
     void Start()
     {
-        enemyLayerIndex = LayerMask.NameToLayer("Enemy");
+        isUsable = true;            // Ability starts as usable
+        cooldownTimer = waitTime;   // Cooldown timer starts at the value of waitTime
     }
 
-    public void tauntEnemies()
+    // Update is called once per frame
+    void Update()
     {
-        taunt(range, strengthLifetime);
-    }
-
-    void taunt(float range, float strength)
-    {
-        //Grab all colliders inside of the sphere which in our case acts as a circle with the enemy layer mask 
-        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, range, 1 << 9);
-
-        //Uncomment to determine which colliders are being chosen
-        //for (int j = 0; j < hitColliders.Length; j++)
-        //{
-        //    Debug.Log(hitColliders[j].name);
-        //}
-
-        //Loop through the colliders
-        int i = 0;
-        while (i < hitColliders.Length)
+        // If ability has been used and hasn't refreshed...
+        if (isUsable == false)
         {
-            Debug.Log(hitColliders[i] + " is now taunted");
-            hitColliders[i].gameObject.GetComponentInChildren<AI>().isTaunted = true;
-            hitColliders[i].gameObject.GetComponentInChildren<AI>().tauntDuration = strength;
-            i++;
+            // If cooldownTimer hasn't completed...
+            if (cooldownTimer >= 0f)
+            {
+                // Subtract cooldownTimer by deltaTime
+                cooldownTimer -= Time.deltaTime;
+
+                // Update the UI with the amount of time remaining
+                abilityCooldownUI.GetComponentInChildren<Text>().text = "" + ((int)cooldownTimer + 1);
+            }
+            // Otherwise cooldownTimer has completed
+            else
+            {
+                isUsable = true;                    // Make ability useable again
+                abilityCooldownUI.SetActive(false); // Hide the cooldown UI
+                cooldownTimer = waitTime;           // Reset the cooldownTimer
+            }
         }
     }
 
+    public void UseAbility()
+    {
+        // If the ability is usable...
+        if (isUsable == true)
+        {
+            // Ability has been used, so set ability as unusable
+            isUsable = false;
+
+            // Enable the cooldown UI
+            abilityCooldownUI.SetActive(true);
+
+            // Play the ability animation
+
+            // Place the collder for the ability in the spawn area
+            Instantiate(areaOfEffect, transform.position, Quaternion.identity);
+        }
+    }
 }
