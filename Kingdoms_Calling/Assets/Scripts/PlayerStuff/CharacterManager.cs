@@ -414,7 +414,7 @@ public class CharacterManager : MonoBehaviour
         if (characterClass == CharacterClass.Paladin)
         {
             if (context.ReadValue<float>() == 1)//Button pressed
-                paladinTaunt.tauntEnemies();
+                paladinTaunt.UseAbility();
         }
         else if (characterClass == CharacterClass.Assassin)
         {
@@ -648,7 +648,7 @@ public class CharacterManager : MonoBehaviour
                 else if (characterClass == CharacterClass.Warrior)
                 {
                     // set the range to the warriors flaming leap range
-                    range = warriorFalmingLeap.leapDistance;
+                    //range = warriorFalmingLeap.leapDistance;
                 }
                 if (range == 0)
                     range = 1;
