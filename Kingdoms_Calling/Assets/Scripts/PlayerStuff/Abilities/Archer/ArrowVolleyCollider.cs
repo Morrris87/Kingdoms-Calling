@@ -1,6 +1,6 @@
 ﻿//  Name: ArrowVolleyCollider.cs
 //  Author: Connor Larsen
-//  Date: 2/8/2020
+//  Date: Controls the collider at a point in front of the player which damages enemies inside over time
 
 using UnityEngine;
 
@@ -26,6 +26,7 @@ public class ArrowVolleyCollider : MonoBehaviour
     {
         abilityLifeTimer = timerLength; // Sets the length of the cooldown to the amount stored in timerLength
         cooldownActive = true;          // Starts the cooldown timer
+        damageTimer = 0f;               // Set the damage interval timer
 
         // Sets archerDmg to the stored value in BasicAttack
         archerDmg = FindObjectOfType<BasicAttack>().CharacterAttackValue(BasicAttack.CharacterClass.Archer);
