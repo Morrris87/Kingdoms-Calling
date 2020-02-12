@@ -10,16 +10,14 @@ using UnityEngine;
 public class HealingSpringCollider : MonoBehaviour
 {
     // Public Variables
-    [Header("Totem Specs")]
-    //public float range = 1f;
+    [Header("Healing Spring Specs")]
     public float totalLifeTime = 10;        // Time in seconds for the collider to last before being destroyed
     public float damageHealInterval = 2f;   // Interval value for how much time passes between healing the player and damaging the enemy
-    public int healValue = 1;               // Variable for the ability's healing value
+    public int healValue = 10;               // Variable for the ability's healing value
     public int damageValue = 1;             // Variable for the ability's damage value
 
     // Private Variables
-    private int playerLayerIndex, enemyLayerIndex;
-    private float totemTick, oldHealValue, oldDamageValue, oldRange, abilityLifeTimer;
+    private float effectTimer, oldHealValue, oldDamageValue, abilityLifeTimer;
     private bool cooldownActive;    // Bool which determines if the cooldown is running
 
     // Combo variables
@@ -30,13 +28,9 @@ public class HealingSpringCollider : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Get the player and enemy layermask id's
-        playerLayerIndex = LayerMask.NameToLayer("Player");
-        enemyLayerIndex = LayerMask.NameToLayer("Enemy");
-
         abilityLifeTimer = totalLifeTime;   // Sets the length of the cooldown to the amount stored in timerLength
         cooldownActive = true;              // Starts the cooldown timer
-        totemTick = damageHealInterval;     // Set the heal/damage interval timer
+        effectTimer = 0f;                   // Set the heal/damage interval timer
     }
 
     // Update is called once per frame
@@ -49,29 +43,27 @@ public class HealingSpringCollider : MonoBehaviour
             abilityLifeTimer -= Time.deltaTime;
 
             // If the heal/damage cooldown has completed...
-            if (totemTick <= 0f)
+            if (effectTimer <= 0f)
             {
-                DamageEnemiesInCollider();      // Call the damage function
-                HealPlayersInCollider();        // Call the heal function
-                totemTick = damageHealInterval; // Reset the damage interval timer
+                DamageEnemiesInCollider();          // Call the damage function
+                HealPlayersInCollider();            // Call the heal function
+                effectTimer = damageHealInterval;   // Reset the damage interval timer
             }
             else
             {
                 //Increment the damage interval
-                totemTick -= Time.deltaTime;
+                effectTimer -= Time.deltaTime;
             }
         }
-    }
 
-    void FixedUpdate()
-    {
-        //Timer to keep the totem alive for only its lifetime
-        abilityLifeTimer -= Time.deltaTime;
-        //If lifetime reachs 0 destroy the totem
-        if (abilityLifeTimer <= 0)
+        // If the cooldown has finished...
+        if (abilityLifeTimer <= 0f)
         {
-            //Remove the totem
-            Destroy(this.gameObject);
+            // Stops the cooldown timer
+            cooldownActive = false;
+
+            // Destroys the collider for the ability
+            Destroy(gameObject);
         }
     }
 
@@ -79,19 +71,13 @@ public class HealingSpringCollider : MonoBehaviour
     public void DamageEnemiesInCollider()
     {
         // Grab all colliders in the hitbox of the ability
-        Collider[] cols = Physics.OverlapSphere(transform.position, 1f, LayerMask.GetMask("Enemy"));
+        Collider[] cols = Physics.OverlapBox(GetComponent<Collider>().bounds.center, GetComponent<Collider>().bounds.extents, GetComponent<Collider>().transform.rotation, LayerMask.GetMask("Enemy"));
 
         // Cycle through each collider in the cols array
         foreach (Collider c in cols)
         {
             // Deal damage to the enemy
             c.GetComponent<Health>().Damage(damageValue);
-
-            //Uncomment to determine which colliders are being chosen
-            //for (int j = 0; j < hitColliders.Length; j++)
-            //{
-            //    Debug.Log(hitColliders[j].name);
-            //}
 
             // If the enemy currently has no element assigned in it's Element Manager...
             if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.NONE)
@@ -127,7 +113,7 @@ public class HealingSpringCollider : MonoBehaviour
     public void HealPlayersInCollider()
     {
         // Grab all colliders in the hitbox of the ability
-        Collider[] cols = Physics.OverlapSphere(transform.position, 1f, LayerMask.GetMask("Player"));
+        Collider[] cols = Physics.OverlapBox(GetComponent<Collider>().bounds.center, GetComponent<Collider>().bounds.extents, GetComponent<Collider>().transform.rotation, LayerMask.GetMask("Player"));
 
         // Cycle through each collider in the cols array
         foreach (Collider c in cols)
