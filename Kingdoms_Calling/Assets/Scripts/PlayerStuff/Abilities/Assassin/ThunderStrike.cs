@@ -1,6 +1,6 @@
 ﻿//  Name: ThunderStrike.cs
 //  Author: Connor Larsen
-//  Function: Teleports to a nearby enemy, dealing damage based on enemy health remaining
+//  Function: Teleports to a nearby enemy, dealing three times the damage than normal
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,15 +8,14 @@ using UnityEngine.UI;
 public class ThunderStrike : MonoBehaviour
 {
     // Public Variables
-    public GameObject abilityCooldownUI;            // UI element for the ability cooldown in the HUD
-    public float waitTime = 20;                     // Time in seconds needed to wait for ability cooldown
-    [HideInInspector] public bool isUsable;         // When ability is available for use, set this to true
+    public GameObject abilityCooldownUI;    // UI element for the ability cooldown in the HUD
+    public float waitTime = 20;             // Time in seconds needed to wait for ability cooldown
+    public Transform playerDestPos;         // The destination position for the player when ability is used
+    [HideInInspector] public bool isUsable; // When ability is available for use, set this to true
 
     // Private Variables
     private float cooldownTimer;    // When in cooldown, increments until waitTime is reached
     private float assassinDmg;      // Variable for the assassin's attack damage
-    private Vector3 playerDestPos;  // The destination position for the player when ability is used
-
 
     // Combo variables
     private ArcherAssassinCombo archerAssassinCombo;    // Used for calling the archer combo
@@ -28,6 +27,9 @@ public class ThunderStrike : MonoBehaviour
     {
         isUsable = true;            // Ability starts as usable
         cooldownTimer = waitTime;   // Cooldown timer starts at the value of waitTime
+
+        // Grab the value of the archers damage from BasicAttack.cs
+        assassinDmg = GetComponent<BasicAttack>().CharacterAttackValue(BasicAttack.CharacterClass.Assassin);
     }
 
     // Update is called once per frame
@@ -69,14 +71,11 @@ public class ThunderStrike : MonoBehaviour
 
             // Play the ability animation
 
-            // OLD CODE
-            //// Find the targeted enemy
-            //playerDestPos = target.transform.position;
+            // Teleport the player to the destination of the target
+            transform.position = playerDestPos.position;
 
-            //this.transform.position = playerDestPos;
-
-            //// Do 3x damage to the enemy hit
-            //int dmgDealt = assassinDmg * 3;
+            // Do 3x the assassin's normal damage to the target
+            int dmgDealt = (int)assassinDmg * 3;
 
             //// Check enemy procs for combos
             //if (target.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Wind)  // If enemy has a wind proc...
