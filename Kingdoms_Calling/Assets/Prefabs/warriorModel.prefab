@@ -1,0 +1,273 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7570340337768558572
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6869143598606556671}
+  - component: {fileID: 2454214451844917193}
+  - component: {fileID: 8157028694260669232}
+  - component: {fileID: 1886636039977400186}
+  - component: {fileID: 1886636039977400181}
+  - component: {fileID: 1886636039977400180}
+  - component: {fileID: 1886636039977400183}
+  - component: {fileID: 1886636039977400182}
+  - component: {fileID: 1886636039977400177}
+  - component: {fileID: 1886636039977400176}
+  - component: {fileID: 1886636039977400179}
+  - component: {fileID: 1886636039977400178}
+  - component: {fileID: 1886636039977400173}
+  m_Layer: 0
+  m_Name: warriorModel
+  m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6869143598606556671
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570340337768558572}
+  m_LocalRotation: {x: 0.105554275, y: 0.69918406, z: 0.69918406, w: -0.105554275}
+  m_LocalPosition: {x: 4.437, y: 0.867, z: -2.278}
+  m_LocalScale: {x: 1.6192, y: 1.6192, z: 1.6192}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 197.17, z: 0}
+--- !u!33 &2454214451844917193
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570340337768558572}
+  m_Mesh: {fileID: 297686286909439815, guid: d9d3079283f4dac4c96eac3d9281242f, type: 3}
+--- !u!23 &8157028694260669232
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570340337768558572}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: -3726733327881338704, guid: d9d3079283f4dac4c96eac3d9281242f, type: 3}
+  - {fileID: 6468943209847804248, guid: d9d3079283f4dac4c96eac3d9281242f, type: 3}
+  - {fileID: -5144018461788660727, guid: d9d3079283f4dac4c96eac3d9281242f, type: 3}
+  - {fileID: 7270759428132091551, guid: d9d3079283f4dac4c96eac3d9281242f, type: 3}
+  - {fileID: -140102249556894325, guid: d9d3079283f4dac4c96eac3d9281242f, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!114 &1886636039977400186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570340337768558572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: 0}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceLostEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.InputSystem.PlayerInput+DeviceRegainedEvent, Unity.InputSystem,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: 
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &1886636039977400181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570340337768558572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63515f6a6becfbc4896258887ed9679b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterClass: 2
+  speed: 7.5
+  rotSpeed: 10
+  cycleSpeed: 0.5
+  cycleRange: 10
+  analogTargetRange: 5
+  abilityIndicator: {fileID: 0}
+  displayLocation: 0
+--- !u!114 &1886636039977400180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570340337768558572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85809ecce4fb7e74aa96d4aa89a5b69c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponType: 4
+  weaponHitbox: {fileID: 0}
+  arrowPrefab: {fileID: 0}
+  spawner: {fileID: 0}
+  AttackRateSpeed: 0
+  AttackRange: 0
+  AttackDamage: 0
+  AttackHitChance: 0
+  AttackStaminaLoss: 0
+  attackTimer: 0
+  zacAttackBool: 0
+--- !u!114 &1886636039977400183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570340337768558572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75fe87bf589d14f4984f0a76d8d08cb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 0
+  healthUI: {fileID: 0}
+  currentHealth: 0
+--- !u!114 &1886636039977400182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570340337768558572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d005d860941dc0f4e9db5c55ea4bf516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxStamina: 100
+  cooldownTime: 2
+  staminaUI: {fileID: 0}
+--- !u!114 &1886636039977400177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570340337768558572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1083a841f10304240827c4a811786313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityCooldownUI: {fileID: 0}
+  areaOfEffect: {fileID: 0}
+  playerDestPos: {fileID: 0}
+  waitTime: 20
+  isUsable: 0
+--- !u!114 &1886636039977400176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570340337768558572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58d2a35ee5291047b8463bdb5031cd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AdditionalSpeed: 0
+  AdditionalDamage: 0
+--- !u!136 &1886636039977400179
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570340337768558572}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.6449297
+  m_Height: 0.3711707
+  m_Direction: 1
+  m_Center: {x: -0.0000036984363, y: 0.03213616, z: 0.056530096}
+--- !u!114 &1886636039977400178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570340337768558572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58c888c718400cb48a04a4ef882b85ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 10
+  distance: 2
+--- !u!114 &1886636039977400173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7570340337768558572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36f9f2cb9a2c48e4ca9e790243db31ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityCooldownUI: {fileID: 0}
+  areaOfEffect: {fileID: 0}
+  waitTime: 40
+  isUsable: 0
