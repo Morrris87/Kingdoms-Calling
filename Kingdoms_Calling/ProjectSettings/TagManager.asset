@@ -14,6 +14,7 @@ TagManager:
   - SpawnZoneC
   - SpawnerB
   - SpawnerC
+  - ElementMark
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - Player
   - Enemy
   - Totem
-  - 
+  - Element
   - 
   - 
   - 

@@ -17,34 +17,43 @@ public class ElementManager : MonoBehaviour
     public enum ClassElement { NONE, Earth, Fire, Lightning, Wind };
 
     [Header("Element Manager")]
-    public ClassElement thisElement;
-    public float elementTimeoutTime = 0;    
-    public float igniteTick = 0;
+    public ClassElement thisElement; // this enemies element if we choose to use
+    public float elementTimeoutTime = 2;    //How long the element will last on a enemy
+    public float igniteTick;    //How often ignite damage ticks
+    public float elementRefreshRate = 2f; //How often we check to update the element objects above effected enemies
+    public float igniteDuration = 5f;
 
-    [HideInInspector]
+    public GameObject fireMark;
+    public GameObject windeMark;
+    public GameObject lightningMark;
+    public GameObject earthMark;
+
+    //[HideInInspector]
     public bool effected;
 
     //Private Data
-    ClassElement effectedElement;
+    public ClassElement effectedElement;
 
-    float effectedTimer;
+    public float effectedTimer;
     float igniteTimer;
     float igniteTotalTimePassed;
-    float igniteDuration;
     int igniteDamage;
     bool ignited;
+    float refreshRate;
     
 
     // Start is called before the first frame update
     void Start()
     {
         //initialize all of our variables
-        effectedTimer = 0;
-        igniteDuration = 0;
+        effectedTimer = elementTimeoutTime;
         igniteTick = 0;
+        igniteTimer = igniteDuration;
+        igniteTotalTimePassed = 0;
         effected = false;
         effectedElement = ClassElement.NONE;
         ignited = false;
+        refreshRate = elementRefreshRate;
     }
 
     // Update is called once per frame
@@ -56,13 +65,19 @@ public class ElementManager : MonoBehaviour
             //countdown timer of effected element
             if (effectedTimer >= 0)
                 effectedTimer -= Time.deltaTime;
-
-            //update the element effect graphics
-            DisplayElement();
-            if(effectedTimer <= 0)
+            
+            if (effectedTimer <= 0)
             {
+                //reset our bool and element
                 effected = false;
                 effectedElement = ClassElement.NONE;
+                //Loop through our transforms determining which one is the element marker and destroy it
+                foreach (Transform child in transform.GetComponentsInChildren<Transform>())
+                {
+                    if(child.tag == "ElementMark")
+                        GameObject.Destroy(child.gameObject);
+                }
+                
             }
         }
         //check if we are ignited
@@ -85,6 +100,7 @@ public class ElementManager : MonoBehaviour
                 ignited = false;
                 igniteTimer = 0;
             }
+            igniteTotalTimePassed += Time.deltaTime;
         }
     }
 
@@ -112,6 +128,7 @@ public class ElementManager : MonoBehaviour
             eManager.effected = true;
             eManager.effectedElement = inElement;
             eManager.effectedTimer = elementTimeoutTime;
+            DisplayElement();
         }
         //Else we dont have a element
         else
@@ -119,13 +136,13 @@ public class ElementManager : MonoBehaviour
             eManager.effected = false;
             eManager.effectedElement = ClassElement.NONE;
             eManager.effectedTimer = 0;
+            DisplayElement();
         }
     }
 
     /// <summary>
-    /// Function to handle getting the current element effecting a object
+    /// Function to handle getting this objects effected element
     /// </summary>
-    /// <param name="obj">The object we are checking</param>
     /// <returns>The element that is currently effecting the object</returns>
     public ClassElement GetElement()
     {
@@ -134,6 +151,11 @@ public class ElementManager : MonoBehaviour
         return targetElement;
     }
 
+    /// <summary>
+    /// Function to handle getting the current element effecting a object
+    /// </summary>
+    /// <param name="objIn">Pass in the object to get its effected element</param>
+    /// <returns></returns>
     public ClassElement GetElementObject(GameObject objIn)
     {
         ClassElement targetElement = objIn.GetComponent<ElementManager>().effectedElement;
@@ -146,12 +168,46 @@ public class ElementManager : MonoBehaviour
     /// </summary>
     void DisplayElement()
     {
-
+        //We dont have a element
+        if(!effected)
+        {
+            
+        }
+        // We have a element
+        else if(effected)
+        {
+            //Check which element we are effected by
+            if(effectedElement == ClassElement.Earth)
+            {
+                Instantiate(earthMark, transform);
+            }
+            else if (effectedElement == ClassElement.Fire)
+            {
+                Instantiate(fireMark, transform);
+            }
+            else if(effectedElement == ClassElement.Lightning)
+            {
+                Instantiate(lightningMark, transform);
+            }
+            else if(effectedElement == ClassElement.Wind)
+            {
+                Instantiate(windeMark, transform);
+            }
+            else
+            {
+                Debug.Log(this + " : Is effected by something but the element was not set.");
+            }
+        }
     }
 
+    /// <summary>
+    /// Function to Ignite the current gameobject that this script is on
+    /// </summary>
+    /// <param name="dmgValue">How much damage should be effected each tick</param>
     public void IgniteThis(int dmgValue)
     {
         ignited = true;
         igniteDamage = dmgValue;
+
     }
 }
