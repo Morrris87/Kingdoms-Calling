@@ -879,6 +879,12 @@ MonoBehaviour:
   screenEdgeBuffer: 4
   minSize: 3
   mainCamera: {fileID: 2134042365}
+--- !u!1 &2052188140 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1535020279832594770, guid: 3126e2b090e229644a42aeda1fc2535b,
+    type: 3}
+  m_PrefabInstance: {fileID: 8863542652804407001}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2130069375 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2570437432410183674, guid: 3126e2b090e229644a42aeda1fc2535b,
@@ -1196,11 +1202,11 @@ PrefabInstance:
       propertyPath: abilityCooldownUI
       value: 
       objectReference: {fileID: 263247429}
-    - target: {fileID: 5663429486333080011, guid: c1c6583202c1aaf4bbcebb6792578b2e,
+    - target: {fileID: 6056994560321717552, guid: c1c6583202c1aaf4bbcebb6792578b2e,
         type: 3}
-      propertyPath: playerDestPos
+      propertyPath: abilityCooldownUI
       value: 
-      objectReference: {fileID: 4423003032469075198}
+      objectReference: {fileID: 2052188140}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c6583202c1aaf4bbcebb6792578b2e, type: 3}
 --- !u!4 &3696064490358221157 stripped
@@ -1208,12 +1214,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2241186763897451427, guid: cceb7dbc57405904a8c0e93e68f26c48,
     type: 3}
   m_PrefabInstance: {fileID: 3193408852432689862}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &4423003032469075198 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 865025409969422997, guid: c1c6583202c1aaf4bbcebb6792578b2e,
-    type: 3}
-  m_PrefabInstance: {fileID: 3558012841772545643}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &6082477282126790922 stripped
 Transform:

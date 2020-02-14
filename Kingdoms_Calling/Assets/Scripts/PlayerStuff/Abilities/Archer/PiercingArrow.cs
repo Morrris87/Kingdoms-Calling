@@ -12,9 +12,9 @@ public class PiercingArrow : MonoBehaviour
     // Public Variables
     public GameObject abilityCooldownUI;    // UI element for the ability cooldown in the HUD
     public GameObject piercingArrowPrefab;  // Prefab for the piercing arrow shot
+    [HideInInspector] public bool isUsable; // When ability is available for use, set this to true
 
     // Private Variables
-    private bool isUsable;          // When ability is available for use, set this to true
     private float waitTime = 40f;   // Time in seconds needed to wait for ability cooldown
     private float cooldownTimer;    // When in cooldown, increments until waitTime is reached
     private float archerDmg;        // Damage the archer does

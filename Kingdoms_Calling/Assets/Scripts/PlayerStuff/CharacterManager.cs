@@ -417,7 +417,7 @@ public class CharacterManager : MonoBehaviour
         else if (characterClass == CharacterClass.Assassin)
         {
             if (context.ReadValue<float>() == 1)
-                execution.UseAbility(targetedEnemy);
+                execution.UseAbility();
         }
         else if (characterClass == CharacterClass.Archer)
         {
