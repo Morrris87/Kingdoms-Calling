@@ -3,7 +3,9 @@ guid: 59f261bc20bb5a840904fb11df638f53
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - ChainLightningPrefab: {fileID: 7052526911153070361, guid: 8dcf058d9dd2cb44ba024a4a1acb5153,
+      type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
