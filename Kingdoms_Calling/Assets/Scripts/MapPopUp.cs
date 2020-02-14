@@ -39,7 +39,7 @@ public class MapPopUp : MonoBehaviour
             if (context.performed == true)//button Pressed
             {
                 map.SetActive(true);
-                //Time.timeScale = 0.001f;//now pause
+                Time.timeScale = 0;//now pause
                 mapActive = true;
                 
             }
@@ -49,7 +49,7 @@ public class MapPopUp : MonoBehaviour
             if (context.performed == true)//button Pressed
             {
                 map.SetActive(false);
-                //Time.timeScale = 1;
+                Time.timeScale = 1;
                 mapActive = false;
             }
         }
