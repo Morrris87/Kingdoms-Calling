@@ -15,7 +15,7 @@ using DigitalRuby.LightningBolt;
 public class AssassinWarriorCombo : MonoBehaviour
 {
     // Public Variables
-    public GameObject ChainLightningPrefab;
+    //public GameObject ChainLightningPrefab;
 
 
     // Start is called before the first frame update
@@ -31,12 +31,12 @@ public class AssassinWarriorCombo : MonoBehaviour
     }
 
     // Calling this function uses the ability
-    public void UseAbility()
+    public void ActivateCombo(GameObject ChainLightningprefab)
     {
-        LightingChain(this.gameObject);
+        LightingChain(GameObject.Find("Character_Warrior"), ChainLightningprefab);
     }
 
-    void LightingChain(GameObject obj)
+    void LightingChain(GameObject obj, GameObject ChainLightningPrefab)
     {
         //Spawn our chainLightning prefab on our target which will handle the lightning chaining
         ChainLightningPrefab.GetComponent<Lightning>().passObj = obj;

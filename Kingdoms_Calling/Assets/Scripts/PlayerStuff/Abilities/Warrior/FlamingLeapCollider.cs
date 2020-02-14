@@ -13,15 +13,20 @@ public class FlamingLeapCollider : MonoBehaviour
     private float abilityLifeTimer;     // The ability timer
     private float warriorDmg;           // Variable for the warrior's attack damage
     private bool cooldownActive;        // Bool which determines if the cooldown is running
+    public GameObject ChainLightningPrefab;
 
     // Combo variables
-    private ArcherWarriorCombo archerWarriorCombo;      // Used for calling the archer combo
-    private AssassinWarriorCombo assassinWarriorCombo;  // Used for calling the assassin combo
-    private PaladinWarriorCombo paladinWarriorCombo;    // Used for calling the paladin combo
+    private ArcherWarriorCombo archerWarriorCombo = new ArcherWarriorCombo();       // Used for calling the archer combo
+    private AssassinWarriorCombo assassinWarriorCombo = new AssassinWarriorCombo(); // Used for calling the assassin combo
+    //private AssassinWarriorCombo assassinWarriorCombo;
+    private PaladinWarriorCombo paladinWarriorCombo = new PaladinWarriorCombo();    // Used for calling the paladin combo
+
 
     // Start is called before the first frame update
     void Start()
     {
+        //assassinWarriorCombo = new AssassinWarriorCombo();
+
         abilityLifeTimer = timerLength; // Sets the length of the cooldown to the amount stored in timerLength
         cooldownActive = true;          // Starts the cooldown timer
 
@@ -82,13 +87,13 @@ public class FlamingLeapCollider : MonoBehaviour
                 else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Wind)
                 {
                     // Activate the Archer & Warrior combo
-                    //archerWarriorCombo.ActivateCombo();
+                    archerWarriorCombo.ActivateCombo();
                 }
                 // If the enemy currently has a Lightning proc...
                 else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Lightning)
                 {
                     // Activate the Archer & Assassin combo
-                    //assassinWarriorCombo.ActivateCombo();
+                    assassinWarriorCombo.ActivateCombo(ChainLightningPrefab);
                 }
             }
         }

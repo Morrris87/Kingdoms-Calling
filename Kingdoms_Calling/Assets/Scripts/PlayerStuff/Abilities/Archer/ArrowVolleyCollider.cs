@@ -17,9 +17,9 @@ public class ArrowVolleyCollider : MonoBehaviour
     private bool cooldownActive;        // Bool which determines if the cooldown is running
 
     // Combo variables
-    private ArcherAssassinCombo archerAssassinCombo;    // Used for calling the assassin combo
-    private ArcherWarriorCombo archerWarriorCombo;      // Used for calling the warrior combo
-    private ArcherPaladinCombo archerPaladinCombo;      // Used for calling the paladin combo
+    private ArcherAssassinCombo archerAssassinCombo = new ArcherAssassinCombo();    // Used for calling the assassin combo
+    private ArcherWarriorCombo archerWarriorCombo = new ArcherWarriorCombo();       // Used for calling the warrior combo
+    private ArcherPaladinCombo archerPaladinCombo = new ArcherPaladinCombo();       // Used for calling the paladin combo
 
     // Start is called before the first frame update
     void Start()
@@ -73,12 +73,12 @@ public class ArrowVolleyCollider : MonoBehaviour
         // Cycle through each collider in the cols array
         foreach (Collider c in cols)
         {
-            // Deal damage to the enemy
-            c.GetComponent<Health>().Damage((int)archerDmg);
-
             // If the enemy currently has no element assigned in it's Element Manager...
             if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.NONE)
             {
+                // Deal damage to the enemy
+                c.GetComponent<Health>().Damage((int)archerDmg);
+
                 // Set the elemental proc to Wind
                 c.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.Wind;
             }
