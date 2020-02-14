@@ -6,8 +6,17 @@ using DigitalRuby.LightningBolt;
 public class Lightning : MonoBehaviour
 {
     public float enemyRestruckDelay = 5f;
-    public GameObject LightningPrefab;
+    private GameObject LightningPrefab;
     public GameObject passObj;
+
+    private void Start()
+    {
+        LightningPrefab = GameObject.Find("SimpleLightningBoltAnimatedPrefab");
+        if(passObj == null)
+        {
+            passObj = this.gameObject;
+        }
+    }
 
     void OnTriggerEnter(Collider other)
     {
