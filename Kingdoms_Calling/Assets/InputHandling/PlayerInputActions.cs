@@ -48,7 +48,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""id"": ""18fded2c-9159-4497-a705-cda6095ead3d"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""DropItem"",
@@ -168,7 +168,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""45766794-659f-4004-a9b8-e96b179b8971"",
-                    ""path"": ""<Gamepad>/select"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

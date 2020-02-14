@@ -106,3 +106,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerLength: 1
+  ChainLightningPrefab: {fileID: 7052526911153070361, guid: 8dcf058d9dd2cb44ba024a4a1acb5153,
+    type: 3}
