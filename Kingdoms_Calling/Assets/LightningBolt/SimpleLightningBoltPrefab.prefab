@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartObject: {fileID: 163122}
-  StartPosition: {x: 0, y: 0, z: 0}
+  StartPosition: {x: 10, y: 10, z: 10}
   EndObject: {fileID: 171180}
   EndPosition: {x: 0, y: 0, z: 0}
   Generations: 6

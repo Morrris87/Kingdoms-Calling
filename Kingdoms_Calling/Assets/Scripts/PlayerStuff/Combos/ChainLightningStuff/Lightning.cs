@@ -21,7 +21,7 @@ public class Lightning : MonoBehaviour
         // the enemy is yet to be hit
         if (h == null) { 
           //Call you lightning strike effect / particle here
-          
+          //create a obj or prefab with the Lightning script on it then set the start pos to the current thing calling and then the end to the enemy hit
           //Create another copy of this lightning field, by doing this, it will start chaining when the condition is right
           Instantiate( gameObject, other.gameObject.transform.position, Quaternion.identity );
 
