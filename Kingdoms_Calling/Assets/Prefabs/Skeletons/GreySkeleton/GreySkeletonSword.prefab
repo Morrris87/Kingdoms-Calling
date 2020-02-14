@@ -2910,6 +2910,7 @@ MonoBehaviour:
   skeletonStats: {fileID: 0}
   objPlayer: {fileID: 0}
   playerHealth: {fileID: 0}
+  thisSkeleton: {fileID: 0}
 --- !u!114 &6742661108803679281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2940,7 +2941,18 @@ MonoBehaviour:
   thisElement: 0
   elementTimeoutTime: 0
   igniteTick: 0
+  elementRefreshRate: 2
+  igniteDuration: 5
+  fireMark: {fileID: 177630013767137640, guid: c5fb041560fbb4c4eb679c9faa70dd7d, type: 3}
+  windeMark: {fileID: 2409505766393619932, guid: 929fe2a174c7412468e23c4b1dd2176e,
+    type: 3}
+  lightningMark: {fileID: 3411083138673499494, guid: 882a70059320af741b46d07db152b296,
+    type: 3}
+  earthMark: {fileID: 3552474722950639874, guid: 5b508b197e7ef9f4984d1446d07e1d23,
+    type: 3}
   effected: 0
+  effectedElement: 0
+  effectedTimer: 0
 --- !u!114 &1356530905248987170
 MonoBehaviour:
   m_ObjectHideFlags: 0

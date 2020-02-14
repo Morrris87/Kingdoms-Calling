@@ -12975,7 +12975,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 507becf1f22ad0843b0750db3b8389ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
+  abilityCooldownUI: {fileID: 0}
+  abilityHitbox: {fileID: 0}
   isUsable: 0
 --- !u!114 &262869718
 MonoBehaviour:
@@ -12991,6 +12992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityCooldownUI: {fileID: 0}
   waitTime: 20
+  playerDestPos: {fileID: 0}
   isUsable: 0
 --- !u!114 &262869719
 MonoBehaviour:
@@ -13008,6 +13010,7 @@ MonoBehaviour:
   areaOfEffect: {fileID: 0}
   colliderDestPos: {fileID: 0}
   waitTime: 20
+  isUsable: 0
 --- !u!114 &262869720
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13022,6 +13025,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityCooldownUI: {fileID: 0}
   piercingArrowPrefab: {fileID: 0}
+  isUsable: 0
 --- !u!114 &262869721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13034,14 +13038,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1083a841f10304240827c4a811786313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
-  leapCooldown: 1
-  leapRadius: 5
-  leapDuration: 2
-  leapDamage: 1
-  animationLength: 0
-  leapDistance: 5
-  destinationMarker: {fileID: 0}
+  abilityCooldownUI: {fileID: 0}
+  areaOfEffect: {fileID: 0}
+  playerDestPos: {fileID: 0}
+  waitTime: 20
   isUsable: 0
 --- !u!114 &262869722
 MonoBehaviour:
@@ -13108,14 +13108,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f9f2cb9a2c48e4ca9e790243db31ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
-  whirlwindCooldown: 40
-  whirlwindRadius: 5
-  whirlwindDuration: 5
-  whirlwindDamage: 1
-  whirlwindAttackSpeed: 1
-  comboCooldown: 0
-  ArcherWarriorComboPrefab: {fileID: 0}
+  abilityCooldownUI: {fileID: 0}
+  areaOfEffect: {fileID: 0}
+  waitTime: 40
   isUsable: 0
 --- !u!114 &262869726
 MonoBehaviour:
@@ -13129,8 +13124,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd3ac00dbacf604782c167c370b9d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
-  strengthLifetime: 10
+  abilityCooldownUI: {fileID: 0}
+  areaOfEffect: {fileID: 0}
+  waitTime: 40
+  isUsable: 0
 --- !u!114 &262869727
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16142,7 +16139,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 507becf1f22ad0843b0750db3b8389ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
+  abilityCooldownUI: {fileID: 0}
+  abilityHitbox: {fileID: 0}
   isUsable: 0
 --- !u!114 &312235674
 MonoBehaviour:
@@ -16158,6 +16156,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityCooldownUI: {fileID: 0}
   waitTime: 20
+  playerDestPos: {fileID: 0}
   isUsable: 0
 --- !u!114 &312235675
 MonoBehaviour:
@@ -16175,6 +16174,7 @@ MonoBehaviour:
   areaOfEffect: {fileID: 0}
   colliderDestPos: {fileID: 0}
   waitTime: 20
+  isUsable: 0
 --- !u!114 &312235676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16189,6 +16189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityCooldownUI: {fileID: 0}
   piercingArrowPrefab: {fileID: 0}
+  isUsable: 0
 --- !u!114 &312235677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16201,14 +16202,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1083a841f10304240827c4a811786313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
-  leapCooldown: 1
-  leapRadius: 5
-  leapDuration: 2
-  leapDamage: 1
-  animationLength: 0
-  leapDistance: 5
-  destinationMarker: {fileID: 0}
+  abilityCooldownUI: {fileID: 0}
+  areaOfEffect: {fileID: 0}
+  playerDestPos: {fileID: 0}
+  waitTime: 20
   isUsable: 0
 --- !u!114 &312235678
 MonoBehaviour:
@@ -16275,14 +16272,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f9f2cb9a2c48e4ca9e790243db31ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
-  whirlwindCooldown: 40
-  whirlwindRadius: 5
-  whirlwindDuration: 5
-  whirlwindDamage: 1
-  whirlwindAttackSpeed: 1
-  comboCooldown: 0
-  ArcherWarriorComboPrefab: {fileID: 0}
+  abilityCooldownUI: {fileID: 0}
+  areaOfEffect: {fileID: 0}
+  waitTime: 40
   isUsable: 0
 --- !u!114 &312235682
 MonoBehaviour:
@@ -16296,8 +16288,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd3ac00dbacf604782c167c370b9d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
-  strengthLifetime: 10
+  abilityCooldownUI: {fileID: 0}
+  areaOfEffect: {fileID: 0}
+  waitTime: 40
+  isUsable: 0
 --- !u!114 &312235683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32693,7 +32687,7 @@ PrefabInstance:
     - target: {fileID: 6850935412393349414, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -660.1
+      value: -543.8
       objectReference: {fileID: 0}
     - target: {fileID: 6850935412393349414, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
@@ -32703,7 +32697,7 @@ PrefabInstance:
     - target: {fileID: 6850935412393349414, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 358
+      value: 243.7
       objectReference: {fileID: 0}
     - target: {fileID: 6850935412393349414, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
@@ -32745,6 +32739,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4988758205936517710, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
+        type: 3}
+      propertyPath: PassiveIndicator
+      value: 
+      objectReference: {fileID: 1523373946}
     - target: {fileID: 4988758205936517710, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
       propertyPath: PassiveIndicator
@@ -32826,11 +32825,6 @@ PrefabInstance:
       propertyPath: distance
       value: 25
       objectReference: {fileID: 0}
-    - target: {fileID: 4988758205936517710, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
-        type: 3}
-      propertyPath: PassiveIndicator
-      value: 
-      objectReference: {fileID: 1523373946}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e5a4c85c6d71004ea94f79a64a9a63a, type: 3}
 --- !u!1 &644889183 stripped
@@ -62983,83 +62977,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1261453998}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
---- !u!1 &1265860247
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1265860249}
-  - component: {fileID: 1265860248}
-  m_Layer: 0
-  m_Name: WaterReflectionSceneCamera
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!20 &1265860248
-Camera:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1265860247}
-  m_Enabled: 0
-  serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 1, g: 1, b: 1, a: 1}
-  m_projectionMatrixMode: 0
-  m_GateFitMode: 2
-  m_FOVAxisMode: 0
-  m_SensorSize: {x: 36, y: 24}
-  m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
-  m_NormalizedViewPortRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
-  near clip plane: 0.3
-  far clip plane: 1000
-  field of view: 60
-  orthographic: 0
-  orthographic size: 5
-  m_Depth: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967279
-  m_RenderingPath: 1
-  m_TargetTexture: {fileID: 0}
-  m_TargetDisplay: 0
-  m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
-  m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
-  m_StereoConvergence: 10
-  m_StereoSeparation: 0.022
---- !u!4 &1265860249
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1265860247}
-  m_LocalRotation: {x: -0.31520197, y: 0.5060668, z: 0.20556381, w: 0.77607197}
-  m_LocalPosition: {x: -518.17725, y: 23.438953, z: 282.40015}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 21
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
->>>>>>> 1bcde55523a14deaebaecc1299030ada80843abb
 --- !u!1001 &1272375781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -70001,8 +69918,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401079121}
-  m_LocalRotation: {x: -0.51877326, y: 0, z: 0, w: 0.85491186}
-  m_LocalPosition: {x: -519, y: -29.059998, z: 215}
+  m_LocalRotation: {x: -0.038316045, y: -0.13686842, z: 0.0052980427, w: -0.9898338}
+  m_LocalPosition: {x: -552.158, y: 15.959549, z: 190.60187}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -100458,7 +100375,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 507becf1f22ad0843b0750db3b8389ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
+  abilityCooldownUI: {fileID: 0}
+  abilityHitbox: {fileID: 0}
   isUsable: 0
 --- !u!114 &2033903171
 MonoBehaviour:
@@ -100474,6 +100392,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityCooldownUI: {fileID: 0}
   waitTime: 20
+  playerDestPos: {fileID: 0}
   isUsable: 0
 --- !u!114 &2033903172
 MonoBehaviour:
@@ -100491,6 +100410,7 @@ MonoBehaviour:
   areaOfEffect: {fileID: 0}
   colliderDestPos: {fileID: 0}
   waitTime: 20
+  isUsable: 0
 --- !u!114 &2033903173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100505,6 +100425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityCooldownUI: {fileID: 0}
   piercingArrowPrefab: {fileID: 0}
+  isUsable: 0
 --- !u!114 &2033903174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100517,14 +100438,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1083a841f10304240827c4a811786313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
-  leapCooldown: 1
-  leapRadius: 5
-  leapDuration: 2
-  leapDamage: 1
-  animationLength: 0
-  leapDistance: 5
-  destinationMarker: {fileID: 0}
+  abilityCooldownUI: {fileID: 0}
+  areaOfEffect: {fileID: 0}
+  playerDestPos: {fileID: 0}
+  waitTime: 20
   isUsable: 0
 --- !u!114 &2033903175
 MonoBehaviour:
@@ -100591,14 +100508,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f9f2cb9a2c48e4ca9e790243db31ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
-  whirlwindCooldown: 40
-  whirlwindRadius: 5
-  whirlwindDuration: 5
-  whirlwindDamage: 1
-  whirlwindAttackSpeed: 1
-  comboCooldown: 0
-  ArcherWarriorComboPrefab: {fileID: 0}
+  abilityCooldownUI: {fileID: 0}
+  areaOfEffect: {fileID: 0}
+  waitTime: 40
   isUsable: 0
 --- !u!114 &2033903179
 MonoBehaviour:
@@ -100612,8 +100524,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd3ac00dbacf604782c167c370b9d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
-  strengthLifetime: 10
+  abilityCooldownUI: {fileID: 0}
+  areaOfEffect: {fileID: 0}
+  waitTime: 40
+  isUsable: 0
 --- !u!114 &2033903180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106521,6 +106435,7 @@ MonoBehaviour:
   areaOfEffect: {fileID: 0}
   colliderDestPos: {fileID: 0}
   waitTime: 20
+  isUsable: 0
 --- !u!114 &2326171932716776010
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -106535,6 +106450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityCooldownUI: {fileID: 0}
   waitTime: 20
+  playerDestPos: {fileID: 0}
   isUsable: 0
 --- !u!114 &2357826745390578169
 MonoBehaviour:
@@ -106705,6 +106621,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityCooldownUI: {fileID: 0}
   piercingArrowPrefab: {fileID: 0}
+  isUsable: 0
 --- !u!33 &4044710141476150372
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -106836,14 +106753,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36f9f2cb9a2c48e4ca9e790243db31ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
-  whirlwindCooldown: 40
-  whirlwindRadius: 5
-  whirlwindDuration: 5
-  whirlwindDamage: 1
-  whirlwindAttackSpeed: 1
-  comboCooldown: 0
-  ArcherWarriorComboPrefab: {fileID: 0}
+  abilityCooldownUI: {fileID: 0}
+  areaOfEffect: {fileID: 0}
+  waitTime: 40
   isUsable: 0
 --- !u!33 &5565203894915631936
 MeshFilter:
@@ -107178,14 +107090,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1083a841f10304240827c4a811786313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
-  leapCooldown: 1
-  leapRadius: 5
-  leapDuration: 2
-  leapDamage: 1
-  animationLength: 0
-  leapDistance: 5
-  destinationMarker: {fileID: 0}
+  abilityCooldownUI: {fileID: 0}
+  areaOfEffect: {fileID: 0}
+  playerDestPos: {fileID: 0}
+  waitTime: 20
   isUsable: 0
 --- !u!114 &6637319660026164441
 MonoBehaviour:
@@ -107214,8 +107122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bd3ac00dbacf604782c167c370b9d5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 10
-  strengthLifetime: 10
+  abilityCooldownUI: {fileID: 0}
+  areaOfEffect: {fileID: 0}
+  waitTime: 40
+  isUsable: 0
 --- !u!4 &7085999704989525312
 Transform:
   m_ObjectHideFlags: 0
@@ -107272,7 +107182,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 507becf1f22ad0843b0750db3b8389ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityUI: {fileID: 0}
+  abilityCooldownUI: {fileID: 0}
+  abilityHitbox: {fileID: 0}
   isUsable: 0
 --- !u!23 &7432032340364189696
 MeshRenderer:
