@@ -1,57 +1,58 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
 public class MapPopUp : MonoBehaviour
 {
-    public Image map;
+    public GameObject map;
     GameObject player;
     bool isInBox;
     bool buttonPressed;
+    bool mapActive;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //map.canvas.enabled = false;
+        mapActive = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(isInBox == true)
-        {
-            if(Input.GetButtonDown("Fire1"))//button Pressed
-            {
-                buttonPressed = true;
-            }
-        }
-        else if (isInBox == true && buttonPressed == true)
-        {
-            if (Input.GetButtonDown("Fire1"))//button Pressed
-            {
-                buttonPressed = false;
-            }
-        }
+       
     }
     private void OnTriggerEnter(Collider other)
     {
         isInBox = true;
-        if(buttonPressed == true)
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        isInBox = false;
+    }
+    public void MapStuff(InputAction.CallbackContext context)
+    {
+        if (isInBox == true && mapActive == false)
         {
-            map.enabled = true;
-            // now pause
-            Time.timeScale = 0;
+            if (context.performed == true)//button Pressed
+            {
+                map.SetActive(true);
+                //Time.timeScale = 0.001f;//now pause
+                mapActive = true;
+                
+            }
         }
-        else if(buttonPressed == false)
+        else if (mapActive == true)
         {
-            map.enabled = false;
-            Time.timeScale = 1;
+            if (context.performed == true)//button Pressed
+            {
+                map.SetActive(false);
+                //Time.timeScale = 1;
+                mapActive = false;
+            }
         }
-        // pop up a thing that says "HIT A TO READ MAP"
-        // when A is hit pause game Display Image
-        // to close HIT A AGAIN
-        // unpause
     }
     private void OnGUI()
     {
