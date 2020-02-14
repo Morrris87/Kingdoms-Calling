@@ -14,30 +14,13 @@ using System.Linq;
 public class AssassinWarriorCombo : MonoBehaviour
 {
     // Public Variables
-    [Header("AssassinWarriorCombo Specs")]
-    public float range = 1;
-    public float lifeTime = 10f;
-    public float damageInterval = 2f;
-    //public int healValue = 1;
-    public float igniteDuration = 1;
-    public int damageValue = 1;
-    public float igniteChance = 50;
-    bool onlyMarked = false;
-    int maxChains = 10;
+    public GameObject ChainLightningPrefab;
 
-    //private bool isUsable;          // When ability is available for use, set this to true
-    private float waitTime = 40;    // Time in seconds needed to wait for ability cooldown
-    //private float cooldownElapsed;  // When in cooldown, increments until waitTime is reached
-    private int chainCount;
-    private int playerLayerIndex, enemyLayerIndex;      //Player and enemy layer index
-    Dictionary<float, GameObject> distDic = new Dictionary<float, GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
-        //isUsable = true;        // Ability starts as usable
-        //cooldownElapsed = 0;    // Cooldown timer starts at 0
-        enemyLayerIndex = LayerMask.NameToLayer("Enemy");
+
     }
 
     // Update is called once per frame
@@ -49,72 +32,75 @@ public class AssassinWarriorCombo : MonoBehaviour
     // Calling this function uses the ability
     public void UseAbility()
     {
-
-        // Start the cooldown timer if we need to implement for balancing
-
-        LightingChain(this.gameObject, ref chainCount);
+        LightingChain(this.gameObject);
     }
 
-    void LightingChain(GameObject obj , ref int chainCount)
+    void LightingChain(GameObject obj)
     {
-        //increment number of times we have chained
-        chainCount++;
-        //check if we are at our max chain length
-        if (chainCount > maxChains)
-        {
-            //do nothing because we are out of chains
-        }
-        //if we arn't then keep chaining
-        else
-        {
-            //Grab all colliders inside of the sphere which in our case acts as a circle with the player and enemy layer mask
-            Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, range, 1 << enemyLayerIndex);
+        //Spawn our chainLightning prefab on our target which will handle the lightning chaining
+        Instantiate(ChainLightningPrefab, obj.transform.position, Quaternion.identity);
 
-            //loop through colliders and fill a dictionary with distance as their keys
-            foreach (Collider col in hitColliders)
-            {
-                //if we are only checking marked enemies
-                if(onlyMarked)
-                {
-                    //check if the object we are checking distance is effected by a element AND it has the element of fire or lightning
-                    if (col.gameObject.GetComponent<ElementManager>().effected && col.gameObject.GetComponent<ElementManager>().GetElement() == ElementManager.ClassElement.Fire || col.gameObject.GetComponent<ElementManager>().GetElement() == ElementManager.ClassElement.Lightning)
-                    {
-                        //calculate the distance between the current position and the current target
-                        float dist = Vector3.Distance(obj.transform.position, col.transform.position);
+        #region Old Lightning Chain Recursive
+        ////increment number of times we have chained
+        //chainCount++;
+        ////check if we are at our max chain length
+        //if (chainCount > maxChains)
+        //{
+        //    //do nothing because we are out of chains
+        //}
+        ////if we arn't then keep chaining
+        //else
+        //{
+        //    //Grab all colliders inside of the sphere which in our case acts as a circle with the player and enemy layer mask
+        //    Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, range, 1 << enemyLayerIndex);
 
-                        //add to the dictionary
-                        distDic.Add(dist, col.gameObject);
-                    }
-                }
-                //else we check all colliders near the player
-                else
-                {
-                    //calculate the distance between the current position and the current target
-                    float dist = Vector3.Distance(obj.transform.position, col.transform.position);
+        //    //loop through colliders and fill a dictionary with distance as their keys
+        //    foreach (Collider col in hitColliders)
+        //    {
+        //        //if we are only checking marked enemies
+        //        if(onlyMarked)
+        //        {
+        //            //check if the object we are checking distance is effected by a element AND it has the element of fire or lightning
+        //            if (col.gameObject.GetComponent<ElementManager>().effected && col.gameObject.GetComponent<ElementManager>().GetElement() == ElementManager.ClassElement.Fire || col.gameObject.GetComponent<ElementManager>().GetElement() == ElementManager.ClassElement.Lightning)
+        //            {
+        //                //calculate the distance between the current position and the current target
+        //                float dist = Vector3.Distance(obj.transform.position, col.transform.position);
 
-                    //add to the dictionary
-                    distDic.Add(dist, col.gameObject);
-                }
-            }
+        //                //add to the dictionary
+        //                distDic.Add(dist, col.gameObject);
+        //            }
+        //        }
+        //        //else we check all colliders near the player
+        //        else
+        //        {
+        //            //calculate the distance between the current position and the current target
+        //            float dist = Vector3.Distance(obj.transform.position, col.transform.position);
 
-            //pull the distances from the dictionary
-            List<float> distances = distDic.Keys.ToList();
+        //            //add to the dictionary
+        //            distDic.Add(dist, col.gameObject);
+        //        }
+        //    }
 
-            //sort the list
-            distances.Sort();
+        //    //pull the distances from the dictionary
+        //    List<float> distances = distDic.Keys.ToList();
 
-            //Our closet collider will be the first in our dictionary
-            GameObject closestEnemey = distDic[distances[0]];
+        //    //sort the list
+        //    distances.Sort();
 
-            // Play the ability animation
+        //    //Our closet collider will be the first in our dictionary
+        //    GameObject closestEnemey = distDic[distances[0]];
 
-            //Damage closest enemy
-            closestEnemey.GetComponent<Health>().Damage(damageValue);
-            //reset their effected status
-            closestEnemey.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
+        //    // Play the ability animation
+        //    //Instantiate()
 
-            //Recall lightning chain to keep chaining untill max chain count
-            LightingChain(closestEnemey, ref chainCount);
-        }
+        //    //Damage closest enemy
+        //    closestEnemey.GetComponent<Health>().Damage(damageValue);
+        //    //reset their effected status
+        //    closestEnemey.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
+
+        //    //Recall lightning chain to keep chaining untill max chain count
+        //    LightingChain(closestEnemey, ref chainCount);
+        //}
+        #endregion
     }
 }
