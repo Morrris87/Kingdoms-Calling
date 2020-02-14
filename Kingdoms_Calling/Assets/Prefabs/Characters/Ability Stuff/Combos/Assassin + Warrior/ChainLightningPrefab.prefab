@@ -126,3 +126,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyRestruckDelay: 5
+  LightningPrefab: {fileID: 178460, guid: a84cb58ef7faa67488076810242453b9, type: 3}

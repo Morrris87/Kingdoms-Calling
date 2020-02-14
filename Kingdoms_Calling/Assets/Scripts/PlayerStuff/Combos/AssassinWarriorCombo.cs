@@ -10,6 +10,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using DigitalRuby.LightningBolt;
 
 public class AssassinWarriorCombo : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class AssassinWarriorCombo : MonoBehaviour
     void LightingChain(GameObject obj)
     {
         //Spawn our chainLightning prefab on our target which will handle the lightning chaining
+        ChainLightningPrefab.GetComponent<Lightning>().passObj = obj;
         Instantiate(ChainLightningPrefab, obj.transform.position, Quaternion.identity);
 
         #region Old Lightning Chain Recursive
