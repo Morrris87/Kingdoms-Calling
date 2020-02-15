@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 6056994560321717552}
   - component: {fileID: 7280584505368016750}
   - component: {fileID: 2020547607532324613}
+  - component: {fileID: 2680578839531742901}
   m_Layer: 8
   m_Name: Character_Assassin
   m_TagString: Player
@@ -506,6 +507,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   count: 10
   distance: 25
+--- !u!114 &2680578839531742901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280584505368016736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08b5ac1e557125b49bd2ea74590591c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cloakTime: 0
 --- !u!1001 &1759642343858466123
 PrefabInstance:
   m_ObjectHideFlags: 0

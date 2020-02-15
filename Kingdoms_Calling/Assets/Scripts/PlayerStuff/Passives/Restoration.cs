@@ -6,25 +6,32 @@ public class Restoration : MonoBehaviour
 {
     Health hp;
     float timer;
-    public int regenTime;
+    [HideInInspector] public int regenTime;
     // Start is called before the first frame update
     void Start()
     {
         hp = GetComponent<Health>();
         regenTime = 1;
-        timer = 0;
+        timer = regenTime;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (hp.currentHealth != 0)
+        // If timer hasn't completed...
+        if (timer >= 0)
         {
-            timer += Time.deltaTime;
-            // if like not full all 1 hp every 2 seconds
-            if (hp.currentHealth < hp.maxHealth && timer >= regenTime)
+            // Subtract timer by deltaTime
+            timer -= Time.deltaTime;
+        }
+        // Otherwise timer has completed
+        else
+        {
+            // If Paladin's health is above 0 and below maxHealth...
+            if (hp.currentHealth > 0 && hp.currentHealth < hp.maxHealth)
             {
                 hp.currentHealth++;
+                timer = regenTime;
             }
         }
     }

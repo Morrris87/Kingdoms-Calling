@@ -141,6 +141,7 @@ GameObject:
   - component: {fileID: 3849261038076052007}
   - component: {fileID: 8623312592771481227}
   - component: {fileID: 1058224150484438752}
+  - component: {fileID: 3164976437183399294}
   m_Layer: 8
   m_Name: Character_Warrior
   m_TagString: Player
@@ -508,6 +509,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   count: 10
   distance: 25
+--- !u!114 &3164976437183399294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8623312592771481221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58d2a35ee5291047b8463bdb5031cd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AdditionalSpeed: 200
+  AdditionalDamage: 30
 --- !u!1001 &1827701173758754212
 PrefabInstance:
   m_ObjectHideFlags: 0
