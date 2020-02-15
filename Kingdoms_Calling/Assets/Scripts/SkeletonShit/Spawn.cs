@@ -8,7 +8,8 @@ using System.Threading;
 
 public class Spawn : MonoBehaviour
 {
-    int totalSkeletoNumber;
+    [HideInInspector]
+    public int totalSkeletoNumber;
     public int maxSkeletonNumber;
     int packSize;
     int spawnerNumberA;
