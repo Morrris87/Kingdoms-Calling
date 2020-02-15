@@ -40,6 +40,7 @@ public class ElementManager : MonoBehaviour
     int igniteDamage;
     bool ignited;
     float refreshRate;
+    bool marked;
     
 
     // Start is called before the first frame update
@@ -54,6 +55,7 @@ public class ElementManager : MonoBehaviour
         effectedElement = ClassElement.NONE;
         ignited = false;
         refreshRate = elementRefreshRate;
+        marked = false;
     }
 
     // Update is called once per frame
@@ -71,6 +73,7 @@ public class ElementManager : MonoBehaviour
                 //reset our bool and element
                 effected = false;
                 effectedElement = ClassElement.NONE;
+                marked = false;
                 //Loop through our transforms determining which one is the element marker and destroy it
                 foreach (Transform child in transform.GetComponentsInChildren<Transform>())
                 {
@@ -136,6 +139,7 @@ public class ElementManager : MonoBehaviour
             eManager.effected = false;
             eManager.effectedElement = ClassElement.NONE;
             eManager.effectedTimer = 0;
+            eManager.marked = false;
             DisplayElement();
         }
     }
@@ -176,27 +180,31 @@ public class ElementManager : MonoBehaviour
         // We have a element
         else if(effected)
         {
-            //Check which element we are effected by
-            if(effectedElement == ClassElement.Earth)
+            if(!marked)
             {
-                Instantiate(earthMark, transform);
-            }
-            else if (effectedElement == ClassElement.Fire)
-            {
-                Instantiate(fireMark, transform);
-            }
-            else if(effectedElement == ClassElement.Lightning)
-            {
-                Instantiate(lightningMark, transform);
-            }
-            else if(effectedElement == ClassElement.Wind)
-            {
-                Instantiate(windeMark, transform);
-            }
-            else
-            {
-                Debug.Log(this + " : Is effected by something but the element was not set.");
-            }
+                //Check which element we are effected by
+                if (effectedElement == ClassElement.Earth)
+                {
+                    Instantiate(earthMark, transform);
+                }
+                else if (effectedElement == ClassElement.Fire)
+                {
+                    Instantiate(fireMark, transform);
+                }
+                else if (effectedElement == ClassElement.Lightning)
+                {
+                    Instantiate(lightningMark, transform);
+                }
+                else if (effectedElement == ClassElement.Wind)
+                {
+                    Instantiate(windeMark, transform);
+                }
+                else
+                {
+                    Debug.Log(this + " : Is effected by something but the element was not set.");
+                }
+                marked = true;
+            }            
         }
     }
 
@@ -208,6 +216,5 @@ public class ElementManager : MonoBehaviour
     {
         ignited = true;
         igniteDamage = dmgValue;
-
     }
 }

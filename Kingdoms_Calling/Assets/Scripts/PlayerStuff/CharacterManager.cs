@@ -205,9 +205,7 @@ public class CharacterManager : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
-        UpdatePlayer(desiredDirection);
-
-        
+        UpdatePlayer(desiredDirection);        
     }
 
     /// <summary>
@@ -397,14 +395,14 @@ public class CharacterManager : MonoBehaviour
             if (context.ReadValue<float>() == 1)
             {
                 displayLocation = true;
-                Debug.Log("Started");
+                //Debug.Log("Started");
             }
 
             if (context.ReadValue<float>() == 0)
             {
                 warriorFalmingLeap.UseAbility(rotationDirection);
                 //displayLocation = false;
-                Debug.Log("Performed");
+                //Debug.Log("Performed");
             }
         }
     }
@@ -419,7 +417,7 @@ public class CharacterManager : MonoBehaviour
         else if (characterClass == CharacterClass.Assassin)
         {
             if (context.ReadValue<float>() == 1)
-                execution.UseAbility(targetedEnemy);
+                execution.UseAbility();
         }
         else if (characterClass == CharacterClass.Archer)
         {

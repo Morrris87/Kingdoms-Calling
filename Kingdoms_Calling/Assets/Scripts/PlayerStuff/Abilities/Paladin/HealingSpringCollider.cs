@@ -21,9 +21,9 @@ public class HealingSpringCollider : MonoBehaviour
     private bool cooldownActive;    // Bool which determines if the cooldown is running
 
     // Combo variables
-    private ArcherPaladinCombo archerPaladinCombo;      // Used for calling the archer combo
-    private AssassinPaladinCombo assassinPaladinCombo;  // Used for calling the assassin combo
-    private PaladinWarriorCombo paladinWarriorCombo;    // Used for calling the warrior combo
+    private ArcherPaladinCombo archerPaladinCombo = new ArcherPaladinCombo();       // Used for calling the archer combo
+    private AssassinPaladinCombo assassinPaladinCombo = new AssassinPaladinCombo(); // Used for calling the assassin combo
+    private PaladinWarriorCombo paladinWarriorCombo = new PaladinWarriorCombo();    // Used for calling the warrior combo
 
     // Start is called before the first frame update
     void Start()
@@ -97,7 +97,7 @@ public class HealingSpringCollider : MonoBehaviour
                 else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Fire)
                 {
                     // Activate the Paladin & Warrior combo
-                    //paladinWarriorCombo.ActivateCombo();
+                    paladinWarriorCombo.ActivateCombo(c.gameObject);
                 }
                 // If the enemy currently has a Lightning proc...
                 else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Lightning)

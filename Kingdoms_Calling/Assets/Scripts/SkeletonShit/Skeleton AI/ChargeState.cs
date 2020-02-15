@@ -12,6 +12,8 @@ public class ChargeState : FSMState
 {
     AI enemyAI;
 
+    public float speed;
+
     float pathTime = 0f;
     int slot = -1;
 
@@ -28,7 +30,7 @@ public class ChargeState : FSMState
 
     public override void Act()
     {
-        float speed = enemyAI.skeletonStats.speed * Time.deltaTime;
+        speed = enemyAI.skeletonStats.speed * Time.deltaTime;
         // Move to player 
         if (enemyAI.thisSkeletonClass == "Sword" || enemyAI.thisSkeletonClass == "Mace")
         {

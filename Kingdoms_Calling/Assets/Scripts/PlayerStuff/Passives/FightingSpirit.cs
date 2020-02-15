@@ -8,14 +8,15 @@ public class FightingSpirit : MonoBehaviour
     AxeWhirlwind axe;
     CharacterManager manager;
     BasicAttack attack;
-    public int AdditionalSpeed;
-    public int AdditionalDamage;
+    [HideInInspector] public int AdditionalSpeed;
+    [HideInInspector] public int AdditionalDamage;
     float baseSpeed;
     float baseAttack;
+    bool added;
     // Start is called before the first frame update
     void Start()
     {
-        AdditionalSpeed = 200;
+        AdditionalSpeed = 400;
         AdditionalDamage = 3;
         manager = GetComponent<CharacterManager>();
         leap = GetComponent<FlamingLeap>();
@@ -23,6 +24,7 @@ public class FightingSpirit : MonoBehaviour
         attack = GetComponent<BasicAttack>();
         baseSpeed = manager.speed;
         baseAttack = attack.AttackDamage;
+        added = false;
     }
 
     // Update is called once per frame
@@ -30,13 +32,18 @@ public class FightingSpirit : MonoBehaviour
     {
         if(leap.isUsable == false && axe.isUsable == false)
         {
-            manager.speed += AdditionalSpeed;
-            attack.AttackDamage += AdditionalDamage;
+            if (added == false)
+            {
+                manager.speed += AdditionalSpeed;
+                attack.AttackDamage += AdditionalDamage;
+                added = true;
+            }
         }
         else
         {
             manager.speed = baseSpeed;
             attack.AttackDamage = baseAttack;
+            added = false;
         }
     }
 }
