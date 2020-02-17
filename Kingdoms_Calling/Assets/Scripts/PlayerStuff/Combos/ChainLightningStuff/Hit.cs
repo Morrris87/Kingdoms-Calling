@@ -8,8 +8,9 @@ public class Hit : MonoBehaviour
     public float killDelay = 100f;
     public GameObject lightningPrefab;
     public GameObject start;
+    public float lightningDurationIn = 10f;
 
-    LightningBoltScript lastLightning;
+    //LightningBoltScript lastLightning;
 
     private 
     
@@ -20,6 +21,8 @@ public class Hit : MonoBehaviour
             lightningPrefab = GameObject.Find("SimpleLightningBoltAnimatedPrefab");
         }
 
+        lightningPrefab.AddComponent<LightningKill>();
+        lightningPrefab.GetComponent<LightningKill>().LightningDuration = lightningDurationIn;
         lightningPrefab.GetComponent<LightningBoltScript>().StartObject = start;
         lightningPrefab.GetComponent<LightningBoltScript>().EndObject = this.gameObject;
 
