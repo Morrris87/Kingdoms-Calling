@@ -106,7 +106,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 92c9b2e910975614f84aea80327882a1, type: 2}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
@@ -125,6 +125,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 226f9d296f32353419a19f5fa0bbedef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyRestruckDelay: 5
-  LightningPrefab: {fileID: 178460, guid: a84cb58ef7faa67488076810242453b9, type: 3}
-  passObj: {fileID: 7052526911153070361}
+  enemyRestruckDelay: 100
+  LightningPrefab: {fileID: 7052526911153070361}
+  passObj: {fileID: 0}

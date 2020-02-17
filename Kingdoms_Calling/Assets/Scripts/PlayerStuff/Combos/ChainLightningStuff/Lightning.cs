@@ -5,17 +5,16 @@ using DigitalRuby.LightningBolt;
 
 public class Lightning : MonoBehaviour
 {
-    public float enemyRestruckDelay = 5f;
-    private GameObject LightningPrefab;
+    public float enemyRestruckDelay;
+    public GameObject LightningPrefab;
     public GameObject passObj;
+
+    public int damage;
 
     private void Start()
     {
-        LightningPrefab = GameObject.Find("SimpleLightningBoltAnimatedPrefab");
-        if(passObj == null)
-        {
-            passObj = this.gameObject;
-        }
+        //LightningPrefab = GameObject.Find("SimpleLightningBoltAnimatedPrefab");
+        
     }
 
     void OnTriggerEnter(Collider other)
@@ -34,23 +33,34 @@ public class Lightning : MonoBehaviour
         // the enemy is yet to be hit
         if (h == null)
         {
-            //Call you lightning strike effect / particle here
-            //create a obj or prefab with the Lightning script on it then set the start pos to the current thing calling and then the end to the enemy hit
-
-            //Create another copy of this lightning field, by doing this, it will start chaining when the condition is right
-            LightningPrefab.GetComponent<Lightning>().passObj = other.gameObject;
-            Instantiate(LightningPrefab, other.gameObject.transform.position, Quaternion.identity);
             
             //Mark the enemy as hit
             h = other.gameObject.AddComponent<Hit>();
+
+            //Deal damage
+            enemy.GetComponent<Health>().Damage(damage);
 
             h.start = passObj;
 
             h.killDelay = enemyRestruckDelay;
 
+            passObj = enemy.gameObject;
+
+            LightningPrefab.GetComponent<Lightning>().passObj = passObj;
+            Instantiate(LightningPrefab, other.gameObject.transform.position, Quaternion.identity);
+
             //Kill this gameObject once you have struck the closest enemy
             //Remove the Kill() if you want to strike everyone in the proximity
-            //Kill();
+            Kill();
+        }
+    }
+
+    private void Update()
+    {
+        //Used to fix a bug where the animator stops early and doesnt kill itself
+        if (GetComponent<Animator>().isActiveAndEnabled == false)
+        {
+            Kill();
         }
     }
 

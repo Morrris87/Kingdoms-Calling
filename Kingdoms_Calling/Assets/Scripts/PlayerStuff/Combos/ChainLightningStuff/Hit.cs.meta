@@ -3,7 +3,9 @@ guid: 9c20433788c835c43961422c086fcb2d
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - lightningPrefab: {fileID: 178460, guid: a84cb58ef7faa67488076810242453b9, type: 3}
+  - start: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
