@@ -9,36 +9,56 @@ public class Cloak : MonoBehaviour
     float timer;
     [HideInInspector] public int cloakTime;
     Color color;
+    bool used;
 
     // Start is called before the first frame update
     void Start()
     {
         color = GetComponentInChildren<SkinnedMeshRenderer>().material.color;
         cloakTime = 2;
-        timer = 0;
+        timer = cloakTime;
         execution = GetComponent<Execution>();
         strike = GetComponent<ThunderStrike>();
+        used = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (execution.isUsable == false || strike.isUsable == false)//ability one OR ability two are on cooldown
+        
+        if (used == false)
         {
-            timer += Time.deltaTime;
-            if (timer >= cloakTime)// check timer 2 seconds
+            if ((execution.isUsable == false && strike.isUsable == false) ||
+                    (execution.isUsable == true && strike.isUsable == false) ||
+                    (execution.isUsable == false && strike.isUsable == true))//ability one OR ability two are on cooldown
             {
+                timer -= Time.deltaTime;
                 color.a = 0.5F;
                 this.GetComponentInChildren<SkinnedMeshRenderer>().material.color = color;
-                this.tag = "Immune";
+                this.gameObject.tag = "Immune";
+                if (timer <= 0)// check timer 2 seconds
+                { 
+                    timer = cloakTime;
+                    used = true;
+                }
             }
         }
-        else
+        // works once not twice must thing it tru again!
+        else if (used == true)
         {
-            // make normal again
             color.a = 1f;
             this.GetComponentInChildren<SkinnedMeshRenderer>().material.color = color;
-            this.tag = "Player";
+            this.gameObject.tag = "Player";
+            timer = cloakTime;
         }
+        if (execution.isUsable == true && strike.isUsable == true)
+        {
+            used = false;
+        }
+    }
+    private void OnGUI()
+    {
+        GUI.Label(new Rect(60, 30, 30, 30), timer.ToString());
+        GUI.Label(new Rect(90, 30, 30, 30), used.ToString());
     }
 }

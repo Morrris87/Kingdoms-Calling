@@ -15,6 +15,7 @@ TagManager:
   - SpawnerB
   - SpawnerC
   - ElementMark
+  - Immune
   layers:
   - Default
   - TransparentFX
