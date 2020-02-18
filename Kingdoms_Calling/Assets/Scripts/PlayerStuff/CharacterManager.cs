@@ -449,15 +449,16 @@ public class CharacterManager : MonoBehaviour
         }
         else if (characterClass == CharacterClass.Assassin)
         {
-            if (context.ReadValue<float>() == 1)//Button pressed
+            if (context.started == true && context.performed == false)//Button pressed down
             {
-                displayLocation = true;
-                Debug.Log("Special Started");
+                if (!displayLocation)
+                    displayLocation = true;
             }
 
-            if (context.ReadValue<float>() == 0)//Button released
+            if (context.started == false && context.performed == true)//Button released and we are showing indicator
             {
                 electricDash.UseAbility(abilityIndicator.transform.position);
+                displayLocation = false;
                 Debug.Log("Special performed");
             }
         }
