@@ -4,6 +4,7 @@
 
 using UnityEngine;
 using Complete;
+using System.Collections;
 
 public class BasicAttack : MonoBehaviour
 {
@@ -113,7 +114,6 @@ public class BasicAttack : MonoBehaviour
             Instantiate(arrowPrefab, spawner.position, Quaternion.LookRotation(transform.forward, Vector3.up)); // Fire the arrow
         }
     }
-
     public void AttackMelee()
     {
         // Reset timer

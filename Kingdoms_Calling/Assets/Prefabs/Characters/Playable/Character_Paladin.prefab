@@ -644,6 +644,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: pali
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 83296668e60d9e6488769514ee0eff68,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 805e40610bc09c3479a2f2acc93daa92, type: 2}
     - target: {fileID: -4216859302048453862, guid: 83296668e60d9e6488769514ee0eff68,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -699,11 +704,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 83296668e60d9e6488769514ee0eff68,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 0f7003822e0ebed488e350829905e987, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83296668e60d9e6488769514ee0eff68, type: 3}
 --- !u!4 &5764855809819084239 stripped

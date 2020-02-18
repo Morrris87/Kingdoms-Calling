@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 47e47d11220ec9d4c87776b1f1af32c2
+guid: 7db7bd1d14f1bcf4897b6a849a5871cc
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
@@ -7,31 +7,31 @@ ModelImporter:
       74: 1827226128182048838
     second: Archer_Attack
   - first:
-      74: -3100369314251171874
-    second: Idle
+      74: 5005133701790567042
+    second: Archer_Idle
   - first:
-      74: 5522812681064789136
-    second: Run
+      74: -3733053640424133694
+    second: Archer_Run
   - first:
-      74: -5650646837206922739
-    second: Run (45 Deg)
+      74: 8944551111941356174
+    second: Archer_Run (45 Deg)
   - first:
-      74: 2096426869115292289
-    second: Run (-45 Deg)
+      74: 8509061069859529355
+    second: Archer_Run (-45 Deg)
   - first:
-      74: 9135936966193822041
-    second: Run (90 Deg)
+      74: 778250038284426549
+    second: Archer_Run (90 Deg)
   - first:
-      74: 987364611367193872
-    second: Run (-90 Deg)
+      74: 5475467042840464367
+    second: Archer_Run (-90 Deg)
   - first:
-      74: 3003828683235173995
+      74: -2414257625401616473
     second: Archer_ArrowVolley
   - first:
-      74: 4609610067086188830
-    second: Archer_PiercingArrow (NEEDS EDITING)
+      74: -1037969410451916513
+    second: Archer_PiercingArrow
   - first:
-      74: -5636780432218783729
+      74: 2569418215603913763
     second: Archer_Evasion
   externalObjects: {}
   materials:
@@ -91,7 +91,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Idle
+      name: Archer_Idle
       takeName: Take 001
       internalID: 0
       firstFrame: 76
@@ -99,7 +99,7 @@ ModelImporter:
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
-      cycleOffset: 1
+      cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
@@ -120,7 +120,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Run
+      name: Archer_Run
       takeName: Take 001
       internalID: 0
       firstFrame: 226
@@ -149,7 +149,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Run (45 Deg)
+      name: Archer_Run (45 Deg)
       takeName: Take 001
       internalID: 0
       firstFrame: 424
@@ -178,7 +178,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Run (-45 Deg)
+      name: Archer_Run (-45 Deg)
       takeName: Take 001
       internalID: 0
       firstFrame: 466
@@ -189,8 +189,8 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
-      loopBlend: 1
+      loopTime: 0
+      loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -207,7 +207,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Run (90 Deg)
+      name: Archer_Run (90 Deg)
       takeName: Take 001
       internalID: 0
       firstFrame: 445
@@ -236,7 +236,7 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Run (-90 Deg)
+      name: Archer_Run (-90 Deg)
       takeName: Take 001
       internalID: 0
       firstFrame: 487
@@ -294,11 +294,11 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Archer_PiercingArrow (NEEDS EDITING)
+      name: Archer_PiercingArrow
       takeName: Take 001
       internalID: 0
-      firstFrame: 507
-      lastFrame: 521
+      firstFrame: 666
+      lastFrame: 700
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -326,8 +326,8 @@ ModelImporter:
       name: Archer_Evasion
       takeName: Take 001
       internalID: 0
-      firstFrame: 331
-      lastFrame: 341
+      firstFrame: 301
+      lastFrame: 321
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

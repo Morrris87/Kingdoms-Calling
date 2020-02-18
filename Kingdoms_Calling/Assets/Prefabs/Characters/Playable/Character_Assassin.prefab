@@ -268,7 +268,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7280584505368016736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10, y: 2, z: -20}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 6706200337360012881}
@@ -644,6 +644,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Assassian
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 74a497ffde0791748b01fac028683f06,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 3497245b6c346c04da2f69ceea8196bb, type: 2}
     - target: {fileID: -4216859302048453862, guid: 74a497ffde0791748b01fac028683f06,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -699,11 +704,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 74a497ffde0791748b01fac028683f06,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 0f7003822e0ebed488e350829905e987, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74a497ffde0791748b01fac028683f06, type: 3}
 --- !u!4 &6706200337360012881 stripped

@@ -70,6 +70,7 @@ public class ThunderStrike : MonoBehaviour
             abilityCooldownUI.SetActive(true);
 
             // Play the ability animation
+            GetComponentInChildren<Animator>().SetTrigger("ThunderStrikeUsed");
 
             // Teleport the player to the destination of the target
             transform.position = playerDestPos.position;

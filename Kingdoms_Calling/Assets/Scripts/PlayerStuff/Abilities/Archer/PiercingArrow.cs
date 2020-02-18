@@ -67,6 +67,7 @@ public class PiercingArrow : MonoBehaviour
             abilityCooldownUI.SetActive(true);
 
             // Play the ability animation
+            GetComponentInChildren<Animator>().SetTrigger("PiercingArrowUsed");
 
             // Set the arrow's rotation to that of the player
             piercingArrowPrefab.transform.rotation = transform.rotation;

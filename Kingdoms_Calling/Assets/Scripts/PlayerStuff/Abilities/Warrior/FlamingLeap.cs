@@ -73,6 +73,7 @@ public class FlamingLeap : MonoBehaviour
             abilityCooldownUI.SetActive(true);
 
             // Play the ability animation (handle player location)
+            GetComponentInChildren<Animator>().SetTrigger("FlamingLeapUsed");
 
             // Save the players destPos
             tempDestPos.position = playerDestPos.position;

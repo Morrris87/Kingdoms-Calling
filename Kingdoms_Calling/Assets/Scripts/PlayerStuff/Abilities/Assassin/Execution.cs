@@ -59,6 +59,7 @@ public class Execution : MonoBehaviour
             abilityCooldownUI.SetActive(true);
 
             // Play the ability animation
+            GetComponentInChildren<Animator>().SetTrigger("ExecutionUsed");
 
             // Grab the enemy to damage
             Collider[] cols = Physics.OverlapBox(abilityHitbox.bounds.center, abilityHitbox.bounds.extents, abilityHitbox.transform.rotation, LayerMask.GetMask("Enemy"));
