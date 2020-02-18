@@ -253,6 +253,7 @@ GameObject:
   - component: {fileID: 7280584505368016750}
   - component: {fileID: 2020547607532324613}
   - component: {fileID: 2680578839531742901}
+  - component: {fileID: 161197284939248921}
   m_Layer: 8
   m_Name: Character_Assassin
   m_TagString: Player
@@ -632,6 +633,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cloakTime: 0
+--- !u!114 &161197284939248921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7280584505368016736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f65033f899d23394a8e33e4f647dd75f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityCooldownUI: {fileID: 0}
+  dashooldown: 0
+  dashLength: 0
+  dashDuration: 0
+  dashDamage: 0
+  waitTime: 20
+  destinationMarker: {fileID: 0}
+  isUsable: 0
 --- !u!1001 &1759642343858466123
 PrefabInstance:
   m_ObjectHideFlags: 0

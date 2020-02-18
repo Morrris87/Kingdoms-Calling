@@ -17,6 +17,8 @@ public class AttackState : FSMState
     {
         enemyAI = skeleton;
         curSpeed = 0;
+        intervalTime = 2f;
+        elapsedTime = intervalTime;
         stateID = FSMStateID.Attacking;
         enemyAI.navAgent.speed = curSpeed;
     }
@@ -24,9 +26,15 @@ public class AttackState : FSMState
     public override void Act()
     {
         // ADD TIMER
-        // depending on wepon :D
-
-        enemyAI.playerHealth.Damage(enemyAI.skeletonStats.power);
+        if (elapsedTime > 0f)
+        {
+            elapsedTime -= Time.deltaTime;
+        }
+        else
+        {
+            enemyAI.playerHealth.Damage(enemyAI.skeletonStats.power);
+            elapsedTime = intervalTime;
+        }
     }
 
     public override void Reason()
