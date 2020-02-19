@@ -1580,6 +1580,7 @@ MonoBehaviour:
   isTaunted: 0
   tauntDuration: 0
   isTargeted: 1
+  animator: {fileID: 6052721215689759255}
   targetSymbol: {fileID: 1485140454962217269, guid: 755a709aca06b3e4baf33c90f5bef31f,
     type: 3}
   skeletonStats: {fileID: 0}

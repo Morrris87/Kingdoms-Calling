@@ -33,6 +33,7 @@ public class AttackState : FSMState
         else
         {
             enemyAI.playerHealth.Damage(enemyAI.skeletonStats.power);
+            enemyAI.animator.SetTrigger("Attacked");
             elapsedTime = intervalTime;
         }
     }
@@ -41,12 +42,12 @@ public class AttackState : FSMState
     {
         Transform skeleton = enemyAI.gameObject.transform;
         Transform player = enemyAI.objPlayer.transform;
-        if (enemyAI.skeletonStats.health <= 0)
+        if (enemyAI.GetComponent<Health>().currentHealth <= 0)
         {
             enemyAI.PerformTransition(Transition.NoHealth);
             return;
         }
-        if (Vector3.Distance(enemyAI.transform.position, enemyAI.objPlayer.transform.position) > enemyAI.attackRange)
+        if (Vector3.Distance(enemyAI.transform.position, enemyAI.objPlayer.transform.position) >= enemyAI.attackRange)
         {
             enemyAI.PerformTransition(Transition.NotInAttackRange);
             //Debug.Log("chasing");
