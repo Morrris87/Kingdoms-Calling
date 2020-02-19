@@ -371,7 +371,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityCooldownUI: {fileID: 0}
-  areaOfEffect: {fileID: 0}
+  areaOfEffect: {fileID: 4261474336237692723, guid: 63c4cc9c1ef96844a96e7d00cdd0eb14,
+    type: 3}
   waitTime: 20
 --- !u!114 &1497476140298328000
 MonoBehaviour:
@@ -386,7 +387,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityCooldownUI: {fileID: 0}
-  areaOfEffect: {fileID: 0}
+  areaOfEffect: {fileID: 7910526597649875783, guid: 1c18f601b2857d8419336c8ea498bff2,
+    type: 3}
   waitTime: 40
   isUsable: 0
 --- !u!136 &2241186763897451436
@@ -540,6 +542,18 @@ Transform:
   m_Father: {fileID: 2241186763897451427}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2350252033233276716
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7375691159953995740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7f1f0bc65feb82429c3190fa44581e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8290268254114761144
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,7 +602,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8290268254114761144}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -706,6 +720,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83296668e60d9e6488769514ee0eff68, type: 3}
+--- !u!1 &7375691159953995740 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 83296668e60d9e6488769514ee0eff68,
+    type: 3}
+  m_PrefabInstance: {fileID: 1547643010433724117}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5764855809819084239 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 83296668e60d9e6488769514ee0eff68,

@@ -71,38 +71,6 @@ public class ThunderStrike : MonoBehaviour
 
             // Play the ability animation
             GetComponentInChildren<Animator>().SetTrigger("ThunderStrikeUsed");
-
-            // Teleport the player to the destination of the target
-            transform.position = playerDestPos.position;
-
-            // Do 3x the assassin's normal damage to the target
-            int dmgDealt = (int)assassinDmg * 3;
-
-            //// Check enemy procs for combos
-            //if (target.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Wind)  // If enemy has a wind proc...
-            //{
-            //    // Activate the Archer combo
-            //    archerAssassinCombo.ActivateCombo(target, dmgDealt);
-            //}
-            //else if (target.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Earth)    // If enemy has a lightning proc...
-            //{
-            //    // Activate the Paladin combo
-            //}
-            //else if (target.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Fire) // If enemy has a fire proc...
-            //{
-            //    // Activate the Warrior combo
-            //}
-            //else
-            //{
-            //    // Enemy has no proc and ability happens as normal
-            //    target.GetComponent<Health>().Damage(dmgDealt);
-
-            //    // Give enemies procs if appliciable
-            //    if (target.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.NONE)
-            //    {
-            //        target.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.Lightning;
-            //    }
-            //}
         }
     }
 }

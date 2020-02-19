@@ -1,5 +1,29 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1864538171205062525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358631317079451546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 677ca91fd7217954287d9d7f3cbe4b47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2739353547136035820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 358631317079451546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f753be4da192b5a4ca1e0ab7e42d2f04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1548361943279933341
 GameObject:
   m_ObjectHideFlags: 0
@@ -350,9 +374,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 3
   weaponHitbox: {fileID: 0}
-  arrowPrefab: {fileID: 3544053858262687705, guid: 48d61060b421ebc40b7b8b054c55894d,
+  arrowPrefab: {fileID: 9076422881442198651, guid: ab6bfdf8ccbcdcd4f93cb2e6ebd3a82c,
     type: 3}
-  spawner: {fileID: 0}
+  spawner: {fileID: 3347577505664671575}
   AttackRateSpeed: 0
   AttackRange: 0
   AttackDamage: 0
@@ -403,8 +427,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityCooldownUI: {fileID: 0}
-  areaOfEffect: {fileID: 0}
-  colliderDestPos: {fileID: 0}
+  areaOfEffect: {fileID: 232987215450213792, guid: 4bb17b8a101115543b5209f936f8ee41,
+    type: 3}
+  colliderDestPos: {fileID: 3673495573729050289}
   waitTime: 20
   isUsable: 0
 --- !u!114 &2345498833140326227
@@ -420,7 +445,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityCooldownUI: {fileID: 0}
-  piercingArrowPrefab: {fileID: 0}
+  piercingArrowPrefab: {fileID: 3544053858262687705, guid: 2ddfa3d942e53c04c8a0398f3ace68bf,
+    type: 3}
   isUsable: 0
 --- !u!136 &6850935412393349417
 CapsuleCollider:
@@ -464,7 +490,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Timer: 0
   passiveReady: 0
-  PassiveIndicator: {fileID: 0}
+  PassiveIndicator: {fileID: 2657246543641097757, guid: b85b158fdd793444cab54e5a112d6d26,
+    type: 3}
 --- !u!23 &4681640489131639453
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -685,8 +712,44 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8466518156326792624, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466518156326792624, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466518156326792624, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466518156326792624, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.016
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466518156326792624, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.051
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466518156326792624, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.278
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7db7bd1d14f1bcf4897b6a849a5871cc, type: 3}
+--- !u!1 &358631317079451546 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 8636760997162827411}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3648272560766784905 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,

@@ -62,9 +62,6 @@ public class HealingSpring : MonoBehaviour
 
             // Play the ability animation
             GetComponentInChildren<Animator>().SetTrigger("HealingSpringsUsed");
-
-            // Instantiate the ability collider prefab on character location
-            Instantiate(areaOfEffect, transform.position, Quaternion.identity);
         }
     }
 }

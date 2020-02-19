@@ -64,9 +64,6 @@ public class Taunt : MonoBehaviour
 
             // Play the ability animation
             GetComponentInChildren<Animator>().SetTrigger("TauntUsed");
-
-            // Place the collder for the ability in the spawn area
-            Instantiate(areaOfEffect, transform.position, Quaternion.identity);
         }
     }
 }

@@ -130,6 +130,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   players:
   - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   focusTime: 0.2
   screenEdgeBuffer: 4
   minSize: 3

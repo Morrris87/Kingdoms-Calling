@@ -63,9 +63,6 @@ public class ArrowVolley : MonoBehaviour
 
             // Play the ability animation
             GetComponentInChildren<Animator>().SetTrigger("ArrowVolleyUsed");
-
-            // Place the collder for the ability in the spawn area
-            Instantiate(areaOfEffect, colliderDestPos.position, Quaternion.identity);
         }
     }
 }

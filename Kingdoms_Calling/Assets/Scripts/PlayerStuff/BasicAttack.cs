@@ -84,7 +84,6 @@ public class BasicAttack : MonoBehaviour
 
     public void AttackRanged()
     {
-        
         // Check to see if player has enough stamina
         if (GetComponent<Stamina>().GetStamina() >= AttackStaminaLoss && cooldown <= 0f)
         {
@@ -95,23 +94,15 @@ public class BasicAttack : MonoBehaviour
             // Play Archer's attack animation
             GetComponentInChildren<Animator>().SetTrigger("Attacked");
 
-            // Take away player's stamina
-            GetComponent<Stamina>().DepleteStamina((int)AttackStaminaLoss);
-
             //zac stuff
             //might have to make a nother bool that is set true here and false when in projectile damage after checking if its true
-            if (zacAttackBool == false && shot.Timer >= 12)
+            if (GetComponentInParent<BasicAttack>().zacAttackBool == false && GetComponentInParent<BasicAttack>().shot.Timer >= 12)
             {
                 shot.PassiveIndicator.SetActive(false);
                 shot.passiveReady = false;
                 zacAttackBool = true;
                 shot.Timer = 0;
             }
-
-            // Create the arrow prefab
-            arrowPrefab.transform.rotation = transform.rotation;                                                // Set the arrow's rotation to that of the player
-            arrowPrefab.GetComponent<ProjectileDamage>().attacker = ProjectileDamage.Attacker.PLAYER;           // Set the attacker to the player
-            Instantiate(arrowPrefab, spawner.position, Quaternion.LookRotation(transform.forward, Vector3.up)); // Fire the arrow
         }
     }
     public void AttackMelee()

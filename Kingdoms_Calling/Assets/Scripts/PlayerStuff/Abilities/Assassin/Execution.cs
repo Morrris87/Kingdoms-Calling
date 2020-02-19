@@ -60,22 +60,6 @@ public class Execution : MonoBehaviour
 
             // Play the ability animation
             GetComponentInChildren<Animator>().SetTrigger("ExecutionUsed");
-
-            // Grab the enemy to damage
-            Collider[] cols = Physics.OverlapBox(abilityHitbox.bounds.center, abilityHitbox.bounds.extents, abilityHitbox.transform.rotation, LayerMask.GetMask("Enemy"));
-
-            // Cycle through each collider in the cols array
-            foreach (Collider c in cols)
-            {
-                // Grab the enemy's health remaining
-                int enemyHealth = c.GetComponent<Health>().currentHealth;
-
-                // Subtract the enemyHealth from the enemy's max health
-                int damageDealt = c.GetComponent<Health>().maxHealth - enemyHealth;
-
-                // Do damage to the enemy
-                c.GetComponent<Health>().Damage(damageDealt);
-            }
         }
     }
 }

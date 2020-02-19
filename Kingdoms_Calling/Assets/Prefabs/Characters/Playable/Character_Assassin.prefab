@@ -449,7 +449,18 @@ MonoBehaviour:
     m_ActionId: 1c030335-1fe7-4234-a872-f415ddd4f5e5
     m_ActionName: Player Controls/Ability 2
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7280584505368016744}
+        m_MethodName: Special
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: 5c62cce7-b253-4d64-89a8-7a9fd382d223
@@ -506,7 +517,7 @@ MonoBehaviour:
   cycleSpeed: 1
   cycleRange: 10
   analogTargetRange: 5
-  abilityIndicator: {fileID: 0}
+  abilityIndicator: {fileID: 5012728445501340295}
   displayLocation: 0
 --- !u!114 &7280584505368016747
 MonoBehaviour:
@@ -646,13 +657,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityCooldownUI: {fileID: 0}
-  dashooldown: 0
-  dashLength: 0
-  dashDuration: 0
+  dashooldown: 10
+  dashLength: 10
+  dashDuration: 1
   dashDamage: 0
   waitTime: 20
   destinationMarker: {fileID: 0}
   isUsable: 0
+--- !u!114 &7849682746261314572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7731110964051063874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba85dfa30563734ca3ca8d1db6800e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1759642343858466123
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -664,6 +687,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Assassian
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 74a497ffde0791748b01fac028683f06,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 74a497ffde0791748b01fac028683f06,
         type: 3}
@@ -678,7 +706,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: 74a497ffde0791748b01fac028683f06,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 74a497ffde0791748b01fac028683f06,
         type: 3}
@@ -725,8 +753,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 156747145930054512, guid: 74a497ffde0791748b01fac028683f06,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74a497ffde0791748b01fac028683f06, type: 3}
+--- !u!1 &7731110964051063874 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: 74a497ffde0791748b01fac028683f06,
+    type: 3}
+  m_PrefabInstance: {fileID: 1759642343858466123}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6706200337360012881 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 74a497ffde0791748b01fac028683f06,

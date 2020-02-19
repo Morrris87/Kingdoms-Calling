@@ -68,15 +68,6 @@ public class PiercingArrow : MonoBehaviour
 
             // Play the ability animation
             GetComponentInChildren<Animator>().SetTrigger("PiercingArrowUsed");
-
-            // Set the arrow's rotation to that of the player
-            piercingArrowPrefab.transform.rotation = transform.rotation;
-
-            // Set the attacker to the player
-            piercingArrowPrefab.GetComponent<ProjectileDamage>().attacker = ProjectileDamage.Attacker.PLAYER;
-
-            // Fire the piercing arrow shot
-            Instantiate(piercingArrowPrefab, GetComponent<BasicAttack>().spawner.position, Quaternion.LookRotation(transform.forward, Vector3.up));
         }
     }
 }
