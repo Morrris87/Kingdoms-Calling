@@ -36180,23 +36180,23 @@ MonoBehaviour:
   totalSkeletoNumber: 0
   maxSkeletonNumber: 30
   skeletonTimerLength: 2
-  skeletonWhiteSword: {fileID: 805810054923732350, guid: 9e78bc8374d6cbb4495bc36febbb992e,
+  skeletonWhiteSword: {fileID: 8801290136251585222, guid: 9ab9e7a71f8850145933e080cef86551,
     type: 3}
-  skeletonWhiteMace: {fileID: 2282747733535318817, guid: c42a82307f5fe0d4192710ec37f6b4c7,
+  skeletonWhiteMace: {fileID: 4202486288294919627, guid: 74878465e0f6aaa43a030f45deded7ba,
     type: 3}
-  skeletonWhiteBow: {fileID: 7488270026791556587, guid: ca203b47176b0644d9aa85f9e439cadd,
+  skeletonWhiteBow: {fileID: 4251356002983864836, guid: d600e1635fcb4f0449a0b71b41f39795,
     type: 3}
-  skeletonGreySword: {fileID: 1885737756419771547, guid: 95e1b530c1c4a8845aed7335b761ed5f,
+  skeletonGreySword: {fileID: 18892595514446658, guid: e270fc9ffa35a8f47950e08a406134f0,
     type: 3}
-  skeletonGreyMace: {fileID: 6709381302904179276, guid: 53504075c0665f84590b9a3a0d5bde25,
+  skeletonGreyMace: {fileID: 5595002497362708657, guid: 67f0bf14f08e53d44877991a19eacfc9,
     type: 3}
-  skeletonGreyBow: {fileID: 5988927175085918986, guid: c0e6773fbc4abbc4da32f7f6b6e85370,
+  skeletonGreyBow: {fileID: 9152741486584601969, guid: 1dcf33404ad22634ca044e134662642d,
     type: 3}
-  skeletonPurpleSword: {fileID: 1164557435830706113, guid: 8b95e046268abe549b13265db1df6734,
+  skeletonPurpleSword: {fileID: 7571853730052553586, guid: 7d2933b48fdc7be4580a572e4f79155c,
     type: 3}
-  skeletonPurpleMace: {fileID: 4075290584497497737, guid: 8948c871860e0e24385bbd71b8c7e582,
+  skeletonPurpleMace: {fileID: 8481385157997072597, guid: 82cd710978159ef4baf655c5664bab2c,
     type: 3}
-  skeletonPurpleBow: {fileID: 6516686992874988983, guid: 21c75316d3567fc46b4630790ad7c866,
+  skeletonPurpleBow: {fileID: 5294393101146193261, guid: 38f11e26019fc3847946d8016794041d,
     type: 3}
   skeletonClass: 
 --- !u!1001 &722117687
@@ -62337,23 +62337,23 @@ MonoBehaviour:
   totalSkeletoNumber: 0
   maxSkeletonNumber: 30
   skeletonTimerLength: 2
-  skeletonWhiteSword: {fileID: 805810054923732350, guid: 9e78bc8374d6cbb4495bc36febbb992e,
+  skeletonWhiteSword: {fileID: 8801290136251585222, guid: 9ab9e7a71f8850145933e080cef86551,
     type: 3}
-  skeletonWhiteMace: {fileID: 2282747733535318817, guid: c42a82307f5fe0d4192710ec37f6b4c7,
+  skeletonWhiteMace: {fileID: 4202486288294919627, guid: 74878465e0f6aaa43a030f45deded7ba,
     type: 3}
-  skeletonWhiteBow: {fileID: 7488270026791556587, guid: ca203b47176b0644d9aa85f9e439cadd,
+  skeletonWhiteBow: {fileID: 4251356002983864836, guid: d600e1635fcb4f0449a0b71b41f39795,
     type: 3}
-  skeletonGreySword: {fileID: 1885737756419771547, guid: 95e1b530c1c4a8845aed7335b761ed5f,
+  skeletonGreySword: {fileID: 18892595514446658, guid: e270fc9ffa35a8f47950e08a406134f0,
     type: 3}
-  skeletonGreyMace: {fileID: 6709381302904179276, guid: 53504075c0665f84590b9a3a0d5bde25,
+  skeletonGreyMace: {fileID: 5595002497362708657, guid: 67f0bf14f08e53d44877991a19eacfc9,
     type: 3}
-  skeletonGreyBow: {fileID: 5988927175085918986, guid: c0e6773fbc4abbc4da32f7f6b6e85370,
+  skeletonGreyBow: {fileID: 9152741486584601969, guid: 1dcf33404ad22634ca044e134662642d,
     type: 3}
-  skeletonPurpleSword: {fileID: 1164557435830706113, guid: 8b95e046268abe549b13265db1df6734,
+  skeletonPurpleSword: {fileID: 7571853730052553586, guid: 7d2933b48fdc7be4580a572e4f79155c,
     type: 3}
-  skeletonPurpleMace: {fileID: 4075290584497497737, guid: 8948c871860e0e24385bbd71b8c7e582,
+  skeletonPurpleMace: {fileID: 8481385157997072597, guid: 82cd710978159ef4baf655c5664bab2c,
     type: 3}
-  skeletonPurpleBow: {fileID: 6516686992874988983, guid: 21c75316d3567fc46b4630790ad7c866,
+  skeletonPurpleBow: {fileID: 5294393101146193261, guid: 38f11e26019fc3847946d8016794041d,
     type: 3}
   skeletonClass: 
 --- !u!1 &1240184731
@@ -71164,8 +71164,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401079121}
-  m_LocalRotation: {x: -0.51877326, y: 0, z: 0, w: 0.85491186}
-  m_LocalPosition: {x: -519, y: -29.059998, z: 215}
+  m_LocalRotation: {x: 0.104831144, y: 0.8877648, z: 0.25029713, w: -0.3718004}
+  m_LocalPosition: {x: -555.3762, y: 26.576656, z: 256.42368}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -106443,23 +106443,23 @@ MonoBehaviour:
   totalSkeletoNumber: 0
   maxSkeletonNumber: 90
   skeletonTimerLength: 2
-  skeletonWhiteSword: {fileID: 805810054923732350, guid: 9e78bc8374d6cbb4495bc36febbb992e,
+  skeletonWhiteSword: {fileID: 8801290136251585222, guid: 9ab9e7a71f8850145933e080cef86551,
     type: 3}
-  skeletonWhiteMace: {fileID: 2282747733535318817, guid: c42a82307f5fe0d4192710ec37f6b4c7,
+  skeletonWhiteMace: {fileID: 4202486288294919627, guid: 74878465e0f6aaa43a030f45deded7ba,
     type: 3}
-  skeletonWhiteBow: {fileID: 7488270026791556587, guid: ca203b47176b0644d9aa85f9e439cadd,
+  skeletonWhiteBow: {fileID: 4251356002983864836, guid: d600e1635fcb4f0449a0b71b41f39795,
     type: 3}
-  skeletonGreySword: {fileID: 1885737756419771547, guid: 95e1b530c1c4a8845aed7335b761ed5f,
+  skeletonGreySword: {fileID: 18892595514446658, guid: e270fc9ffa35a8f47950e08a406134f0,
     type: 3}
-  skeletonGreyMace: {fileID: 6709381302904179276, guid: 53504075c0665f84590b9a3a0d5bde25,
+  skeletonGreyMace: {fileID: 5595002497362708657, guid: 67f0bf14f08e53d44877991a19eacfc9,
     type: 3}
-  skeletonGreyBow: {fileID: 5988927175085918986, guid: c0e6773fbc4abbc4da32f7f6b6e85370,
+  skeletonGreyBow: {fileID: 9152741486584601969, guid: 1dcf33404ad22634ca044e134662642d,
     type: 3}
-  skeletonPurpleSword: {fileID: 1164557435830706113, guid: 8b95e046268abe549b13265db1df6734,
+  skeletonPurpleSword: {fileID: 7571853730052553586, guid: 7d2933b48fdc7be4580a572e4f79155c,
     type: 3}
-  skeletonPurpleMace: {fileID: 4075290584497497737, guid: 8948c871860e0e24385bbd71b8c7e582,
+  skeletonPurpleMace: {fileID: 8481385157997072597, guid: 82cd710978159ef4baf655c5664bab2c,
     type: 3}
-  skeletonPurpleBow: {fileID: 6516686992874988983, guid: 21c75316d3567fc46b4630790ad7c866,
+  skeletonPurpleBow: {fileID: 5294393101146193261, guid: 38f11e26019fc3847946d8016794041d,
     type: 3}
   skeletonClass: 
 --- !u!1 &2120402679 stripped
