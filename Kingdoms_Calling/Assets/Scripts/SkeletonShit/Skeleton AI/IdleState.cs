@@ -27,6 +27,7 @@ public class IdleState : FSMState
         // just wait!
         // so nothing here?
         // think so
+        enemyAI.animator.SetBool("isMoving", false);
     }
 
     public override void Reason()
@@ -34,7 +35,7 @@ public class IdleState : FSMState
         Transform skeleton = enemyAI.gameObject.transform;
         Transform player = enemyAI.objPlayer.transform;
 
-        if (enemyAI.skeletonStats.health <= 0)
+        if (enemyAI.GetComponent<Health>().currentHealth <= 0)
         {
             enemyAI.PerformTransition(Transition.NoHealth);
             return;

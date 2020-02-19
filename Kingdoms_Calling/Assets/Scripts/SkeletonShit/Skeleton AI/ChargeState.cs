@@ -36,6 +36,7 @@ public class ChargeState : FSMState
         {
             enemyAI.transform.LookAt(enemyAI.objPlayer.transform);
             enemyAI.transform.position += enemyAI.transform.forward * speed;
+            enemyAI.animator.SetBool("isMoving", true);
         }
         else if(enemyAI.thisSkeletonClass == "Bow")
         {
@@ -66,7 +67,7 @@ public class ChargeState : FSMState
     {
         Transform skeleton = enemyAI.gameObject.transform;
         Transform player = enemyAI.objPlayer.transform;
-        if (enemyAI.skeletonStats.health <= 0)
+        if (enemyAI.GetComponent<Health>().currentHealth <= 0)
         {
             enemyAI.PerformTransition(Transition.NoHealth);
             return;

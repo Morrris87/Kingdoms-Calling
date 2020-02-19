@@ -27,6 +27,8 @@ public class AI : AdvancedFSM
     public float tauntDuration = 0;
     public bool isTargeted = false;
 
+    public Animator animator;
+
     public GameObject targetSymbol;
 
     [HideInInspector]
