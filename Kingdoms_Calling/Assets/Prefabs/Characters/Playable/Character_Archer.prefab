@@ -336,7 +336,7 @@ MonoBehaviour:
     m_ActionId: 71b44987-ed4d-4eca-9f97-0d303228556d
     m_ActionName: Player Controls/HealthGain
   m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
+  m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: Player Controls
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
@@ -652,11 +652,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: archer
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 0f7003822e0ebed488e350829905e987, type: 2}
     - target: {fileID: -4216859302048453862, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -712,6 +707,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0f7003822e0ebed488e350829905e987, type: 2}
     - target: {fileID: 8466518156326792624, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
         type: 3}
       propertyPath: m_LocalScale.x

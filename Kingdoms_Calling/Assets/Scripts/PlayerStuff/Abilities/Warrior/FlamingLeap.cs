@@ -5,6 +5,7 @@
  * On: 1/16/20
  */
 
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,6 +14,9 @@ public class FlamingLeap : MonoBehaviour
     // Public Variables
     [Header("UI Element")]
     public GameObject abilityCooldownUI;    // UI element for the ability cooldown in the HUD
+
+    [Header("FlamingLeap Specs")]
+    public float leapDuration;              //How long the skill lasts
     public GameObject areaOfEffect;         // The collider for the FlamingLeap ability
     public Transform playerDestPos;         // The destination position the player will leap to when the ability is used
     public float waitTime = 20f;            // Time in seconds needed to wait for ability cooldown
@@ -23,7 +27,6 @@ public class FlamingLeap : MonoBehaviour
     private Transform tempDestPos;  // Stores the position of the destination before the player moves
 
     // Old Variables (Might Need?)
-    //public float leapDuration;     //How long the skill lasts
     //public int leapDamage;       //How much damage the skill does at each tick
     //public float animationLength;
 
@@ -61,7 +64,7 @@ public class FlamingLeap : MonoBehaviour
     }
 
     // Calling this function uses the ability
-    public void UseAbility(Vector2 input)
+    public void UseAbility(GameObject indicatorLocation)
     {
         // If the ability is usable...
         if (isUsable == true)
@@ -75,43 +78,34 @@ public class FlamingLeap : MonoBehaviour
             // Play the ability animation (handle player location)
             GetComponentInChildren<Animator>().SetTrigger("FlamingLeapUsed");
 
-            // Save the players destPos
-            tempDestPos.position = playerDestPos.position;
+            // Transfer the player to the destination position then when done call our attack
+            StartCoroutine(MoveToPosition(transform, indicatorLocation.transform.position, leapDuration));
 
-            // Transfer the player to the destination position
-            transform.position = playerDestPos.position;
-
-            // Place the collder for the ability where the player lands
-            Instantiate(areaOfEffect, transform.position, Quaternion.identity);
-
-            //// preform the ability
-            //leapCharacter(input);
-            //AttackAroundCharacter();
-            //GetComponent<CharacterManager>().abilityIndicator.SetActive(false);
-            //GetComponent<CharacterManager>().displayLocation = false;
         }
     }
 
-    //void leapCharacter(Vector2 inp)
-    //{
-    //    //Handle Moving the character
-    //    //transform.position = (new Vector3(transform.position.x, transform.position.y, transform.position.z) + new Vector3(inp.x * leapDistance,0, inp.y * leapDistance));
-    //    //transform.position = (new Vector3(transform.position.x, 0, transform.position.z) + new Vector3(inp.x * leapDistance, transform.position.y, inp.y * leapDistance));
-    //}
+    /// <summary>
+    /// Coroutine to move the players transform from its current position to a destination position in a given amount of time
+    /// </summary>
+    /// <param name="transform">Our current location</param>
+    /// <param name="position">Our destination Position</param>
+    /// <param name="timeToMove">Time to move to position</param>
+    /// <returns></returns>
+    IEnumerator MoveToPosition(Transform transform, Vector3 position, float timeToMove)
+    {
+        Vector3 currentPos = transform.position;
+        float t = 0f;
+        while (t < 1)
+        {
+            t += Time.deltaTime / timeToMove;
+            transform.position = Vector3.Lerp(currentPos, position, t);
+            yield return null;
+        }
 
-    //void AttackAroundCharacter()
-    //{
-    //    //Debug.Log("Attacking Started");
-    //    //Grab all colliders inside of the sphere which in our case acts as a circle with enemy layer mask 
-    //    Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, leapRadius, 1 << enemyLayerIndex);
+        // Place the collder for the ability where the player lands
+        Instantiate(areaOfEffect, transform.position, Quaternion.identity);
+    }
 
-    //    int i = 0;
-    //    while (i < hitColliders.Length)
-    //    {
-    //        //Debug.Log("Warroir Leap Damage " + hitColliders[i].name);
-    //        hitColliders[i].gameObject.GetComponentInChildren<Health>().Damage(leapDamage); //Damage the current colliders health by the current damageValue
 
-    //        i++;
-    //    }
-    //}
+
 }

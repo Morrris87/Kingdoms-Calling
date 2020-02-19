@@ -116,7 +116,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2829418115664515563}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 4}
+  m_LocalPosition: {x: 0, y: 0, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8623312592771481220}
@@ -505,7 +505,7 @@ MonoBehaviour:
   cycleSpeed: 1
   cycleRange: 10
   analogTargetRange: 5
-  abilityIndicator: {fileID: 0}
+  abilityIndicator: {fileID: 3922387711429938310}
   displayLocation: 0
 --- !u!114 &8623312592771481230
 MonoBehaviour:
@@ -573,9 +573,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityCooldownUI: {fileID: 0}
-  areaOfEffect: {fileID: 0}
-  playerDestPos: {fileID: 0}
-  waitTime: 20
+  leapDuration: 1
+  areaOfEffect: {fileID: 8473521741495384684, guid: e2e640f8f747e794fae4de2abd2bbf5d,
+    type: 3}
+  playerDestPos: {fileID: 2208114099597708144}
+  waitTime: 2
   isUsable: 0
 --- !u!114 &3849261038076052007
 MonoBehaviour:
@@ -590,7 +592,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityCooldownUI: {fileID: 0}
-  areaOfEffect: {fileID: 0}
+  areaOfEffect: {fileID: 7489272587240259073, guid: 0a06a8ec4405ca0458d9742b18e71393,
+    type: 3}
   waitTime: 40
   isUsable: 0
 --- !u!136 &8623312592771481227
@@ -642,16 +645,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8623312592771481220}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: ff72273c3b56e694bb931cc6f3084b2f,
-        type: 3}
-      propertyPath: m_Name
-      value: warrior
-      objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: ff72273c3b56e694bb931cc6f3084b2f,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 5604c1770f2f0674d8ce422140c731bd, type: 2}
     - target: {fileID: -4216859302048453862, guid: ff72273c3b56e694bb931cc6f3084b2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -707,11 +700,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -4216859302048453862, guid: ff72273c3b56e694bb931cc6f3084b2f,
+    - target: {fileID: -927199367670048503, guid: ff72273c3b56e694bb931cc6f3084b2f,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
+      propertyPath: m_Name
+      value: warrior
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: ff72273c3b56e694bb931cc6f3084b2f,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 5604c1770f2f0674d8ce422140c731bd, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff72273c3b56e694bb931cc6f3084b2f, type: 3}
 --- !u!4 &2803961154588354874 stripped

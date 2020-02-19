@@ -10,7 +10,6 @@ using UnityEngine.UI;
 
 public class ElectricDash : MonoBehaviour
 {
-
     [Header("UI Element")]
     public GameObject abilityCooldownUI;    // UI element for the ability cooldown in the HUD
 
@@ -20,6 +19,7 @@ public class ElectricDash : MonoBehaviour
     public float dashDuration;     //How long the dash lasts
     public int dashDamage;       //How much damage the skill does at each tick
     public float waitTime = 20f;            // Time in seconds needed to wait for ability cooldown
+    public bool isActive = false;             // when the ability is inuse this is true;
     public GameObject destinationMarker;
     Vector2 leapLocation;
     [HideInInspector] public bool isUsable; // When ability is available for use, set this to true
@@ -61,7 +61,7 @@ public class ElectricDash : MonoBehaviour
     }
 
     // Calling this function uses the ability
-    public void UseAbility(Vector3 destPos)
+    public void UseAbility(GameObject indicatorLocation)
     {
         // Ability has been used, so set ability as unusable
         isUsable = false;
@@ -74,7 +74,7 @@ public class ElectricDash : MonoBehaviour
         // Play the ability animation
 
         // Start Ability
-        StartCoroutine(MoveToPosition(transform, destPos, dashDuration));
+        StartCoroutine(MoveToPosition(transform, indicatorLocation.transform.position, dashDuration));
 
     }
 

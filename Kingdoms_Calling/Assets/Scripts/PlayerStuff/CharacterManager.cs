@@ -401,7 +401,7 @@ public class CharacterManager : MonoBehaviour
 
             if (context.ReadValue<float>() == 0)
             {
-                warriorFalmingLeap.UseAbility(rotationDirection);
+                warriorFalmingLeap.UseAbility(abilityIndicator);
                 displayLocation = false;
                 //Debug.Log("Performed");
             }
@@ -457,7 +457,7 @@ public class CharacterManager : MonoBehaviour
 
             if (context.started == false && context.performed == true)//Button released and we are showing indicator
             {
-                electricDash.UseAbility(abilityIndicator.transform.position);
+                electricDash.UseAbility(abilityIndicator);
                 displayLocation = false;
                 Debug.Log("Special performed");
             }
@@ -637,8 +637,8 @@ public class CharacterManager : MonoBehaviour
                 float range = 0;
                 if(characterClass == CharacterClass.Archer)
                 {
-                    // set the range to the archers volley range                    
-                    // range = arrowVolley.range;?
+                    // set the range to the archers volley range
+                    //range = arrowVolley.range;
                 }
                 else if(characterClass == CharacterClass.Assassin)
                 {
