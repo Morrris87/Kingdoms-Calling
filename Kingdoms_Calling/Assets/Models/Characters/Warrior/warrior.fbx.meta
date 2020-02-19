@@ -36,7 +36,37 @@ ModelImporter:
   - first:
       74: 2963585906909639135
     second: Warrior_SpinningAxeAttack (Hold)
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: armor
+    second: {fileID: 2100000, guid: df4686d310b5ad7488a8026e455e0862, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eyeballs
+    second: {fileID: 2100000, guid: 0364e7dc7b310014b966b14055e4c1e7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: flesh
+    second: {fileID: 2100000, guid: c0a9ddee3c8de514abe6a8ed5b2356f2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: helmet
+    second: {fileID: 2100000, guid: ee40374ceb2c1ed48a54f95cd5b97147, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mohawk
+    second: {fileID: 2100000, guid: 8d53eec641a7e03458843e60ef87f2f9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skirt
+    second: {fileID: 2100000, guid: e986ddcaea137f34884759d54c58ac83, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
