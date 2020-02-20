@@ -968,15 +968,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 885043321260514318}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0.6660588, y: 0.75826985, z: 0.08854271}
-  m_LocalScale: {x: 1, y: 0.99999994, z: 1}
+  m_LocalRotation: {x: -0, y: -0.087155744, z: -0, w: 0.9961947}
+  m_LocalPosition: {x: 0.08518892, y: -0.011180774, z: 0.032908726}
+  m_LocalScale: {x: 1.0677248, y: 1.0677257, z: 1.0677253}
   m_Children:
   - {fileID: 1536249216121370480}
   - {fileID: 8611223619030045109}
   - {fileID: 4098709019935518351}
-  m_Father: {fileID: 4893362229492671174}
-  m_RootOrder: 0
+  m_Father: {fileID: 2822949595841903377}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &948078084309543692
 GameObject:
@@ -8992,6 +8992,7 @@ Transform:
   - {fileID: 6778180890159777547}
   - {fileID: 5216299507851898920}
   - {fileID: 6554409141157849465}
+  - {fileID: 4986856230414811503}
   m_Father: {fileID: 4979587199417968887}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9069,7 +9070,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0.99999994, z: 1}
   m_Children: []
   m_Father: {fileID: 4893362229492671174}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8095841873588920972
 GameObject:
@@ -9577,7 +9578,7 @@ Transform:
   m_Children:
   - {fileID: 5900092103695074379}
   m_Father: {fileID: 4893362229492671174}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6910011981450773319
 MeshFilter:
@@ -9767,9 +9768,8 @@ Transform:
   m_GameObject: {fileID: 8481385157997072597}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -562.8581, y: 48.989708, z: 253.34}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
-  - {fileID: 4986856230414811503}
   - {fileID: 3159449350861331938}
   - {fileID: 5723540896395739232}
   m_Father: {fileID: 0}
@@ -9857,8 +9857,7 @@ MonoBehaviour:
   elementRefreshRate: 2
   igniteDuration: 5
   fireMark: {fileID: 177630013767137640, guid: c5fb041560fbb4c4eb679c9faa70dd7d, type: 3}
-  windeMark: {fileID: 2409505766393619932, guid: 929fe2a174c7412468e23c4b1dd2176e,
-    type: 3}
+  windMark: {fileID: 0}
   lightningMark: {fileID: 3411083138673499494, guid: 882a70059320af741b46d07db152b296,
     type: 3}
   earthMark: {fileID: 3552474722950639874, guid: 5b508b197e7ef9f4984d1446d07e1d23,

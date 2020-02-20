@@ -42,6 +42,7 @@ public class BasicAttack : MonoBehaviour
     public float attackTimer;
     private float cooldown;
     private bool cooldownActive;
+    private LeapOfFaith leapOfFaith;
 
     FocusShot shot;
     //Current class enum type
@@ -63,6 +64,7 @@ public class BasicAttack : MonoBehaviour
         DetermineClass();           // Fills in weapon specs based on which class the character is
         cooldown = AttackRateSpeed; // Sets up the cooldown timer based on the attack rate speed
         cooldownActive = true;      // Sets the cooldown check to true
+        leapOfFaith = this.gameObject.GetComponent<LeapOfFaith>();
     }
 
     // Update is called once per frame
@@ -90,9 +92,11 @@ public class BasicAttack : MonoBehaviour
             // Reset timer
             cooldownActive = true;
             cooldown = attackTimer;
-
-            // Play Archer's attack animation
-            GetComponentInChildren<Animator>().SetTrigger("Attacked");
+            if(!leapOfFaith.isActive)
+            {                
+                // Play Archer's attack animation
+                GetComponentInChildren<Animator>().SetTrigger("Attacked");
+            }
 
             //zac stuff
             //might have to make a nother bool that is set true here and false when in projectile damage after checking if its true

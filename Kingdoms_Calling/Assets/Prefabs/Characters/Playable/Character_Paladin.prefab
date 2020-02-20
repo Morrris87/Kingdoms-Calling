@@ -57,7 +57,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2241186763897451427
 Transform:
   m_ObjectHideFlags: 0
@@ -303,7 +303,7 @@ MonoBehaviour:
   cycleSpeed: 1
   cycleRange: 10
   analogTargetRange: 5
-  abilityIndicator: {fileID: 0}
+  abilityIndicator: {fileID: 201796285799420056}
   displayLocation: 0
 --- !u!114 &2241186763897451433
 MonoBehaviour:

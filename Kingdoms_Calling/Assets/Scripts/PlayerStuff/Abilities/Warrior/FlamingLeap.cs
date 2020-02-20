@@ -20,6 +20,7 @@ public class FlamingLeap : MonoBehaviour
     public GameObject areaOfEffect;         // The collider for the FlamingLeap ability
     public Transform playerDestPos;         // The destination position the player will leap to when the ability is used
     public float waitTime = 20f;            // Time in seconds needed to wait for ability cooldown
+    public float leapDistance;
     [HideInInspector] public bool isUsable; // When ability is available for use, set this to true
 
     // Private Variables
