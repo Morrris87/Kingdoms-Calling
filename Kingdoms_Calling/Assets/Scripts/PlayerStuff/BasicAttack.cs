@@ -173,7 +173,7 @@ public class BasicAttack : MonoBehaviour
                 AttackRange = 1;
                 AttackDamage = 1;
                 AttackHitChance = 100;
-                AttackStaminaLoss = 0;
+                AttackStaminaLoss = 10.0f;
             }
             else if (currentClass == CharacterClass.Assassin)
             {
@@ -181,7 +181,7 @@ public class BasicAttack : MonoBehaviour
                 AttackRange = 1;
                 AttackDamage = 1;
                 AttackHitChance = 100;
-                AttackStaminaLoss = 0;
+                AttackStaminaLoss = 10.0f;
             }
             else if (currentClass == CharacterClass.Archer)
             {
