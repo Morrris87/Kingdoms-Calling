@@ -8,13 +8,12 @@ public class ProjectileDamage : MonoBehaviour
 {
     public enum Attacker { PLAYER, SKELETON, NONE };
     public Attacker attacker;
-    BasicAttack shot;
+    public BasicAttack shot;
     private float arrowLife;
 
     // Start is called before the first frame update
     void Start()
     {
-        shot = GetComponent<BasicAttack>();
         arrowLife = 1.5f;
     }
 
