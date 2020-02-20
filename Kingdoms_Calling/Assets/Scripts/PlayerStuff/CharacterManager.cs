@@ -60,6 +60,8 @@ public class CharacterManager : MonoBehaviour
     //Paladin
     HealingSpring paladinEarthHealingSpring;
     Taunt paladinTaunt;
+    IronWall paladinIronWall;
+
     //Warrior
     AxeWhirlwind warriorAxeWhirlwind;
     FlamingLeap warriorFalmingLeap;
@@ -108,6 +110,7 @@ public class CharacterManager : MonoBehaviour
         {
             paladinEarthHealingSpring = this.GetComponent<HealingSpring>();
             paladinTaunt = this.GetComponent<Taunt>();
+            paladinIronWall = this.GetComponent<IronWall>();
         }
         else if (characterClass == CharacterClass.Assassin)
         {
@@ -441,12 +444,12 @@ public class CharacterManager : MonoBehaviour
         {
             if (context.ReadValue<float>() == 1)//Button pressed
             {
-
+                paladinIronWall.UseAbility();
             }
 
             if (context.ReadValue<float>() == 0)//Button released
             {
-
+                paladinIronWall.EndAbility();
             }
 
         }
