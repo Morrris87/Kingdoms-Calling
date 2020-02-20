@@ -106,13 +106,14 @@ GameObject:
   - component: {fileID: -6480449882182180542}
   - component: {fileID: 4988758205936517710}
   - component: {fileID: 4681640489131639453}
+  - component: {fileID: 383900701}
   m_Layer: 8
   m_Name: Character_Archer
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6850935412393349414
 Transform:
   m_ObjectHideFlags: 0
@@ -301,7 +302,18 @@ MonoBehaviour:
     m_ActionId: 1c030335-1fe7-4234-a872-f415ddd4f5e5
     m_ActionName: Player Controls/Ability 2
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6850935412393349423}
+        m_MethodName: Special
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: 5c62cce7-b253-4d64-89a8-7a9fd382d223
@@ -358,7 +370,7 @@ MonoBehaviour:
   cycleSpeed: 1
   cycleRange: 10
   analogTargetRange: 5
-  abilityIndicator: {fileID: 0}
+  abilityIndicator: {fileID: 1548361943279933341}
   displayLocation: 0
 --- !u!114 &6850935412393349420
 MonoBehaviour:
@@ -381,7 +393,7 @@ MonoBehaviour:
   AttackRange: 0
   AttackDamage: 0
   AttackHitChance: 0
-  AttackStaminaLoss: 0
+  AttackStaminaLoss: 12
   attackTimer: 1
   zacAttackBool: 0
 --- !u!114 &6850935412393349421
@@ -530,6 +542,26 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &383900701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6850935412393349415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180b1291bad3a944fa76c04225b31d2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityCooldownUI: {fileID: 0}
+  leapCooldown: 0
+  leapLength: 10
+  leapDuration: 1
+  leapDamage: 0
+  waitTime: 20
+  isActive: 0
+  isUsable: 0
 --- !u!1 &7362606508016520550
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,6 +684,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: archer
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0f7003822e0ebed488e350829905e987, type: 2}
     - target: {fileID: -4216859302048453862, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -707,26 +744,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 0f7003822e0ebed488e350829905e987, type: 2}
-    - target: {fileID: 8466518156326792624, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8466518156326792624, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8466518156326792624, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 8466518156326792624, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -741,6 +758,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -0.278
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466518156326792624, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466518156326792624, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8466518156326792624, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7db7bd1d14f1bcf4897b6a849a5871cc, type: 3}

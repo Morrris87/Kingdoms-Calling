@@ -19,8 +19,9 @@ public class LeapOfFaith : MonoBehaviour
     public float leapDuration;     //How long the dash lasts
     public int leapDamage;       //How much damage the skill does at each tick
     public float waitTime = 20f;            // Time in seconds needed to wait for ability cooldown
-    public GameObject destinationMarker;
+    public bool isActive = false;
     Vector2 leapLocation;
+    ArrowShootHandler arrowShootHandler;
     [HideInInspector] public bool isUsable; // When ability is available for use, set this to true
 
     // Private Variables
@@ -32,6 +33,7 @@ public class LeapOfFaith : MonoBehaviour
     {
         isUsable = true;                // Ability starts as usable
         cooldownTimer = waitTime;       // Cooldown timer starts at the value of waitTime
+        arrowShootHandler = this.gameObject.GetComponentInChildren<ArrowShootHandler>();
     }
 
     // Update is called once per frame
@@ -68,8 +70,6 @@ public class LeapOfFaith : MonoBehaviour
         // Enable the cooldown UI
         abilityCooldownUI.SetActive(true);
 
-
-
         // Start Ability
         StartCoroutine(MoveToPosition(transform, indicatorLocation.transform.position, leapDuration));
 
@@ -92,5 +92,9 @@ public class LeapOfFaith : MonoBehaviour
             transform.position = Vector3.Lerp(currentPos, position, t);
             yield return null;
         }
+
+        arrowShootHandler.ShootEvent();
+        isActive = false;
     }
+    
 }

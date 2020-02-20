@@ -100,7 +100,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""Special"",
-                    ""type"": ""Button"",
+                    ""type"": ""PassThrough"",
                     ""id"": ""5c62cce7-b253-4d64-89a8-7a9fd382d223"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
@@ -246,7 +246,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""94c418e8-6b7f-4302-9ef6-bf2cde6c4947"",
                     ""path"": ""<Gamepad>/leftTrigger"",
-                    ""interactions"": ""Press(pressPoint=1),Press(pressPoint=0.1,behavior=1)"",
+                    ""interactions"": ""Press(pressPoint=1),Press(behavior=1)"",
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Special"",
