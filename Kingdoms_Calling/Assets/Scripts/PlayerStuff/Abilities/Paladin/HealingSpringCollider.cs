@@ -123,17 +123,11 @@ public class HealingSpringCollider : MonoBehaviour
         }
     }
 
-    //public void TotemBoost(float rangeMultiplier, int damageHealMultiplier)
-    //{
-    //    //hold old values
-    //    oldRange = range;
-    //    oldHealValue = healValue;
-    //    oldDamageValue = damageValue;
-
-    //    //update the specs of the totem and reset its life boosted
-    //    range *= rangeMultiplier;
-    //    damageValue *= damageHealMultiplier;
-    //    healValue *= damageHealMultiplier;
-    //    abilityLifeTimer = totalLifeTime;
-    //}
+    public void TotemBoost(float rangeMultiplier, int damageHealMultiplier)
+    {
+        //update the specs of the totem and reset its life boosted     
+        damageValue *= damageHealMultiplier;
+        healValue *= damageHealMultiplier;
+        abilityLifeTimer = totalLifeTime;
+    }
 }
