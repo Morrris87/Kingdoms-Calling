@@ -28,7 +28,7 @@ public class MeleeHandler : MonoBehaviour
         // Cycle through each collider in the cols array and deal damage to each enemy inside
         foreach (Collider c in cols)
         {
-            c.GetComponentInParent<Health>().Damage((int)basicAttack.AttackDamage);
+            c.GetComponentInParent<Health>().Damage(1);
         }
     }
 
