@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class AssassinAbilityHandler : MonoBehaviour
 {
+    public GameObject assassin;
+
     private ThunderStrike thunderStrike;
     private Execution execution;
 
@@ -17,7 +19,7 @@ public class AssassinAbilityHandler : MonoBehaviour
     public void ThunderStrikeEvent()
     {
         // Teleport the player to the destination of the target
-        transform.position = thunderStrike.playerDestPos.position;
+        assassin.transform.position = thunderStrike.playerDestPos.position;
 
         // Do 3x the assassin's normal damage to the target
         float dmgDealt = GetComponentInParent<BasicAttack>().CharacterAttackValue(BasicAttack.CharacterClass.Assassin) * 3;
