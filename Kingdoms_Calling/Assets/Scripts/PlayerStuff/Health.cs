@@ -12,11 +12,13 @@ public class Health : MonoBehaviour
 {
     public int maxHealth;       // Sets the base starting health for the object the script is attached to
     public Image healthUI;      // UI element for this object's health bar
+    public bool takeDamage;
 
     //[HideInInspector]
     public  int currentHealth;  // This int keeps track of what HP this object is currently at
     private bool isDead;        // If currentHealth reaches 0, this bool is set to true, otherwise is false
     private bool trueDamage;    // If true, player/enemy recieves true damage, which ignores armor value
+    
     float timerForFlash = 0;
     bool colorBool = false;
     Color tempColor;
@@ -25,6 +27,7 @@ public class Health : MonoBehaviour
     void Start()
     {
         isDead = false;                 // Object starts off alive
+        takeDamage = true;
         currentHealth = maxHealth;      // Transfers the value from startingHealth to currentHealth, keeping track of this object's max HP
         if (this.tag == "White" || this.tag == "Grey" || this.tag == "Purple")
         {
@@ -67,16 +70,20 @@ public class Health : MonoBehaviour
             }         
         }
 
-        if (trueDamage)
+        //Check take damage bool if true we take damage (Paladin Evasion)
+        if(takeDamage)
         {
-            // Deal true damage to the player/enemy
-            currentHealth -= damage;
-        }
-        else
-        {
-            // Deal normal damage to the player/enemy
-            currentHealth -= damage;    // subtract armor from damage in this calc when implemented
-        }
+            if (trueDamage)
+            {
+                // Deal true damage to the player/enemy
+                currentHealth -= damage;
+            }
+            else
+            {
+                // Deal normal damage to the player/enemy
+                currentHealth -= damage;    // subtract armor from damage in this calc when implemented
+            }
+        }        
 
         if (currentHealth <= 0) // When currentHealth reaches 0...
         {
