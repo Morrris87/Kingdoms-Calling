@@ -1620,7 +1620,7 @@ GameObject:
   - component: {fileID: 8101875803662140771}
   - component: {fileID: 5833392740221266731}
   m_Layer: 5
-  m_Name: Canvas_InGame 1
+  m_Name: Canvas_InGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1750,6 +1750,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   playerHUD:
   - {fileID: 8101875804055365739}

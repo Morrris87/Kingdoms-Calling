@@ -24,7 +24,7 @@ public class ElementManager : MonoBehaviour
     public float igniteDuration = 5f;
 
     public GameObject fireMark;
-    public GameObject windeMark;
+    public GameObject windMark;
     public GameObject lightningMark;
     public GameObject earthMark;
 
@@ -61,6 +61,42 @@ public class ElementManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (thisElement == ClassElement.Fire)
+        {
+            fireMark.SetActive(true);
+            windMark.SetActive(false);
+            lightningMark.SetActive(false);
+            earthMark.SetActive(false);
+        }
+        else if (thisElement == ClassElement.Wind)
+        {
+            fireMark.SetActive(false);
+            windMark.SetActive(true);
+            lightningMark.SetActive(false);
+            earthMark.SetActive(false);
+        }
+        else if (thisElement == ClassElement.Lightning)
+        {
+            fireMark.SetActive(false);
+            windMark.SetActive(false);
+            lightningMark.SetActive(true);
+            earthMark.SetActive(false);
+        }
+        else if (thisElement == ClassElement.Earth)
+        {
+            fireMark.SetActive(false);
+            windMark.SetActive(false);
+            lightningMark.SetActive(false);
+            earthMark.SetActive(true);
+        }
+        else
+        {
+            fireMark.SetActive(false);
+            windMark.SetActive(false);
+            lightningMark.SetActive(false);
+            earthMark.SetActive(false);
+        }
+
         //if effected by a element
         if (effected)
         {
@@ -197,7 +233,7 @@ public class ElementManager : MonoBehaviour
                 }
                 else if (effectedElement == ClassElement.Wind)
                 {
-                    Instantiate(windeMark, transform);
+                    Instantiate(windMark, transform);
                 }
                 else
                 {

@@ -29,6 +29,6 @@ public class ArcherAbilityHandler : MonoBehaviour
         piercingArrow.piercingArrowPrefab.GetComponent<ProjectileDamage>().attacker = ProjectileDamage.Attacker.PLAYER;
 
         // Fire the piercing arrow shot
-        Instantiate(piercingArrow.piercingArrowPrefab, GetComponent<BasicAttack>().spawner.position, Quaternion.LookRotation(transform.forward, Vector3.up));
+        Instantiate(piercingArrow.piercingArrowPrefab, GetComponentInParent<BasicAttack>().spawner.position, Quaternion.LookRotation(transform.forward, Vector3.up));
     }
 }

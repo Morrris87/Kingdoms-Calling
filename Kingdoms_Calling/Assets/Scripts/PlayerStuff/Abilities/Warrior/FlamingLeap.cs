@@ -102,8 +102,9 @@ public class FlamingLeap : MonoBehaviour
             yield return null;
         }
 
-        // Place the collder for the ability where the player lands
-        Instantiate(areaOfEffect, transform.position, Quaternion.identity);
+        // THIS HAS BEEN MOVED TO ANOTHER LOCATION, LEFT COMMENTED JUST IN CASE
+        //// Place the collder for the ability where the player lands
+        //Instantiate(areaOfEffect, transform.position, Quaternion.identity);
     }
 
 

@@ -65,9 +65,6 @@ public class AxeWhirlwind : MonoBehaviour
 
             // Play the ability animation
             GetComponentInChildren<Animator>().SetTrigger("SpinningAxeUsed");
-
-            // Place the collder for the ability in the spawn area
-            Instantiate(areaOfEffect, transform.position, Quaternion.identity);
         }
     }
 

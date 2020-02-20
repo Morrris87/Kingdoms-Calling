@@ -114,17 +114,17 @@ public class BasicAttack : MonoBehaviour
         // Play character's attack animation
         GetComponentInChildren<Animator>().SetTrigger("Attacked");
 
-        // Take away player's stamina
-        GetComponent<Stamina>().DepleteStamina((int)AttackStaminaLoss);
+        //// Take away player's stamina
+        //GetComponent<Stamina>().DepleteStamina((int)AttackStaminaLoss);
 
-        // Grab all colliders in the hitbox for the weapon
-        Collider[] cols = Physics.OverlapBox(weaponHitbox.bounds.center, weaponHitbox.bounds.extents, weaponHitbox.transform.rotation, LayerMask.GetMask("Enemy"));
+        //// Grab all colliders in the hitbox for the weapon
+        //Collider[] cols = Physics.OverlapBox(weaponHitbox.bounds.center, weaponHitbox.bounds.extents, weaponHitbox.transform.rotation, LayerMask.GetMask("Enemy"));
 
-        // Cycle through each collider in the cols array and deal damage to each enemy inside
-        foreach (Collider c in cols)
-        {
-            c.GetComponent<Health>().Damage((int)AttackDamage);
-        }
+        //// Cycle through each collider in the cols array and deal damage to each enemy inside
+        //foreach (Collider c in cols)
+        //{
+        //    c.GetComponent<Health>().Damage((int)AttackDamage);
+        //}
     }
 
     public float CharacterAttackValue(CharacterClass characterClass)
