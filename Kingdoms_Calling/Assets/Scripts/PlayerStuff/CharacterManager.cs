@@ -49,7 +49,7 @@ public class CharacterManager : MonoBehaviour
     Vector2 movementInput;
     Vector2 rightInput;
     Vector3 inputDirection, inputRotation, desiredDirection, lookRot, lookDirection, rotationDirection, targetInputDir;
-    float xMove, yMove, xRot, yRot, cycleTimer;
+    float xMove, yMove, xRot, yRot, cycleTimer, abilityInput;
     bool rightStick = false;
     //Camera information
     Vector3 camForward, camRight;
@@ -72,6 +72,7 @@ public class CharacterManager : MonoBehaviour
     //Archer
     ArrowVolley arrowVolley;
     PiercingArrow piercingArrow;
+    LeapOfFaith leapOfFaith;
 
     //Player and enemy layer index
     int playerLayerIndex, enemyLayerIndex;
@@ -112,13 +113,14 @@ public class CharacterManager : MonoBehaviour
         {
             thunderStrike = this.GetComponent<ThunderStrike>();
             execution = this.GetComponent<Execution>();
-            if(GetComponent<ElectricDash>())
+            if (GetComponent<ElectricDash>())
                 electricDash = GetComponent<ElectricDash>(); // prevent errors for people not using the prefab
         }
         else if (characterClass == CharacterClass.Archer)
         {
             arrowVolley = this.GetComponent<ArrowVolley>();
             piercingArrow = this.GetComponent<PiercingArrow>();
+            leapOfFaith = this.GetComponent<LeapOfFaith>();
         }
         else if (characterClass == CharacterClass.Warrior)
         {
@@ -199,6 +201,7 @@ public class CharacterManager : MonoBehaviour
         if (cycleTimer >= 0)
             cycleTimer -= Time.deltaTime;
 
+        InputSystem.Update();
     }
 
     /// <summary>
@@ -206,7 +209,7 @@ public class CharacterManager : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
-        UpdatePlayer(desiredDirection);        
+        UpdatePlayer(desiredDirection);
     }
 
     /// <summary>
@@ -449,7 +452,7 @@ public class CharacterManager : MonoBehaviour
         }
         else if (characterClass == CharacterClass.Assassin)
         {
-            if (context.started == true && context.performed == false)//Button pressed down
+            if (context.ReadValue<float>() == 1)//Button pressed
             {
                 if (!displayLocation)
                     displayLocation = true;
@@ -466,12 +469,20 @@ public class CharacterManager : MonoBehaviour
         {
             if (context.ReadValue<float>() == 1)//Button pressed
             {
-
+                if (!leapOfFaith.isActive)
+                {
+                    if (!displayLocation)
+                        displayLocation = true;
+                    leapOfFaith.isActive = true;
+                }
             }
 
-            if (context.ReadValue<float>() == 0)//Button released
+            if (context.performed == true && !context.started)//Button released
             {
-
+                if (leapOfFaith.isActive)
+                    leapOfFaith.UseAbility(abilityIndicator);
+                if (displayLocation)
+                    displayLocation = false;
             }
         }
         else if (characterClass == CharacterClass.Warrior)
@@ -623,10 +634,10 @@ public class CharacterManager : MonoBehaviour
 
     private void DrawLocation(Vector2 inp)
     {
-        if(abilityIndicator)
+        if (abilityIndicator)
         {
             //if our indicator isnt active yet activate it
-            if(!abilityIndicator.activeInHierarchy && displayLocation)
+            if (!abilityIndicator.activeInHierarchy && displayLocation)
             {
                 abilityIndicator.SetActive(true);
             }
@@ -634,13 +645,20 @@ public class CharacterManager : MonoBehaviour
             //if active update the location
             if (abilityIndicator.activeInHierarchy && displayLocation)
             {
+
                 float range = 0;
-                if(characterClass == CharacterClass.Archer)
+                float abilityInput = rightInput.magnitude;
+
+                if (characterClass == CharacterClass.Archer)
                 {
+                    if (leapOfFaith.isActive)
+                    {
+                        abilityInput *= -1;
+                    }
                     // set the range to the archers volley range
                     //range = arrowVolley.range;
                 }
-                else if(characterClass == CharacterClass.Assassin)
+                else if (characterClass == CharacterClass.Assassin)
                 {
                     // set the range to the assassins electric dash range
                     range = electricDash.dashLength;
@@ -648,12 +666,12 @@ public class CharacterManager : MonoBehaviour
                 else if (characterClass == CharacterClass.Warrior)
                 {
                     // set the range to the warriors flaming leap range
-                    //range = warriorFalmingLeap.leapDistance;
+                    range = warriorFalmingLeap.leapDistance;
                 }
                 if (range == 0)
                     range = 10;
 
-                abilityIndicator.transform.localPosition = new Vector3(0.0f, 0.0f, rightInput.magnitude * range);
+                abilityIndicator.transform.localPosition = new Vector3(0.0f, 0.0f, abilityInput * range);
                 //Debug.Log(indicatorLocation);
             }
 
@@ -662,7 +680,7 @@ public class CharacterManager : MonoBehaviour
                 abilityIndicator.SetActive(false);
             }
         }
-        else if(abilityIndicator == null)
+        else if (abilityIndicator == null)
         {
             //Debug.Log("Please set a ability indicator GameObject");
         }
