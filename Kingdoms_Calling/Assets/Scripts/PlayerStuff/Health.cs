@@ -13,11 +13,13 @@ public class Health : MonoBehaviour
     public int maxHealth;       // Sets the base starting health for the object the script is attached to
     public Image healthUI;      // UI element for this object's health bar
     public bool takeDamage;
+    public bool ragingResponse;
 
     //[HideInInspector]
     public  int currentHealth;  // This int keeps track of what HP this object is currently at
     private bool isDead;        // If currentHealth reaches 0, this bool is set to true, otherwise is false
     private bool trueDamage;    // If true, player/enemy recieves true damage, which ignores armor value
+    private RagingResponse ragingResponseScript;
     
     float timerForFlash = 0;
     bool colorBool = false;
@@ -26,8 +28,15 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //if we are the warrior get the raging response script
+        if(gameObject.GetComponent<CharacterManager>().characterClass == CharacterManager.CharacterClass.Warrior)
+        {
+            ragingResponseScript = gameObject.GetComponent<RagingResponse>();
+        }
+
         isDead = false;                 // Object starts off alive
         takeDamage = true;
+        ragingResponse = false;
         currentHealth = maxHealth;      // Transfers the value from startingHealth to currentHealth, keeping track of this object's max HP
         if (this.tag == "White" || this.tag == "Grey" || this.tag == "Purple")
         {
@@ -72,7 +81,7 @@ public class Health : MonoBehaviour
 
         //Check take damage bool if true we take damage (Paladin Evasion)
         if(takeDamage)
-        {
+        {            
             if (trueDamage)
             {
                 // Deal true damage to the player/enemy
@@ -82,6 +91,11 @@ public class Health : MonoBehaviour
             {
                 // Deal normal damage to the player/enemy
                 currentHealth -= damage;    // subtract armor from damage in this calc when implemented
+            }
+
+            if (ragingResponse)
+            {
+                ragingResponseScript.SpawnRagingResponse();
             }
         }        
 

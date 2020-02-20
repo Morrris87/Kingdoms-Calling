@@ -311,10 +311,20 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1510070552}
     m_Modifications:
+    - target: {fileID: 4996354796337935079, guid: b73341ff3ab3fe8458189c9c8f71a022,
+        type: 3}
+      propertyPath: abilityCooldownUI
+      value: 
+      objectReference: {fileID: 416630146}
     - target: {fileID: 8623312592771481221, guid: b73341ff3ab3fe8458189c9c8f71a022,
         type: 3}
       propertyPath: m_Name
       value: Character_Warrior
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623312592771481221, guid: b73341ff3ab3fe8458189c9c8f71a022,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8623312592771481220, guid: b73341ff3ab3fe8458189c9c8f71a022,
         type: 3}
@@ -1380,6 +1390,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Character_Assassin
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280584505368016736, guid: c1c6583202c1aaf4bbcebb6792578b2e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7280584505368016737, guid: c1c6583202c1aaf4bbcebb6792578b2e,
         type: 3}

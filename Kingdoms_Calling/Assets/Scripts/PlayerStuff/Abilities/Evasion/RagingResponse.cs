@@ -1,7 +1,7 @@
 ﻿/*
- * Assassin Electric Dash Evasion ability
+ * Warrior Raging Response
  * Created by: Bradley Williamson
- * On: 2/6/20
+ * On: 2/20/20
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -16,10 +16,12 @@ public class RagingResponse : MonoBehaviour
     [Header("Ability Specs")]
     public int rageDamage;       //How much damage the skill does at each tick
     public float waitTime = 20f;            // Time in seconds needed to wait for ability cooldown
+    public GameObject RagingCollider;
     [HideInInspector] public bool isUsable; // When ability is available for use, set this to true
 
     // Private Variables
     private float cooldownTimer;    // When in cooldown, increments until waitTime is reached
+    private Health health;
 
 
     // Start is called before the first frame update
@@ -27,6 +29,7 @@ public class RagingResponse : MonoBehaviour
     {
         isUsable = true;                // Ability starts as usable
         cooldownTimer = waitTime;       // Cooldown timer starts at the value of waitTime
+        health = gameObject.GetComponent<Health>();
     }
 
     // Update is called once per frame
@@ -50,12 +53,13 @@ public class RagingResponse : MonoBehaviour
                 isUsable = true;                    // Make ability useable again
                 abilityCooldownUI.SetActive(false); // Hide the cooldown UI
                 cooldownTimer = waitTime;           // Reset the cooldownTimer
+                health.ragingResponse = false;
             }
         }
     }
 
     // Calling this function uses the ability
-    public void UseAbility(GameObject indicatorLocation)
+    public void UseAbility()
     {
         // Ability has been used, so set ability as unusable
         isUsable = false;
@@ -63,11 +67,13 @@ public class RagingResponse : MonoBehaviour
         // Enable the cooldown UI
         abilityCooldownUI.SetActive(true);
 
-        // Update the UI with the time remaining
+        // Set raging response bool to true to check if we are 
+        health.ragingResponse = true;
+    }
 
-        // Play the ability animation
-
-        // Start Ability
-
+    public void SpawnRagingResponse()
+    {
+        RagingCollider.GetComponent<RagingResponseCollider>().damage = rageDamage;
+        Instantiate(RagingCollider);
     }
 }

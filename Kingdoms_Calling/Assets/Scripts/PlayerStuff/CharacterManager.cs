@@ -65,6 +65,7 @@ public class CharacterManager : MonoBehaviour
     //Warrior
     AxeWhirlwind warriorAxeWhirlwind;
     FlamingLeap warriorFalmingLeap;
+    RagingResponse warriorRagingResponse;
 
     //Assassin    
     ThunderStrike thunderStrike;
@@ -129,6 +130,7 @@ public class CharacterManager : MonoBehaviour
         {
             warriorAxeWhirlwind = this.GetComponent<AxeWhirlwind>();
             warriorFalmingLeap = this.GetComponent<FlamingLeap>();
+            warriorRagingResponse = this.GetComponent<RagingResponse>();
         }
 
         //this.GetComponentInChildren<Animator>().Play("Idle");
@@ -492,7 +494,7 @@ public class CharacterManager : MonoBehaviour
         {
             if (context.ReadValue<float>() == 1)//Button pressed
             {
-
+                warriorRagingResponse.UseAbility();
             }
 
             if (context.ReadValue<float>() == 0)//Button released
