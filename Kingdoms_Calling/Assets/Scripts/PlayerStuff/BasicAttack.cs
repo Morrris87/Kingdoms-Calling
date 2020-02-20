@@ -100,7 +100,7 @@ public class BasicAttack : MonoBehaviour
 
             //zac stuff
             //might have to make a nother bool that is set true here and false when in projectile damage after checking if its true
-            if (GetComponentInParent<BasicAttack>().zacAttackBool == false && GetComponentInParent<BasicAttack>().shot.Timer >= 12)
+            if (zacAttackBool == false && shot.Timer >= 12)
             {
                 shot.PassiveIndicator.SetActive(false);
                 shot.passiveReady = false;
@@ -171,7 +171,7 @@ public class BasicAttack : MonoBehaviour
             {
                 AttackRateSpeed = 2f;
                 AttackRange = 1;
-                AttackDamage = 1;
+                AttackDamage = 1.0f;
                 AttackHitChance = 100;
                 AttackStaminaLoss = 10.0f;
             }
@@ -179,7 +179,7 @@ public class BasicAttack : MonoBehaviour
             {
                 AttackRateSpeed = 0.5f;
                 AttackRange = 1;
-                AttackDamage = 1;
+                AttackDamage = 1.0f;
                 AttackHitChance = 100;
                 AttackStaminaLoss = 10.0f;
             }
