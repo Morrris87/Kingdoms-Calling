@@ -133,6 +133,7 @@ public class CharacterManager : MonoBehaviour
             warriorRagingResponse = this.GetComponent<RagingResponse>();
         }
 
+        this.GetComponent<Health>().characterClass = characterClass;
         //this.GetComponentInChildren<Animator>().Play("Idle");
     }
 

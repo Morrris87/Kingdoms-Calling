@@ -20,6 +20,8 @@ public class Health : MonoBehaviour
     private bool isDead;        // If currentHealth reaches 0, this bool is set to true, otherwise is false
     private bool trueDamage;    // If true, player/enemy recieves true damage, which ignores armor value
     private RagingResponse ragingResponseScript;
+    [HideInInspector]
+    public CharacterManager.CharacterClass characterClass;
     
     float timerForFlash = 0;
     bool colorBool = false;
@@ -28,12 +30,6 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //if we are the warrior get the raging response script
-        if(gameObject.GetComponent<CharacterManager>().characterClass == CharacterManager.CharacterClass.Warrior)
-        {
-            ragingResponseScript = gameObject.GetComponent<RagingResponse>();
-        }
-
         isDead = false;                 // Object starts off alive
         takeDamage = true;
         ragingResponse = false;
@@ -41,6 +37,15 @@ public class Health : MonoBehaviour
         if (this.tag == "White" || this.tag == "Grey" || this.tag == "Purple")
         {
             tempColor = this.gameObject.GetComponent<Renderer>().material.color;
+        }
+    }
+
+    private void Awake()
+    {
+        //if we are the warrior get the raging response script
+        if (characterClass == CharacterManager.CharacterClass.Warrior)
+        {
+            ragingResponseScript = gameObject.GetComponent<RagingResponse>();
         }
     }
 
