@@ -446,6 +446,7 @@ MonoBehaviour:
     type: 3}
   colliderDestPos: {fileID: 3673495573729050289}
   waitTime: 20
+  comboText: {fileID: 0}
   isUsable: 0
 --- !u!114 &2345498833140326227
 MonoBehaviour:
