@@ -726,6 +726,7 @@ public class CharacterManager : MonoBehaviour
     void ZeroInput()
     {
         desiredDirection = Vector3.zero;
+        rotationDirection = Vector3.zero;
     }
 
 
