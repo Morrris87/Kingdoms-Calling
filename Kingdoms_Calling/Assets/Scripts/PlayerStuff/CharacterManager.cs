@@ -207,7 +207,7 @@ public class CharacterManager : MonoBehaviour
                     this.GetComponent<Rigidbody>().MoveRotation(newRotation);
                     this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
 
-                    //Debug.Log("left stick rotation");
+                    //Debug.Log("right stick rotation");
                     rotationDirection = new Vector3(newRotation.x, newRotation.y, newRotation.z);
                 }
             }
@@ -393,14 +393,14 @@ public class CharacterManager : MonoBehaviour
             {
                 if (!rightStick)
                     rightStick = true;
-                //Debug.Log(rightStick);
+                Debug.Log(rightInput.x + " Right Stick true " + rightInput.y);
                 CalcRotation(rightInput);
             }
             else
             {
                 if (rightStick)
                     rightStick = false;
-                //Debug.Log(rightStick);
+               Debug.Log("Right Stick false");
             }
         }
     }

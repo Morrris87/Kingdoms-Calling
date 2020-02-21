@@ -1971,6 +1971,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ArcherWarriorCombo
       objectReference: {fileID: 0}
+    - target: {fileID: 3965540779948805419, guid: 62ef5892d36e78943a32084325716883,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5269882930725652120, guid: 62ef5892d36e78943a32084325716883,
         type: 3}
       propertyPath: m_LocalPosition.x
