@@ -45,16 +45,22 @@ public class CharacterManager : MonoBehaviour
     // Private Variables
     PlayerInputActions inputAction; // InputActions    
     Rigidbody playerRBody;
+
     //Character Input variables
     Vector2 movementInput;
     Vector2 rightInput;
     Vector3 inputDirection, inputRotation, desiredDirection, lookRot, lookDirection, rotationDirection, targetInputDir;
     float xMove, yMove, xRot, yRot, cycleTimer, abilityInput;
     bool rightStick = false;
+
+    //Player Animator Variables
+    Animator playerAnim;
+
     //Camera information
     Vector3 camForward, camRight;
     GameObject targetedEnemy;
     Quaternion newRotation;
+
     // Character Abilities/scripts
     BasicAttack basicAttack;
     //Paladin
@@ -134,6 +140,7 @@ public class CharacterManager : MonoBehaviour
         }
 
         this.GetComponent<Health>().characterClass = characterClass;
+        playerAnim = GetComponentInChildren<Animator>();
         //this.GetComponentInChildren<Animator>().Play("Idle");
     }
 
@@ -206,7 +213,7 @@ public class CharacterManager : MonoBehaviour
         //Update the cycle timer
         if (cycleTimer >= 0)
             cycleTimer -= Time.deltaTime;
-
+        
         InputSystem.Update();
     }
 
@@ -215,7 +222,10 @@ public class CharacterManager : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
-        UpdatePlayer(desiredDirection);
+        if (playerAnim.GetBool("performingAction") == false)
+        {
+            UpdatePlayer(desiredDirection);
+        }
     }
 
     /// <summary>
@@ -306,54 +316,61 @@ public class CharacterManager : MonoBehaviour
     //Input Functions below (Examples of how the call are made context being the information given back to us by the input casting that results in our data)
     public void Attack(InputAction.CallbackContext context)
     {
-        if (characterClass == CharacterClass.Archer)
+        if (playerAnim.GetBool("performingAction") == false)
         {
-            basicAttack.AttackRanged();
+            if (characterClass == CharacterClass.Archer)
+            {
+                basicAttack.AttackRanged();
+            }
+            else
+            {
+                basicAttack.AttackMelee();
+            }
         }
-        else
-        {
-            basicAttack.AttackMelee();
-        }
+            
     }
 
     public void Move(InputAction.CallbackContext context)
     {
-        //Debug.Log("Move");
-        movementInput = context.ReadValue<Vector2>();
-
-        //Grab movement input x and y 2D
-        xMove = movementInput.x;
-        yMove = movementInput.y;
-
-        // Sets the isWalking bool to true if the character is moving, otherwise set to false to control animations
-        if (xMove > 0 || yMove > 0)
+        if (playerAnim.GetBool("performingAction") == false)
         {
-            GetComponentInChildren<Animator>().SetBool("isMoving", true);
-            //this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-        }
-        else
-        {
-            GetComponentInChildren<Animator>().SetBool("isMoving", false);
-            //this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
-        }
-        if (xMove > 0 || xMove < 0 || yMove > 0 || yMove < 0)
-        {
-            GetComponentInChildren<Animator>().SetBool("isMoving", true);
-            //this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-        }
-        else
-        {
-            GetComponentInChildren<Animator>().SetBool("isMoving", false);
-            this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
-        }
+            //Debug.Log("Move");
+            movementInput = context.ReadValue<Vector2>();
 
-        //Fill input direction with the Lerp of current pos and destination direction as well as rotation direction
-        targetInputDir = new Vector3(xMove, 0, yMove);
-        inputDirection = Vector3.Lerp(inputDirection, targetInputDir, Time.deltaTime * 10f);
-        //Debug.Log(inputDirection);
-        //Fill the desired direction, rotation vector with the basic directions 
-        desiredDirection = new Vector3(inputDirection.x, 0, inputDirection.z);
+            //Grab movement input x and y 2D
+            xMove = movementInput.x;
+            yMove = movementInput.y;
 
+            // Sets the isWalking bool to true if the character is moving, otherwise set to false to control animations
+            if (xMove > 0 || yMove > 0)
+            {
+                GetComponentInChildren<Animator>().SetBool("isMoving", true);
+                //this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            }
+            else
+            {
+                GetComponentInChildren<Animator>().SetBool("isMoving", false);
+                //this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition;
+            }
+            if (xMove > 0 || xMove < 0 || yMove > 0 || yMove < 0)
+            {
+                GetComponentInChildren<Animator>().SetBool("isMoving", true);
+                //this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            }
+            else
+            {
+                GetComponentInChildren<Animator>().SetBool("isMoving", false);
+                this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationZ;
+            }
+
+            //Fill input direction with the Lerp of current pos and destination direction as well as rotation direction
+            targetInputDir = new Vector3(xMove, 0, yMove);
+            inputDirection = Vector3.Lerp(inputDirection, targetInputDir, Time.deltaTime * 10f);
+            //Debug.Log(inputDirection);
+            //Fill the desired direction, rotation vector with the basic directions 
+            desiredDirection = new Vector3(inputDirection.x, 0, inputDirection.z);
+
+        }
         //UpdatePlayer(desiredDirection);//Move the player
     }
 
@@ -366,141 +383,153 @@ public class CharacterManager : MonoBehaviour
         camForward.y = 0f;
         camRight.y = 0f;
 
-        // Old Input system
-        rightInput = context.ReadValue<Vector2>();
-        if (rightInput.x != 0 || rightInput.y != 0)
+        if (playerAnim.GetBool("performingAction") == false)
         {
-            if (!rightStick)
-                rightStick = true;
-            //Debug.Log(rightStick);
-            CalcRotation(rightInput);
-        }
-        else
-        {
-            if (rightStick)
-                rightStick = false;
-            //Debug.Log(rightStick);
+            // Old Input system
+            rightInput = context.ReadValue<Vector2>();
+            if (rightInput.x != 0 || rightInput.y != 0)
+            {
+                if (!rightStick)
+                    rightStick = true;
+                //Debug.Log(rightStick);
+                CalcRotation(rightInput);
+            }
+            else
+            {
+                if (rightStick)
+                    rightStick = false;
+                //Debug.Log(rightStick);
+            }
         }
     }
 
     public void Ability1(InputAction.CallbackContext context) // For the character's first ability (left bumper)
     {
-        if (characterClass == CharacterClass.Paladin)
+        if (playerAnim.GetBool("performingAction") == false)
         {
-            if (context.ReadValue<float>() == 1)
-                paladinEarthHealingSpring.UseAbility();
-        }
-        else if (characterClass == CharacterClass.Assassin)
-        {
-            if (context.ReadValue<float>() == 1)
-                thunderStrike.UseAbility();
-        }
-        else if (characterClass == CharacterClass.Archer)
-        {
-            if (context.ReadValue<float>() == 1)
-                arrowVolley.UseAbility();
-        }
-        else if (characterClass == CharacterClass.Warrior)
-        {
-            if (context.ReadValue<float>() == 1)
+            if (characterClass == CharacterClass.Paladin)
             {
-                displayLocation = true;
-                //Debug.Log("Started");
+                if (context.ReadValue<float>() == 1)
+                    paladinEarthHealingSpring.UseAbility();
             }
-
-            if (context.ReadValue<float>() == 0)
+            else if (characterClass == CharacterClass.Assassin)
             {
-                warriorFalmingLeap.UseAbility(abilityIndicator);
-                displayLocation = false;
-                //Debug.Log("Performed");
+                if (context.ReadValue<float>() == 1)
+                    thunderStrike.UseAbility();
+            }
+            else if (characterClass == CharacterClass.Archer)
+            {
+                if (context.ReadValue<float>() == 1)
+                    arrowVolley.UseAbility();
+            }
+            else if (characterClass == CharacterClass.Warrior)
+            {
+                if (context.ReadValue<float>() == 1)
+                {
+                    displayLocation = true;
+                    //Debug.Log("Started");
+                }
+
+                if (context.ReadValue<float>() == 0)
+                {
+                    warriorFalmingLeap.UseAbility(abilityIndicator);
+                    displayLocation = false;
+                    //Debug.Log("Performed");
+                }
             }
         }
     }
 
     public void Ability2(InputAction.CallbackContext context)   // For the character's second ability (right bumper)
     {
-        if (characterClass == CharacterClass.Paladin)
+        if (playerAnim.GetBool("performingAction") == false)
         {
-            if (context.ReadValue<float>() == 1)//Button pressed
-                paladinTaunt.UseAbility();
-        }
-        else if (characterClass == CharacterClass.Assassin)
-        {
-            if (context.ReadValue<float>() == 1)
-                execution.UseAbility();
-        }
-        else if (characterClass == CharacterClass.Archer)
-        {
-            if (context.ReadValue<float>() == 1)
-                piercingArrow.UseAbility();
-        }
-        else if (characterClass == CharacterClass.Warrior)
-        {
-            if (context.ReadValue<float>() == 1)
-                warriorAxeWhirlwind.UseAbility();
+            if (characterClass == CharacterClass.Paladin)
+            {
+                if (context.ReadValue<float>() == 1)//Button pressed
+                    paladinTaunt.UseAbility();
+            }
+            else if (characterClass == CharacterClass.Assassin)
+            {
+                if (context.ReadValue<float>() == 1)
+                    execution.UseAbility();
+            }
+            else if (characterClass == CharacterClass.Archer)
+            {
+                if (context.ReadValue<float>() == 1)
+                    piercingArrow.UseAbility();
+            }
+            else if (characterClass == CharacterClass.Warrior)
+            {
+                if (context.ReadValue<float>() == 1)
+                    warriorAxeWhirlwind.UseAbility();
+            }
         }
     }
 
     public void Special(InputAction.CallbackContext context)   // For the character's Evasion/Special
     {
-        if (characterClass == CharacterClass.Paladin)
+        if (playerAnim.GetBool("performingAction") == false)
         {
-            if (context.ReadValue<float>() == 1)//Button pressed
+            if (characterClass == CharacterClass.Paladin)
             {
-                paladinIronWall.UseAbility();
-            }
+                if (context.ReadValue<float>() == 1)//Button pressed
+                {
+                    paladinIronWall.UseAbility();
+                }
 
-            if (context.ReadValue<float>() == 0)//Button released
-            {
-                paladinIronWall.EndAbility();
-            }
+                if (context.ReadValue<float>() == 0)//Button released
+                {
+                    paladinIronWall.EndAbility();
+                }
 
-        }
-        else if (characterClass == CharacterClass.Assassin)
-        {
-            if (context.ReadValue<float>() == 1)//Button pressed
-            {
-                if (!displayLocation)
-                    displayLocation = true;
             }
-
-            if (context.started == false && context.performed == true)//Button released and we are showing indicator
+            else if (characterClass == CharacterClass.Assassin)
             {
-                electricDash.UseAbility(abilityIndicator);
-                displayLocation = false;
-                Debug.Log("Special performed");
-            }
-        }
-        else if (characterClass == CharacterClass.Archer)
-        {
-            if (context.ReadValue<float>() == 1)//Button pressed
-            {
-                if (!leapOfFaith.isActive)
+                if (context.ReadValue<float>() == 1)//Button pressed
                 {
                     if (!displayLocation)
                         displayLocation = true;
-                    leapOfFaith.isActive = true;
+                }
+
+                if (context.started == false && context.performed == true)//Button released and we are showing indicator
+                {
+                    electricDash.UseAbility(abilityIndicator);
+                    displayLocation = false;
+                    Debug.Log("Special performed");
                 }
             }
-
-            if (context.performed == true && !context.started)//Button released
+            else if (characterClass == CharacterClass.Archer)
             {
-                if (leapOfFaith.isActive)
-                    leapOfFaith.UseAbility(abilityIndicator);
-                if (displayLocation)
-                    displayLocation = false;
+                if (context.ReadValue<float>() == 1)//Button pressed
+                {
+                    if (!leapOfFaith.isActive)
+                    {
+                        if (!displayLocation)
+                            displayLocation = true;
+                        leapOfFaith.isActive = true;
+                    }
+                }
+
+                if (context.performed == true && !context.started)//Button released
+                {
+                    if (leapOfFaith.isActive)
+                        leapOfFaith.UseAbility(abilityIndicator);
+                    if (displayLocation)
+                        displayLocation = false;
+                }
             }
-        }
-        else if (characterClass == CharacterClass.Warrior)
-        {
-            if (context.ReadValue<float>() == 1)//Button pressed
+            else if (characterClass == CharacterClass.Warrior)
             {
-                warriorRagingResponse.UseAbility();
-            }
+                if (context.ReadValue<float>() == 1)//Button pressed
+                {
+                    warriorRagingResponse.UseAbility();
+                }
 
-            if (context.ReadValue<float>() == 0)//Button released
-            {
+                if (context.ReadValue<float>() == 0)//Button released
+                {
 
+                }
             }
         }
     }
