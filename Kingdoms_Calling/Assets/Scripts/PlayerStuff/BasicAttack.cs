@@ -92,7 +92,11 @@ public class BasicAttack : MonoBehaviour
             // Reset timer
             cooldownActive = true;
             cooldown = attackTimer;
-            if(!leapOfFaith.isActive)
+
+            // Stops movement
+            GetComponentInChildren<Animator>().SetBool("performingAction", true);
+
+            if (!leapOfFaith.isActive)
             {                
                 // Play Archer's attack animation
                 GetComponentInChildren<Animator>().SetTrigger("Attacked");
@@ -116,6 +120,9 @@ public class BasicAttack : MonoBehaviour
             // Reset timer
             cooldownActive = true;
             cooldown = attackTimer;
+
+            // Stops movement
+            GetComponentInChildren<Animator>().SetBool("performingAction", true);
 
             // Play character's attack animation
             GetComponentInChildren<Animator>().SetTrigger("Attacked");
