@@ -258,6 +258,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &6904712594214321508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7756295606564886151}
+  m_Layer: 8
+  m_Name: AxeWhirlwindTracker
+  m_TagString: AW_Tracker
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7756295606564886151
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6904712594214321508}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 8623312592771481220}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8623312592771481221
 GameObject:
   m_ObjectHideFlags: 0
@@ -301,6 +331,7 @@ Transform:
   - {fileID: 1782698923241574372}
   - {fileID: 2208114099597708144}
   - {fileID: 5945565338346973490}
+  - {fileID: 7756295606564886151}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -608,6 +639,7 @@ MonoBehaviour:
   playerDestPos: {fileID: 2208114099597708144}
   waitTime: 2
   leapDistance: 0
+  comboText: {fileID: 0}
   isUsable: 0
 --- !u!114 &3849261038076052007
 MonoBehaviour:
@@ -1585,15 +1617,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff72273c3b56e694bb931cc6f3084b2f, type: 3}
---- !u!1 &1203290168928066345 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: ff72273c3b56e694bb931cc6f3084b2f,
-    type: 3}
-  m_PrefabInstance: {fileID: 7175112848910189088}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2803961154588354874 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: ff72273c3b56e694bb931cc6f3084b2f,
+    type: 3}
+  m_PrefabInstance: {fileID: 7175112848910189088}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1203290168928066345 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: ff72273c3b56e694bb931cc6f3084b2f,
     type: 3}
   m_PrefabInstance: {fileID: 7175112848910189088}
   m_PrefabAsset: {fileID: 0}

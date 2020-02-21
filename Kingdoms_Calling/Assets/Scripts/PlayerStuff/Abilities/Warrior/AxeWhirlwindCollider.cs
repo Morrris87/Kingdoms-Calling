@@ -30,7 +30,7 @@ public class AxeWhirlwindCollider : MonoBehaviour
         damageTimer = 0f;               // Set the damage interval timer
 
         // Grab the player
-        playerPos = GameObject.FindGameObjectWithTag("Player");
+        playerPos = GameObject.FindGameObjectWithTag("AW_Tracker");
 
         // Sets archerDmg to the stored value in BasicAttack and halves it
         warriorDmg = (FindObjectOfType<BasicAttack>().CharacterAttackValue(BasicAttack.CharacterClass.Warrior) / 2);

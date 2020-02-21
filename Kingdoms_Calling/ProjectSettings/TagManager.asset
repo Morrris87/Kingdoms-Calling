@@ -16,6 +16,8 @@ TagManager:
   - SpawnerC
   - ElementMark
   - Immune
+  - ComboText
+  - AW_Tracker
   layers:
   - Default
   - TransparentFX

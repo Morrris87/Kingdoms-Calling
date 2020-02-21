@@ -18,15 +18,6 @@ public class HUDController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // If a player is not in the game, remove their HUD from the canvas
-        for (int i = 0; i < players.Length; i++)
-        {
-            if (players[i].activeSelf == true)
-            {
-                playerHUD[i].SetActive(true);
-            }
-        }
-
         isPaused = false;   // When game starts up, game is running
     }
 

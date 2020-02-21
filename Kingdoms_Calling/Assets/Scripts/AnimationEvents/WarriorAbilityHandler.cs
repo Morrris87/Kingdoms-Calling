@@ -26,6 +26,5 @@ public class WarriorAbilityHandler : MonoBehaviour
     {
         // Place the collder for the ability in the spawn area
         Instantiate(axeWhirlwind.areaOfEffect, transform.position, Quaternion.identity);
-        rotationTimer = axeWhirlwindCollider.timerLength;
     }
 }

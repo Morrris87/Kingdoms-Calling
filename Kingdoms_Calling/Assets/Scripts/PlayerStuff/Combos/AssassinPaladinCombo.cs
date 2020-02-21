@@ -41,7 +41,7 @@ public class AssassinPaladinCombo : MonoBehaviour
     }
 
     // Calling this function uses the ability
-    public void UseAbility()
+    public void ActivateCombo()
     {
         // Ability has been used, so it needs to cooldown
         //isUsable = false;

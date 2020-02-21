@@ -3,6 +3,7 @@
 //  Date: Controls the collider at a point in front of the player which damages enemies inside over time
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ArrowVolleyCollider : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class ArrowVolleyCollider : MonoBehaviour
     private float abilityLifeTimer;     // The ability timer
     private float archerDmg;            // Variable for the archer's attack damage
     private bool cooldownActive;        // Bool which determines if the cooldown is running
+    private Text comboText;             // Debug text for the combos
 
     // Combo variables
     private ArcherAssassinCombo archerAssassinCombo = new ArcherAssassinCombo();    // Used for calling the assassin combo
@@ -89,18 +91,22 @@ public class ArrowVolleyCollider : MonoBehaviour
                 {
                     // Activate the Archer & Paladin combo
                     archerPaladinCombo.ActivateCombo(c.gameObject);
+                    comboText.text = "Archer & Paladin Combo Performed";
+
                 }
                 // If the enemy currently has a Fire proc...
                 else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Fire)
                 {
                     // Activate the Archer & Warrior combo
                     archerWarriorCombo.ActivateCombo();
+                    comboText.text = "Archer & Warrior Combo Performed";
                 }
                 // If the enemy currently has a Lightning proc...
                 else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Lightning)
                 {
                     // Activate the Archer & Assassin combo
                     archerAssassinCombo.ActivateCombo(c.gameObject, (int)archerDmg);
+                    comboText.text = "Archer & Assassin Combo Performed";
                 }
             }
         }
