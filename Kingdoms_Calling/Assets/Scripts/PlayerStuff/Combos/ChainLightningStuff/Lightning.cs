@@ -39,6 +39,7 @@ public class Lightning : MonoBehaviour
 
             //Deal damage
             enemy.GetComponent<Health>().Damage(damage);
+            enemy.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
 
             h.start = passObj;
 

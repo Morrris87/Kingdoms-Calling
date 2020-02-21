@@ -63,7 +63,7 @@ public class RagingResponse : MonoBehaviour
     {
         // Ability has been used, so set ability as unusable
         isUsable = false;
-
+        Debug.Log("Warrior Evasion");
         // Enable the cooldown UI
         abilityCooldownUI.SetActive(true);
 
@@ -73,6 +73,7 @@ public class RagingResponse : MonoBehaviour
 
     public void SpawnRagingResponse()
     {
+
         RagingCollider.GetComponent<RagingResponseCollider>().damage = rageDamage;
         Instantiate(RagingCollider);
     }

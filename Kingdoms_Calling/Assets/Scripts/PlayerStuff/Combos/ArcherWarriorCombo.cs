@@ -52,9 +52,9 @@ public class ArcherWarriorCombo : MonoBehaviour
                 {
                     Debug.Log("Damage " + hitColliders[i].name);
                     hitColliders[i].gameObject.GetComponentInChildren<Health>().Damage(damageValue); //Damage the current colliders health by the current damageValue
-
+                    hitColliders[i].gameObject.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
                     //determine if this skeleton is going to be ignited
-                    if(UsefullFunctions.RandomNumber(0.0f, 100.0f) >= igniteChance)
+                    if (UsefullFunctions.RandomNumber(0.0f, 100.0f) >= igniteChance)
                     {
                         hitColliders[i].gameObject.GetComponent<ElementManager>().IgniteThis(damageValue);
                     }

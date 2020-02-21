@@ -21,6 +21,7 @@ public class HealingSpringCollider : MonoBehaviour
     private float effectTimer, oldHealValue, oldDamageValue, abilityLifeTimer;
     private bool cooldownActive;    // Bool which determines if the cooldown is running
     private Text comboText;
+    private bool totemBoost;
 
     // Combo variables
     private ArcherPaladinCombo archerPaladinCombo = new ArcherPaladinCombo();       // Used for calling the archer combo
@@ -34,6 +35,7 @@ public class HealingSpringCollider : MonoBehaviour
         cooldownActive = true;              // Starts the cooldown timer
         effectTimer = 0f;                   // Set the heal/damage interval timer
         comboText = GameObject.FindGameObjectWithTag("ComboText").GetComponent<Text>();
+        totemBoost = false;
     }
 
     // Update is called once per frame
@@ -82,36 +84,43 @@ public class HealingSpringCollider : MonoBehaviour
             // Deal damage to the enemy
             c.GetComponent<Health>().Damage(damageValue);
 
-            // If the enemy currently has no element assigned in it's Element Manager...
-            if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.NONE)
+            if(totemBoost)
             {
-                // Set the elemental proc to Earth
-                c.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.Earth;
+                c.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
             }
             else
             {
-                // If the enemy currently has a Wind proc...
-                if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Wind)
+                // If the enemy currently has no element assigned in it's Element Manager...
+                if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.NONE)
                 {
-                    // Activate the Archer & Paladin combo
-                    archerPaladinCombo.ActivateCombo(c.gameObject);
-                    comboText.text = "Archer & Paladin Combo Performed";
+                    // Set the elemental proc to Earth
+                    c.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.Earth;
                 }
-                // If the enemy currently has a Fire proc...
-                else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Fire)
+                else
                 {
-                    // Activate the Paladin & Warrior combo
-                    paladinWarriorCombo.ActivateCombo(c.gameObject);
-                    comboText.text = "Paladin & Warrior Combo Performed";
+                    // If the enemy currently has a Wind proc...
+                    if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Wind)
+                    {
+                        // Activate the Archer & Paladin combo
+                        archerPaladinCombo.ActivateCombo(c.gameObject);
+                        comboText.text = "Archer & Paladin Combo Performed";
+                    }
+                    // If the enemy currently has a Fire proc...
+                    else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Fire)
+                    {
+                        // Activate the Paladin & Warrior combo
+                        paladinWarriorCombo.ActivateCombo(c.gameObject);
+                        comboText.text = "Paladin & Warrior Combo Performed";
+                    }
+                    // If the enemy currently has a Lightning proc...
+                    else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Lightning)
+                    {
+                        // Activate the Assassin & Paladin combo
+                        assassinPaladinCombo.ActivateCombo();
+                        comboText.text = "Assassin & Paladin Combo Performed";
+                    }
                 }
-                // If the enemy currently has a Lightning proc...
-                else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Lightning)
-                {
-                    // Activate the Assassin & Paladin combo
-                    assassinPaladinCombo.ActivateCombo();
-                    comboText.text = "Assassin & Paladin Combo Performed";
-                }
-            }
+            }            
         }
     }
 
@@ -135,5 +144,6 @@ public class HealingSpringCollider : MonoBehaviour
         damageValue *= damageHealMultiplier;
         healValue *= damageHealMultiplier;
         abilityLifeTimer = totalLifeTime;
+        totemBoost = true;
     }
 }
