@@ -40,53 +40,33 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: ChainMail
-    second: {fileID: 2100000, guid: 15233725def66444e86ec56b5f98c2ce, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: HELM 1
-    second: {fileID: 2100000, guid: f5c3c569c597ab7448e4aa88863eca92, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: HELM 2
-    second: {fileID: 2100000, guid: d95c48a88f571fa42b7a3a7ad50149b8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: 'Material #25'
     second: {fileID: 2100000, guid: f5c3c569c597ab7448e4aa88863eca92, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: 'Material #495'
-    second: {fileID: 2100000, guid: d95c48a88f571fa42b7a3a7ad50149b8, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 'Material #496'
-    second: {fileID: 2100000, guid: f5c3c569c597ab7448e4aa88863eca92, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: 'Material #70'
-    second: {fileID: 2100000, guid: f5c3c569c597ab7448e4aa88863eca92, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: No Name
-    second: {fileID: 2100000, guid: ed358f46103f5d44387968917026fa43, type: 2}
+    second: {fileID: 2100000, guid: d95c48a88f571fa42b7a3a7ad50149b8, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: STEEL BODY
-    second: {fileID: 2100000, guid: d95c48a88f571fa42b7a3a7ad50149b8, type: 2}
+      name: WeaponMetal
+    second: {fileID: 2100000, guid: f5c3c569c597ab7448e4aa88863eca92, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: body
-    second: {fileID: 2100000, guid: bd7281d8b4323744b93a14da5d2146ff, type: 2}
+    second: {fileID: 2100000, guid: 15233725def66444e86ec56b5f98c2ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: caps
+    second: {fileID: 2100000, guid: d95c48a88f571fa42b7a3a7ad50149b8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: weaponGold
+    second: {fileID: 2100000, guid: d95c48a88f571fa42b7a3a7ad50149b8, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
