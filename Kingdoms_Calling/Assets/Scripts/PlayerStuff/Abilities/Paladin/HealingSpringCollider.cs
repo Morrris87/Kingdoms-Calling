@@ -6,6 +6,7 @@
  */
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealingSpringCollider : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class HealingSpringCollider : MonoBehaviour
     // Private Variables
     private float effectTimer, oldHealValue, oldDamageValue, abilityLifeTimer;
     private bool cooldownActive;    // Bool which determines if the cooldown is running
+    private Text comboText;
 
     // Combo variables
     private ArcherPaladinCombo archerPaladinCombo = new ArcherPaladinCombo();       // Used for calling the archer combo
@@ -31,6 +33,7 @@ public class HealingSpringCollider : MonoBehaviour
         abilityLifeTimer = totalLifeTime;   // Sets the length of the cooldown to the amount stored in timerLength
         cooldownActive = true;              // Starts the cooldown timer
         effectTimer = 0f;                   // Set the heal/damage interval timer
+        comboText = GameObject.FindGameObjectWithTag("ComboText").GetComponent<Text>();
     }
 
     // Update is called once per frame
@@ -92,18 +95,21 @@ public class HealingSpringCollider : MonoBehaviour
                 {
                     // Activate the Archer & Paladin combo
                     archerPaladinCombo.ActivateCombo(c.gameObject);
+                    comboText.text = "Archer & Paladin Combo Performed";
                 }
                 // If the enemy currently has a Fire proc...
                 else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Fire)
                 {
                     // Activate the Paladin & Warrior combo
                     paladinWarriorCombo.ActivateCombo(c.gameObject);
+                    comboText.text = "Paladin & Warrior Combo Performed";
                 }
                 // If the enemy currently has a Lightning proc...
                 else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Lightning)
                 {
                     // Activate the Assassin & Paladin combo
-                    //assassinPaladinCombo.ActivateCombo();
+                    assassinPaladinCombo.ActivateCombo();
+                    comboText.text = "Assassin & Paladin Combo Performed";
                 }
             }
         }
