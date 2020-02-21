@@ -157,6 +157,11 @@ public class CharacterManager : MonoBehaviour
         ////Fill the desired direction, rotation vector with the basic directions 
         //Vector3 desiredDirection = new Vector3(inputDirection.x, 0, inputDirection.z);
 
+        if(playerAnim.GetBool("performingAction") == true)
+        {
+            ZeroInput();
+        }
+
 
         //Camera Direction for calculating rotation
         camForward = mainCamera.transform.forward;
@@ -222,10 +227,7 @@ public class CharacterManager : MonoBehaviour
     /// </summary>
     private void FixedUpdate()
     {
-        if (playerAnim.GetBool("performingAction") == false)
-        {
-            UpdatePlayer(desiredDirection);
-        }
+        UpdatePlayer(desiredDirection);
     }
 
     /// <summary>
@@ -720,6 +722,12 @@ public class CharacterManager : MonoBehaviour
             //Debug.Log("Please set a ability indicator GameObject");
         }
     }
+
+    void ZeroInput()
+    {
+        desiredDirection = Vector3.zero;
+    }
+
 
     private void OnGUI()
     {
