@@ -29,6 +29,7 @@ public class ArrowVolleyCollider : MonoBehaviour
         abilityLifeTimer = timerLength; // Sets the length of the cooldown to the amount stored in timerLength
         cooldownActive = true;          // Starts the cooldown timer
         damageTimer = 0f;               // Set the damage interval timer
+        comboText = GameObject.FindGameObjectWithTag("ComboText").GetComponent<Text>();
 
         // Sets archerDmg to the stored value in BasicAttack
         archerDmg = FindObjectOfType<BasicAttack>().CharacterAttackValue(BasicAttack.CharacterClass.Archer);
