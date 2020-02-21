@@ -91,7 +91,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1a8b279c20c524f8d951c603d71a27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 1
+  range: 10
   lifeTime: 10
   damageInterval: 2
   igniteDuration: 1

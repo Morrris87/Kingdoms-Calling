@@ -30,17 +30,17 @@ public class ChargeState : FSMState
 
     public override void Act()
     {
+        enemyAI.animator.SetBool("isMoving", true);
         speed = enemyAI.skeletonStats.speed * Time.deltaTime;
         // Move to player 
         if (enemyAI.thisSkeletonClass == "Sword" || enemyAI.thisSkeletonClass == "Mace")
         {
             enemyAI.transform.LookAt(enemyAI.objPlayer.transform);
             enemyAI.transform.position += enemyAI.transform.forward * speed;
-            enemyAI.animator.SetBool("isMoving", true);
         }
         else if(enemyAI.thisSkeletonClass == "Bow")
         {
-            //Make it run to the slot manager on the player 
+            //Make it run to the slot manager on the player
             //(still have to make it)
             //slot machine stff
             pathTime += Time.deltaTime;

@@ -24,6 +24,12 @@ public class ArrowShootHandler : MonoBehaviour
         MovingEvent();
     }
 
+
+    public void ReleaseLockEvent()
+    {
+
+    }
+
     public void MovingEvent()
     {
         GetComponent<Animator>().SetBool("performingAction", false);

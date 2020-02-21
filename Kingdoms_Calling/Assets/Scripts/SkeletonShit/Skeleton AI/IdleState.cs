@@ -27,6 +27,7 @@ public class IdleState : FSMState
         // just wait!
         // so nothing here?
         // think so
+        enemyAI.transform.rotation = Quaternion.identity;
         enemyAI.animator.SetBool("isMoving", false);
     }
 

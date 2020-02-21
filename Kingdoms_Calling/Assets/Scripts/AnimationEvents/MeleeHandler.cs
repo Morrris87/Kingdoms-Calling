@@ -35,6 +35,12 @@ public class MeleeHandler : MonoBehaviour
         }
     }
 
+    public void ReleaseLockEvent()
+    {
+
+    }
+
+
     public void HitboxEvent()
     {
         // DEBUG: Hitbox is invisible
