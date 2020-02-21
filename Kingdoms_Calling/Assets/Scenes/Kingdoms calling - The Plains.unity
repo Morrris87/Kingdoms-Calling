@@ -31704,7 +31704,7 @@ PrefabInstance:
     - target: {fileID: 2241186763897451426, guid: cceb7dbc57405904a8c0e93e68f26c48,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2241186763897451427, guid: cceb7dbc57405904a8c0e93e68f26c48,
         type: 3}
@@ -31761,11 +31761,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2241186763897451435, guid: cceb7dbc57405904a8c0e93e68f26c48,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1247961823}
     - target: {fileID: 2241186763897451432, guid: cceb7dbc57405904a8c0e93e68f26c48,
         type: 3}
       propertyPath: healthUI
@@ -31786,6 +31781,11 @@ PrefabInstance:
       propertyPath: abilityCooldownUI
       value: 
       objectReference: {fileID: 241865310}
+    - target: {fileID: 2241186763897451435, guid: cceb7dbc57405904a8c0e93e68f26c48,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1247961823}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cceb7dbc57405904a8c0e93e68f26c48, type: 3}
 --- !u!4 &578196953 stripped
@@ -36533,8 +36533,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682589155}
-  m_LocalRotation: {x: 0.10858158, y: 0.84859663, z: 0.19154589, w: -0.48104474}
-  m_LocalPosition: {x: -532.1298, y: 24.977203, z: 235.80898}
+  m_LocalRotation: {x: -0.024124114, y: 0.9445203, z: 0.07126575, w: 0.3197198}
+  m_LocalPosition: {x: -562.8556, y: 27.120457, z: 254.16635}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -37706,6 +37706,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2777288154829163260, guid: ac9cda7a768a3d445a28b8ac4bb6dc8e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac9cda7a768a3d445a28b8ac4bb6dc8e, type: 3}
@@ -54233,16 +54238,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7280584505368016745, guid: c1c6583202c1aaf4bbcebb6792578b2e,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1247961823}
     - target: {fileID: 7280584505368016746, guid: c1c6583202c1aaf4bbcebb6792578b2e,
         type: 3}
       propertyPath: healthUI
       value: 
       objectReference: {fileID: 1937383076}
+    - target: {fileID: 7280584505368016749, guid: c1c6583202c1aaf4bbcebb6792578b2e,
+        type: 3}
+      propertyPath: staminaUI
+      value: 
+      objectReference: {fileID: 1986190522}
     - target: {fileID: 5663429486333080011, guid: c1c6583202c1aaf4bbcebb6792578b2e,
         type: 3}
       propertyPath: abilityCooldownUI
@@ -54253,11 +54258,16 @@ PrefabInstance:
       propertyPath: abilityCooldownUI
       value: 
       objectReference: {fileID: 791482947}
-    - target: {fileID: 7280584505368016749, guid: c1c6583202c1aaf4bbcebb6792578b2e,
+    - target: {fileID: 7280584505368016745, guid: c1c6583202c1aaf4bbcebb6792578b2e,
         type: 3}
-      propertyPath: staminaUI
+      propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 1986190522}
+      objectReference: {fileID: 1247961823}
+    - target: {fileID: 161197284939248921, guid: c1c6583202c1aaf4bbcebb6792578b2e,
+        type: 3}
+      propertyPath: abilityCooldownUI
+      value: 
+      objectReference: {fileID: 1224133067}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c6583202c1aaf4bbcebb6792578b2e, type: 3}
 --- !u!4 &1000128346 stripped
@@ -74783,8 +74793,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401079121}
-  m_LocalRotation: {x: -0.51877326, y: 0, z: 0, w: 0.85491186}
-  m_LocalPosition: {x: -519, y: -29.059998, z: 215}
+  m_LocalRotation: {x: -0.024124114, y: 0.9445203, z: 0.07126575, w: 0.3197198}
+  m_LocalPosition: {x: -562.8556, y: 27.120457, z: 254.16635}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -107642,7 +107652,7 @@ PrefabInstance:
     - target: {fileID: 8623312592771481221, guid: b73341ff3ab3fe8458189c9c8f71a022,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8623312592771481220, guid: b73341ff3ab3fe8458189c9c8f71a022,
         type: 3}
@@ -111904,11 +111914,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6850935412393349422, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1247961823}
     - target: {fileID: 6850935412393349421, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
       propertyPath: healthUI
@@ -111929,6 +111934,11 @@ PrefabInstance:
       propertyPath: abilityCooldownUI
       value: 
       objectReference: {fileID: 1633398892}
+    - target: {fileID: 6850935412393349422, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1247961823}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e5a4c85c6d71004ea94f79a64a9a63a, type: 3}
 --- !u!4 &2110572853 stripped
@@ -115105,7 +115115,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 0
   healthUI: {fileID: 0}
+  takeDamage: 0
+  ragingResponse: 0
   currentHealth: 0
+  characterClass: 0
 --- !u!1 &8760726428782498771
 GameObject:
   m_ObjectHideFlags: 0
