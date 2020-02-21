@@ -22,6 +22,9 @@ public class MeleeHandler : MonoBehaviour
         // DEBUG: Hitbox is visible
         hitbox.GetComponent<MeshRenderer>().enabled = true;
 
+        // Freeze player movement
+        GetComponentInParent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
+
         // Grab all colliders in the hitbox for the weapon
         Collider[] cols = Physics.OverlapBox(basicAttack.weaponHitbox.bounds.center, basicAttack.weaponHitbox.bounds.extents, basicAttack.weaponHitbox.transform.rotation, LayerMask.GetMask("Enemy"));
 

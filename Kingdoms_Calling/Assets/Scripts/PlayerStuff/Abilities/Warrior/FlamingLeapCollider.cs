@@ -81,7 +81,7 @@ public class FlamingLeapCollider : MonoBehaviour
                 if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Earth)
                 {
                     // Activate the Paladin & Warrior combo
-                    //paladinWarriorCombo.ActivateCombo();
+                    paladinWarriorCombo.ActivateCombo(c.gameObject);
                 }
                 // If the enemy currently has a Wind proc...
                 else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Wind)

@@ -30,7 +30,12 @@ ModelImporter:
   - first:
       74: -1947278254839256109
     second: Assassin_Execution Strike
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Assassin
+    second: {fileID: 2100000, guid: 918929fe3c91716499bd4cf161c85063, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

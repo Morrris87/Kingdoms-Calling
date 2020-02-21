@@ -111,24 +111,15 @@ public class BasicAttack : MonoBehaviour
     }
     public void AttackMelee()
     {
-        // Reset timer
-        cooldownActive = true;
-        cooldown = attackTimer;
+        if (GetComponent<Stamina>().GetStamina() >= AttackStaminaLoss && cooldown <= 0f)
+        {
+            // Reset timer
+            cooldownActive = true;
+            cooldown = attackTimer;
 
-        // Play character's attack animation
-        GetComponentInChildren<Animator>().SetTrigger("Attacked");
-
-        //// Take away player's stamina
-        //GetComponent<Stamina>().DepleteStamina((int)AttackStaminaLoss);
-
-        //// Grab all colliders in the hitbox for the weapon
-        //Collider[] cols = Physics.OverlapBox(weaponHitbox.bounds.center, weaponHitbox.bounds.extents, weaponHitbox.transform.rotation, LayerMask.GetMask("Enemy"));
-
-        //// Cycle through each collider in the cols array and deal damage to each enemy inside
-        //foreach (Collider c in cols)
-        //{
-        //    c.GetComponent<Health>().Damage((int)AttackDamage);
-        //}
+            // Play character's attack animation
+            GetComponentInChildren<Animator>().SetTrigger("Attacked");
+        }
     }
 
     public float CharacterAttackValue(CharacterClass characterClass)

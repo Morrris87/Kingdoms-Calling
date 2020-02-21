@@ -2954,7 +2954,7 @@ GameObject:
   - component: {fileID: 1250943981653118117}
   - component: {fileID: 4203558123610033269}
   m_Layer: 5
-  m_Name: PaladinEvasion_Cooldown
+  m_Name: WarriorEvasion_Cooldown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

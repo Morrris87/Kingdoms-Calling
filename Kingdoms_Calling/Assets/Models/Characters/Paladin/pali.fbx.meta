@@ -36,7 +36,17 @@ ModelImporter:
   - first:
       74: -7597975289460408124
     second: Paladin_Blocking
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: ed358f46103f5d44387968917026fa43, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: body
+    second: {fileID: 2100000, guid: bd7281d8b4323744b93a14da5d2146ff, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

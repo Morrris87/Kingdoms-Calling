@@ -20,7 +20,7 @@ public class ProjectileDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.forward;
+        transform.position += transform.forward * 100 * Time.deltaTime;
         if (arrowLife <= 0f)
         {
             Destroy(this.gameObject);

@@ -21,6 +21,7 @@ public class FlamingLeap : MonoBehaviour
     public Transform playerDestPos;         // The destination position the player will leap to when the ability is used
     public float waitTime = 20f;            // Time in seconds needed to wait for ability cooldown
     public float leapDistance;
+    public Text comboText;                  // Debug text for combos
     [HideInInspector] public bool isUsable; // When ability is available for use, set this to true
 
     // Private Variables
@@ -81,7 +82,7 @@ public class FlamingLeap : MonoBehaviour
 
             // Transfer the player to the destination position then when done call our attack
             StartCoroutine(MoveToPosition(transform, indicatorLocation.transform.position, leapDuration));
-
+            
         }
     }
 

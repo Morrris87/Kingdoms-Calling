@@ -12,6 +12,7 @@ public class ArrowVolley : MonoBehaviour
     public GameObject areaOfEffect;         // The collider for the ArrowVolley ability
     public Transform colliderDestPos;       // The destination position for the collider when ability is used
     public float waitTime = 20f;            // Time in seconds needed to wait for ability cooldown
+    public Text comboText;                  // Debug text for combos
     [HideInInspector] public bool isUsable; // When ability is available for use, set this to true
 
     // Private Variables

@@ -33,7 +33,47 @@ ModelImporter:
   - first:
       74: 2569418215603913763
     second: Archer_Evasion
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ARROWS
+    second: {fileID: 2100000, guid: d50c05cee18bd074d80585635b7add2e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Default Material
+    second: {fileID: 2100000, guid: e8b2a1918f6b3d648beae13095b60299, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #108'
+    second: {fileID: 2100000, guid: 33c019fcd1887ee458247a2128e366ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #109'
+    second: {fileID: 2100000, guid: 33c019fcd1887ee458247a2128e366ef, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #24'
+    second: {fileID: 2100000, guid: d0b9aa5a3a70717409ebd38863a3caa2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 'Material #25'
+    second: {fileID: 2100000, guid: d5cfabe373827ec4cb793125c55e49f0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: d6ff9d1def2c42b4a82876a3191934a9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: QUIVER
+    second: {fileID: 2100000, guid: abc66bde25a3ac64f8c98bb67a3b7fa7, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
