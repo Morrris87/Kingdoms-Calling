@@ -40,6 +40,6 @@ public class MeleeHandler : MonoBehaviour
         // DEBUG: Hitbox is invisible
         hitbox.GetComponent<MeshRenderer>().enabled = false;
 
-
+        GetComponent<Animator>().SetBool("performingAction", false);
     }
 }

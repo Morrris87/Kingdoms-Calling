@@ -21,5 +21,11 @@ public class ArrowShootHandler : MonoBehaviour
         basicAttack.arrowPrefab.transform.rotation = transform.rotation;                                                // Set the arrow's rotation to that of the player
         basicAttack.arrowPrefab.GetComponent<ProjectileDamage>().attacker = ProjectileDamage.Attacker.PLAYER;           // Set the attacker to the player
         Instantiate(basicAttack.arrowPrefab, basicAttack.spawner.position, Quaternion.LookRotation(transform.forward, Vector3.up)); // Fire the arrow
+        MovingEvent();
+    }
+
+    public void MovingEvent()
+    {
+        GetComponent<Animator>().SetBool("performingAction", false);
     }
 }

@@ -14,11 +14,17 @@ public class CameraControl : MonoBehaviour
     public float focusTime = 0.2f;                  // Time for camera to focus on the averagePos
     public float screenEdgeBuffer = 4f;             // Bounds for the camera
     public float minSize = 10f;                    	// Minimum size for the camera
+    public GameObject cameraRig;
 
     [SerializeField] private Camera mainCamera; // The main camera
     private float zoomSpeed;                    // Speed for the camera zoom
     private Vector3 velocity;                   // Velocity for the camera movement
     private Vector3 finalPosition;              // Stores the final position for the camera
+
+    private float zoomTarget;           // Target to achieve
+    private float zoomLerpTime = 2f;    // Multiplier
+    private float MinCameraOrthoSize = 20f;   // Min value for zoom
+    private float MaxCameraOrthoSize = 90f;   // Max value for zoom
 
     // Start is called before the first frame update
     void Start()
@@ -30,13 +36,15 @@ public class CameraControl : MonoBehaviour
     void Update()
     {
         MoveCamera();   // Every frame, update the camera's position
-        ZoomCamera();   // Every frame, update the camera's zoom
+        UpdateZoomTarget();
+        UpdateZoom();
+
+        //ZoomCamera();   // Every frame, update the camera's zoom
     }
 
-    private void ZoomCamera()
+    private void UpdateZoomTarget()
     {
-        Vector3 desLocalPos = transform.InverseTransformPoint(finalPosition);
-        float size = 0f;    // Start the size at 0
+        Vector3 storage = new Vector3(0f, 0f, 0f);
 
         // Loop through each of the targets
         for (int i = 0; i < players.Length; i++)
@@ -46,18 +54,52 @@ public class CameraControl : MonoBehaviour
                 continue;
             }
 
-            Vector3 targetLocalPos = transform.InverseTransformPoint(players[i].position);  // Grab the players position
-            Vector3 desPostoTarget = targetLocalPos - desLocalPos;                          // Get the position from the desired position of the camera
+            Vector3 curPlayerPosition = players[i].position;    // Grab the current player's position
 
-            size = Mathf.Max(size, Mathf.Abs(desPostoTarget.y));                        // Grabs the largest y coordinate of the players
-            size = Mathf.Max(size, Mathf.Abs(desPostoTarget.x) / mainCamera.aspect);    // Calculate the largest size based on the player being to the left or right of the camera
+            if (curPlayerPosition.y > storage.y)
+            {
+                storage = curPlayerPosition;
+            }
         }
 
-        size += screenEdgeBuffer;           // Add the edge buffer
-        size += Mathf.Max(size, minSize);   // If size is smaller than the minimum, grab the minimum
-
-        mainCamera.orthographicSize = Mathf.SmoothDamp(mainCamera.orthographicSize, size, ref zoomSpeed, focusTime);
+        zoomTarget = storage.y;
     }
+
+    private void UpdateZoom()
+    {
+        if (Camera.main.orthographicSize != zoomTarget)
+        {
+            float target = Mathf.Lerp(Camera.main.orthographicSize, zoomTarget, zoomLerpTime * Time.deltaTime);
+            cameraRig.transform.position = new Vector3(cameraRig.transform.position.x, zoomTarget + 20f, cameraRig.transform.position.z);
+            Camera.main.orthographicSize = Mathf.Clamp(target, MinCameraOrthoSize, MaxCameraOrthoSize);
+        }
+    }
+
+    //private void ZoomCamera()
+    //{
+    //    Vector3 desLocalPos = transform.InverseTransformPoint(finalPosition);
+    //    float size = 0f;    // Start the size at 0
+
+    //    // Loop through each of the targets
+    //    for (int i = 0; i < players.Length; i++)
+    //    {
+    //        if (players[i].gameObject.activeSelf == false)  // If player isn't active, skip
+    //        {
+    //            continue;
+    //        }
+
+    //        Vector3 targetLocalPos = transform.InverseTransformPoint(players[i].position);  // Grab the players position
+    //        Vector3 desPostoTarget = targetLocalPos - desLocalPos;                          // Get the position from the desired position of the camera
+
+    //        size = Mathf.Max(size, Mathf.Abs(desPostoTarget.y));                        // Grabs the largest y coordinate of the players
+    //        size = Mathf.Max(size, Mathf.Abs(desPostoTarget.x) / mainCamera.aspect);    // Calculate the largest size based on the player being to the left or right of the camera
+    //    }
+
+    //    size += screenEdgeBuffer;           // Add the edge buffer
+    //    size += Mathf.Max(size, minSize);   // If size is smaller than the minimum, grab the minimum
+
+    //    mainCamera.orthographicSize = Mathf.SmoothDamp(mainCamera.orthographicSize, size, ref zoomSpeed, focusTime);
+    //}
 
     private void MoveCamera()
     {
