@@ -659,7 +659,7 @@ public class CharacterManager : MonoBehaviour
                 {
                     if (leapOfFaith.isActive)
                     {
-                        abilityInput *= -1;
+                        //abilityInput *= -1;
                     }
                     // set the range to the archers volley range
                     //range = arrowVolley.range;
