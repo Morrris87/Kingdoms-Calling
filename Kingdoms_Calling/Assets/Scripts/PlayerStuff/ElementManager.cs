@@ -52,7 +52,6 @@ public class ElementManager : MonoBehaviour
         igniteTimer = igniteDuration;
         igniteTotalTimePassed = 0;
         effected = false;
-        effectedElement = ClassElement.NONE;
         ignited = false;
         refreshRate = elementRefreshRate;
         marked = false;
@@ -61,35 +60,35 @@ public class ElementManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (thisElement == ClassElement.Fire)
+        if (effectedElement == ClassElement.Fire)
         {
             fireMark.SetActive(true);
             windMark.SetActive(false);
             lightningMark.SetActive(false);
             earthMark.SetActive(false);
         }
-        else if (thisElement == ClassElement.Wind)
+        else if (effectedElement == ClassElement.Wind)
         {
             fireMark.SetActive(false);
             windMark.SetActive(true);
             lightningMark.SetActive(false);
             earthMark.SetActive(false);
         }
-        else if (thisElement == ClassElement.Lightning)
+        else if (effectedElement == ClassElement.Lightning)
         {
             fireMark.SetActive(false);
             windMark.SetActive(false);
             lightningMark.SetActive(true);
             earthMark.SetActive(false);
         }
-        else if (thisElement == ClassElement.Earth)
+        else if (effectedElement == ClassElement.Earth)
         {
             fireMark.SetActive(false);
             windMark.SetActive(false);
             lightningMark.SetActive(false);
             earthMark.SetActive(true);
         }
-        else
+        else if (effectedElement == ClassElement.NONE)
         {
             fireMark.SetActive(false);
             windMark.SetActive(false);
@@ -208,40 +207,40 @@ public class ElementManager : MonoBehaviour
     /// </summary>
     void DisplayElement()
     {
-        //We dont have a element
-        if(!effected)
-        {
+        ////We dont have a element
+        //if(!effected)
+        //{
             
-        }
-        // We have a element
-        else if(effected)
-        {
-            if(!marked)
-            {
-                //Check which element we are effected by
-                if (effectedElement == ClassElement.Earth)
-                {
-                    Instantiate(earthMark, transform);
-                }
-                else if (effectedElement == ClassElement.Fire)
-                {
-                    Instantiate(fireMark, transform);
-                }
-                else if (effectedElement == ClassElement.Lightning)
-                {
-                    Instantiate(lightningMark, transform);
-                }
-                else if (effectedElement == ClassElement.Wind)
-                {
-                    Instantiate(windMark, transform);
-                }
-                else
-                {
-                    Debug.Log(this + " : Is effected by something but the element was not set.");
-                }
-                marked = true;
-            }            
-        }
+        //}
+        //// We have a element
+        //else if(effected)
+        //{
+        //    if(!marked)
+        //    {
+        //        //Check which element we are effected by
+        //        if (effectedElement == ClassElement.Earth)
+        //        {
+        //            Instantiate(earthMark, transform);
+        //        }
+        //        else if (effectedElement == ClassElement.Fire)
+        //        {
+        //            Instantiate(fireMark, transform);
+        //        }
+        //        else if (effectedElement == ClassElement.Lightning)
+        //        {
+        //            Instantiate(lightningMark, transform);
+        //        }
+        //        else if (effectedElement == ClassElement.Wind)
+        //        {
+        //            Instantiate(windMark, transform);
+        //        }
+        //        else
+        //        {
+        //            Debug.Log(this + " : Is effected by something but the element was not set.");
+        //        }
+        //        marked = true;
+        //    }            
+        //}
     }
 
     /// <summary>

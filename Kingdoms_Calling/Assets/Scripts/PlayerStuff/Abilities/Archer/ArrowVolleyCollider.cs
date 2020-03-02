@@ -77,18 +77,18 @@ public class ArrowVolleyCollider : MonoBehaviour
         foreach (Collider c in cols)
         {
             // If the enemy currently has no element assigned in it's Element Manager...
-            if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.NONE)
+            if (c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.NONE)
             {
                 // Deal damage to the enemy
                 c.GetComponent<Health>().Damage((int)archerDmg);
 
                 // Set the elemental proc to Wind
-                c.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.Wind;
+                c.GetComponent<ElementManager>().effectedElement = ElementManager.ClassElement.Wind;
             }
             else
             {
                 // If the enemy currently has an Earth proc...
-                if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Earth)
+                if (c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.Earth)
                 {
                     // Activate the Archer & Paladin combo
                     archerPaladinCombo.ActivateCombo(c.gameObject);
@@ -96,14 +96,14 @@ public class ArrowVolleyCollider : MonoBehaviour
 
                 }
                 // If the enemy currently has a Fire proc...
-                else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Fire)
+                else if (c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.Fire)
                 {
                     // Activate the Archer & Warrior combo
                     archerWarriorCombo.ActivateCombo();
                     comboText.text = "Archer & Warrior Combo Performed";
                 }
                 // If the enemy currently has a Lightning proc...
-                else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Lightning)
+                else if (c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.Lightning)
                 {
                     // Activate the Archer & Assassin combo
                     archerAssassinCombo.ActivateCombo(c.gameObject, (int)archerDmg);

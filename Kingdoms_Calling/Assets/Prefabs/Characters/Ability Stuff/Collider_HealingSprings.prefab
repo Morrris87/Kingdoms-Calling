@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4261474336237692717}
   - component: {fileID: 6099201680240171428}
   - component: {fileID: 3128582404671600433}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Collider_HealingSprings
   m_TagString: Untagged
   m_Icon: {fileID: 0}

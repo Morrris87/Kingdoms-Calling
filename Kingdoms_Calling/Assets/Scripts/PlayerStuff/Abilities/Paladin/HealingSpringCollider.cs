@@ -75,6 +75,8 @@ public class HealingSpringCollider : MonoBehaviour
     // When called, damages all enemies found in the collider and applies earth proc if appliciable
     public void DamageEnemiesInCollider()
     {
+
+        //Debug.Log("Totem Boost value " + totemBoost);
         // Grab all colliders in the hitbox of the ability
         Collider[] cols = Physics.OverlapBox(GetComponent<Collider>().bounds.center, GetComponent<Collider>().bounds.extents, GetComponent<Collider>().transform.rotation, LayerMask.GetMask("Enemy"));
 
@@ -115,6 +117,9 @@ public class HealingSpringCollider : MonoBehaviour
                     // If the enemy currently has a Lightning proc...
                     else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Lightning)
                     {
+                        // Remove the enemies mark
+                        c.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
+
                         // Activate the Assassin & Paladin combo
                         assassinPaladinCombo.ActivateCombo();
                         comboText.text = "Assassin & Paladin Combo Performed";
@@ -141,9 +146,12 @@ public class HealingSpringCollider : MonoBehaviour
     public void TotemBoost(float rangeMultiplier, int damageHealMultiplier)
     {
         //update the specs of the totem and reset its life boosted     
-        damageValue *= damageHealMultiplier;
-        healValue *= damageHealMultiplier;
-        abilityLifeTimer = totalLifeTime;
-        totemBoost = true;
+        damageValue *= damageHealMultiplier; // Multiply the damage being dealt
+        healValue *= damageHealMultiplier; // Multiply the healing
+        abilityLifeTimer = totalLifeTime; // Reset the totems lifespan
+        totemBoost = true; // Turn the boost on
+        //Increase the totem effect size
+        transform.localScale = new Vector3(transform.localScale.x * rangeMultiplier, transform.localScale.y, transform.localScale.z * rangeMultiplier);
+        //Debug.Log("Totem Boost");
     }
 }

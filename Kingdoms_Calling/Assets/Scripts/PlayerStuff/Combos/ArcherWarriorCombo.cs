@@ -42,7 +42,7 @@ public class ArcherWarriorCombo : MonoBehaviour
         if(abilityTick <= 0)
         {
             //Grab all colliders inside of the sphere which in our case acts as a circle with the player and enemy layer mask 
-            Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, range, 1 << enemyLayerIndex);
+            Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, range, LayerMask.GetMask("Enemy"));
 
             //Loop through the colliders checking if its either a player or a enemy
             int i = 0;
@@ -61,6 +61,7 @@ public class ArcherWarriorCombo : MonoBehaviour
                 }
                 i++;
             }
+
             //Reset the tick timer 
             abilityTick = damageInterval;
 

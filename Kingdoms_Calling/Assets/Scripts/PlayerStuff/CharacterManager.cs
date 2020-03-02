@@ -393,14 +393,14 @@ public class CharacterManager : MonoBehaviour
             {
                 if (!rightStick)
                     rightStick = true;
-                Debug.Log(rightInput.x + " Right Stick true " + rightInput.y);
+                //Debug.Log(rightInput.x + " Right Stick true " + rightInput.y);
                 CalcRotation(rightInput);
             }
             else
             {
                 if (rightStick)
                     rightStick = false;
-               Debug.Log("Right Stick false");
+               //Debug.Log("Right Stick false");
             }
         }
     }
@@ -422,7 +422,18 @@ public class CharacterManager : MonoBehaviour
             else if (characterClass == CharacterClass.Archer)
             {
                 if (context.ReadValue<float>() == 1)
+                {
+                    if (!displayLocation)
+                        displayLocation = true;
+                    //Debug.Log("Started");
+                }
+
+                if (context.ReadValue<float>() == 0)//Button released and we are showing indicator
+                {
                     arrowVolley.UseAbility();
+                    displayLocation = false;
+                    Debug.Log("arrow volley performed");
+                }
             }
             else if (characterClass == CharacterClass.Warrior)
             {

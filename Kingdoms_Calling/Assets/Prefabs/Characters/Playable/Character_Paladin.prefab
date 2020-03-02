@@ -505,7 +505,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 62bb5ae11bc5ba34ea0230b33b2d348f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 71755dd1ad326bd47a0b4f3ad78c4bea, type: 3}
   m_Color: {r: 0.4716981, g: 0.26980194, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -675,11 +675,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: pali
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 83296668e60d9e6488769514ee0eff68,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 805e40610bc09c3479a2f2acc93daa92, type: 2}
     - target: {fileID: -4216859302048453862, guid: 83296668e60d9e6488769514ee0eff68,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -735,6 +730,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 83296668e60d9e6488769514ee0eff68,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 805e40610bc09c3479a2f2acc93daa92, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83296668e60d9e6488769514ee0eff68, type: 3}
 --- !u!1 &7375691159953995740 stripped

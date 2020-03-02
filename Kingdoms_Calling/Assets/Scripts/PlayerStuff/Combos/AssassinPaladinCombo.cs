@@ -13,7 +13,7 @@ public class AssassinPaladinCombo : MonoBehaviour
 {
     // Public Variables
     [Header("Totem Specs")]
-    public float range = 1f;
+    public float range = 2f;
     public float upgradeLifeTime = 10f;
     public int damageHealMultiplier = 1;
 
@@ -43,16 +43,14 @@ public class AssassinPaladinCombo : MonoBehaviour
     // Calling this function uses the ability
     public void ActivateCombo()
     {
-        // Ability has been used, so it needs to cooldown
-        //isUsable = false;
+        //Find the totem
+        GameObject t = GameObject.Find("Collider_HealingSprings(Clone)");
 
-        //Grab all colliders inside of the sphere which in our case acts as a circle with the player and enemy layer mask 
-        Collider[] hitColliders = Physics.OverlapSphere(this.transform.position, range, 1 << healingSpringsMask);
-
-        //loop through all totems in the range
-        foreach(Collider t in hitColliders)
+        //if we find a totem then boostS
+        if (t)
         {
             t.gameObject.GetComponent<HealingSpringCollider>().TotemBoost(range, damageHealMultiplier);
         }
+
     }
 }

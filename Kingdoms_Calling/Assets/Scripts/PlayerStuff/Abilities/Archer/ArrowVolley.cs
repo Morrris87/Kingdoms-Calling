@@ -59,6 +59,9 @@ public class ArrowVolley : MonoBehaviour
             // Ability has been used, so set ability as unusable
             isUsable = false;
 
+            //update the destination position
+            colliderDestPos = GetComponent<CharacterManager>().abilityIndicator.transform;
+
             // Enable the cooldown UI
             abilityCooldownUI.SetActive(true);
 
