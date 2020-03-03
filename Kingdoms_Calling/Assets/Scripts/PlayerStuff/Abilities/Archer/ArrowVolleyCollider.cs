@@ -9,6 +9,7 @@ public class ArrowVolleyCollider : MonoBehaviour
 {
     // Public Variables
     public float timerLength = 5f;  // Time in seconds for the collider to last before being destroyed
+    public GameObject ArcherWarriorComboPrefab;
 
     // Private Variables
     private float damageInterval = 1f;  // Interval value for how much time passes between damage being dealt
@@ -22,6 +23,7 @@ public class ArrowVolleyCollider : MonoBehaviour
     private ArcherAssassinCombo archerAssassinCombo = new ArcherAssassinCombo();    // Used for calling the assassin combo
     private ArcherWarriorCombo archerWarriorCombo = new ArcherWarriorCombo();       // Used for calling the warrior combo
     private ArcherPaladinCombo archerPaladinCombo = new ArcherPaladinCombo();       // Used for calling the paladin combo
+
 
     // Start is called before the first frame update
     void Start()
@@ -99,8 +101,11 @@ public class ArrowVolleyCollider : MonoBehaviour
                 else if (c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.Fire)
                 {
                     // Activate the Archer & Warrior combo
-                    archerWarriorCombo.ActivateCombo();
+                    // Set the elemental proc to none
+                    c.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
+                    Instantiate(ArcherWarriorComboPrefab, transform.position, Quaternion.identity);
                     comboText.text = "Archer & Warrior Combo Performed";
+                    Destroy(this.gameObject);
                 }
                 // If the enemy currently has a Lightning proc...
                 else if (c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.Lightning)
