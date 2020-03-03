@@ -157,7 +157,7 @@ public class CharacterManager : MonoBehaviour
         ////Fill the desired direction, rotation vector with the basic directions 
         //Vector3 desiredDirection = new Vector3(inputDirection.x, 0, inputDirection.z);
 
-        if(playerAnim.GetBool("performingAction") == true)
+        if (playerAnim.GetBool("performingAction") == true)
         {
             ZeroInput();
         }
@@ -218,7 +218,7 @@ public class CharacterManager : MonoBehaviour
         //Update the cycle timer
         if (cycleTimer >= 0)
             cycleTimer -= Time.deltaTime;
-        
+
         InputSystem.Update();
     }
 
@@ -329,7 +329,7 @@ public class CharacterManager : MonoBehaviour
                 basicAttack.AttackMelee();
             }
         }
-            
+
     }
 
     public void Move(InputAction.CallbackContext context)
@@ -400,7 +400,7 @@ public class CharacterManager : MonoBehaviour
             {
                 if (rightStick)
                     rightStick = false;
-               //Debug.Log("Right Stick false");
+                //Debug.Log("Right Stick false");
             }
         }
     }
@@ -417,7 +417,16 @@ public class CharacterManager : MonoBehaviour
             else if (characterClass == CharacterClass.Assassin)
             {
                 if (context.ReadValue<float>() == 1)
-                    thunderStrike.UseAbility();
+                {
+                    displayLocation = true;
+                    //Debug.Log("Started");
+                }
+
+                if (context.ReadValue<float>() == 0)
+                {
+                    thunderStrike.UseAbility(abilityIndicator);
+                    displayLocation = false;
+                }
             }
             else if (characterClass == CharacterClass.Archer)
             {
@@ -432,7 +441,7 @@ public class CharacterManager : MonoBehaviour
                 {
                     arrowVolley.UseAbility();
                     displayLocation = false;
-                    Debug.Log("arrow volley performed");
+                    //Debug.Log("arrow volley performed");
                 }
             }
             else if (characterClass == CharacterClass.Warrior)

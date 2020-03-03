@@ -436,7 +436,7 @@ PrefabInstance:
     - target: {fileID: 8623312592771481221, guid: b73341ff3ab3fe8458189c9c8f71a022,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4996354796337935079, guid: b73341ff3ab3fe8458189c9c8f71a022,
         type: 3}
@@ -1551,7 +1551,7 @@ PrefabInstance:
     - target: {fileID: 7280584505368016736, guid: c1c6583202c1aaf4bbcebb6792578b2e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7280584505368016737, guid: c1c6583202c1aaf4bbcebb6792578b2e,
         type: 3}
@@ -1633,6 +1633,11 @@ PrefabInstance:
       propertyPath: abilityCooldownUI
       value: 
       objectReference: {fileID: 416630146}
+    - target: {fileID: 6119029337721492403, guid: c1c6583202c1aaf4bbcebb6792578b2e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c6583202c1aaf4bbcebb6792578b2e, type: 3}
 --- !u!1 &1615315081 stripped
