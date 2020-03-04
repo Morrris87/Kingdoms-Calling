@@ -1,0 +1,6 @@
+Lich animations 
+	- attack f5 f30
+	- death f35 f75 
+	- idle f80 f200
+	- scream/skeleton summon f205 f235
+	- melee attack f240 f280
