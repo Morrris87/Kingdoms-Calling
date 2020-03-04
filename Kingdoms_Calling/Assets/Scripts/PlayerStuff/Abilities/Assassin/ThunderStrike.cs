@@ -59,7 +59,7 @@ public class ThunderStrike : MonoBehaviour
     }
 
     // Calling this function uses the ability
-    public void UseAbility()
+    public void UseAbility(GameObject indicator)
     {
         // If the ability is usable...
         if (isUsable == true)
@@ -69,6 +69,8 @@ public class ThunderStrike : MonoBehaviour
 
             // Enable the cooldown UI
             abilityCooldownUI.SetActive(true);
+
+            playerDestPos = indicator.transform;
 
             // Play the ability animation
             GetComponentInChildren<Animator>().SetTrigger("ThunderStrikeUsed");

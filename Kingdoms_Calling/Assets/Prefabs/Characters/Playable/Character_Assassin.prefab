@@ -695,6 +695,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   assassin: {fileID: 7280584505368016736}
+  ChainLightningPrefab: {fileID: 7052526911153070361, guid: 8dcf058d9dd2cb44ba024a4a1acb5153,
+    type: 3}
+  ArcherWarriorComboPrefab: {fileID: 2781772745266028850, guid: 6abca7a05771e9043b72a21c93ed4735,
+    type: 3}
 --- !u!1001 &1759642343858466123
 PrefabInstance:
   m_ObjectHideFlags: 0

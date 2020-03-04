@@ -9,6 +9,6 @@ public class CharRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(Vector3.up * speed * Time.deltaTime);
+        transform.rotation = new Quaternion(0f, transform.rotation.y + 1.0f, 0f,0.0f);
     }
 }

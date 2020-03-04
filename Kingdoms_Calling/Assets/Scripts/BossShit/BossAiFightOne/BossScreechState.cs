@@ -19,13 +19,10 @@ public class BossScreechState : BossFightOneFSMState
 
     public override void Act()
     {
-        
-
         //timer for the attack length (maybe just have it lenght of the animation)
         if (enemyAI.screechTimer >= 2)
         {
             enemyAI.bossScreechHitBox.gameObject.SetActive(true);
-            
         }
         else
         {
