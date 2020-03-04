@@ -12,6 +12,9 @@ public class TombOfStat : MonoBehaviour
     enum statType {Health,Power,Speed,Stamina,PhysicalDefence,MagicDefence};
     statType stat;
 
+    CharacterManager manager;
+    Health health;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,5 +51,36 @@ public class TombOfStat : MonoBehaviour
     void Update()
     {
         
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        OnPickUp(stat);
+    }
+    void OnPickUp(statType statPickUp)
+    {
+       if(statPickUp == statType.Health)
+        {
+            
+        }
+       else if(statPickUp == statType.MagicDefence)
+        {
+            
+        }
+        else if (statPickUp == statType.PhysicalDefence)
+        {
+
+        }
+        else if (statPickUp == statType.Power)
+        {
+
+        }
+        else if (statPickUp == statType.Stamina)
+        {
+
+        }
+        else if (statPickUp == statType.Speed)
+        {
+
+        }
     }
 }

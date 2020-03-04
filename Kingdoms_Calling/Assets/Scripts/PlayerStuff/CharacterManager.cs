@@ -14,7 +14,8 @@ using UnityEngine.InputSystem;
 
 public class CharacterManager : MonoBehaviour
 {
-    //Slot machine
+    //Inventory
+    [SerializeField] private UI_Inventory uiInventory;
 
     // Public Variables
     public enum CharacterClass { NONE, Paladin, Warrior, Assassin, Archer };
@@ -86,6 +87,8 @@ public class CharacterManager : MonoBehaviour
     //Player and enemy layer index
     int playerLayerIndex, enemyLayerIndex;
 
+    private Inventory inventory;
+
     private void Awake()
     {
         //inputAction = new PlayerInputActions();// Generate new PlayerInputActions
@@ -142,6 +145,11 @@ public class CharacterManager : MonoBehaviour
         this.GetComponent<Health>().characterClass = characterClass;
         playerAnim = GetComponentInChildren<Animator>();
         //this.GetComponentInChildren<Animator>().Play("Idle");
+
+        //inventory things
+        inventory = new Inventory();
+        uiInventory.SetInventory(inventory);
+
     }
 
     void Update()
