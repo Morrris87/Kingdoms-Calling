@@ -145,11 +145,12 @@ public class CharacterManager : MonoBehaviour
         this.GetComponent<Health>().characterClass = characterClass;
         playerAnim = GetComponentInChildren<Animator>();
         //this.GetComponentInChildren<Animator>().Play("Idle");
-
-        //inventory things
+    }
+    public void Start()
+    {
+         //inventory things
         inventory = new Inventory();
         uiInventory.SetInventory(inventory);
-
     }
 
     void Update()
