@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UI_Inventory : MonoBehaviour
 {
     private Inventory inventory;
-    private Transform itemSlotContainer;
-    private Transform itemSlotTemplate;
+    public Transform itemSlotContainer;
+    public Transform itemSlotTemplate;
 
     private void Awake()
     {
@@ -27,9 +28,13 @@ public class UI_Inventory : MonoBehaviour
         float itemSlotCellSize = 70f;
         foreach(Item item in inventory.GetItemList())
         {
+            //RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
             RectTransform itemSlotRectTransform = Instantiate(itemSlotTemplate, itemSlotContainer).GetComponent<RectTransform>();
             itemSlotRectTransform.gameObject.SetActive(true);
+
             itemSlotRectTransform.anchoredPosition = new Vector2(x * itemSlotCellSize, y * itemSlotCellSize);
+            Image image = itemSlotRectTransform.Find("ItemImage").GetComponent<Image>();
+            image.sprite = item.GetSprite();
             x++;
         }
     }

@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class ItemAssets : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    //https://www.youtube.com/watch?v=2WnAOV7nHW0 at 7:59
+
+    public static ItemAssets Instance { get; private set; }
+
+    private void Awake()
     {
-        //https://www.youtube.com/watch?v=2WnAOV7nHW0 at 7:59
+        Instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Sprite ElementalChainLink;
+    public Sprite OrganOfDesperation;
+    public Sprite TomeOfStat;
+    public Sprite CharmOfPressure;
+    public Sprite NeedleOfChance;
+    public Sprite PiercingSheathe;
 }

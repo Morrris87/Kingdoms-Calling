@@ -16,10 +16,10 @@ public class Inventory
 
         //test
         AddItem(new Item { itemType = Item.ItemType.CharmOfPressure });
-        //AddItem(new Item { itemType = Item.ItemType.OrganOfDesperation });
-        //AddItem(new Item { itemType = Item.ItemType.PiercingSheathe });
-        //AddItem(new Item { itemType = Item.ItemType.TomeOfStat });
-        //AddItem(new Item { itemType = Item.ItemType.TomeOfStat });
+        AddItem(new Item { itemType = Item.ItemType.OrganOfDesperation });
+        AddItem(new Item { itemType = Item.ItemType.PiercingSheathe });
+        AddItem(new Item { itemType = Item.ItemType.TomeOfStat });
+        AddItem(new Item { itemType = Item.ItemType.TomeOfStat });
     }
     public void AddItem(Item item)
     {
