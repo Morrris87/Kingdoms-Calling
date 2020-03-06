@@ -13,10 +13,16 @@ public class BossAutoAttackState : BossFightOneFSMState
 
     int attackRange = 10;
 
+    int timerMultiply;
+    int timerSpawnSkelys;
+
     float rangeFromPlayerOne;
     float rangeFromPlayerTwo;
     float rangeFromPlayerThree;
     float rangeFromPlayerFour;
+
+    int multiplyCooldown = 15;
+    int spawnCooldown = 12;
 
     GameObject currentClosestPlayer;
 
@@ -45,6 +51,7 @@ public class BossAutoAttackState : BossFightOneFSMState
             if (currentClosestPlayer == enemyAI.playerOne)
             {
                 enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
+                //animation
             }
             else if (currentClosestPlayer == enemyAI.playerTwo)
             {
@@ -65,6 +72,13 @@ public class BossAutoAttackState : BossFightOneFSMState
 
     public override void Reason()
     {
+
+        //update timers conners way so i dont fuking break it :D
+
+
+
+
+
         if (enemyAI.bossStats.health <= 0)
         {
             enemyAI.PerformTransition(Transition.NoHealth);
@@ -131,9 +145,20 @@ public class BossAutoAttackState : BossFightOneFSMState
         {
             currentClosestPlayer = enemyAI.playerFour;
         }
-        // get the closest player here you dumb fuck you need sleep wake up fuck heads
-        // i need to vegitate at home and eat food
 
+
+        if(timerMultiply == 0)
+        {
+            enemyAI.PerformTransition(Transition.CastMultiply);
+            timerMultiply = multiplyCooldown;
+            return;
+        }
+        if(timerSpawnSkelys == 0)
+        {
+            enemyAI.PerformTransition(Transition.CastSpawnSkeletons);
+            timerSpawnSkelys = spawnCooldown;
+            return;
+        }
 
 
     }
