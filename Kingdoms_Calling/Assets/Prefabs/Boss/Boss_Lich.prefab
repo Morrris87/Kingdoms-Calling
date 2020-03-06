@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7984871552658359310}
+  - component: {fileID: 7708316231562025990}
   m_Layer: 0
   m_Name: Boss_Lich
   m_TagString: Untagged
@@ -31,6 +32,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7708316231562025990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984871552658359311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee587bd66a319fd4db96429da99c1f03, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Player: {fileID: 0}
+  id: 0
+  m_CharNumber: 1
+  rigBody: {fileID: 0}
+  attackRange: 0
+  chaseRange: 0
+  isTaunted: 0
+  tauntDuration: 0
+  isTargeted: 0
+  bossAutoAttackCooldown: 2
+  bossScreechHitBox: {fileID: 0}
+  randomizPlayersInputsTimer: 3
+  screechTimer: 2
+  playerOne: {fileID: 0}
+  playerTwo: {fileID: 0}
+  playerThree: {fileID: 0}
+  playerFour: {fileID: 0}
+  targetSymbol: {fileID: 0}
+  TimerThroneHasBeenActivated: 0
+  currentHealth: 0
+  spawnZoneOne: {fileID: 0}
+  spawnZoneTwo: {fileID: 0}
+  spawnZoneThree: {fileID: 0}
+  spawnZoneFour: {fileID: 0}
+  bossPrefab: {fileID: 0}
+  Throne: {fileID: 0}
+  bossTimer: 2
+  CloneOneSpawn: {fileID: 0}
+  CloneTwoSpawn: {fileID: 0}
+  CloneThreeSpawn: {fileID: 0}
+  CloneFourSpawn: {fileID: 0}
+  bossStats: {fileID: 0}
+  spawnScript: {fileID: 0}
+  objPlayer: {fileID: 0}
+  playerHealth: {fileID: 0}
 --- !u!1001 &7984871552453296968
 PrefabInstance:
   m_ObjectHideFlags: 0
