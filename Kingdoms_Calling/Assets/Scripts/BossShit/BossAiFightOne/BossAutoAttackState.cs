@@ -84,9 +84,20 @@ public class BossAutoAttackState : BossFightOneFSMState
             enemyAI.PerformTransition(Transition.NoHealth);
             return;
         }
-        else
-        {
-            for (int i = 0; i < enemyAI.playerArray.Length; i++)
+        //else if(timerMultiply == 0)
+        //{
+        //    enemyAI.PerformTransition(Transition.CastMultiply);
+        //    timerMultiply = multiplyCooldown;
+        //    return;
+        //}
+        //else if(timerSpawnSkelys == 0)
+        //{
+        //    enemyAI.PerformTransition(Transition.CastSpawnSkeletons);
+        //    timerSpawnSkelys = spawnCooldown;
+        //    return;
+        //}
+
+        for (int i = 0; i < enemyAI.playerArray.Length; i++)
             {
                 if (i == 0)
                 {
@@ -125,7 +136,7 @@ public class BossAutoAttackState : BossFightOneFSMState
                     }
                 }
             }
-        }
+
 
         //find the closest player to the lich
         
@@ -145,43 +156,5 @@ public class BossAutoAttackState : BossFightOneFSMState
         {
             currentClosestPlayer = enemyAI.playerFour;
         }
-
-
-        if(timerMultiply == 0)
-        {
-            enemyAI.PerformTransition(Transition.CastMultiply);
-            timerMultiply = multiplyCooldown;
-            return;
-        }
-        if(timerSpawnSkelys == 0)
-        {
-            enemyAI.PerformTransition(Transition.CastSpawnSkeletons);
-            timerSpawnSkelys = spawnCooldown;
-            return;
-        }
-
-
     }
-    //public void AssignPlayersToArray()
-    //{
-    //    for (int i = 0; i < enemyAI.playerArray.Length; i++)
-    //    {
-    //        if (i == 0)
-    //        {
-    //            Players[1] = rangeFromPlayerOne;
-    //        }
-    //        else if (i == 1)
-    //        {
-    //            Players[2] = rangeFromPlayerTwo;
-    //        }
-    //        else if (i == 2)
-    //        {
-    //            Players[3] = rangeFromPlayerThree;
-    //        }
-    //        else if (i == 3)
-    //        {
-    //            Players[4] = rangeFromPlayerFour;
-    //        }
-    //    }
-    //}
 }
