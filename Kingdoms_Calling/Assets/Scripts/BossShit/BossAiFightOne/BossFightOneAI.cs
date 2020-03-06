@@ -187,11 +187,9 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         spawn.AddTransition(Transition.NoHealth, FSMStateID.Dead);
         spawn.AddTransition(Transition.AllClonesKilled, FSMStateID.AutoAttack);
 
-
         BossMultiplyState multply = new BossMultiplyState(this);
         multply.AddTransition(Transition.NoHealth, FSMStateID.Dead);
         multply.AddTransition(Transition.AllClonesKilled, FSMStateID.AutoAttack);
-
 
         BossScreechState screech = new BossScreechState(this);
         screech.AddTransition(Transition.NoHealth, FSMStateID.Dead);
