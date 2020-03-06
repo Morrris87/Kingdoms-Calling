@@ -81,6 +81,8 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     [HideInInspector]
     public Health playerHealth;
 
+    public Animator animator;
+
     private string GetStateString()
     {
         string state = "NONE";

@@ -46,7 +46,7 @@ public class BossAutoAttackState : BossFightOneFSMState
         if (enemyAI.bossTimer <= 0)
         {
             enemyAI.bossTimer = enemyAI.bossAutoAttackCooldown;
-
+            enemyAI.animator.SetTrigger("MeleeAttacked");
 
             if (currentClosestPlayer == enemyAI.playerOne)
             {
