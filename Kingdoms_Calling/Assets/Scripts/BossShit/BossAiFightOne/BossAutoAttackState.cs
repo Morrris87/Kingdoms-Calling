@@ -13,8 +13,7 @@ public class BossAutoAttackState : BossFightOneFSMState
 
     int attackRange = 10;
 
-    int timerMultiply;
-    int timerSpawnSkelys;
+    
 
     float rangeFromPlayerOne;
     float rangeFromPlayerTwo;
@@ -34,6 +33,8 @@ public class BossAutoAttackState : BossFightOneFSMState
         curSpeed = 0;
         stateID = FSMStateID.AutoAttack;
         Players = new float[4];
+        enemyAI.timerMultiply = multiplyCooldown;
+        enemyAI.timerSpawnSkelys = spawnCooldown;
     }
 
     public override void Act()
@@ -75,29 +76,34 @@ public class BossAutoAttackState : BossFightOneFSMState
 
         //update timers conners way so i dont fuking break it :D
 
+        enemyAI.timerMultiply -= Time.deltaTime;
+        enemyAI.timerSpawnSkelys -= Time.deltaTime;
 
 
-
-
+        // Transition to Death State
         if (enemyAI.bossStats.health <= 0)
         {
             enemyAI.PerformTransition(Transition.NoHealth);
             return;
         }
-        //else if(timerMultiply == 0)
-        //{
-        //    enemyAI.PerformTransition(Transition.CastMultiply);
-        //    timerMultiply = multiplyCooldown;
-        //    return;
-        //}
-        //else if(timerSpawnSkelys == 0)
-        //{
-        //    enemyAI.PerformTransition(Transition.CastSpawnSkeletons);
-        //    timerSpawnSkelys = spawnCooldown;
-        //    return;
-        //}
-
-        for (int i = 0; i < enemyAI.playerArray.Length; i++)
+        // Transition to Multiply State
+        else if (enemyAI.timerMultiply == 0)
+        {
+            enemyAI.PerformTransition(Transition.CastMultiply);
+            enemyAI.timerMultiply = multiplyCooldown;
+            return;
+        }
+        // Transition to SpawnSkellys State
+        else if (enemyAI.timerSpawnSkelys == 0)
+        {
+            enemyAI.PerformTransition(Transition.CastSpawnSkeletons);
+            enemyAI.timerSpawnSkelys = spawnCooldown;
+            return;
+        }
+        else
+        {
+            //loop tru the player array to find the range from each player
+            for (int i = 0; i < enemyAI.playerArray.Length; i++)
             {
                 if (i == 0)
                 {
@@ -138,23 +144,23 @@ public class BossAutoAttackState : BossFightOneFSMState
             }
 
 
-        //find the closest player to the lich
-        
-        if(Players.Min() == rangeFromPlayerOne)
-        {
-            currentClosestPlayer = enemyAI.playerOne;
-        }
-        if (Players.Min() == rangeFromPlayerTwo)
-        {
-            currentClosestPlayer = enemyAI.playerTwo;
-        }
-        if (Players.Min() == rangeFromPlayerThree)
-        {
-            currentClosestPlayer = enemyAI.playerThree;
-        }
-        if (Players.Min() == rangeFromPlayerFour)
-        {
-            currentClosestPlayer = enemyAI.playerFour;
+            //find the closest player to the lich
+            if (Players.Min() == rangeFromPlayerOne)
+            {
+                currentClosestPlayer = enemyAI.playerOne;
+            }
+            if (Players.Min() == rangeFromPlayerTwo)
+            {
+                currentClosestPlayer = enemyAI.playerTwo;
+            }
+            if (Players.Min() == rangeFromPlayerThree)
+            {
+                currentClosestPlayer = enemyAI.playerThree;
+            }
+            if (Players.Min() == rangeFromPlayerFour)
+            {
+                currentClosestPlayer = enemyAI.playerFour;
+            }
         }
     }
 }
