@@ -81,6 +81,11 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     [HideInInspector]
     public Health playerHealth;
 
+    [HideInInspector]
+    public float timerMultiply;
+    [HideInInspector]
+    public float timerSpawnSkelys;
+
     private string GetStateString()
     {
         string state = "NONE";
@@ -144,6 +149,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         }
         if (CurrentState.ID == FSMStateID.Dead)
         {
+
         }
         if(randomizPlayersInputsTimer <= 3)
         {
