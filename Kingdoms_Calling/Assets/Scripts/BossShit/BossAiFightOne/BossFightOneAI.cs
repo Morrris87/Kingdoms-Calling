@@ -40,7 +40,8 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     [HideInInspector]
     public GameObject playerFour;
 
-    GameObject[] playerArray;
+    [HideInInspector]
+    public GameObject[] playerArray;
     //Target Symbol
     public GameObject targetSymbol;
 
@@ -102,24 +103,27 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         rigBody = GetComponent<Rigidbody>();
         bossStats = gameObject.GetComponent<BossStats>();
         spawnScript = gameObject.GetComponent<Spawn>();
+
+        playerArray = GameObject.FindGameObjectsWithTag("Player");
+
         // Create the FSM for the player.
         ConstructFSM();
         //set up a Array of players
         for (int i = 0; i < playerArray.Length; i++)
         {
-            if (i == 1)
+            if (i == 0)
             {
                 playerOne = playerArray[i];
             }
-            else if (i == 2)
+            else if (i == 1)
             {
                 playerTwo = playerArray[i];
             }
-            else if (i == 3)
+            else if (i == 2)
             {
                 playerThree = playerArray[i];
             }
-            else if (i == 4)
+            else if (i == 3)
             {
                 playerFour = playerArray[i];
             }

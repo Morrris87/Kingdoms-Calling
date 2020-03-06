@@ -21,11 +21,13 @@ public class BossAutoAttackState : BossFightOneFSMState
     GameObject currentClosestPlayer;
 
     float[] Players;
+
     public BossAutoAttackState(BossFightOneAI Lich)
     {
         enemyAI = Lich;
         curSpeed = 0;
         stateID = FSMStateID.AutoAttack;
+        Players = new float[4];
     }
 
     public override void Act()
@@ -42,10 +44,6 @@ public class BossAutoAttackState : BossFightOneFSMState
 
             if (currentClosestPlayer == enemyAI.playerOne)
             {
-                //Attack Player? not the boss!!!!!
-                // how to make it hit player one?
-                //enemyAI.playerOne;
-                // more shit have to figure that out
                 enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
             }
             else if (currentClosestPlayer == enemyAI.playerTwo)
@@ -72,29 +70,51 @@ public class BossAutoAttackState : BossFightOneFSMState
             enemyAI.PerformTransition(Transition.NoHealth);
             return;
         }
-        //player one distance
-        if (IsInCurrentRange(enemyAI.gameObject.transform, enemyAI.playerOne.transform.position, attackRange))
+        else
         {
-            rangeFromPlayerOne = Vector3.Distance(enemyAI.gameObject.transform.position, enemyAI.playerOne.transform.position);
-        }
-        //player two distance
-        if (IsInCurrentRange(enemyAI.gameObject.transform, enemyAI.playerTwo.transform.position, attackRange))
-        {
-            rangeFromPlayerTwo = Vector3.Distance(enemyAI.gameObject.transform.position, enemyAI.playerTwo.transform.position);
-        }
-        //player three distance
-        if (IsInCurrentRange(enemyAI.gameObject.transform, enemyAI.playerThree.transform.position, attackRange))
-        {
-            rangeFromPlayerThree = Vector3.Distance(enemyAI.gameObject.transform.position, enemyAI.playerThree.transform.position);
-        }
-        //player four distance 
-        if (IsInCurrentRange(enemyAI.gameObject.transform, enemyAI.playerFour.transform.position, attackRange))
-        {
-            rangeFromPlayerFour = Vector3.Distance(enemyAI.gameObject.transform.position, enemyAI.playerFour.transform.position);
+            for (int i = 0; i < enemyAI.playerArray.Length; i++)
+            {
+                if (i == 0)
+                {
+                    //player one distance
+                    if (IsInCurrentRange(enemyAI.gameObject.transform, enemyAI.playerOne.transform.position, attackRange))
+                    {
+                        rangeFromPlayerOne = Vector3.Distance(enemyAI.gameObject.transform.position, enemyAI.playerOne.transform.position);
+                        Players[i] = rangeFromPlayerOne;
+                    }
+                }
+                else if (i == 1)
+                {
+                    //player two distance
+                    if (IsInCurrentRange(enemyAI.gameObject.transform, enemyAI.playerTwo.transform.position, attackRange))
+                    {
+                        rangeFromPlayerTwo = Vector3.Distance(enemyAI.gameObject.transform.position, enemyAI.playerTwo.transform.position);
+                        Players[i] = rangeFromPlayerTwo;
+                    }
+                }
+                else if (i == 3)
+                {
+                    //player three distance
+                    if (IsInCurrentRange(enemyAI.gameObject.transform, enemyAI.playerThree.transform.position, attackRange))
+                    {
+                        rangeFromPlayerThree = Vector3.Distance(enemyAI.gameObject.transform.position, enemyAI.playerThree.transform.position);
+                        Players[i] = rangeFromPlayerThree;
+                    }
+                }
+                else if (i == 3)
+                {
+                    //player four distance 
+                    if (IsInCurrentRange(enemyAI.gameObject.transform, enemyAI.playerFour.transform.position, attackRange))
+                    {
+                        rangeFromPlayerFour = Vector3.Distance(enemyAI.gameObject.transform.position, enemyAI.playerFour.transform.position);
+                        Players[i] = rangeFromPlayerFour;
+                    }
+                }
+            }
         }
 
         //find the closest player to the lich
-        AssignPlayersToArray();
+        
         if(Players.Min() == rangeFromPlayerOne)
         {
             currentClosestPlayer = enemyAI.playerOne;
@@ -117,11 +137,26 @@ public class BossAutoAttackState : BossFightOneFSMState
 
 
     }
-    public void AssignPlayersToArray()
-    {
-        Players[1] = rangeFromPlayerOne;
-        Players[2] = rangeFromPlayerTwo;
-        Players[3] = rangeFromPlayerThree;
-        Players[4] = rangeFromPlayerFour;
-    }
+    //public void AssignPlayersToArray()
+    //{
+    //    for (int i = 0; i < enemyAI.playerArray.Length; i++)
+    //    {
+    //        if (i == 0)
+    //        {
+    //            Players[1] = rangeFromPlayerOne;
+    //        }
+    //        else if (i == 1)
+    //        {
+    //            Players[2] = rangeFromPlayerTwo;
+    //        }
+    //        else if (i == 2)
+    //        {
+    //            Players[3] = rangeFromPlayerThree;
+    //        }
+    //        else if (i == 3)
+    //        {
+    //            Players[4] = rangeFromPlayerFour;
+    //        }
+    //    }
+    //}
 }
