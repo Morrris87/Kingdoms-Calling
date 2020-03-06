@@ -29,6 +29,12 @@ public class BossMultiplyState : BossFightOneFSMState
             enemyAI.PerformTransition(Transition.NoHealth);
             return;
         }
+        //make transition to AutoAttack if all clones are dead
+        //else if(enemyAI)
+        //{
+        //enemyAI.PerformTransition(Transition.AllClonesKilled);
+        //return;
+        //}
     }
     
 }
