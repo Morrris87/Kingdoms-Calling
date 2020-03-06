@@ -18,8 +18,8 @@ public class BossMultiplyState : BossFightOneFSMState
 
     public override void Act()
     {
-        //Call the new function i made in the Spawn Script 
-        enemyAI.spawnScript.SpawnClones(enemyAI.bossPrefab, enemyAI.CloneOneSpawn, enemyAI.CloneTwoSpawn, enemyAI.CloneThreeSpawn, enemyAI.CloneFourSpawn);
+        //Call the new function i made in the Spawn Script
+        enemyAI.animator.SetTrigger("MultiplyEvent");
     }
 
     public override void Reason()

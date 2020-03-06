@@ -47,24 +47,23 @@ public class BossAutoAttackState : BossFightOneFSMState
         if (enemyAI.bossTimer <= 0)
         {
             enemyAI.bossTimer = enemyAI.bossAutoAttackCooldown;
-            enemyAI.animator.SetTrigger("MeleeAttacked");
+            
 
             if (currentClosestPlayer == enemyAI.playerOne)
             {
-                enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
-                //animation
+                enemyAI.animator.SetTrigger("MeleeAttacked");
             }
             else if (currentClosestPlayer == enemyAI.playerTwo)
             {
-                enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
+                enemyAI.animator.SetTrigger("MeleeAttacked");
             }
             else if (currentClosestPlayer == enemyAI.playerThree)
             {
-                enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
+                enemyAI.animator.SetTrigger("MeleeAttacked");
             }
             else if (currentClosestPlayer == enemyAI.playerFour)
             {
-                enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
+                enemyAI.animator.SetTrigger("MeleeAttacked");
             }
         }
 
