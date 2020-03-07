@@ -29,7 +29,7 @@ public class BossSpawnSkeletonsState : BossFightOneFSMState
     public bool fightOne = false;
     public bool fightTwo = false;
 
-    string colour;
+    public string colour;
     public BossSpawnSkeletonsState(BossFightOneAI Lich)
     {
         enemyAI = Lich;
@@ -40,7 +40,7 @@ public class BossSpawnSkeletonsState : BossFightOneFSMState
 
     public override void Act()
     {
-        enemyAI.spawnScript.spawnSkeletonsForBoss(colour);//call from spawn
+        enemyAI.animator.SetTrigger("SpawnSkeletonsEvent");
     }
 
     public override void Reason()
