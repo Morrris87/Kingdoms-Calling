@@ -40,8 +40,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     [HideInInspector]
     public GameObject playerFour;
 
-    [HideInInspector]
-    public GameObject[] playerArray;
+    GameObject[] playerArray;
     //Target Symbol
     public GameObject targetSymbol;
 
@@ -81,12 +80,6 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     [HideInInspector]
     public Health playerHealth;
 
-    public Animator animator;
-    [HideInInspector]
-    public float timerMultiply;
-    [HideInInspector]
-    public float timerSpawnSkelys;
-
     private string GetStateString()
     {
         string state = "NONE";
@@ -109,27 +102,24 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         rigBody = GetComponent<Rigidbody>();
         bossStats = gameObject.GetComponent<BossStats>();
         spawnScript = gameObject.GetComponent<Spawn>();
-
-        playerArray = GameObject.FindGameObjectsWithTag("Player");
-
         // Create the FSM for the player.
         ConstructFSM();
         //set up a Array of players
         for (int i = 0; i < playerArray.Length; i++)
         {
-            if (i == 0)
+            if (i == 1)
             {
                 playerOne = playerArray[i];
             }
-            else if (i == 1)
+            else if (i == 2)
             {
                 playerTwo = playerArray[i];
             }
-            else if (i == 2)
+            else if (i == 3)
             {
                 playerThree = playerArray[i];
             }
-            else if (i == 3)
+            else if (i == 4)
             {
                 playerFour = playerArray[i];
             }
@@ -150,7 +140,6 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         }
         if (CurrentState.ID == FSMStateID.Dead)
         {
-
         }
         if(randomizPlayersInputsTimer <= 3)
         {
@@ -187,9 +176,11 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         spawn.AddTransition(Transition.NoHealth, FSMStateID.Dead);
         spawn.AddTransition(Transition.AllClonesKilled, FSMStateID.AutoAttack);
 
+
         BossMultiplyState multply = new BossMultiplyState(this);
         multply.AddTransition(Transition.NoHealth, FSMStateID.Dead);
         multply.AddTransition(Transition.AllClonesKilled, FSMStateID.AutoAttack);
+
 
         BossScreechState screech = new BossScreechState(this);
         screech.AddTransition(Transition.NoHealth, FSMStateID.Dead);

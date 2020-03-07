@@ -18,8 +18,8 @@ public class BossMultiplyState : BossFightOneFSMState
 
     public override void Act()
     {
-        //Call the new function i made in the Spawn Script
-        enemyAI.animator.SetTrigger("MultiplyEvent");
+        //Call the new function i made in the Spawn Script 
+        enemyAI.spawnScript.SpawnClones(enemyAI.bossPrefab, enemyAI.CloneOneSpawn, enemyAI.CloneTwoSpawn, enemyAI.CloneThreeSpawn, enemyAI.CloneFourSpawn);
     }
 
     public override void Reason()
@@ -29,12 +29,6 @@ public class BossMultiplyState : BossFightOneFSMState
             enemyAI.PerformTransition(Transition.NoHealth);
             return;
         }
-        //make transition to AutoAttack if all clones are dead
-        //else if(enemyAI)
-        //{
-        //enemyAI.PerformTransition(Transition.AllClonesKilled);
-        //return;
-        //}
     }
     
 }

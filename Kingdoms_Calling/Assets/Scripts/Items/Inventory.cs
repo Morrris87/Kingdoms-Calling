@@ -19,7 +19,7 @@ public class Inventory
         AddItem(new Item { itemType = Item.ItemType.OrganOfDesperation });
         AddItem(new Item { itemType = Item.ItemType.PiercingSheathe });
         AddItem(new Item { itemType = Item.ItemType.TomeOfStat });
-        AddItem(new Item { itemType = Item.ItemType.ElementalChainLink });      
+        AddItem(new Item { itemType = Item.ItemType.TomeOfStat });
     }
     public void AddItem(Item item)
     {
