@@ -93,7 +93,6 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         return state;
     }
 
-
     // Initialize the FSM for the NPC skeleton.s
     protected override void Initialize()
     {
@@ -102,24 +101,26 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         rigBody = GetComponent<Rigidbody>();
         bossStats = gameObject.GetComponent<BossStats>();
         spawnScript = gameObject.GetComponent<Spawn>();
+
+         playerArray = GameObject.FindGameObjectsWithTag("Player");
         // Create the FSM for the player.
         ConstructFSM();
         //set up a Array of players
         for (int i = 0; i < playerArray.Length; i++)
         {
-            if (i == 1)
+            if (i == 0)
             {
                 playerOne = playerArray[i];
             }
-            else if (i == 2)
+            else if (i == 1)
             {
                 playerTwo = playerArray[i];
             }
-            else if (i == 3)
+            else if (i == 2)
             {
                 playerThree = playerArray[i];
             }
-            else if (i == 4)
+            else if (i == 3)
             {
                 playerFour = playerArray[i];
             }
@@ -140,6 +141,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         }
         if (CurrentState.ID == FSMStateID.Dead)
         {
+            Debug.Log("ZacYou are dumb");
         }
         if(randomizPlayersInputsTimer <= 3)
         {

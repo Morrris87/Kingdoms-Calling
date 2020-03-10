@@ -77,6 +77,9 @@ public class AI : AdvancedFSM
         ConstructFSM();
         thisSkeleton = this.gameObject;
         //thisSkeletonClass = spawn.skeletonClass;
+
+
+        //this line needs to be a player array
         Players = GameObject.FindGameObjectsWithTag("Player");
 
     }

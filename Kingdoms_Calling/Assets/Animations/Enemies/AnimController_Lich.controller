@@ -49,7 +49,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 6385614430160504726, guid: 4aae45a34208e404b98580736551086f,
+  m_Motion: {fileID: 6385614430160504726, guid: 345275bca99b5ba45b10f985cdefaaa2,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -63,7 +63,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Melee Attack
+  m_Name: Swipe
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -77,7 +77,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -3625469621007873547, guid: 4aae45a34208e404b98580736551086f,
+  m_Motion: {fileID: 3340065902161648366, guid: 345275bca99b5ba45b10f985cdefaaa2,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -256,7 +256,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -5405653242291790180, guid: 4aae45a34208e404b98580736551086f,
+  m_Motion: {fileID: -8202352309735990023, guid: 345275bca99b5ba45b10f985cdefaaa2,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -331,7 +331,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -7131298565086674275, guid: 4aae45a34208e404b98580736551086f,
+  m_Motion: {fileID: 4418742384618821527, guid: 345275bca99b5ba45b10f985cdefaaa2,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -359,7 +359,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: 4aae45a34208e404b98580736551086f,
+  m_Motion: {fileID: 1827226128182048838, guid: 345275bca99b5ba45b10f985cdefaaa2,
     type: 3}
   m_Tag: 
   m_SpeedParameter: 

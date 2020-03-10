@@ -26,6 +26,7 @@ public class BossAutoAttackState : BossFightOneFSMState
         enemyAI = Lich;
         curSpeed = 0;
         stateID = FSMStateID.AutoAttack;
+        Players = new float[4];
     }
 
     public override void Act()
@@ -40,26 +41,27 @@ public class BossAutoAttackState : BossFightOneFSMState
             enemyAI.bossTimer = enemyAI.bossAutoAttackCooldown;
 
 
-            if (currentClosestPlayer == enemyAI.playerOne)
-            {
-                //Attack Player? not the boss!!!!!
-                // how to make it hit player one?
-                //enemyAI.playerOne;
-                // more shit have to figure that out
-                enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
-            }
-            else if (currentClosestPlayer == enemyAI.playerTwo)
-            {
-                enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
-            }
-            else if (currentClosestPlayer == enemyAI.playerThree)
-            {
-                enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
-            }
-            else if (currentClosestPlayer == enemyAI.playerFour)
-            {
-                enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
-            }
+
+            //if (currentClosestPlayer == enemyAI.playerOne)
+            //{
+            //    //Attack Player? not the boss!!!!!
+            //    // how to make it hit player one?
+            //    //enemyAI.playerOne;
+            //    // more shit have to figure that out
+            //    enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
+            //}
+            //else if (currentClosestPlayer == enemyAI.playerTwo)
+            //{
+            //    enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
+            //}
+            //else if (currentClosestPlayer == enemyAI.playerThree)
+            //{
+            //    enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
+            //}
+            //else if (currentClosestPlayer == enemyAI.playerFour)
+            //{
+            //    enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
+            //}
         }
 
 
@@ -95,6 +97,8 @@ public class BossAutoAttackState : BossFightOneFSMState
 
         //find the closest player to the lich
         AssignPlayersToArray();
+
+
         if(Players.Min() == rangeFromPlayerOne)
         {
             currentClosestPlayer = enemyAI.playerOne;
@@ -119,9 +123,9 @@ public class BossAutoAttackState : BossFightOneFSMState
     }
     public void AssignPlayersToArray()
     {
-        Players[1] = rangeFromPlayerOne;
-        Players[2] = rangeFromPlayerTwo;
-        Players[3] = rangeFromPlayerThree;
-        Players[4] = rangeFromPlayerFour;
+        Players[0] = rangeFromPlayerOne;
+        Players[1] = rangeFromPlayerTwo;
+        Players[2] = rangeFromPlayerThree;
+        Players[3] = rangeFromPlayerFour;
     }
 }

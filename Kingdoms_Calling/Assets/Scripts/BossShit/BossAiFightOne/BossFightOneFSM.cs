@@ -14,7 +14,7 @@ namespace CompleteBossOne
         protected virtual void FSMFixedUpdate() { }
 
         // Use this for initialization
-        void Start()
+        void Awake()
         {
             Initialize();
         }
