@@ -9,11 +9,11 @@ public class Inventory
     int maxItems = 5;
 
 
+
     private List<Item> itemList;
     public Inventory()
     {
         itemList = new List<Item>();
-
         //test
         AddItem(new Item { itemType = Item.ItemType.CharmOfPressure });
         AddItem(new Item { itemType = Item.ItemType.OrganOfDesperation });

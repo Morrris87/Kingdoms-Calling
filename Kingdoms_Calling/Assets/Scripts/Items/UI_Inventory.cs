@@ -8,11 +8,26 @@ public class UI_Inventory : MonoBehaviour
     private Inventory inventory;
     public Transform itemSlotContainer;
     public Transform itemSlotTemplate;
+    public GameObject currentPlayer;
+
+    [HideInInspector]
+    public CharacterManager playerSpeed;
+    [HideInInspector]
+    public Stamina playerStamina;
+    [HideInInspector]
+    public Health playerHealth;
+    [HideInInspector]
+    public BasicAttack playerAttack;
 
     private void Awake()
     {
         //itemSlotContainer = transform.Find("itemSlotContainer");
         //itemSlotTemplate = itemSlotContainer.Find("itemSlotTemplate");
+
+        playerSpeed = currentPlayer.GetComponent<CharacterManager>();
+        playerStamina = currentPlayer.GetComponent<Stamina>();
+        playerHealth = currentPlayer.GetComponent<Health>();
+        playerAttack = currentPlayer.GetComponent<BasicAttack>();
     }
 
     public void SetInventory(Inventory inventory)

@@ -26,6 +26,7 @@ public class Item
     };
     public statType stat;
     public ItemType itemType;
+    UI_Inventory player;
 
     public Sprite GetSprite()
     {
@@ -65,18 +66,53 @@ public class Item
         }
         else if (itemType == ItemType.TomeOfStat)
         {
+
+            //ALL THIS SHIT NEEDS TO BE BALLANCED JUST FUCKING WRITING IT NOW FUCKING FUCK
             
             if (stat == statType.Health)
             {
+                // get the playeers stats  
+                if (player.playerHealth.maxHealth != 10)
+                {
+                    player.playerHealth.maxHealth += 1;
+                }
+                else
+                {
+                    //DROP
+                }
             }
             else if (stat == statType.Power)
             {
+                if (player.playerAttack.AttackDamage != 10)
+                {
+                    player.playerAttack.AttackDamage += 1;
+                }
+                else
+                {
+                    //DROP
+                }
             }
             else if (stat == statType.Speed)
             {
+                if (player.playerSpeed.speed != 10)
+                {
+                    player.playerSpeed.speed += 1;
+                }
+                else
+                {
+                    //DROP
+                }
             }
             else if (stat == statType.Stamina)
             {
+                if (player.playerStamina.maxStamina != 10)
+                {
+                    player.playerStamina.maxStamina += 1;
+                }
+                else
+                {
+                    //DROP
+                }
             }
             else if (stat == statType.PhysicalDefence)
             {
