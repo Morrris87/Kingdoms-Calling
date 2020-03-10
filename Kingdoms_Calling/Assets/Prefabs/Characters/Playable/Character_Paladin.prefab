@@ -143,7 +143,18 @@ MonoBehaviour:
     m_ActionId: c53663b0-e4cc-4fad-a686-805d9a0a1bca
     m_ActionName: Player Controls/Show Items
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2241186763897451434}
+        m_MethodName: Pause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: 3d5334b9-22db-48c3-b9c5-0a7afb16b04f
@@ -297,6 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63515f6a6becfbc4896258887ed9679b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiInventory: {fileID: 0}
   characterClass: 1
   speed: 800
   rotSpeed: 1
@@ -650,16 +662,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Paladin Update v1
       objectReference: {fileID: 0}
-    - target: {fileID: -7434254994688564696, guid: a6ffafa0a9000584191c8a7e231813bf,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d95c48a88f571fa42b7a3a7ad50149b8, type: 2}
-    - target: {fileID: -6057140222963153312, guid: a6ffafa0a9000584191c8a7e231813bf,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 805e40610bc09c3479a2f2acc93daa92, type: 2}
     - target: {fileID: -4216859302048453862, guid: a6ffafa0a9000584191c8a7e231813bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -715,21 +717,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -1711973179805840314, guid: a6ffafa0a9000584191c8a7e231813bf,
+    - target: {fileID: -6057140222963153312, guid: a6ffafa0a9000584191c8a7e231813bf,
         type: 3}
-      propertyPath: m_Materials.Array.data[1]
+      propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 2100000, guid: f5c3c569c597ab7448e4aa88863eca92, type: 2}
-    - target: {fileID: -1711973179805840314, guid: a6ffafa0a9000584191c8a7e231813bf,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d95c48a88f571fa42b7a3a7ad50149b8, type: 2}
-    - target: {fileID: 1422016233933806286, guid: a6ffafa0a9000584191c8a7e231813bf,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f5c3c569c597ab7448e4aa88863eca92, type: 2}
+      objectReference: {fileID: 9100000, guid: 805e40610bc09c3479a2f2acc93daa92, type: 2}
     - target: {fileID: 3822110091035946019, guid: a6ffafa0a9000584191c8a7e231813bf,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
@@ -748,6 +740,26 @@ PrefabInstance:
     - target: {fileID: 9065865402563548727, guid: a6ffafa0a9000584191c8a7e231813bf,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f5c3c569c597ab7448e4aa88863eca92, type: 2}
+    - target: {fileID: -1711973179805840314, guid: a6ffafa0a9000584191c8a7e231813bf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: f5c3c569c597ab7448e4aa88863eca92, type: 2}
+    - target: {fileID: -1711973179805840314, guid: a6ffafa0a9000584191c8a7e231813bf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d95c48a88f571fa42b7a3a7ad50149b8, type: 2}
+    - target: {fileID: -7434254994688564696, guid: a6ffafa0a9000584191c8a7e231813bf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d95c48a88f571fa42b7a3a7ad50149b8, type: 2}
+    - target: {fileID: 1422016233933806286, guid: a6ffafa0a9000584191c8a7e231813bf,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: f5c3c569c597ab7448e4aa88863eca92, type: 2}
     m_RemovedComponents: []

@@ -565,7 +565,7 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    public void PauseGame(InputAction.CallbackContext context)
+    public void Pause(InputAction.CallbackContext context)
     {
         if (context.performed)
         {

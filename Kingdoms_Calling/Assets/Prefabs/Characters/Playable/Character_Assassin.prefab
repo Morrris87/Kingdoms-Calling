@@ -346,7 +346,18 @@ MonoBehaviour:
     m_ActionId: c53663b0-e4cc-4fad-a686-805d9a0a1bca
     m_ActionName: Player Controls/Show Items
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7280584505368016744}
+        m_MethodName: Pause
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.InputSystem.PlayerInput+ActionEvent, Unity.InputSystem,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
     m_ActionId: 3d5334b9-22db-48c3-b9c5-0a7afb16b04f
@@ -511,6 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63515f6a6becfbc4896258887ed9679b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiInventory: {fileID: 0}
   characterClass: 3
   speed: 800
   rotSpeed: 1
