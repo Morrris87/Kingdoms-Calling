@@ -26,7 +26,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
 
     public float bossAutoAttackCooldown = 2;
 
-    public GameObject bossScreechHitBox;
+    public Collider bossScreechHitBox;
     public float randomizPlayersInputsTimer = 3;
     public float screechTimer = 2;
 
