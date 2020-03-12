@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 677ca91fd7217954287d9d7f3cbe4b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  footstepClip: {fileID: 8300000, guid: 2ac7dc710be71424b9da8be1fcf01e70, type: 3}
+  audioSource: {fileID: 5112216888766895985}
 --- !u!114 &2739353547136035820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +109,7 @@ GameObject:
   - component: {fileID: 4988758205936517710}
   - component: {fileID: 4681640489131639453}
   - component: {fileID: 383900701}
+  - component: {fileID: 5112216888766895985}
   m_Layer: 8
   m_Name: Character_Archer
   m_TagString: Player
@@ -407,6 +410,8 @@ MonoBehaviour:
   AttackHitChance: 0
   AttackStaminaLoss: 12
   attackTimer: 1
+  basicAttackSound: {fileID: 0}
+  m_AudioSource: {fileID: 0}
   zacAttackBool: 0
 --- !u!114 &6850935412393349421
 MonoBehaviour:
@@ -578,6 +583,102 @@ MonoBehaviour:
   waitTime: 20
   isActive: 0
   isUsable: 0
+--- !u!82 &5112216888766895985
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6850935412393349415}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &7362606508016520550
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,6 +801,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: archer
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0f7003822e0ebed488e350829905e987, type: 2}
     - target: {fileID: -4216859302048453862, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -755,11 +861,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: 0f7003822e0ebed488e350829905e987, type: 2}
     - target: {fileID: 8466518156326792624, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class ArcherAbilityHandler : MonoBehaviour
 {
+    public AudioClip footstepClip;
+    public AudioSource audioSource;
+
     private ArrowVolley arrowVolley;
     private PiercingArrow piercingArrow;
 
@@ -12,6 +15,12 @@ public class ArcherAbilityHandler : MonoBehaviour
     {
         arrowVolley = GetComponentInParent<ArrowVolley>();
         piercingArrow = GetComponentInParent<PiercingArrow>();
+    }
+
+    public void StepEvent()
+    {
+        audioSource.clip = footstepClip;
+        audioSource.Play();
     }
 
     public void ArrowVolleyEvent()

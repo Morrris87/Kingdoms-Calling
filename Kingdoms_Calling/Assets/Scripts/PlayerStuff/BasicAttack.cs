@@ -44,6 +44,10 @@ public class BasicAttack : MonoBehaviour
     private bool cooldownActive;
     private LeapOfFaith leapOfFaith;
 
+    //soundstuff
+    public AudioClip basicAttackSound;
+    public AudioSource m_AudioSource;
+
     FocusShot shot;
     //Current class enum type
     public enum CharacterClass { NONE, Paladin, Warrior, Assassin, Archer };
