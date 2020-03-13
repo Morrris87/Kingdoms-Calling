@@ -34,9 +34,14 @@ public class ItemPickup : MonoBehaviour
     /// <param name="other"></param>
     private void OnTriggerEnter(Collider other)
     {
+        //Verify we are colliding with a player
+        //Debug.Log("Collision Detected");
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<Inventory>().AddItem(new Item { itemType = item });
+            //Debug.Log("Player Collision Detected");
+            //Add the item to the characters inventory
+            other.gameObject.GetComponent<CharacterManager>().inventory.AddItem(new Item { itemType = item });
+            //Remove the item drop
             Destroy(this.gameObject);
         }
     }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Inventory
+public class Inventory : MonoBehaviour
 {
     //add a max for inventory
     int maxItems = 5;
@@ -38,10 +38,11 @@ public class Inventory
     {
         itemList.Remove(new Item { itemType = item});
     }
-    public Item.ItemType ItemDrop(Item.ItemType item)
+    public Item ItemDrop()
     {
-        itemList.Remove(new Item { itemType = item });
-        return item;
+        Item dropItem = itemList[itemList.Count];
+        itemList.RemoveAt(itemList.Count);
+        return dropItem;
     }
 }
     //GameObject characterClass;

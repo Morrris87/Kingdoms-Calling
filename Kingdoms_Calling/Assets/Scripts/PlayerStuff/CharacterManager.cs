@@ -40,6 +40,19 @@ public class CharacterManager : MonoBehaviour
     [Header("Characters Target")]
     public GameObject abilityIndicator;
 
+    [Header("Item Prefabs")]
+    public GameObject ElementalChainLink;
+    public GameObject OrganOfDesperation;
+    public GameObject CharmOfPressure;
+    public GameObject NeedleOfChance;
+    public GameObject PiercingSheathe;
+    public GameObject TomeOfStatHealth;
+    public GameObject TomeOfStatPower;
+    public GameObject TomeOfStatSpeed;
+    public GameObject TomeOfStatStamina;
+    public GameObject TomeOfStatPhysicalDefence;
+    public GameObject TomeOfStatMagicDefence;
+
     [HideInInspector]
     public bool displayLocation = false;
 
@@ -87,7 +100,10 @@ public class CharacterManager : MonoBehaviour
     //Player and enemy layer index
     int playerLayerIndex, enemyLayerIndex;
 
-    private Inventory inventory;
+    [HideInInspector]
+    public Inventory inventory;
+
+    private ItemDropSpawn dropItemScript = new ItemDropSpawn();
 
     private void Awake()
     {
@@ -689,6 +705,70 @@ public class CharacterManager : MonoBehaviour
         //    cycleTimer = cycleSpeed;
         //}
         //Debug.Log("CycleTargetF");
+    }
+
+    public void DropItem(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Item droppedItem = inventory.ItemDrop();
+
+            //We have a tomb on our hands :)
+            if(droppedItem.itemType == Item.ItemType.TomeOfStat)
+            {
+                //Check which tomb it is then drop the item infront of the character
+                if(droppedItem.stat == Item.statType.Health)
+                {
+                    dropItemScript.DropItem(TomeOfStatHealth, transform.localPosition + new Vector3(0, 0, 50f), 100);
+                }
+                else if(droppedItem.stat == Item.statType.Power)
+                {
+                    dropItemScript.DropItem(TomeOfStatPower, transform.localPosition + new Vector3(0, 0, 50f), 100);
+                }
+                else if (droppedItem.stat == Item.statType.Speed)
+                {
+                    dropItemScript.DropItem(TomeOfStatSpeed, transform.localPosition + new Vector3(0, 0, 50f), 100);
+                }
+                else if (droppedItem.stat == Item.statType.Stamina)
+                {
+                    dropItemScript.DropItem(TomeOfStatStamina, transform.localPosition + new Vector3(0, 0, 50f), 100);
+                }
+                else if (droppedItem.stat == Item.statType.PhysicalDefence)
+                {
+                    dropItemScript.DropItem(TomeOfStatPhysicalDefence, transform.localPosition + new Vector3(0, 0, 50f), 100);
+                }
+                else if (droppedItem.stat == Item.statType.MagicDefence)
+                {
+                    dropItemScript.DropItem(TomeOfStatMagicDefence, transform.localPosition + new Vector3(0, 0, 50f), 100);
+                }
+            }
+            //We dont have a tomb on our hands :)
+            else
+            {
+                //Check which item it is then drop the item infront of the character
+                if (droppedItem.itemType == Item.ItemType.ElementalChainLink)
+                {
+                    dropItemScript.DropItem(ElementalChainLink, transform.localPosition + new Vector3(0, 0, 50f), 100);
+                }
+                else if (droppedItem.itemType == Item.ItemType.OrganOfDesperation)
+                {
+                    dropItemScript.DropItem(OrganOfDesperation, transform.localPosition + new Vector3(0, 0, 50f), 100);
+                }
+                else if (droppedItem.itemType == Item.ItemType.CharmOfPressure)
+                {
+                    dropItemScript.DropItem(CharmOfPressure, transform.localPosition + new Vector3(0, 0, 50f), 100);
+                }
+                else if (droppedItem.itemType == Item.ItemType.NeedleOfChance)
+                {
+                    dropItemScript.DropItem(NeedleOfChance, transform.localPosition + new Vector3(0, 0, 50f), 100);
+                }
+                else if (droppedItem.itemType == Item.ItemType.PiercingSheathe)
+                {
+                    dropItemScript.DropItem(PiercingSheathe, transform.localPosition + new Vector3(0, 0, 50f), 100);
+                }
+                
+            }
+        }
     }
 
     Collider[] GetInSphereOverlap(Vector3 pos, float r, int layer)
