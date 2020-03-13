@@ -46,7 +46,7 @@ public class Item
     {
         if (itemType == ItemType.CharmOfPressure)
         {
-
+             
         }
         else if (itemType == ItemType.ElementalChainLink)
         {
