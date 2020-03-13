@@ -150,6 +150,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GreyMace
       objectReference: {fileID: 0}
+    - target: {fileID: 5595002497362708657, guid: 67f0bf14f08e53d44877991a19eacfc9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8934623757896301218, guid: 67f0bf14f08e53d44877991a19eacfc9,
         type: 3}
       propertyPath: m_LocalPosition.x
