@@ -30,7 +30,6 @@ public class Inventory
             itemList.Add(item);
         }
     }
-
     public List<Item> GetItemList()
     {
         return itemList;
@@ -38,6 +37,11 @@ public class Inventory
     public void Destroy(Item.ItemType item)
     {
         itemList.Remove(new Item { itemType = item});
+    }
+    public Item.ItemType ItemDrop(Item.ItemType item)
+    {
+        itemList.Remove(new Item { itemType = item });
+        return item;
     }
 }
     //GameObject characterClass;
