@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class ArcherAbilityHandler : MonoBehaviour
 {
+    public AudioSource characterAudioSource;
+    public AudioSource arrowVolleySource;
+    public AudioSource piercingArrowSource;
     public AudioClip footstepClip;
-    public AudioSource audioSource;
+    public AudioClip arrowVolleyClip;
+    public AudioClip piercingArrowClip;
 
     private ArrowVolley arrowVolley;
     private PiercingArrow piercingArrow;
@@ -19,8 +23,8 @@ public class ArcherAbilityHandler : MonoBehaviour
 
     public void StepEvent()
     {
-        audioSource.clip = footstepClip;
-        audioSource.Play();
+        characterAudioSource.clip = footstepClip;
+        characterAudioSource.Play();
     }
 
     public void ArrowVolleyEvent()
@@ -29,8 +33,18 @@ public class ArcherAbilityHandler : MonoBehaviour
         Instantiate(arrowVolley.areaOfEffect, arrowVolley.colliderDestPos.position, Quaternion.identity);
     }
 
+    public void ArrowVolleySoundEvent()
+    {
+        arrowVolleySource.clip = arrowVolleyClip;
+        arrowVolleySource.Play();
+    }
+
     public void PiercingArrowEvent()
     {
+        // Play audio
+        piercingArrowSource.clip = piercingArrowClip;
+        piercingArrowSource.Play();
+
         // Set the arrow's rotation to that of the player
         piercingArrow.piercingArrowPrefab.transform.rotation = transform.rotation;
 

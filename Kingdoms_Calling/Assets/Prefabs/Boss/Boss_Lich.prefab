@@ -18,7 +18,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2930344461925229389
 Transform:
   m_ObjectHideFlags: 0
@@ -119,7 +119,7 @@ Transform:
   m_GameObject: {fileID: 7984871552658359311}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.93806, y: 5.615592, z: 0.93512946}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 2526002708069280566}
   - {fileID: 2930344461925229389}
@@ -140,8 +140,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 0}
+  archer: {fileID: 0}
+  assassin: {fileID: 0}
+  paladin: {fileID: 0}
+  warrior: {fileID: 0}
   id: 3
   m_CharNumber: 1
+  animator: {fileID: 5585635436043191884}
   rigBody: {fileID: 0}
   attackRange: 0
   chaseRange: 0
@@ -150,12 +155,10 @@ MonoBehaviour:
   isTargeted: 0
   bossAutoAttackCooldown: 2
   bossScreechHitBox: {fileID: 7365914247551134686}
-  randomizPlayersInputsTimer: 3
-  screechTimer: 2
-  playerOne: {fileID: 0}
-  playerTwo: {fileID: 0}
-  playerThree: {fileID: 0}
-  playerFour: {fileID: 0}
+  bossMeleeHitbox: {fileID: 7365914247551134686}
+  randomizePlayersInputsTimer: 3
+  screechTimer: 5
+  bossTimer: 10
   targetSymbol: {fileID: 2658136364330663617}
   TimerThroneHasBeenActivated: 0
   currentHealth: 0
@@ -165,7 +168,6 @@ MonoBehaviour:
   spawnZoneFour: {fileID: 0}
   bossPrefab: {fileID: 0}
   Throne: {fileID: 0}
-  bossTimer: 2
   CloneOneSpawn: {fileID: 0}
   CloneTwoSpawn: {fileID: 0}
   CloneThreeSpawn: {fileID: 0}
@@ -301,11 +303,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PleaseWorkLich
       objectReference: {fileID: 0}
-    - target: {fileID: -6057140222963153312, guid: 345275bca99b5ba45b10f985cdefaaa2,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: b38be45612f1f4145a668a38cf94a916, type: 2}
     - target: {fileID: -4216859302048453862, guid: 345275bca99b5ba45b10f985cdefaaa2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -376,11 +373,22 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: -6057140222963153312, guid: 345275bca99b5ba45b10f985cdefaaa2,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b38be45612f1f4145a668a38cf94a916, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 345275bca99b5ba45b10f985cdefaaa2, type: 3}
 --- !u!4 &2526002708069280566 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 345275bca99b5ba45b10f985cdefaaa2,
+    type: 3}
+  m_PrefabInstance: {fileID: 7382700352161529900}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5585635436043191884 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -6057140222963153312, guid: 345275bca99b5ba45b10f985cdefaaa2,
     type: 3}
   m_PrefabInstance: {fileID: 7382700352161529900}
   m_PrefabAsset: {fileID: 0}

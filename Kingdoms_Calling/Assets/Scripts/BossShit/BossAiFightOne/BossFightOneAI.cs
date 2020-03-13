@@ -10,9 +10,18 @@ using CompleteBossOne;
 
 public class BossFightOneAI : BossFIghtOneAdvancedFSM
 {
-    public FSMStateID id;
+    // Public Variables
+    //Players
+    [Header("Player Objects")]
+    public GameObject archer;
+    public GameObject assassin;
+    public GameObject paladin;
+    public GameObject warrior;
 
+    [Header("Boss Variables")]
+    public FSMStateID id;
     public int m_CharNumber = 1;
+    public Animator animator;
 
     [HideInInspector]
     public Rigidbody rigBody;
@@ -26,21 +35,18 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
 
     public float bossAutoAttackCooldown = 2;
 
+    [Header("Hitboxes")]
     public Collider bossScreechHitBox;
-    public float randomizPlayersInputsTimer = 3;
-    public float screechTimer = 2;
+    public Collider bossMeleeHitbox;
 
-    //Players
-    [HideInInspector]
-    public GameObject playerOne;
-    [HideInInspector]
-    public GameObject playerTwo;
-    [HideInInspector]
-    public GameObject playerThree;
-    [HideInInspector]
-    public GameObject playerFour;
+    [Header("Timers")]
+    public float randomizePlayersInputsTimer = 3;
+    public float screechTimer = 2;
+    public float bossTimer = 2;
 
     GameObject[] playerArray;
+
+    [Header("Target Symbol")]
     //Target Symbol
     public GameObject targetSymbol;
 
@@ -50,22 +56,22 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     public int currentHealth;
 
     //Spawn Zones for the Skeletons
+    [Header("Skeleton Spawn Zones")]
     public GameObject spawnZoneOne;
     public GameObject spawnZoneTwo;
     public GameObject spawnZoneThree;
     public GameObject spawnZoneFour;
 
     //BossPrefab
+    [Header("Boss Prefab")]
     public GameObject bossPrefab;
 
-
     // i want the lich to dissapear into a puff of smoke and then reappear on the throne
+    [Header("Throne")]
     public GameObject Throne;
 
-    //boss Timer
-    public float bossTimer = 2;
-
     //Spawn Zones for the Boss Clones
+    [Header("Clone Spawn Zones")]
     public GameObject CloneOneSpawn;
     public GameObject CloneTwoSpawn;
     public GameObject CloneThreeSpawn;
@@ -110,19 +116,19 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         {
             if (i == 0)
             {
-                playerOne = playerArray[i];
+                archer = playerArray[i];
             }
             else if (i == 1)
             {
-                playerTwo = playerArray[i];
+                assassin = playerArray[i];
             }
             else if (i == 2)
             {
-                playerThree = playerArray[i];
+                paladin = playerArray[i];
             }
             else if (i == 3)
             {
-                playerFour = playerArray[i];
+                warrior = playerArray[i];
             }
         }
 
@@ -143,9 +149,9 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         {
             Debug.Log("ZacYou are dumb");
         }
-        if(randomizPlayersInputsTimer <= 3)
+        if(randomizePlayersInputsTimer <= 3)
         {
-            randomizPlayersInputsTimer -= Time.deltaTime;
+            randomizePlayersInputsTimer -= Time.deltaTime;
         }
 
         if(bossTimer <= bossAutoAttackCooldown)
