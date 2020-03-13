@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class MeleeHandler : MonoBehaviour
 {
+    public AudioSource characterAudioSource;
+    public AudioClip basicAttackClip;
+    public AudioClip footstepClip;
+    public AudioClip flammingLeap;
+    public AudioClip axSpin;
     public GameObject hitbox;
 
     private BasicAttack basicAttack;
@@ -14,6 +19,28 @@ public class MeleeHandler : MonoBehaviour
         basicAttack = GetComponentInParent<BasicAttack>();
     }
 
+    public void BasicAttackClipEvent()
+    {
+        characterAudioSource.clip = basicAttackClip;
+        characterAudioSource.Play();
+    }
+
+    public void FlammingLeapEvent()
+    {
+        characterAudioSource.clip = flammingLeap;
+        characterAudioSource.Play();
+    }
+
+    public void AxSpinEvent()
+    {
+        characterAudioSource.clip = axSpin;
+        characterAudioSource.Play();
+    }
+    public void StepEvent()
+    {
+        characterAudioSource.clip = footstepClip;
+        characterAudioSource.Play();
+    }
     public void MeleeEvent()
     {
         // Take away player's stamina

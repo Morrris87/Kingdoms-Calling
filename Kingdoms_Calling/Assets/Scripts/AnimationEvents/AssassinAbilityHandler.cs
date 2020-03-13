@@ -5,6 +5,15 @@ using UnityEngine.UI;
 
 public class AssassinAbilityHandler : MonoBehaviour
 {
+    //audio
+    public AudioSource characterAudioSource;
+    public AudioSource lightningStrikeSource;
+    public AudioSource executionSource;
+    public AudioClip footstepClip;
+    public AudioClip lightningStrikeClip;
+    public AudioClip executionClip;
+    public AudioClip executionClip2;
+
     public GameObject assassin;
     public GameObject ChainLightningPrefab;
     public GameObject ArcherWarriorComboPrefab;
@@ -26,6 +35,30 @@ public class AssassinAbilityHandler : MonoBehaviour
         thunderStrike = GetComponentInParent<ThunderStrike>();
         execution = GetComponentInParent<Execution>();
         comboText = GameObject.FindGameObjectWithTag("ComboText").GetComponent<Text>();
+    }
+
+    public void StepEvent()
+    {
+        characterAudioSource.clip = footstepClip;
+        characterAudioSource.Play();
+    }
+
+    public void LightningStrikeEvent()
+    {
+        characterAudioSource.clip = lightningStrikeClip;
+        characterAudioSource.Play();
+    }
+
+    public void ExecutionSoundEvent()
+    {
+        characterAudioSource.clip = executionClip;
+        characterAudioSource.Play();
+    }
+
+    public void ExecutionSoundEvent2()
+    {
+        characterAudioSource.clip = executionClip2;
+        characterAudioSource.Play();
     }
 
     public void ThunderStrikeEvent()
