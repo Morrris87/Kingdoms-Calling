@@ -129,6 +129,13 @@ ModelImporter:
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
+      - time: 0.6392405
+        functionName: BasicAttackClipEvent
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       - time: 0.7758618
         functionName: HitboxEvent
         data: 
@@ -203,6 +210,20 @@ ModelImporter:
       events:
       - time: 0
         functionName: ReleaseLockEvent
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.23850563
+        functionName: StepEvent
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.6925286
+        functionName: StepEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
@@ -355,6 +376,13 @@ ModelImporter:
       events:
       - time: 0.9741378
         functionName: FlamingLeapEvent
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.0057477923
+        functionName: FlammingLeapEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

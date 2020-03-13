@@ -58,27 +58,6 @@ public class BossAutoAttackState : BossFightOneFSMState
 
         // Gets the closest player
         currentClosestPlayer = GetClosestPlayer(players);
-
-        ////player one distance
-        //if (IsInCurrentRange(enemyAI.gameObject.transform, enemyAI.archer.transform.position, attackRange))
-        //{
-        //    rangeFromPlayerOne = Vector3.Distance(enemyAI.gameObject.transform.position, enemyAI.archer.transform.position);
-        //}
-        ////player two distance
-        //if (IsInCurrentRange(enemyAI.gameObject.transform, enemyAI.assassin.transform.position, attackRange))
-        //{
-        //    rangeFromPlayerTwo = Vector3.Distance(enemyAI.gameObject.transform.position, enemyAI.assassin.transform.position);
-        //}
-        ////player three distance
-        //if (IsInCurrentRange(enemyAI.gameObject.transform, enemyAI.paladin.transform.position, attackRange))
-        //{
-        //    rangeFromPlayerThree = Vector3.Distance(enemyAI.gameObject.transform.position, enemyAI.paladin.transform.position);
-        //}
-        ////player four distance 
-        //if (IsInCurrentRange(enemyAI.gameObject.transform, enemyAI.warrior.transform.position, attackRange))
-        //{
-        //    rangeFromPlayerFour = Vector3.Distance(enemyAI.gameObject.transform.position, enemyAI.warrior.transform.position);
-        //}
     }
 
     public Transform GetClosestPlayer(Transform[] players)

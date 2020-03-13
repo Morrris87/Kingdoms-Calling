@@ -18,6 +18,7 @@ TagManager:
   - Immune
   - ComboText
   - AW_Tracker
+  - Boss
   layers:
   - Default
   - TransparentFX

@@ -32,14 +32,18 @@ public class ProjectileDamage : MonoBehaviour
             Collider[] cols = Physics.OverlapBox(GetComponent<Collider>().bounds.center, GetComponent<Collider>().bounds.extents, GetComponent<Collider>().transform.rotation, LayerMask.GetMask("Enemy"));
             foreach (Collider c in cols)
             {
-                if (shot.zacAttackBool == true)
+                if (attacker == Attacker.PLAYER && shot.zacAttackBool == true)
                 {
                     c.GetComponent<Health>().Damage((2));
                     Destroy(gameObject);
                 }
-                else if(shot.zacAttackBool == false)
+                else if(attacker == Attacker.PLAYER && shot.zacAttackBool == false)
                 {
                     c.GetComponent<Health>().Damage((1));
+                    Destroy(gameObject);
+                }
+                else
+                {
                     Destroy(gameObject);
                 }
             }

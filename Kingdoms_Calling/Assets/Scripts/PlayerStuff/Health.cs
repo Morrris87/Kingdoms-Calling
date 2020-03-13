@@ -52,7 +52,7 @@ public class Health : MonoBehaviour
     void Update()
     {
         // If the player, update their healthbar
-        if (this.tag == "Player")
+        if (this.tag == "Player" || tag == "Boss")
         {
             healthUI.fillAmount = CalculateHealthLeftPercent(currentHealth, maxHealth);    // Adjusts the fill amount of the health bar based on the % of health left
         }
