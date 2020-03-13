@@ -13,7 +13,7 @@ public class BossScreechState : BossFightOneFSMState
         enemyAI = Lich;
         curSpeed = 0;
         stateID = FSMStateID.Sceach;
-        randomTimer = enemyAI.randomizPlayersInputsTimer;
+        randomTimer = enemyAI.randomizePlayersInputsTimer;
         //enemyAI.navAgent.speed = curSpeed;
     }
 
@@ -75,10 +75,10 @@ public class BossScreechState : BossFightOneFSMState
             //Dammage collided players
             enemyAI.playerHealth.Damage(enemyAI.bossStats.power);
 
-            if (enemyAI.randomizPlayersInputsTimer <= 0)
+            if (enemyAI.randomizePlayersInputsTimer <= 0)
             {
                 //randomize the players input for randomizPlayersInputsTimer amount of time
-                enemyAI.randomizPlayersInputsTimer = randomTimer;
+                enemyAI.randomizePlayersInputsTimer = randomTimer;
                 // do randomize shit here
                 RandomizePlayersInput();
             }
