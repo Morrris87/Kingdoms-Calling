@@ -58,16 +58,35 @@ public class Item
         }
         else if (itemType == ItemType.OrganOfDesperation)
         {
-            // if organ of desperation is not in the item list
-
-            if(player.playerHealth.currentHealth == 0)
+            bool holding = false;
+            
+            foreach (Item item in player.inventory.GetItemList())
             {
-                player.playerHealth.currentHealth = (player.playerHealth.maxHealth / 2);
-                //remove this from list
-                // delete item
+                if(item.itemType == ItemType.OrganOfDesperation)
+                {
+                    holding = true;
+                }
             }
-            // else dont pick up
-
+            if (holding == false)// if organ of desperation is not in the item list
+            {
+                if (player.playerHealth.currentHealth == 0)
+                {
+                    player.playerHealth.currentHealth = (player.playerHealth.maxHealth / 2);
+                    //remove this from list
+                    // delete item
+                    foreach (Item item in player.inventory.GetItemList())
+                    {
+                        if (item.itemType == ItemType.OrganOfDesperation)
+                        {
+                            player.inventory.Destroy(item.itemType);
+                        }
+                    }
+                }
+            }
+            else
+            {
+                // else dont pick up
+            }
         }
         else if (itemType == ItemType.PiercingSheathe)
         {

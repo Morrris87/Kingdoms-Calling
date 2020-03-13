@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class UI_Inventory : MonoBehaviour
 {
-    private Inventory inventory;
+    [HideInInspector]
+    public Inventory inventory;
     public Transform itemSlotContainer;
     public Transform itemSlotTemplate;
     public GameObject currentPlayer;
