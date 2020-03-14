@@ -34,6 +34,8 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     public bool isTargeted = false;
 
     public float bossAutoAttackCooldown = 2;
+    public float skeltonSpawnCooldown = 20;
+    public float screechCoolDown = 30;
 
     [Header("Hitboxes")]
     public Collider bossScreechHitBox;
@@ -41,8 +43,12 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
 
     [Header("Timers")]
     public float randomizePlayersInputsTimer = 3;
-    public float screechTimer = 2;
+    public float screechTimer = 30;
     public float bossTimer = 2;
+    public float SpawnSkeletonsTimer = 20;
+
+    //MIGHT HAVE TO CHANGE TO SKELETONCOUNTER
+    public bool allSkeletonsDead = false;
 
     GameObject[] playerArray;
 
@@ -103,6 +109,8 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     protected override void Initialize()
     {
         bossAutoAttackCooldown = bossTimer;
+        skeltonSpawnCooldown = SpawnSkeletonsTimer;
+        screechCoolDown = screechTimer;
 
         rigBody = GetComponent<Rigidbody>();
         bossStats = gameObject.GetComponent<BossStats>();
@@ -157,6 +165,14 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         if(bossTimer <= bossAutoAttackCooldown)
         {
             bossTimer -= Time.deltaTime;
+        }
+        if(SpawnSkeletonsTimer <= skeltonSpawnCooldown)
+        {
+            SpawnSkeletonsTimer -= Time.deltaTime;
+        }
+        if(screechTimer <= screechCoolDown)
+        {
+            screechTimer -= Time.deltaTime;
         }
 
         //making the target pop up on the skeleton

@@ -26,7 +26,7 @@ public class BossSpawnSkeletonsState : BossFightOneFSMState
     GameObject spawnZone;
 
     //have these set somewhere else 
-    public bool fightOne = false;
+    public bool fightOne = true;
     public bool fightTwo = false;
 
     string colour;
@@ -40,7 +40,8 @@ public class BossSpawnSkeletonsState : BossFightOneFSMState
 
     public override void Act()
     {
-        enemyAI.spawnScript.spawnSkeletonsForBoss(colour);//call from spawn
+        //ISSUE HERE
+        //enemyAI.spawnScript.spawnSkeletonsForBoss(colour);//call from spawn
     }
 
     public override void Reason()
@@ -48,6 +49,11 @@ public class BossSpawnSkeletonsState : BossFightOneFSMState
         if (enemyAI.bossStats.health <= 0)
         {
             enemyAI.PerformTransition(Transition.NoHealth);
+            return;
+        }
+        if(enemyAI.allSkeletonsDead == true)// all skeletond dead
+        {
+            enemyAI.PerformTransition(Transition.AllSkeletonsDead);
             return;
         }
         //if fight one spawn white

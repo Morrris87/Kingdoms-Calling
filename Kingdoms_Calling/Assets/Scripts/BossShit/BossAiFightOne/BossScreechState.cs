@@ -8,6 +8,8 @@ public class BossScreechState : BossFightOneFSMState
     BossFightOneAI enemyAI;
 
     float randomTimer;
+
+    float randomLength;
     public BossScreechState(BossFightOneAI Lich)
     {
         enemyAI = Lich;
@@ -36,6 +38,11 @@ public class BossScreechState : BossFightOneFSMState
         if (enemyAI.bossStats.health <= 0)
         {
             enemyAI.PerformTransition(Transition.NoHealth);
+            return;
+        }
+        if(randomLength <= 0)
+        {
+            enemyAI.PerformTransition(Transition.ScreechOnCooldown);
             return;
         }
     }

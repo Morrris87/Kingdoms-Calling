@@ -1480,6 +1480,16 @@ PrefabInstance:
       propertyPath: warrior
       value: 
       objectReference: {fileID: 1625195489}
+    - target: {fileID: 7708316231562025990, guid: 2bdb602c2c7ac954fa7c0a245fd42e9d,
+        type: 3}
+      propertyPath: skeltonSpawnCooldown
+      value: 420
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708316231562025990, guid: 2bdb602c2c7ac954fa7c0a245fd42e9d,
+        type: 3}
+      propertyPath: screechCoolDown
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 575438699, guid: 2bdb602c2c7ac954fa7c0a245fd42e9d, type: 3}
       propertyPath: healthUI
       value: 

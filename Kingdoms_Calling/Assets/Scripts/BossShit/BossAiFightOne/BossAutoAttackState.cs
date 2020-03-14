@@ -55,7 +55,16 @@ public class BossAutoAttackState : BossFightOneFSMState
             enemyAI.PerformTransition(Transition.NoHealth);
             return;
         }
-
+        if(enemyAI.SpawnSkeletonsTimer <= 0)
+        {
+            enemyAI.PerformTransition(Transition.CastSpawnSkeletons);
+            return;
+        }
+        if(enemyAI.screechTimer <= 0)
+        {
+            enemyAI.PerformTransition(Transition.CastScreech);
+            return;
+        }
         // Gets the closest player
         currentClosestPlayer = GetClosestPlayer(players);
     }
