@@ -48,7 +48,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     public float SpawnSkeletonsTimer = 20;
 
     //MIGHT HAVE TO CHANGE TO SKELETONCOUNTER
-    public bool allSkeletonsDead = false;
+    public bool allSkeletonsSpawned;
 
     GameObject[] playerArray;
 
@@ -111,6 +111,8 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         bossAutoAttackCooldown = bossTimer;
         skeltonSpawnCooldown = SpawnSkeletonsTimer;
         screechCoolDown = screechTimer;
+        allSkeletonsSpawned = false;
+
 
         rigBody = GetComponent<Rigidbody>();
         bossStats = gameObject.GetComponent<BossStats>();
@@ -166,9 +168,17 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         {
             bossTimer -= Time.deltaTime;
         }
+        else
+        {
+           // bossTimer = bossAutoAttackCooldown;
+        }
         if(SpawnSkeletonsTimer <= skeltonSpawnCooldown)
         {
             SpawnSkeletonsTimer -= Time.deltaTime;
+        }
+        else
+        {
+            SpawnSkeletonsTimer = skeltonSpawnCooldown;
         }
         if(screechTimer <= screechCoolDown)
         {
@@ -198,17 +208,20 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
 
         BossSpawnSkeletonsState spawn = new BossSpawnSkeletonsState(this);
         spawn.AddTransition(Transition.NoHealth, FSMStateID.Dead);
-        spawn.AddTransition(Transition.AllClonesKilled, FSMStateID.AutoAttack);
+        spawn.AddTransition(Transition.ToPatrol, FSMStateID.Patrol);
 
+        BossPatrolState patrol = new BossPatrolState(this);
+        patrol.AddTransition(Transition.NoHealth, FSMStateID.Dead);
+        patrol.AddTransition(Transition.ToAutoAttack, FSMStateID.AutoAttack);
 
         BossMultiplyState multply = new BossMultiplyState(this);
         multply.AddTransition(Transition.NoHealth, FSMStateID.Dead);
-        multply.AddTransition(Transition.AllClonesKilled, FSMStateID.AutoAttack);
+        multply.AddTransition(Transition.ToPatrol, FSMStateID.Patrol);
 
 
         BossScreechState screech = new BossScreechState(this);
         screech.AddTransition(Transition.NoHealth, FSMStateID.Dead);
-        screech.AddTransition(Transition.ScreechOnCooldown, FSMStateID.AutoAttack);
+        screech.AddTransition(Transition.ToPatrol, FSMStateID.Patrol);
 
         SitOnThroneState sit = new SitOnThroneState(this);
         sit.AddTransition(Transition.BossSkeletonsDead, FSMStateID.AutoAttack);
@@ -216,6 +229,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
 
 
         AddFSMState(auto);
+        AddFSMState(patrol);
         AddFSMState(spawn);
         AddFSMState(multply);
         AddFSMState(screech);

@@ -19,6 +19,7 @@ public class BossDeathState : BossFightOneFSMState
 
     public override void Act()
     {
+        Debug.Log("Dieing");
         // Play death animation
         enemyAI.animator.SetTrigger("Death");
     }

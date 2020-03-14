@@ -16,8 +16,10 @@ namespace CompleteBossOne
         CastSpawnSkeletons,
         AllClonesKilled,
         AllSkeletonsDead,
+        ToPatrol,
         HitHealthThing,
         BossSkeletonsDead,
+        ToAutoAttack,
         NoHealth
     }
     public enum FSMStateID
@@ -27,6 +29,7 @@ namespace CompleteBossOne
         Sceach,
         AutoAttack,
         SpawnSkeletons,
+        Patrol,
         Sit,
         Dead
     }

@@ -31,6 +31,7 @@ public class BossAutoAttackState : BossFightOneFSMState
 
     public override void Act()
     {
+        
         // damage the closest player
         enemyAI.transform.LookAt(currentClosestPlayer);
 
@@ -38,6 +39,7 @@ public class BossAutoAttackState : BossFightOneFSMState
 
         if (enemyAI.bossTimer <= 0)
         {
+            Debug.Log("Autoing");
             enemyAI.animator.SetTrigger("Attacked");
             enemyAI.bossTimer = enemyAI.bossAutoAttackCooldown;
         }
@@ -60,7 +62,7 @@ public class BossAutoAttackState : BossFightOneFSMState
             enemyAI.PerformTransition(Transition.CastSpawnSkeletons);
             return;
         }
-        if(enemyAI.screechTimer <= 0)
+        else if(enemyAI.screechTimer <= 0)
         {
             enemyAI.PerformTransition(Transition.CastScreech);
             return;

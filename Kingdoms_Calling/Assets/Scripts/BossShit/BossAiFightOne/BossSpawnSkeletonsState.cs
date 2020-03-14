@@ -40,8 +40,11 @@ public class BossSpawnSkeletonsState : BossFightOneFSMState
 
     public override void Act()
     {
+        Debug.Log("Spawning");
         //ISSUE HERE
         //enemyAI.spawnScript.spawnSkeletonsForBoss(colour);//call from spawn
+        enemyAI.allSkeletonsSpawned = true;
+        enemyAI.SpawnSkeletonsTimer = enemyAI.skeltonSpawnCooldown;
     }
 
     public override void Reason()
@@ -51,9 +54,10 @@ public class BossSpawnSkeletonsState : BossFightOneFSMState
             enemyAI.PerformTransition(Transition.NoHealth);
             return;
         }
-        if(enemyAI.allSkeletonsDead == true)// all skeletond dead
+        // THIS DOWN TO MAKE HIM PATROL NOT AUTO ATTACK
+        if(enemyAI.allSkeletonsSpawned == true)// all skeletond dead
         {
-            enemyAI.PerformTransition(Transition.AllSkeletonsDead);
+            enemyAI.PerformTransition(Transition.ToPatrol);
             return;
         }
         //if fight one spawn white

@@ -16,11 +16,13 @@ public class BossScreechState : BossFightOneFSMState
         curSpeed = 0;
         stateID = FSMStateID.Sceach;
         randomTimer = enemyAI.randomizePlayersInputsTimer;
+        
         //enemyAI.navAgent.speed = curSpeed;
     }
 
     public override void Act()
     {
+        Debug.Log("Screaching");
         //timer for the attack length (maybe just have it lenght of the animation)
         if (enemyAI.screechTimer >= 2)
         {
@@ -29,7 +31,7 @@ public class BossScreechState : BossFightOneFSMState
         else
         {
             enemyAI.bossScreechHitBox.gameObject.SetActive(false);
-            enemyAI.screechTimer = 2;
+            enemyAI.screechTimer = enemyAI.screechCoolDown;
         }
     }
 
@@ -40,9 +42,9 @@ public class BossScreechState : BossFightOneFSMState
             enemyAI.PerformTransition(Transition.NoHealth);
             return;
         }
-        if(randomLength <= 0)
+        if (randomLength <= 0)
         {
-            enemyAI.PerformTransition(Transition.ScreechOnCooldown);
+            enemyAI.PerformTransition(Transition.ToPatrol);
             return;
         }
     }
