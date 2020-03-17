@@ -1,0 +1,2 @@
+Powershot and Basic shot both go on the back on the arrow. Just update the arrow prefab
+Swing Trail goes on the RIGHT SIDE of the battle axe, just drag and drop onto the weapon
