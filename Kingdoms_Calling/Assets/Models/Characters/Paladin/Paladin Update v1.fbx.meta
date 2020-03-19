@@ -21,6 +21,9 @@ ModelImporter:
   - first:
       74: -4858154074326684959
     second: Paladin_Block
+  - first:
+      74: -2493317710058382319
+    second: Paladin_Death
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -82,8 +85,8 @@ ModelImporter:
       name: Paladin_Idle
       takeName: Take 001
       internalID: 0
-      firstFrame: 76
-      lastFrame: 116
+      firstFrame: 1703
+      lastFrame: 1840
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -111,8 +114,8 @@ ModelImporter:
       name: Paladin_Run
       takeName: Take 001
       internalID: 0
-      firstFrame: 226
-      lastFrame: 243
+      firstFrame: 978
+      lastFrame: 995
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -200,6 +203,35 @@ ModelImporter:
       internalID: 0
       firstFrame: 702
       lastFrame: 710
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Paladin_Death
+      takeName: Take 001
+      internalID: 0
+      firstFrame: 843
+      lastFrame: 886
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
