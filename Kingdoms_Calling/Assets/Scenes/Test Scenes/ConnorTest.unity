@@ -663,28 +663,28 @@ PrefabInstance:
     - target: {fileID: 97737048053535370, guid: ac9cda7a768a3d445a28b8ac4bb6dc8e,
         type: 3}
       propertyPath: players.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 97737048053535370, guid: ac9cda7a768a3d445a28b8ac4bb6dc8e,
         type: 3}
       propertyPath: players.Array.data[0]
       value: 
-      objectReference: {fileID: 2301265249880284147}
+      objectReference: {fileID: 1286640925}
     - target: {fileID: 97737048053535370, guid: ac9cda7a768a3d445a28b8ac4bb6dc8e,
         type: 3}
       propertyPath: players.Array.data[1]
       value: 
-      objectReference: {fileID: 3696064490358221157}
+      objectReference: {fileID: 6082477282126790922}
     - target: {fileID: 97737048053535370, guid: ac9cda7a768a3d445a28b8ac4bb6dc8e,
         type: 3}
       propertyPath: players.Array.data[2]
       value: 
-      objectReference: {fileID: 2301265249880284147}
+      objectReference: {fileID: 3696064490358221157}
     - target: {fileID: 97737048053535370, guid: ac9cda7a768a3d445a28b8ac4bb6dc8e,
         type: 3}
       propertyPath: players.Array.data[3]
       value: 
-      objectReference: {fileID: 6082477282126790922}
+      objectReference: {fileID: 2301265249880284147}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ac9cda7a768a3d445a28b8ac4bb6dc8e, type: 3}
 --- !u!1 &866549028
@@ -1062,6 +1062,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1497476140298328000, guid: cceb7dbc57405904a8c0e93e68f26c48,
+        type: 3}
+      propertyPath: abilityCooldownUI
+      value: 
+      objectReference: {fileID: 190861262}
+    - target: {fileID: 1917059638771580427, guid: cceb7dbc57405904a8c0e93e68f26c48,
+        type: 3}
+      propertyPath: abilityCooldownUI
+      value: 
+      objectReference: {fileID: 1256339163}
     - target: {fileID: 2241186763897451427, guid: cceb7dbc57405904a8c0e93e68f26c48,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1127,16 +1137,6 @@ PrefabInstance:
       propertyPath: staminaUI
       value: 
       objectReference: {fileID: 933513904}
-    - target: {fileID: 1917059638771580427, guid: cceb7dbc57405904a8c0e93e68f26c48,
-        type: 3}
-      propertyPath: abilityCooldownUI
-      value: 
-      objectReference: {fileID: 1256339163}
-    - target: {fileID: 1497476140298328000, guid: cceb7dbc57405904a8c0e93e68f26c48,
-        type: 3}
-      propertyPath: abilityCooldownUI
-      value: 
-      objectReference: {fileID: 190861262}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cceb7dbc57405904a8c0e93e68f26c48, type: 3}
 --- !u!1001 &3558012841772545643
