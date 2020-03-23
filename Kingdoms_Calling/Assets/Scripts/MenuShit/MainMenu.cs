@@ -1,4 +1,10 @@
-﻿using System.Collections;
+﻿/*
+ * Player Input Script(Using New Input System)
+ * Resource: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Installation.html
+ * Created by: Bradley Williamson
+ * On: 03/23/20
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
