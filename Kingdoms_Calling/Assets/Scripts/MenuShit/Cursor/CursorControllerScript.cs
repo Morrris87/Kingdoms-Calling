@@ -36,6 +36,10 @@ public class CursorControllerScript : MonoBehaviour
         pI = GetComponent<PlayerInput>();
         user = pI.user;
         userDevice = pI.devices.ToArray();
+        if(pI.devices.Count == 0)
+        {
+            GameObject.Destroy(this.gameObject);
+        }
     }
 
     // Update is called once per frame
