@@ -187,7 +187,10 @@ public class CharacterManager : MonoBehaviour
             ZeroInput();
         }
 
-
+        if(mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
         //Camera Direction for calculating rotation
         camForward = mainCamera.transform.forward;
         camRight = mainCamera.transform.right;

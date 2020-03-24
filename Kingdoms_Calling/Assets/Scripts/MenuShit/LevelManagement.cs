@@ -11,6 +11,7 @@ public class LevelManagement : MonoBehaviour
     bool isInCollision = false;
 
     public GameObject LevelLoad;
+    public GameObject gameStatus;
 
     [Header("Character Prefabs")]
     public GameObject ArcherPrefab;
@@ -30,6 +31,7 @@ public class LevelManagement : MonoBehaviour
     void Start()
     {
         uiCanvas = GameObject.Find("Canvas");
+        gameStatus = GameObject.Find("GameStatus");
         characterCards = GameObject.FindGameObjectsWithTag("Character");
     }
 
@@ -94,10 +96,10 @@ public class LevelManagement : MonoBehaviour
                 for (int i = 0; i < playerCharacters.Count; i++)
                 {
                     //reparent the object to the root of the scene
-                    playerCharacters[i].transform.SetParent(null);
-                    SceneManager.MoveGameObjectToScene(playerCharacters[i], sceneToLoad);
+                    playerCharacters[i].transform.SetParent(gameStatus.transform);
+                    //SceneManager.MoveGameObjectToScene(playerCharacters[i], sceneToLoad);
                 }
-                SceneManager.LoadScene(sceneToLoad.name, LoadSceneMode.Additive);
+                SceneManager.LoadScene(sceneToLoad.name);
             }
         }
     }
