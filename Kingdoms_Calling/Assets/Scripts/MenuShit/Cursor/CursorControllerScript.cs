@@ -11,6 +11,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.UI;
+using UnityEngine.InputSystem.Users;
 using UnityEngine.UI;
 
 public class CursorControllerScript : MonoBehaviour
@@ -21,6 +22,11 @@ public class CursorControllerScript : MonoBehaviour
     private PlayerInput pI;
     private GraphicRaycaster gr;
     private PointerEventData pointerEventData = new PointerEventData(null);
+    public bool alreadySelectedCharacter = false;
+    public InputUser user;
+    public InputDevice[] userDevice;
+    public CharacterCardScript.character chosenCharacter;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -28,11 +34,18 @@ public class CursorControllerScript : MonoBehaviour
         gr = GetComponentInParent<GraphicRaycaster>();
         uiCanvas = GameObject.Find("Canvas");
         pI = GetComponent<PlayerInput>();
+        user = pI.user;
+        userDevice = pI.devices.ToArray();
     }
 
     // Update is called once per frame
     void Update()
     {
+        //if we havent yet, get which user we are use this to know which character to give the player input
+        if(user == null)
+        {
+            user = pI.user;
+        }
         //if we dont have a ui canvas find it
         if (!uiCanvas)
         {
@@ -81,6 +94,7 @@ public class CursorControllerScript : MonoBehaviour
     {
         Vector2 movement = new Vector2(i_Movement.x, i_Movement.y) * moveSpeed * Time.deltaTime;
         transform.Translate(movement);
+        //Debug.Log(userDevice[0] + " is moving");
     }
 
     void checkOntop()
@@ -108,6 +122,22 @@ public class CursorControllerScript : MonoBehaviour
                     if (bUI.onClick != null)
                     {
                         bUI.onClick.Invoke();
+                    }
+                }
+
+                //Check if we clicked on a character card
+                if(r.gameObject.tag == "Character")
+                {
+                    //call the character picked function on that card
+                    r.gameObject.GetComponent<CharacterCardScript>().CharacterPicked(this.gameObject);
+                    //if we have already chosen this character remove it from our variable, if not add it
+                    if(chosenCharacter == r.gameObject.GetComponent<CharacterCardScript>().thisCharacter)
+                    {
+                        chosenCharacter = CharacterCardScript.character.NONE;
+                    }
+                    else
+                    {
+                        chosenCharacter = r.gameObject.GetComponent<CharacterCardScript>().thisCharacter;
                     }
                 }
             }

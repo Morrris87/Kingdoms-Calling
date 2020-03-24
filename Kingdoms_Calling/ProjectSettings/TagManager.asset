@@ -19,6 +19,8 @@ TagManager:
   - ComboText
   - AW_Tracker
   - Boss
+  - Cursor
+  - Character
   layers:
   - Default
   - TransparentFX

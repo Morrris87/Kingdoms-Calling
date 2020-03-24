@@ -10,7 +10,7 @@ public class Item
         ElementalChainLink,
         OrganOfDesperation,
         TomeOfStat,
-        CharmOfPressure,
+        CharmOfPressure,    
         NeedleOfChance,
         PiercingSheathe,
     }

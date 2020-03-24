@@ -92,6 +92,9 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     [HideInInspector]
     public Health playerHealth;
 
+    GameObject[] patrolArray;
+    public List<GameObject> PatrolList;
+
     private string GetStateString()
     {
         string state = "NONE";
@@ -112,13 +115,15 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         skeltonSpawnCooldown = SpawnSkeletonsTimer;
         screechCoolDown = screechTimer;
         allSkeletonsSpawned = false;
+        PatrolList = new List<GameObject>();
 
 
         rigBody = GetComponent<Rigidbody>();
         bossStats = gameObject.GetComponent<BossStats>();
         spawnScript = gameObject.GetComponent<Spawn>();
 
-         playerArray = GameObject.FindGameObjectsWithTag("Player");
+        playerArray = GameObject.FindGameObjectsWithTag("Player");
+        patrolArray = GameObject.FindGameObjectsWithTag("PatrolSpot");
         // Create the FSM for the player.
         ConstructFSM();
         //set up a Array of players
@@ -141,7 +146,10 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                 warrior = playerArray[i];
             }
         }
-
+        foreach (GameObject obj in patrolArray)
+        {
+            PatrolList.Add(obj);
+        }
     }
 
     // Update each frame.
