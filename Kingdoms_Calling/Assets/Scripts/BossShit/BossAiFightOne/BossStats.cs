@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BossStats : MonoBehaviour
 {
+    Health LichHP;
     public enum Proc
     {
         None,
@@ -24,7 +25,8 @@ public class BossStats : MonoBehaviour
 
     void Start()
     {
-        health = 10;
+        LichHP = GetComponent<Health>();
+        health = LichHP.currentHealth;
         power = 7;
         speed = 6;
         stamina = 10;
