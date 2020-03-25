@@ -37,6 +37,6 @@ public class BossStats : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        health = LichHP.currentHealth;
     }
 }
