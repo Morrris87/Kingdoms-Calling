@@ -48,7 +48,7 @@ public class BossPatrolState : BossFightOneFSMState
             //if (timesMoved == 0)
             //{
             //move to randOne
-            while (enemyAI.transform.position != enemyAI.PatrolList[randOne].transform.position)
+            while (enemyAI.transform.position.x != enemyAI.PatrolList[randOne].transform.position.x && enemyAI.transform.position.z != enemyAI.PatrolList[randOne].transform.position.z)
             {
                 
                 enemyAI.transform.LookAt(enemyAI.PatrolList[randOne].transform);
