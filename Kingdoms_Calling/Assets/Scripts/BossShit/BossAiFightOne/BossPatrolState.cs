@@ -17,7 +17,6 @@ public class BossPatrolState : BossFightOneFSMState
     int randTwo;
     int randThree;
     int randFour;
-    int timesMoved = 0;
     GameObject one;
     GameObject Two;
     GameObject Three;
@@ -43,38 +42,36 @@ public class BossPatrolState : BossFightOneFSMState
         speed = enemyAI.bossStats.speed * Time.deltaTime;
         if (donePatrol == false)
         {
-            if(timesMoved == 0)
+            for (int timesMoved = 0; timesMoved < 5; timesMoved++)// this breaks and wont move at 5 but moves and wont leave at 4
             {
-                //move to randOne
-                enemyAI.transform.LookAt(enemyAI.PatrolList[randOne].transform);
-                enemyAI.transform.position += enemyAI.transform.forward * speed;
-                timesMoved++;
-            }
-            else if (timesMoved == 1)
-            {
-                //move to randTwo
-                enemyAI.transform.LookAt(enemyAI.PatrolList[randTwo].transform);
-                enemyAI.transform.position += enemyAI.transform.forward * speed;
-                timesMoved++;
-            }
-            else if (timesMoved == 2)
-            {
-                //move to randThree
-                enemyAI.transform.LookAt(enemyAI.PatrolList[randThree].transform);
-                enemyAI.transform.position += enemyAI.transform.forward * speed;
-                timesMoved++;
-            }
-            else if (timesMoved == 3)
-            {
-                //move to randFour
-                enemyAI.transform.LookAt(enemyAI.PatrolList[randFour].transform);
-                enemyAI.transform.position += enemyAI.transform.forward * speed;
-                timesMoved++;
-            }
-            else if (timesMoved == 4)
-            {
-                timesMoved = 0;
-                donePatrol = true;
+                if (timesMoved == 0)
+                {
+                    //move to randOne
+                    enemyAI.transform.LookAt(enemyAI.PatrolList[randOne].transform);
+                    enemyAI.transform.position += enemyAI.transform.forward * speed;
+                }
+                else if (timesMoved == 1)
+                {
+                    //move to randTwo
+                    enemyAI.transform.LookAt(enemyAI.PatrolList[randTwo].transform);
+                    enemyAI.transform.position += enemyAI.transform.forward * speed;
+                }
+                else if (timesMoved == 2)
+                {
+                    //move to randThree
+                    enemyAI.transform.LookAt(enemyAI.PatrolList[randThree].transform);
+                    enemyAI.transform.position += enemyAI.transform.forward * speed;
+                }
+                else if (timesMoved == 3)
+                {
+                    //move to randFour
+                    enemyAI.transform.LookAt(enemyAI.PatrolList[randFour].transform);
+                    enemyAI.transform.position += enemyAI.transform.forward * speed;
+                }
+                else if(timesMoved == 4)
+                {
+                    donePatrol = true;
+                }
             }
         }
         
