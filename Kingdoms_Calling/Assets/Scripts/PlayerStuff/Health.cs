@@ -55,6 +55,10 @@ public class Health : MonoBehaviour
         if (this.tag == "Player" || tag == "Boss")
         {
             healthUI.fillAmount = CalculateHealthLeftPercent(currentHealth, maxHealth);    // Adjusts the fill amount of the health bar based on the % of health left
+            if (currentHealth <= 0) // When currentHealth reaches 0...
+            {
+                GetComponentInChildren<Animator>().SetTrigger("Dead");
+            }
         }
 
         timerForFlash += Time.deltaTime; 
@@ -106,7 +110,7 @@ public class Health : MonoBehaviour
 
         if (currentHealth <= 0) // When currentHealth reaches 0...
         {
-            isDead = true;      // Set the object as dead
+            GetComponentInChildren<Animator>().SetTrigger("Dead");
         }
     }
 
