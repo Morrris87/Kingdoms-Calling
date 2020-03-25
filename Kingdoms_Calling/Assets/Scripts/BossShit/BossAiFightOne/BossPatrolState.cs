@@ -13,10 +13,10 @@ public class BossPatrolState : BossFightOneFSMState
 
     float elapsedTime;
     float intervalTime;
-    int randOne;
-    int randTwo;
-    int randThree;
-    int randFour;
+    //int randOne;
+    //int randTwo;
+    //int randThree;
+    //int randFour;
     GameObject one;
     GameObject Two;
     GameObject Three;
@@ -27,22 +27,23 @@ public class BossPatrolState : BossFightOneFSMState
         curSpeed = 0;
         stateID = FSMStateID.Patrol;
         //Get 4 RandomPositions in the patrolList
-        randOne = Random.Range(0,enemyAI.PatrolList.Count);
-        randTwo = Random.Range(0, enemyAI.PatrolList.Count);
-        randThree = Random.Range(0, enemyAI.PatrolList.Count);
-        randFour = Random.Range(0, enemyAI.PatrolList.Count);
+        
         //enemyAI.navAgent.speed = curSpeed;
     }
 
     public override void Act()
     {
+        int randOne = Random.Range(0, enemyAI.PatrolList.Count);
+        int randTwo = Random.Range(0, enemyAI.PatrolList.Count);
+        int randThree = Random.Range(0, enemyAI.PatrolList.Count);
+        int randFour = Random.Range(0, enemyAI.PatrolList.Count);
         Debug.Log("Patrolling");
         // Play move animation   
         //move
         speed = enemyAI.bossStats.speed * Time.deltaTime;
         if (donePatrol == false)
         {
-            for (int timesMoved = 0; timesMoved < 5; timesMoved++)// this breaks and wont move at 5 but moves and wont leave at 4
+            for (int timesMoved = 0; timesMoved < 4; timesMoved++)// this breaks and wont move at 5 but moves and wont leave at 4
             {
                 if (timesMoved == 0)
                 {
@@ -67,11 +68,7 @@ public class BossPatrolState : BossFightOneFSMState
                     //move to randFour
                     enemyAI.transform.LookAt(enemyAI.PatrolList[randFour].transform);
                     enemyAI.transform.position += enemyAI.transform.forward * speed;
-                }
-                else if(timesMoved == 4)
-                {
-                    donePatrol = true;
-                }
+                } 
             }
         }
         
