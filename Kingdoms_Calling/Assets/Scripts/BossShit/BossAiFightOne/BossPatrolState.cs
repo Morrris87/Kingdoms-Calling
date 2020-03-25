@@ -21,9 +21,13 @@ public class BossPatrolState : BossFightOneFSMState
     GameObject Two;
     GameObject Three;
     GameObject Four;
+
+    float timerLength = 5f;
+    float timer;
     public BossPatrolState(BossFightOneAI Lich)
     {
         enemyAI = Lich;
+        timer = timerLength;
         curSpeed = 0;
         stateID = FSMStateID.Patrol;
         //Get 4 RandomPositions in the patrolList
@@ -57,15 +61,16 @@ public class BossPatrolState : BossFightOneFSMState
             //if (timesMoved == 0)
             //{
             //move to randOne
-            if (enemyAI.transform.position.x != enemyAI.PatrolList[randOne].transform.position.x && enemyAI.transform.position.z != enemyAI.PatrolList[randOne].transform.position.z)
+            if (enemyAI.transform.position.x != enemyAI.PatrolList[randOne].transform.position.x && enemyAI.transform.position.z != enemyAI.PatrolList[randOne].transform.position.z || timer > 0f)
             {
-
+                timer -= Time.deltaTime;
                 enemyAI.transform.LookAt(enemyAI.PatrolList[randOne].transform);
                 enemyAI.transform.position += enemyAI.transform.forward * speed;
             }
             else
             {
                 donePatrol = true;
+                timer = timerLength;
             }
 
                 //}
