@@ -48,13 +48,16 @@ public class BossPatrolState : BossFightOneFSMState
             //if (timesMoved == 0)
             //{
             //move to randOne
-            while (enemyAI.transform.position.x != enemyAI.PatrolList[randOne].transform.position.x && enemyAI.transform.position.z != enemyAI.PatrolList[randOne].transform.position.z)
+            if (enemyAI.transform.position != enemyAI.PatrolList[randOne].transform.position)
             {
-                
+
                 enemyAI.transform.LookAt(enemyAI.PatrolList[randOne].transform);
                 enemyAI.transform.position += enemyAI.transform.forward * speed;
             }
-            donePatrol = true;
+            else
+            {
+                donePatrol = true;
+            }
 
                 //}
                 //else if (timesMoved == 1)
@@ -77,8 +80,6 @@ public class BossPatrolState : BossFightOneFSMState
                 //} 
             //}
         }
-        
-        
     }
 
     public override void Reason()
@@ -94,7 +95,5 @@ public class BossPatrolState : BossFightOneFSMState
             enemyAI.PerformTransition(Transition.ToAutoAttack);
             return;
         }
-        
-
     }
 }
