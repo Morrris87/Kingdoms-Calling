@@ -10,7 +10,7 @@ public class BossPatrolState : BossFightOneFSMState
     bool donePatrol = false;
 
     public float speed;
-
+    bool picked;
     float elapsedTime;
     float intervalTime;
     //int randOne;
@@ -33,7 +33,16 @@ public class BossPatrolState : BossFightOneFSMState
 
     public override void Act()
     {
-        int randOne = Random.Range(0, enemyAI.PatrolList.Count);
+        int randOne;
+        if (picked == false)
+        {
+            randOne = Random.Range(0, enemyAI.PatrolList.Count);
+            picked = true;
+        }
+        else
+        {
+            randOne = 0;
+        }
         //int randTwo = Random.Range(0, enemyAI.PatrolList.Count);
         //int randThree = Random.Range(0, enemyAI.PatrolList.Count);
         //int randFour = Random.Range(0, enemyAI.PatrolList.Count);
@@ -48,7 +57,7 @@ public class BossPatrolState : BossFightOneFSMState
             //if (timesMoved == 0)
             //{
             //move to randOne
-            if (enemyAI.transform.position != enemyAI.PatrolList[randOne].transform.position)
+            if (enemyAI.transform.position.x != enemyAI.PatrolList[randOne].transform.position.x && enemyAI.transform.position.z != enemyAI.PatrolList[randOne].transform.position.z)
             {
 
                 enemyAI.transform.LookAt(enemyAI.PatrolList[randOne].transform);
