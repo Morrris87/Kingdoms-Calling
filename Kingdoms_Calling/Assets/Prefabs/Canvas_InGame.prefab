@@ -1248,7 +1248,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 622279716}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5833392740221266731}
+        m_MethodName: PauseGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &625733617
@@ -2041,7 +2052,7 @@ Transform:
   - {fileID: 708539430}
   - {fileID: 1482971113}
   m_Father: {fileID: 1906221199}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &951894884
 GameObject:
@@ -3475,7 +3486,7 @@ Transform:
   - {fileID: 1112319510}
   - {fileID: 82195962}
   m_Father: {fileID: 1906221199}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1859323889
 GameObject:
@@ -3508,7 +3519,7 @@ Transform:
   - {fileID: 281384694}
   - {fileID: 1194703017}
   m_Father: {fileID: 1906221199}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1873037056
 GameObject:
@@ -3695,10 +3706,10 @@ Transform:
   m_LocalScale: {x: 1.6976125, y: 1.6976125, z: 1.6976125}
   m_Children:
   - {fileID: 1774296170}
+  - {fileID: 2899716762664562517}
   - {fileID: 1856736503}
   - {fileID: 903198051}
   - {fileID: 1859323890}
-  - {fileID: 2899716762664562517}
   m_Father: {fileID: 8300081291097214792}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10251,7 +10262,7 @@ PrefabInstance:
     - target: {fileID: 2899716763520582529, guid: c0f6bdf62c0ad8c4a84d4cbe5e9f6c39,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2899716763520582529, guid: c0f6bdf62c0ad8c4a84d4cbe5e9f6c39,
         type: 3}
