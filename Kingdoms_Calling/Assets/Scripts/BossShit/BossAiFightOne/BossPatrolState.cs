@@ -10,75 +10,90 @@ public class BossPatrolState : BossFightOneFSMState
     bool donePatrol = false;
 
     public float speed;
-
+    bool picked;
     float elapsedTime;
     float intervalTime;
-    int randOne;
-    int randTwo;
-    int randThree;
-    int randFour;
-    int timesMoved = 0;
+    //int randOne;
+    //int randTwo;
+    //int randThree;
+    //int randFour;
     GameObject one;
     GameObject Two;
     GameObject Three;
     GameObject Four;
+
+    float timerLength = 5f;
+    float timer;
     public BossPatrolState(BossFightOneAI Lich)
     {
         enemyAI = Lich;
+        timer = timerLength;
         curSpeed = 0;
         stateID = FSMStateID.Patrol;
         //Get 4 RandomPositions in the patrolList
-        randOne = Random.Range(0,enemyAI.PatrolList.Count);
-        randTwo = Random.Range(0, enemyAI.PatrolList.Count);
-        randThree = Random.Range(0, enemyAI.PatrolList.Count);
-        randFour = Random.Range(0, enemyAI.PatrolList.Count);
+        
         //enemyAI.navAgent.speed = curSpeed;
     }
 
     public override void Act()
     {
+        int randOne;
+        if (picked == false)
+        {
+            randOne = Random.Range(0, enemyAI.PatrolList.Count);
+            picked = true;
+        }
+        else
+        {
+            randOne = 0;
+        }
+        //int randTwo = Random.Range(0, enemyAI.PatrolList.Count);
+        //int randThree = Random.Range(0, enemyAI.PatrolList.Count);
+        //int randFour = Random.Range(0, enemyAI.PatrolList.Count);
         Debug.Log("Patrolling");
         // Play move animation   
         //move
         speed = enemyAI.bossStats.speed * Time.deltaTime;
         if (donePatrol == false)
         {
-            if(timesMoved == 0)
+            //for (int timesMoved = 0; timesMoved < 4; timesMoved++)// this breaks and wont move at 5 but moves and wont leave at 4
+            // {
+            //if (timesMoved == 0)
+            //{
+            //move to randOne
+            if (timer > 0f)
             {
-                //move to randOne
+                timer -= Time.deltaTime;
                 enemyAI.transform.LookAt(enemyAI.PatrolList[randOne].transform);
                 enemyAI.transform.position += enemyAI.transform.forward * speed;
-                timesMoved++;
             }
-            else if (timesMoved == 1)
+            else
             {
-                //move to randTwo
-                enemyAI.transform.LookAt(enemyAI.PatrolList[randTwo].transform);
-                enemyAI.transform.position += enemyAI.transform.forward * speed;
-                timesMoved++;
-            }
-            else if (timesMoved == 2)
-            {
-                //move to randThree
-                enemyAI.transform.LookAt(enemyAI.PatrolList[randThree].transform);
-                enemyAI.transform.position += enemyAI.transform.forward * speed;
-                timesMoved++;
-            }
-            else if (timesMoved == 3)
-            {
-                //move to randFour
-                enemyAI.transform.LookAt(enemyAI.PatrolList[randFour].transform);
-                enemyAI.transform.position += enemyAI.transform.forward * speed;
-                timesMoved++;
-            }
-            else if (timesMoved == 4)
-            {
-                timesMoved = 0;
                 donePatrol = true;
+                timer = timerLength;
             }
+
+                //}
+                //else if (timesMoved == 1)
+                //{
+                //    //move to randTwo
+                //    enemyAI.transform.LookAt(enemyAI.PatrolList[randTwo].transform);
+                //    enemyAI.transform.position += enemyAI.transform.forward * speed;
+                //}
+                //else if (timesMoved == 2)
+                //{
+                //    //move to randThree
+                //    enemyAI.transform.LookAt(enemyAI.PatrolList[randThree].transform);
+                //    enemyAI.transform.position += enemyAI.transform.forward * speed;
+                //}
+                //else if (timesMoved == 3)
+                //{
+                //    //move to randFour
+                //    enemyAI.transform.LookAt(enemyAI.PatrolList[randFour].transform);
+                //    enemyAI.transform.position += enemyAI.transform.forward * speed;
+                //} 
+            //}
         }
-        
-        
     }
 
     public override void Reason()
@@ -94,7 +109,5 @@ public class BossPatrolState : BossFightOneFSMState
             enemyAI.PerformTransition(Transition.ToAutoAttack);
             return;
         }
-        
-
     }
 }

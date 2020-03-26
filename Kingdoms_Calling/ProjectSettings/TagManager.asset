@@ -21,6 +21,7 @@ TagManager:
   - Boss
   - Cursor
   - Character
+  - PatrolSpot
   layers:
   - Default
   - TransparentFX
