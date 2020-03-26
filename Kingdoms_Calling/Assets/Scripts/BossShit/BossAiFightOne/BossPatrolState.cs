@@ -7,7 +7,7 @@ public class BossPatrolState : BossFightOneFSMState
 {
     BossFightOneAI enemyAI;
 
-    bool donePatrol = false;
+    bool donePatrol;
 
     public float speed;
     bool picked;
@@ -21,8 +21,8 @@ public class BossPatrolState : BossFightOneFSMState
     GameObject Two;
     GameObject Three;
     GameObject Four;
-
-    float timerLength = 5f;
+    int randOne = -1;
+    float timerLength = 7f;
     float timer;
     public BossPatrolState(BossFightOneAI Lich)
     {
@@ -37,62 +37,43 @@ public class BossPatrolState : BossFightOneFSMState
 
     public override void Act()
     {
-        int randOne;
-        if (picked == false)
-        {
-            randOne = Random.Range(0, enemyAI.PatrolList.Count);
-            picked = true;
-        }
-        else
-        {
-            randOne = 0;
-        }
-        //int randTwo = Random.Range(0, enemyAI.PatrolList.Count);
-        //int randThree = Random.Range(0, enemyAI.PatrolList.Count);
-        //int randFour = Random.Range(0, enemyAI.PatrolList.Count);
+        donePatrol = false;
         Debug.Log("Patrolling");
         // Play move animation   
         //move
         speed = enemyAI.bossStats.speed * Time.deltaTime;
         if (donePatrol == false)
         {
-            //for (int timesMoved = 0; timesMoved < 4; timesMoved++)// this breaks and wont move at 5 but moves and wont leave at 4
-            // {
-            //if (timesMoved == 0)
-            //{
-            //move to randOne
-            if (timer > 0f)
+            if (randOne == -1)
             {
-                timer -= Time.deltaTime;
-                enemyAI.transform.LookAt(enemyAI.PatrolList[randOne].transform);
-                enemyAI.transform.position += enemyAI.transform.forward * speed;
+                randOne = Random.Range(0, enemyAI.PatrolList.Count);
+                Debug.Log("Picked " + randOne.ToString());
             }
+            //move to randOne
+            //if (timer > 0f)
+           // {
+                
+                timer -= Time.deltaTime;
+                if(Vector3.Distance(enemyAI.PatrolList[randOne].transform.position, 
+                    enemyAI.transform.position) > 1)
+                {
+                    enemyAI.transform.LookAt(enemyAI.PatrolList[randOne].transform);
+                    enemyAI.transform.position += enemyAI.transform.forward * speed;
+                }
             else
             {
-                donePatrol = true;
                 timer = timerLength;
+                picked = false;
+                randOne = -1;
+                donePatrol = true;
             }
-
-                //}
-                //else if (timesMoved == 1)
+                //if (enemyAI.transform.position.x != enemyAI.PatrolList[randOne].transform.position.x 
+                //    && enemyAI.transform.position.z != enemyAI.PatrolList[randOne].transform.position.z)
                 //{
-                //    //move to randTwo
-                //    enemyAI.transform.LookAt(enemyAI.PatrolList[randTwo].transform);
-                //    enemyAI.transform.position += enemyAI.transform.forward * speed;
+                    
                 //}
-                //else if (timesMoved == 2)
-                //{
-                //    //move to randThree
-                //    enemyAI.transform.LookAt(enemyAI.PatrolList[randThree].transform);
-                //    enemyAI.transform.position += enemyAI.transform.forward * speed;
-                //}
-                //else if (timesMoved == 3)
-                //{
-                //    //move to randFour
-                //    enemyAI.transform.LookAt(enemyAI.PatrolList[randFour].transform);
-                //    enemyAI.transform.position += enemyAI.transform.forward * speed;
-                //} 
             //}
+
         }
     }
 
