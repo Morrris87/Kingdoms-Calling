@@ -38,7 +38,7 @@ public class CursorControllerScript : MonoBehaviour
         userDevice = pI.devices.ToArray();
         if(pI.devices.Count == 0)
         {
-            GameObject.Destroy(this.gameObject);
+            //GameObject.Destroy(this.gameObject);
         }
     }
 
@@ -53,7 +53,7 @@ public class CursorControllerScript : MonoBehaviour
         //if we dont have a ui canvas find it
         if (!uiCanvas)
         {
-            uiCanvas = GameObject.Find("Canvas");
+            uiCanvas = GameObject.Find("Canvas_InGame");
         }
         //if we have a canvas check if it is our parent as this is a ui script
         else if (uiCanvas)
@@ -80,7 +80,13 @@ public class CursorControllerScript : MonoBehaviour
 
     void OnMovement(InputValue value)
     {
-        i_Movement = value.Get<Vector2>();
+        if(value.Get<Vector2>() != Vector2.zero)
+        {
+            i_Movement = value.Get<Vector2>();
+            Vector2 movement = new Vector2(i_Movement.x, i_Movement.y) * moveSpeed; //Time.deltaTime;
+            transform.Translate(movement);
+        }
+        
     }
 
     void OnNo()
@@ -96,8 +102,8 @@ public class CursorControllerScript : MonoBehaviour
 
     private void Move()
     {
-        Vector2 movement = new Vector2(i_Movement.x, i_Movement.y) * moveSpeed * Time.deltaTime;
-        transform.Translate(movement);
+        //Vector2 movement = new Vector2(i_Movement.x, i_Movement.y) * moveSpeed; //Time.deltaTime;
+        //transform.Translate(movement);
         //Debug.Log(userDevice[0] + " is moving");
     }
 
