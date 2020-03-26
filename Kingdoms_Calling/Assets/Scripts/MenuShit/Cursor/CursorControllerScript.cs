@@ -18,7 +18,7 @@ public class CursorControllerScript : MonoBehaviour
 {
     Vector2 i_Movement;
     public float moveSpeed;
-    public GameObject uiCanvas;
+    public GameObject parentObject;
     private PlayerInput pI;
     private GraphicRaycaster gr;
     private PointerEventData pointerEventData = new PointerEventData(null);
@@ -32,7 +32,7 @@ public class CursorControllerScript : MonoBehaviour
     void Start()
     {
         gr = GetComponentInParent<GraphicRaycaster>();
-        uiCanvas = GameObject.Find("Canvas");
+        //parentObject = GameObject.Find("Canvas");
         pI = GetComponent<PlayerInput>();
         user = pI.user;
         userDevice = pI.devices.ToArray();
@@ -51,21 +51,21 @@ public class CursorControllerScript : MonoBehaviour
             user = pI.user;
         }
         //if we dont have a ui canvas find it
-        if (!uiCanvas)
+        if (!parentObject)
         {
-            uiCanvas = GameObject.Find("Canvas_InGame");
+            parentObject = GameObject.Find("Canvas_InGame");
         }
         //if we have a canvas check if it is our parent as this is a ui script
-        else if (uiCanvas)
+        else if (parentObject)
         {
-            if (transform.parent == uiCanvas.transform)
+            if (transform.parent == parentObject.transform)
             {
                 //do nothing the canvas is our parent
             }
             else
             {
                 //set the cursors parent to the Canvas
-                transform.SetParent(uiCanvas.transform);
+                transform.SetParent(parentObject.transform);
             }
         }
         if (!pI.uiInputModule)
