@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "name": "Movement",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "0fa37560-6414-4d69-8282-95ebdc46ef97",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -15,9 +15,9 @@
                 },
                 {
                     "name": "Yes",
-                    "type": "PassThrough",
+                    "type": "Button",
                     "id": "dddbdadb-3792-489b-988c-6838c5c52642",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": ""
                 },

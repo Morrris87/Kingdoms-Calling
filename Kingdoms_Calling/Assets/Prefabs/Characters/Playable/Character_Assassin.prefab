@@ -530,19 +530,7 @@ MonoBehaviour:
   cycleRange: 10
   analogTargetRange: 5
   abilityIndicator: {fileID: 5012728445501340295}
-  ElementalChainLink: {fileID: 0}
-  OrganOfDesperation: {fileID: 0}
-  CharmOfPressure: {fileID: 0}
-  NeedleOfChance: {fileID: 0}
-  PiercingSheathe: {fileID: 0}
-  TomeOfStatHealth: {fileID: 0}
-  TomeOfStatPower: {fileID: 0}
-  TomeOfStatSpeed: {fileID: 0}
-  TomeOfStatStamina: {fileID: 0}
-  TomeOfStatPhysicalDefence: {fileID: 0}
-  TomeOfStatMagicDefence: {fileID: 0}
   displayLocation: 0
-  inventory: {fileID: 0}
 --- !u!114 &7280584505368016747
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,8 +553,6 @@ MonoBehaviour:
   AttackHitChance: 0
   AttackStaminaLoss: 0
   attackTimer: 1
-  basicAttackSound: {fileID: 0}
-  m_AudioSource: {fileID: 0}
   zacAttackBool: 0
 --- !u!114 &7280584505368016746
 MonoBehaviour:
@@ -644,9 +630,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 5
+  m_Height: 1.6527153
   m_Direction: 1
-  m_Center: {x: 0, y: 1.9598162, z: 0}
+  m_Center: {x: 0, y: 0.32635766, z: 0}
 --- !u!114 &2020547607532324613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -707,12 +693,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db545844f24cb7944a1f14587527f020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterAudioSource: {fileID: 0}
-  basicAttackClip: {fileID: 0}
-  footstepClip: {fileID: 0}
-  flammingLeap: {fileID: 0}
-  axSpin: {fileID: 0}
-  evasionClip: {fileID: 0}
   hitbox: {fileID: 657364441069981050}
 --- !u!114 &7849682746261314572
 MonoBehaviour:
@@ -726,14 +706,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba85dfa30563734ca3ca8d1db6800e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterAudioSource: {fileID: 0}
-  lightningStrikeSource: {fileID: 0}
-  executionSource: {fileID: 0}
-  footstepClip: {fileID: 0}
-  lightningStrikeClip: {fileID: 0}
-  executionClip: {fileID: 0}
-  executionClip2: {fileID: 0}
-  evasionClip: {fileID: 0}
   assassin: {fileID: 7280584505368016736}
   ChainLightningPrefab: {fileID: 7052526911153070361, guid: 8dcf058d9dd2cb44ba024a4a1acb5153,
     type: 3}

@@ -20,7 +20,7 @@ public class ProjectileDamage : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.forward * 20 * Time.deltaTime;
+        transform.position += transform.forward * 100 * Time.deltaTime;
         if (arrowLife <= 0f)
         {
             Destroy(this.gameObject);
@@ -29,7 +29,7 @@ public class ProjectileDamage : MonoBehaviour
         {
             arrowLife -= Time.deltaTime;
 
-            Collider[] cols = Physics.OverlapBox(GetComponent<Collider>().bounds.center, GetComponent<Collider>().bounds.extents, GetComponent<Collider>().transform.rotation, LayerMask.GetMask("Enemy", "Player"));
+            Collider[] cols = Physics.OverlapBox(GetComponent<Collider>().bounds.center, GetComponent<Collider>().bounds.extents, GetComponent<Collider>().transform.rotation, LayerMask.GetMask("Enemy"));
             foreach (Collider c in cols)
             {
                 if (attacker == Attacker.PLAYER && shot.zacAttackBool == true)

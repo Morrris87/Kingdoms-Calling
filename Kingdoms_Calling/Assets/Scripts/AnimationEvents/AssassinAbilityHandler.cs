@@ -13,7 +13,6 @@ public class AssassinAbilityHandler : MonoBehaviour
     public AudioClip lightningStrikeClip;
     public AudioClip executionClip;
     public AudioClip executionClip2;
-    public AudioClip evasionClip;
 
     public GameObject assassin;
     public GameObject ChainLightningPrefab;
@@ -40,46 +39,26 @@ public class AssassinAbilityHandler : MonoBehaviour
 
     public void StepEvent()
     {
-        if (footstepClip != null)
-        {
-            characterAudioSource.clip = footstepClip;
-            characterAudioSource.Play();
-        }
+        characterAudioSource.clip = footstepClip;
+        characterAudioSource.Play();
     }
 
-    public void EvasionAssEvent()
-    {
-        if (evasionClip != null)
-        {
-            characterAudioSource.clip = evasionClip;
-            characterAudioSource.Play();
-        }
-    }
     public void LightningStrikeEvent()
     {
-        if (lightningStrikeClip != null)
-        {
-            characterAudioSource.clip = lightningStrikeClip;
-            characterAudioSource.Play();
-        }
+        characterAudioSource.clip = lightningStrikeClip;
+        characterAudioSource.Play();
     }
 
     public void ExecutionSoundEvent()
     {
-        if (executionClip != null)
-        {
-            characterAudioSource.clip = executionClip;
-            characterAudioSource.Play();
-        }
+        characterAudioSource.clip = executionClip;
+        characterAudioSource.Play();
     }
 
     public void ExecutionSoundEvent2()
     {
-        if (executionClip2 != null)
-        {
-            characterAudioSource.clip = executionClip2;
-            characterAudioSource.Play();
-        }
+        characterAudioSource.clip = executionClip2;
+        characterAudioSource.Play();
     }
 
     public void ThunderStrikeEvent()
