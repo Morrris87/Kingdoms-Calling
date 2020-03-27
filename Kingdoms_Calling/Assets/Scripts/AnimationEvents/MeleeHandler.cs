@@ -9,6 +9,7 @@ public class MeleeHandler : MonoBehaviour
     public AudioClip footstepClip;
     public AudioClip flammingLeap;
     public AudioClip axSpin;
+    public AudioClip evasionClip;
     public GameObject hitbox;
 
     private BasicAttack basicAttack;
@@ -19,27 +20,48 @@ public class MeleeHandler : MonoBehaviour
         basicAttack = GetComponentInParent<BasicAttack>();
     }
 
+    public void EvasionWEvent()
+    {
+        if (evasionClip != null)
+        {
+            characterAudioSource.clip = evasionClip;
+            characterAudioSource.Play();
+        }
+    }
+
     public void BasicAttackClipEvent()
     {
-        characterAudioSource.clip = basicAttackClip;
-        characterAudioSource.Play();
+        if (basicAttackClip != null)
+        {
+            characterAudioSource.clip = basicAttackClip;
+            characterAudioSource.Play();
+        }
     }
 
     public void FlammingLeapEvent()
     {
-        characterAudioSource.clip = flammingLeap;
-        characterAudioSource.Play();
+        if (flammingLeap != null)
+        {
+            characterAudioSource.clip = flammingLeap;
+            characterAudioSource.Play();
+        }
     }
 
     public void AxSpinEvent()
     {
-        characterAudioSource.clip = axSpin;
-        characterAudioSource.Play();
+        if (axSpin != null)
+        {
+            characterAudioSource.clip = axSpin;
+            characterAudioSource.Play();
+        }
     }
     public void StepEvent()
     {
-        characterAudioSource.clip = footstepClip;
-        characterAudioSource.Play();
+        if (footstepClip != null)
+        {
+            characterAudioSource.clip = footstepClip;
+            characterAudioSource.Play();
+        }
     }
     public void MeleeEvent()
     {
