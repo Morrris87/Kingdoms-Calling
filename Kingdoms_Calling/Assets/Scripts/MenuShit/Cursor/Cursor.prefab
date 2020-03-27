@@ -102,7 +102,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7165387111946522420}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 320, y: 540, z: 0}
+  m_LocalPosition: {x: 240, y: 360, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 2111608499900879811}
@@ -169,6 +169,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 10
-  uiCanvas: {fileID: 0}
+  parentObject: {fileID: 0}
   alreadySelectedCharacter: 0
   chosenCharacter: 0

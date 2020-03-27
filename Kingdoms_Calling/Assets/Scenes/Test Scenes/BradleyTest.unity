@@ -412,7 +412,7 @@ PrefabInstance:
     - target: {fileID: 8101875803662140769, guid: 3126e2b090e229644a42aeda1fc2535b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8101875803662140773, guid: 3126e2b090e229644a42aeda1fc2535b,
         type: 3}
@@ -519,11 +519,21 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8300081291097214799, guid: 3126e2b090e229644a42aeda1fc2535b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5833392740221266731, guid: 3126e2b090e229644a42aeda1fc2535b,
         type: 3}
       propertyPath: players.Array.data[0]
       value: 
       objectReference: {fileID: 383900700}
+    - target: {fileID: 8300081289867235267, guid: 3126e2b090e229644a42aeda1fc2535b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3126e2b090e229644a42aeda1fc2535b, type: 3}
 --- !u!1 &175767603 stripped
@@ -698,6 +708,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 741450342869504952, guid: c0f6bdf62c0ad8c4a84d4cbe5e9f6c39,
+        type: 3}
+      propertyPath: parentObject
+      value: 
+      objectReference: {fileID: 179861777}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0f6bdf62c0ad8c4a84d4cbe5e9f6c39, type: 3}
 --- !u!4 &285626204 stripped
@@ -890,6 +905,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 741450342869504952, guid: c0f6bdf62c0ad8c4a84d4cbe5e9f6c39,
+        type: 3}
+      propertyPath: parentObject
+      value: 
+      objectReference: {fileID: 179861777}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0f6bdf62c0ad8c4a84d4cbe5e9f6c39, type: 3}
 --- !u!1001 &313419258
@@ -959,6 +979,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 741450342869504952, guid: c0f6bdf62c0ad8c4a84d4cbe5e9f6c39,
+        type: 3}
+      propertyPath: parentObject
+      value: 
+      objectReference: {fileID: 179861777}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0f6bdf62c0ad8c4a84d4cbe5e9f6c39, type: 3}
 --- !u!1001 &343544965
@@ -2207,6 +2232,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 741450342869504952, guid: c0f6bdf62c0ad8c4a84d4cbe5e9f6c39,
+        type: 3}
+      propertyPath: parentObject
+      value: 
+      objectReference: {fileID: 179861777}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0f6bdf62c0ad8c4a84d4cbe5e9f6c39, type: 3}
 --- !u!4 &1119535726 stripped
@@ -4089,6 +4119,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: EventSystem
       objectReference: {fileID: 0}
+    - target: {fileID: 4978485859541670059, guid: 33298c3380ceaa14a8c06749015dd22e,
+        type: 3}
+      propertyPath: LevelLoad
+      value: 
+      objectReference: {fileID: 1272233340}
+    - target: {fileID: 4978485859541670059, guid: 33298c3380ceaa14a8c06749015dd22e,
+        type: 3}
+      propertyPath: ArcherPrefab
+      value: 
+      objectReference: {fileID: 383900700}
+    - target: {fileID: 4978485859541670059, guid: 33298c3380ceaa14a8c06749015dd22e,
+        type: 3}
+      propertyPath: AssassinPrefab
+      value: 
+      objectReference: {fileID: 175767603}
+    - target: {fileID: 4978485859541670059, guid: 33298c3380ceaa14a8c06749015dd22e,
+        type: 3}
+      propertyPath: WarriorPrefab
+      value: 
+      objectReference: {fileID: 1923858715}
+    - target: {fileID: 4978485859541670059, guid: 33298c3380ceaa14a8c06749015dd22e,
+        type: 3}
+      propertyPath: PaladinPrefab
+      value: 
+      objectReference: {fileID: 1450374231}
     - target: {fileID: 4978485859541670060, guid: 33298c3380ceaa14a8c06749015dd22e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4144,30 +4199,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4978485859541670059, guid: 33298c3380ceaa14a8c06749015dd22e,
-        type: 3}
-      propertyPath: LevelLoad
-      value: 
-      objectReference: {fileID: 1272233340}
-    - target: {fileID: 4978485859541670059, guid: 33298c3380ceaa14a8c06749015dd22e,
-        type: 3}
-      propertyPath: ArcherPrefab
-      value: 
-      objectReference: {fileID: 383900700}
-    - target: {fileID: 4978485859541670059, guid: 33298c3380ceaa14a8c06749015dd22e,
-        type: 3}
-      propertyPath: AssassinPrefab
-      value: 
-      objectReference: {fileID: 175767603}
-    - target: {fileID: 4978485859541670059, guid: 33298c3380ceaa14a8c06749015dd22e,
-        type: 3}
-      propertyPath: WarriorPrefab
-      value: 
-      objectReference: {fileID: 1923858715}
-    - target: {fileID: 4978485859541670059, guid: 33298c3380ceaa14a8c06749015dd22e,
-        type: 3}
-      propertyPath: PaladinPrefab
-      value: 
-      objectReference: {fileID: 1450374231}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 33298c3380ceaa14a8c06749015dd22e, type: 3}
