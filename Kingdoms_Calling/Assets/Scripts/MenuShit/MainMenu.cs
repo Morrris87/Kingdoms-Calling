@@ -15,6 +15,7 @@ public class MainMenu : MonoBehaviour
 {
 
     public GameObject uiCanvas;
+    public int maxMaxAllowedPlayers;
 
     private void Start()
     {
@@ -23,6 +24,7 @@ public class MainMenu : MonoBehaviour
 
     private void Update()
     {
+        //test
         //if we dont have a ui canvas find it
         if (!uiCanvas)
         {
@@ -30,8 +32,20 @@ public class MainMenu : MonoBehaviour
         }
         if (uiCanvas.GetComponent<PlayerInputManager>())
         {
-            if (uiCanvas.GetComponent<PlayerInputManager>().playerCount > 0)
-                uiCanvas.GetComponent<PlayerInputManager>().DisableJoining();
+            if (uiCanvas.GetComponent<PlayerInputManager>().playerCount > maxMaxAllowedPlayers)
+            {
+                if (uiCanvas.GetComponent<PlayerInputManager>().joiningEnabled == true)
+                {
+                    uiCanvas.GetComponent<PlayerInputManager>().DisableJoining();
+                }
+            }
+            else if (uiCanvas.GetComponent<PlayerInputManager>().playerCount < maxMaxAllowedPlayers)
+            {
+                if (uiCanvas.GetComponent<PlayerInputManager>().joiningEnabled == false)
+                {
+                    uiCanvas.GetComponent<PlayerInputManager>().EnableJoining();
+                }
+            }
         }
     }
 
@@ -45,5 +59,7 @@ public class MainMenu : MonoBehaviour
         Debug.Log("QUIT!");
         Application.Quit();
     }
+
 }
+
 

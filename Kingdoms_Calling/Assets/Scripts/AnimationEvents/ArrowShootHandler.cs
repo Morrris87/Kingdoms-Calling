@@ -20,8 +20,11 @@ public class ArrowShootHandler : MonoBehaviour
 
     public void WindupEvent()
     {
-        characterSource.clip = windupClip;
-        characterSource.Play();
+        if (windupClip != null)
+        {
+            characterSource.clip = windupClip;
+            characterSource.Play();
+        }
     }
 
     public void ShootEvent()
@@ -34,8 +37,12 @@ public class ArrowShootHandler : MonoBehaviour
         basicAttack.arrowPrefab.GetComponent<ProjectileDamage>().attacker = ProjectileDamage.Attacker.PLAYER;           // Set the attacker to the player
 
         // Play Sound
-        arrowSource.clip = attackClip;
-        arrowSource.Play();
+        if (attackClip != null)
+        {
+            arrowSource.clip = attackClip;
+            arrowSource.Play();
+        }
+
 
         Instantiate(basicAttack.arrowPrefab, basicAttack.spawner.position, Quaternion.LookRotation(transform.forward, Vector3.up)); // Fire the arrow
         MovingEvent();

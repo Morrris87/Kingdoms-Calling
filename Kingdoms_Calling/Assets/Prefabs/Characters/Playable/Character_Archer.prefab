@@ -20,6 +20,7 @@ MonoBehaviour:
   footstepClip: {fileID: 8300000, guid: 2ac7dc710be71424b9da8be1fcf01e70, type: 3}
   arrowVolleyClip: {fileID: 8300000, guid: 36eb3a9b5e17c5f48bdb116497b1ef5d, type: 3}
   piercingArrowClip: {fileID: 8300000, guid: f185c70551ffed34e90ce55e5d685bd8, type: 3}
+  evasionClip: {fileID: 0}
 --- !u!114 &2739353547136035820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,7 +398,19 @@ MonoBehaviour:
   cycleRange: 10
   analogTargetRange: 5
   abilityIndicator: {fileID: 1548361943279933341}
+  ElementalChainLink: {fileID: 0}
+  OrganOfDesperation: {fileID: 0}
+  CharmOfPressure: {fileID: 0}
+  NeedleOfChance: {fileID: 0}
+  PiercingSheathe: {fileID: 0}
+  TomeOfStatHealth: {fileID: 0}
+  TomeOfStatPower: {fileID: 0}
+  TomeOfStatSpeed: {fileID: 0}
+  TomeOfStatStamina: {fileID: 0}
+  TomeOfStatPhysicalDefence: {fileID: 0}
+  TomeOfStatMagicDefence: {fileID: 0}
   displayLocation: 0
+  inventory: {fileID: 0}
 --- !u!114 &6850935412393349420
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,9 +516,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 2
+  m_Height: 5
   m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
+  m_Center: {x: 0, y: 2.5, z: 0}
 --- !u!114 &-6480449882182180542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -807,11 +820,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6850935412393349414}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
-        type: 3}
-      propertyPath: m_Name
-      value: archer
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -866,6 +874,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
+        type: 3}
+      propertyPath: m_Name
+      value: archer
       objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
         type: 3}

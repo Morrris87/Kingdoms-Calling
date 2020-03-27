@@ -316,7 +316,19 @@ MonoBehaviour:
   cycleRange: 10
   analogTargetRange: 5
   abilityIndicator: {fileID: 201796285799420056}
+  ElementalChainLink: {fileID: 0}
+  OrganOfDesperation: {fileID: 0}
+  CharmOfPressure: {fileID: 0}
+  NeedleOfChance: {fileID: 0}
+  PiercingSheathe: {fileID: 0}
+  TomeOfStatHealth: {fileID: 0}
+  TomeOfStatPower: {fileID: 0}
+  TomeOfStatSpeed: {fileID: 0}
+  TomeOfStatStamina: {fileID: 0}
+  TomeOfStatPhysicalDefence: {fileID: 0}
+  TomeOfStatMagicDefence: {fileID: 0}
   displayLocation: 0
+  inventory: {fileID: 0}
 --- !u!114 &2241186763897451433
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,6 +351,8 @@ MonoBehaviour:
   AttackHitChance: 0
   AttackStaminaLoss: 0
   attackTimer: 1
+  basicAttackSound: {fileID: 0}
+  m_AudioSource: {fileID: 0}
   zacAttackBool: 0
 --- !u!114 &2241186763897451432
 MonoBehaviour:
@@ -418,9 +432,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1.6527153
+  m_Height: 5
   m_Direction: 1
-  m_Center: {x: 0, y: 0.32635766, z: 0}
+  m_Center: {x: 0, y: 1.92, z: 0}
 --- !u!114 &7357178801030988743
 MonoBehaviour:
   m_ObjectHideFlags: 0

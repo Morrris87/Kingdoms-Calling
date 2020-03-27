@@ -29,6 +29,7 @@ MonoBehaviour:
   footstepClip: {fileID: 0}
   flammingLeap: {fileID: 0}
   axSpin: {fileID: 0}
+  evasionClip: {fileID: 0}
   hitbox: {fileID: 1998069277819962527}
 --- !u!1 &1998069277819962527
 GameObject:
@@ -711,9 +712,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 1.6527153
+  m_Height: 5
   m_Direction: 1
-  m_Center: {x: 0, y: 0.32635766, z: 0}
+  m_Center: {x: 0, y: 2.4, z: 0}
 --- !u!114 &1058224150484438752
 MonoBehaviour:
   m_ObjectHideFlags: 0

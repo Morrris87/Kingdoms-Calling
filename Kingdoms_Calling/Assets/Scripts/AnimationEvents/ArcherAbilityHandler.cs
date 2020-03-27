@@ -10,6 +10,7 @@ public class ArcherAbilityHandler : MonoBehaviour
     public AudioClip footstepClip;
     public AudioClip arrowVolleyClip;
     public AudioClip piercingArrowClip;
+    public AudioClip evasionClip;
 
     private ArrowVolley arrowVolley;
     private PiercingArrow piercingArrow;
@@ -23,10 +24,21 @@ public class ArcherAbilityHandler : MonoBehaviour
 
     public void StepEvent()
     {
-        characterAudioSource.clip = footstepClip;
-        characterAudioSource.Play();
+        if (footstepClip != null)
+        {
+            characterAudioSource.clip = footstepClip;
+            characterAudioSource.Play();
+        }
     }
 
+    public void EvasionAEvent()
+    {
+        if (evasionClip != null)
+        {
+            characterAudioSource.clip = evasionClip;
+            characterAudioSource.Play();
+        }
+    }
     public void ArrowVolleyEvent()
     {
         // Place the collder for the ability in the spawn area
@@ -35,15 +47,21 @@ public class ArcherAbilityHandler : MonoBehaviour
 
     public void ArrowVolleySoundEvent()
     {
-        arrowVolleySource.clip = arrowVolleyClip;
-        arrowVolleySource.Play();
+        if (arrowVolleyClip != null)
+        {
+            arrowVolleySource.clip = arrowVolleyClip;
+            arrowVolleySource.Play();
+        }
     }
 
     public void PiercingArrowEvent()
     {
         // Play audio
-        piercingArrowSource.clip = piercingArrowClip;
-        piercingArrowSource.Play();
+        if (piercingArrowClip != null)
+        {
+            piercingArrowSource.clip = piercingArrowClip;
+            piercingArrowSource.Play();
+        }
 
         // Set the arrow's rotation to that of the player
         piercingArrow.piercingArrowPrefab.transform.rotation = transform.rotation;
