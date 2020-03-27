@@ -2857,7 +2857,8 @@ PrefabInstance:
       propertyPath: spawnZoneFour
       value: 
       objectReference: {fileID: 336027697}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1205321528604478640, guid: 2bdb602c2c7ac954fa7c0a245fd42e9d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2bdb602c2c7ac954fa7c0a245fd42e9d, type: 3}
 --- !u!4 &1220743510 stripped
 Transform:

@@ -107,6 +107,11 @@ MonoBehaviour:
   magicProjectile: {fileID: 6671355828088245152, guid: aeef68c00dcfe2540aee5d7ff7cd0dda,
     type: 3}
   spawner: {fileID: 2738249811132612052}
+  lichAudioSource: {fileID: 0}
+  lichScreamClip: {fileID: 0}
+  lichMeleeClip: {fileID: 0}
+  lichMagicClip: {fileID: 0}
+  LichCloneClip: {fileID: 0}
 --- !u!1 &2010657203903177079
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +137,7 @@ Transform:
   m_GameObject: {fileID: 2010657203903177079}
   m_LocalRotation: {x: 0.00000023841852, y: -0.000000042146848, z: 0.00000025288105,
     w: 1}
-  m_LocalPosition: {x: -0, y: 5.58, z: 2.06}
+  m_LocalPosition: {x: -0, y: 5.58, z: 4.05}
   m_LocalScale: {x: 0.500001, y: 0.5000012, z: 0.5000005}
   m_Children: []
   m_Father: {fileID: 7984871552658359310}
