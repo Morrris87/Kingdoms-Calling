@@ -18,6 +18,7 @@ public class CursorControllerScript : MonoBehaviour
 {
     Vector2 i_Movement;
     public float moveSpeed;
+    //public bool isPause;
     Vector2 movement;
     public GameObject parentObject;
     private PlayerInput pI;
@@ -42,7 +43,7 @@ public class CursorControllerScript : MonoBehaviour
         {
             if (Time.deltaTime != 0)
             {
-                GameObject.Destroy(this.gameObject);
+                //GameObject.Destroy(this.gameObject);
             }
         }
     }
@@ -55,6 +56,7 @@ public class CursorControllerScript : MonoBehaviour
         {
             user = pI.user;
         }
+
         //if we dont have a ui canvas find it
         if (parentObject == null)
         {
@@ -105,11 +107,16 @@ public class CursorControllerScript : MonoBehaviour
         if (Time.deltaTime == 0)
         {
             Move();
-        }        
+        }
+        //Debug.Log(i_Movement);
     }
 
     void OnNo()
     {
+        if (Time.deltaTime == 0)
+        {
+            cursorRaycast();
+        }
         //Loop through our results
         foreach (RaycastResult r in results)
         {
@@ -123,6 +130,11 @@ public class CursorControllerScript : MonoBehaviour
 
     void OnYes()
     {
+        if (Time.deltaTime == 0)
+        {
+            cursorRaycast();
+        }
+
         //Loop through our results
         foreach (RaycastResult r in results)
         {
@@ -138,9 +150,9 @@ public class CursorControllerScript : MonoBehaviour
 
     private void Move()
     {
-        if (i_Movement == Vector2.zero)
+        if (i_Movement == Vector2.zero || Time.deltaTime == 0)
         {
-            movement = new Vector2(i_Movement.x, i_Movement.y) * moveSpeed; //Time.deltaTime;            
+            movement = new Vector2(i_Movement.x, i_Movement.y) * (moveSpeed/150); //Time.deltaTime;            
         }
         else
         {
