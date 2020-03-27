@@ -2502,6 +2502,46 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1254437636}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1184579201 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7984871552658359311, guid: 2bdb602c2c7ac954fa7c0a245fd42e9d,
+    type: 3}
+  m_PrefabInstance: {fileID: 1220743509}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1184579207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1184579201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 033f385016acedc4b9d486d47fe865ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalSkeletoNumber: 0
+  maxSkeletonNumber: 0
+  skeletonTimerLength: 2
+  skeletonWhiteSword: {fileID: 8801290136251585222, guid: 9ab9e7a71f8850145933e080cef86551,
+    type: 3}
+  skeletonWhiteMace: {fileID: 4202486288294919627, guid: 74878465e0f6aaa43a030f45deded7ba,
+    type: 3}
+  skeletonWhiteBow: {fileID: 4251356002983864836, guid: d600e1635fcb4f0449a0b71b41f39795,
+    type: 3}
+  skeletonGreySword: {fileID: 18892595514446658, guid: e270fc9ffa35a8f47950e08a406134f0,
+    type: 3}
+  skeletonGreyMace: {fileID: 5595002497362708657, guid: 67f0bf14f08e53d44877991a19eacfc9,
+    type: 3}
+  skeletonGreyBow: {fileID: 9152741486584601969, guid: 1dcf33404ad22634ca044e134662642d,
+    type: 3}
+  skeletonPurpleSword: {fileID: 7571853730052553586, guid: 7d2933b48fdc7be4580a572e4f79155c,
+    type: 3}
+  skeletonPurpleMace: {fileID: 8481385157997072597, guid: 82cd710978159ef4baf655c5664bab2c,
+    type: 3}
+  skeletonPurpleBow: {fileID: 5294393101146193261, guid: 38f11e26019fc3847946d8016794041d,
+    type: 3}
+  skeletonClass: 
 --- !u!1001 &1189949031
 PrefabInstance:
   m_ObjectHideFlags: 0

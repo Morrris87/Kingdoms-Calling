@@ -43,6 +43,7 @@ public class BossSpawnSkeletonsState : BossFightOneFSMState
         Debug.Log("Spawning");
         //ISSUE HERE
         //enemyAI.spawnScript.spawnSkeletonsForBoss(colour);//call from spawn
+        //just fucking do the spawning here
         enemyAI.allSkeletonsSpawned = true;
         enemyAI.SpawnSkeletonsTimer = enemyAI.skeltonSpawnCooldown;
     }
@@ -59,16 +60,6 @@ public class BossSpawnSkeletonsState : BossFightOneFSMState
         {
             enemyAI.PerformTransition(Transition.ToPatrol);
             return;
-        }
-        //if fight one spawn white
-        if (fightOne == true && fightTwo == false)
-        {
-            colour = "white";
-        }
-        // if fight 2 spawn grey
-        else if(fightOne == false && fightTwo == true)
-        {
-            colour = "grey";
         }
     }
 }
