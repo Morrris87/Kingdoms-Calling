@@ -18,6 +18,7 @@ public class CursorControllerScript : MonoBehaviour
 {
     Vector2 i_Movement;
     public float moveSpeed;
+    Vector2 movement;
     public GameObject parentObject;
     private PlayerInput pI;
     private GraphicRaycaster gr;
@@ -26,7 +27,8 @@ public class CursorControllerScript : MonoBehaviour
     public InputUser user;
     public InputDevice[] userDevice;
     public CharacterCardScript.character chosenCharacter;
-    
+    List<RaycastResult> results = new List<RaycastResult>();
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,9 +38,12 @@ public class CursorControllerScript : MonoBehaviour
         pI = GetComponent<PlayerInput>();
         user = pI.user;
         userDevice = pI.devices.ToArray();
-        if(pI.devices.Count == 0)
+        if (pI.devices.Count == 0)
         {
-            //GameObject.Destroy(this.gameObject);
+            if (Time.deltaTime != 0)
+            {
+                GameObject.Destroy(this.gameObject);
+            }
         }
     }
 
@@ -46,14 +51,20 @@ public class CursorControllerScript : MonoBehaviour
     void Update()
     {
         //if we havent yet, get which user we are use this to know which character to give the player input
-        if(user == null)
+        if (user == null)
         {
             user = pI.user;
         }
         //if we dont have a ui canvas find it
-        if (!parentObject)
+        if (parentObject == null)
         {
-            parentObject = GameObject.Find("Canvas_InGame");
+            //if we are in menu
+            parentObject = GameObject.Find("Canvas");
+            //test
+
+            //if we are ingame
+            if (!parentObject)
+                parentObject = GameObject.Find("Canvas_InGame");
         }
         //if we have a canvas check if it is our parent as this is a ui script
         else if (parentObject)
@@ -75,81 +86,119 @@ public class CursorControllerScript : MonoBehaviour
         if (gr == null)
             gr = GetComponentInParent<GraphicRaycaster>();
 
+
+        
         Move();
+    }
+
+    private void FixedUpdate()
+    {
+        if (gr != null)
+        {
+            cursorRaycast();
+        }
     }
 
     void OnMovement(InputValue value)
     {
-        if(value.Get<Vector2>() != Vector2.zero)
+        i_Movement = value.Get<Vector2>();
+        if (Time.deltaTime == 0)
         {
-            i_Movement = value.Get<Vector2>();
-            Vector2 movement = new Vector2(i_Movement.x, i_Movement.y) * moveSpeed; //Time.deltaTime;
-            transform.Translate(movement);
-        }
-        
+            Move();
+        }        
     }
 
     void OnNo()
     {
-        checkOntop();
+        //Loop through our results
+        foreach (RaycastResult r in results)
+        {
+            //Check if they have a button if it does we use the first button grabbed
+            checkButton(r);
+
+            //Check if we clicked on a character card
+            checkCharacter(r);
+        }
     }
 
     void OnYes()
     {
-        Debug.Log("onyes");
-        checkOntop();
+        //Loop through our results
+        foreach (RaycastResult r in results)
+        {
+            if (r.gameObject.tag == "Character")
+                Debug.Log(r);
+            //Check if they have a button if it does we use the first button grabbed
+            checkButton(r);
+
+            //Check if we clicked on a character card
+            checkCharacter(r);
+        }
     }
 
     private void Move()
     {
-        //Vector2 movement = new Vector2(i_Movement.x, i_Movement.y) * moveSpeed; //Time.deltaTime;
-        //transform.Translate(movement);
-        //Debug.Log(userDevice[0] + " is moving");
+        if (i_Movement == Vector2.zero)
+        {
+            movement = new Vector2(i_Movement.x, i_Movement.y) * moveSpeed; //Time.deltaTime;            
+        }
+        else
+        {
+            movement = new Vector2(i_Movement.x, i_Movement.y) * moveSpeed; //Time.deltaTime;
+        }
+        transform.Translate(movement);
     }
 
-    void checkOntop()
+    void cursorRaycast()
     {
+        //reset our results
+        results = new List<RaycastResult>();
+
         //Get our cursors position
         pointerEventData.position = (transform.position);
-        List<RaycastResult> results = new List<RaycastResult>();
 
         //Raycast the UI
         if (gr)
             gr.Raycast(pointerEventData, results);
-        Debug.Log(pointerEventData.position);
-        //We are over something
-        if (results.Count > 0)
-        {
-            //Loop through our results
-            foreach (RaycastResult r in results)
-            {
-                Debug.Log(r);
-                //Check if they have a button if it does we use the first button grabbed
-                if (r.gameObject.GetComponent<Button>())
-                {
-                    Button bUI = r.gameObject.GetComponent<Button>();
-                    //if the button we are clicking has a onclick function use it
-                    if (bUI.onClick != null)
-                    {
-                        bUI.onClick.Invoke();
-                    }
-                }
+    }
 
-                //Check if we clicked on a character card
-                if(r.gameObject.tag == "Character")
-                {
-                    //call the character picked function on that card
-                    r.gameObject.GetComponent<CharacterCardScript>().CharacterPicked(this.gameObject);
-                    //if we have already chosen this character remove it from our variable, if not add it
-                    if(chosenCharacter == r.gameObject.GetComponent<CharacterCardScript>().thisCharacter)
-                    {
-                        chosenCharacter = CharacterCardScript.character.NONE;
-                    }
-                    else
-                    {
-                        chosenCharacter = r.gameObject.GetComponent<CharacterCardScript>().thisCharacter;
-                    }
-                }
+    void checkButton(RaycastResult r)
+    {
+        if (r.gameObject.GetComponent<Button>())
+        {
+            //Debug.Log("Selected " + r.gameObject);
+            Button bUI = r.gameObject.GetComponent<Button>();
+            //if the button we are clicking has a onclick function use it
+            if (bUI.onClick != null)
+            {
+                bUI.onClick.Invoke();
+            }
+        }
+    }
+
+    void checkOverButton()
+    {
+        //Loop through our results
+        foreach (RaycastResult r in results)
+        {
+
+        }
+    }
+
+    void checkCharacter(RaycastResult r)
+    {
+        if (r.gameObject.tag == "Character")
+        {
+            //call the character picked function on that card
+            r.gameObject.GetComponent<CharacterCardScript>().CharacterPicked(this.gameObject);
+            //if we have already chosen this character remove it from our variable, if not add it
+            if (chosenCharacter == r.gameObject.GetComponent<CharacterCardScript>().thisCharacter)
+            {
+                chosenCharacter = CharacterCardScript.character.NONE;
+            }
+            else
+            {
+                chosenCharacter = r.gameObject.GetComponent<CharacterCardScript>().thisCharacter;
             }
         }
     }
