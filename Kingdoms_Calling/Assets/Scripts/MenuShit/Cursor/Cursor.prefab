@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ffb2fa75649b5041b7eade50ad4e9cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 10
+  moveSpeed: 1000
   parentObject: {fileID: 0}
   alreadySelectedCharacter: 0
   chosenCharacter: 0

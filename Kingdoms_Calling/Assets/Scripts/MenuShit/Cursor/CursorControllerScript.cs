@@ -144,7 +144,7 @@ public class CursorControllerScript : MonoBehaviour
         }
         else
         {
-            movement = new Vector2(i_Movement.x, i_Movement.y) * moveSpeed; //Time.deltaTime;
+            movement = new Vector2(i_Movement.x, i_Movement.y) * moveSpeed * Time.deltaTime;
         }
         transform.Translate(movement);
     }
