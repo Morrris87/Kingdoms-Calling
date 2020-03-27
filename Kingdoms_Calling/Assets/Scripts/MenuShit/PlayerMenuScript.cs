@@ -11,7 +11,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerMenuScript : MonoBehaviour
 {
-
+    //test
     public GameObject uiCanvas;
     // Start is called before the first frame update
     void Start()

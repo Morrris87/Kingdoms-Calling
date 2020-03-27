@@ -60,6 +60,7 @@ public class CursorControllerScript : MonoBehaviour
         {
             //if we are in menu
             parentObject = GameObject.Find("Canvas");
+            //test
 
             //if we are ingame
             if (!parentObject)
