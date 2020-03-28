@@ -42,6 +42,10 @@ public class ProjectileDamage : MonoBehaviour
                     c.GetComponent<Health>().Damage((1));
                     Destroy(gameObject);
                 }
+                else if(attacker == Attacker.SKELETON)
+                {
+                    c.GetComponent<Health>().Damage((10));
+                }
                 else
                 {
                     Destroy(gameObject);
