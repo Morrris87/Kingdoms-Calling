@@ -63,13 +63,25 @@ public class LevelManagement : MonoBehaviour
                 }
                 //if warrior
                 if (c.GetComponent<CharacterCardScript>().thisCharacter == CharacterCardScript.character.Warrior)
+                {
+                    GameObject.Destroy(c.GetComponent<CharacterCardScript>().selectedBy);
                     PlayerInput.Instantiate(WarriorPrefab, WarriorPrefabSpawnLocation.transform);
+                    LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Warrior"));
+                }
                 //if paladin
                 if (c.GetComponent<CharacterCardScript>().thisCharacter == CharacterCardScript.character.Paladin)
+                {
+                    GameObject.Destroy(c.GetComponent<CharacterCardScript>().selectedBy);
                     PlayerInput.Instantiate(PaladinPrefab, PaladinPrefabSpawnLocation.transform);
+                    LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Paladin"));
+                }
                 //if assassin
                 if (c.GetComponent<CharacterCardScript>().thisCharacter == CharacterCardScript.character.Assassin)
+                {
+                    GameObject.Destroy(c.GetComponent<CharacterCardScript>().selectedBy);
                     PlayerInput.Instantiate(AssassinPrefab, AssassinPrefabSpawnLocation.transform);
+                    LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Assassin"));
+                }
 
 
             }
