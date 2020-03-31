@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using UnityEngine.UI;
 using System;
 using CompleteBossOne;
 
@@ -42,7 +44,8 @@ public class BossSpawnSkeletonsState : BossFightOneFSMState
     {
         Debug.Log("Spawning");
         //ISSUE HERE
-        //enemyAI.spawnScript.spawnSkeletonsForBoss(colour);//call from spawn
+        enemyAI.spawnSkeletonsForBoss("white");//call from spawn
+        Debug.Log("Spawning Over");
         //just fucking do the spawning here
         enemyAI.allSkeletonsSpawned = true;
         enemyAI.SpawnSkeletonsTimer = enemyAI.skeltonSpawnCooldown;
