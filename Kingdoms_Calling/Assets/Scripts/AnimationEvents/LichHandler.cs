@@ -21,6 +21,11 @@ public class LichHandler : MonoBehaviour
         
     }
 
+    public void DeathEvent()
+    {
+        // When the Lich dies, transfer the players to the next scene
+    }
+
     public void LichMeleeEvent()
     {
         if (lichMeleeClip != null)
