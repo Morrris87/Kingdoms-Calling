@@ -35,7 +35,7 @@ public class CursorControllerScript : MonoBehaviour
     void Start()
     {
         gr = GetComponentInParent<GraphicRaycaster>();
-        //parentObject = GameObject.Find("Canvas");
+        parentObject = GameObject.Find("Canvas");
         pI = GetComponent<PlayerInput>();
         user = pI.user;
         userDevice = pI.devices.ToArray();
