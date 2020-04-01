@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LichHandler : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class LichHandler : MonoBehaviour
     public void DeathEvent()
     {
         // When the Lich dies, transfer the players to the next scene
+        SceneManager.LoadScene("GraveYardMap");
     }
 
     public void LichMeleeEvent()
