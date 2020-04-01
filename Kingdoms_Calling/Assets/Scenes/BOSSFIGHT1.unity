@@ -322,6 +322,11 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3608174180193034023, guid: 3126e2b090e229644a42aeda1fc2535b,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3126e2b090e229644a42aeda1fc2535b, type: 3}
 --- !u!1 &129774985
@@ -2834,6 +2839,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera Rig
       objectReference: {fileID: 0}
+    - target: {fileID: 97737047962252954, guid: ac9cda7a768a3d445a28b8ac4bb6dc8e,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 97737048053535371, guid: ac9cda7a768a3d445a28b8ac4bb6dc8e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3246,6 +3256,11 @@ PrefabInstance:
       propertyPath: id
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2671357483790581695, guid: 2bdb602c2c7ac954fa7c0a245fd42e9d,
+        type: 3}
+      propertyPath: UIFade
+      value: 
+      objectReference: {fileID: 1373373145}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2bdb602c2c7ac954fa7c0a245fd42e9d, type: 3}
 --- !u!4 &1220743510 stripped
@@ -3480,6 +3495,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1373373145 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3608174180193034023, guid: 3126e2b090e229644a42aeda1fc2535b,
+    type: 3}
+  m_PrefabInstance: {fileID: 39976012}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1452713743
 GameObject:
   m_ObjectHideFlags: 0
@@ -3819,14 +3846,14 @@ PrefabInstance:
       propertyPath: abilityCooldownUI
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 383900701, guid: 5e5a4c85c6d71004ea94f79a64a9a63a, type: 3}
-      propertyPath: abilityCooldownUI
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: -6480449882182180542, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
       propertyPath: distance
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 383900701, guid: 5e5a4c85c6d71004ea94f79a64a9a63a, type: 3}
+      propertyPath: abilityCooldownUI
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e5a4c85c6d71004ea94f79a64a9a63a, type: 3}

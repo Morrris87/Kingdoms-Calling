@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LichHandler : MonoBehaviour
@@ -9,6 +10,7 @@ public class LichHandler : MonoBehaviour
     public GameObject magicProjectile;
     public Transform spawner;
 
+    public Image UIFade;
 
    
     public AudioSource lichAudioSource;
@@ -24,6 +26,11 @@ public class LichHandler : MonoBehaviour
 
     public void DeathEvent()
     {
+        // Fade Screen to Black
+        UIFade.color = Color.black;
+        UIFade.canvasRenderer.SetAlpha(0.0f);
+        UIFade.CrossFadeAlpha(1.0f, 2f, false);
+
         // When the Lich dies, transfer the players to the next scene
         SceneManager.LoadScene("GraveYardMap");
     }
