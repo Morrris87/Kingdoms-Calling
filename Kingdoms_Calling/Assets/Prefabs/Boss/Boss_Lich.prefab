@@ -107,11 +107,12 @@ MonoBehaviour:
   magicProjectile: {fileID: 6671355828088245152, guid: aeef68c00dcfe2540aee5d7ff7cd0dda,
     type: 3}
   spawner: {fileID: 2738249811132612052}
-  lichAudioSource: {fileID: 0}
-  lichScreamClip: {fileID: 0}
-  lichMeleeClip: {fileID: 0}
-  lichMagicClip: {fileID: 0}
-  LichCloneClip: {fileID: 0}
+  UIFade: {fileID: 0}
+  lichAudioSource: {fileID: 414523745811338813}
+  lichScreamClip: {fileID: 8300000, guid: 7fdc7260926c6f74eb651bb686b3c4db, type: 3}
+  lichMeleeClip: {fileID: 8300000, guid: a24105909e50ea04e8dfdaeb33245834, type: 3}
+  lichMagicClip: {fileID: 8300000, guid: 04099811f66ce4549996d04d70d5bc64, type: 3}
+  LichCloneClip: {fileID: 8300000, guid: 7aebc609fd30efd4ebc0546c1fa17d09, type: 3}
 --- !u!1 &2010657203903177079
 GameObject:
   m_ObjectHideFlags: 0
@@ -157,6 +158,7 @@ GameObject:
   - component: {fileID: 575438699}
   - component: {fileID: 1205321528604478640}
   - component: {fileID: 1020105473}
+  - component: {fileID: 414523745811338813}
   m_Layer: 9
   m_Name: Boss_Lich
   m_TagString: Boss
@@ -236,6 +238,16 @@ MonoBehaviour:
   objPlayer: {fileID: 0}
   playerHealth: {fileID: 0}
   PatrolList: []
+  skeletonClass: 
+  skeletonWhiteSword: {fileID: 0}
+  skeletonWhiteMace: {fileID: 0}
+  skeletonWhiteBow: {fileID: 0}
+  skeletonGreySword: {fileID: 0}
+  skeletonGreyMace: {fileID: 0}
+  skeletonGreyBow: {fileID: 0}
+  skeletonPurpleSword: {fileID: 0}
+  skeletonPurpleMace: {fileID: 0}
+  skeletonPurpleBow: {fileID: 0}
 --- !u!114 &7561589119875936617
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -299,6 +311,102 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!82 &414523745811338813
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7984871552658359311}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &3494757648315711476
 PrefabInstance:
   m_ObjectHideFlags: 0
