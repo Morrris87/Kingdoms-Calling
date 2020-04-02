@@ -5897,7 +5897,7 @@ Transform:
   m_GameObject: {fileID: 5595002497362708657}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -562.8581, y: 48.989708, z: 250.7}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 1427079833518097798}
   - {fileID: 8608777898763163652}
@@ -11429,31 +11429,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9016840512279435531}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
-        type: 3}
-      propertyPath: m_Name
-      value: Bow
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2187449669427467095, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: -3449532170947455738, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11508,6 +11483,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
+        type: 3}
+      propertyPath: m_Name
+      value: Bow
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 2187449669427467095, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -3449532170947455738, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 950ecef2aaff6954a8f6ca2d06a924bb, type: 3}
@@ -11623,21 +11623,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9016840512279435531}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 45a9f83d89e9d65408b946907d5f89bd,
-        type: 3}
-      propertyPath: m_Name
-      value: SkeletonSword
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 45a9f83d89e9d65408b946907d5f89bd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 45a9f83d89e9d65408b946907d5f89bd,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 45a9f83d89e9d65408b946907d5f89bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11692,6 +11677,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 45a9f83d89e9d65408b946907d5f89bd,
+        type: 3}
+      propertyPath: m_Name
+      value: SkeletonSword
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 45a9f83d89e9d65408b946907d5f89bd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 45a9f83d89e9d65408b946907d5f89bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 45a9f83d89e9d65408b946907d5f89bd,
         type: 3}
