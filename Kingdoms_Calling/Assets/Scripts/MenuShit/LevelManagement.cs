@@ -99,7 +99,7 @@ public class LevelManagement : MonoBehaviour
                 //Do stuff
                 GameObject.Destroy(GetComponent<BoxCollider>());
                 //SceneManager.LoadScene(2);
-                Scene sceneToLoad = SceneManager.GetSceneAt(0); //Horror is my main level
+                Scene sceneToLoad = SceneManager.GetSceneAt(0); //is my main level
                 if (playerCharacters.Count == 0)
                 {
                     //playerCharacters = GameObject.FindGameObjectsWithTag("Player");
