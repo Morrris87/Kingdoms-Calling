@@ -18,10 +18,28 @@ public class LichHandler : MonoBehaviour
     public AudioClip lichMeleeClip;
     public AudioClip lichMagicClip;
     public AudioClip LichCloneClip;
+
+    private bool changeScenes;
+    private float fadeLength = 2f;
+    private float fadeTimer;
     // Start is called before the first frame update
     void Start()
     {
-        
+        changeScenes = false;
+        fadeTimer = fadeLength;
+    }
+
+    void Update()
+    {
+        if (changeScenes)
+        {
+            fadeTimer -= Time.deltaTime;
+        }
+
+        if (fadeTimer <= 0f)
+        {
+            SceneManager.LoadScene("GraveYardMap");
+        }
     }
 
     public void DeathEvent()
@@ -29,7 +47,8 @@ public class LichHandler : MonoBehaviour
         // Fade Screen to Black
         UIFade.color = Color.black;
         UIFade.canvasRenderer.SetAlpha(0.0f);
-        UIFade.CrossFadeAlpha(1.0f, 2f, false);
+        UIFade.CrossFadeAlpha(1.0f, fadeLength, false);
+        changeScenes = true;
     }
 
     public void SceneSwitchEvent()
