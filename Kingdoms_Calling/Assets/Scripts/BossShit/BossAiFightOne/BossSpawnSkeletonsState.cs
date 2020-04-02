@@ -16,8 +16,6 @@ public class BossSpawnSkeletonsState : BossFightOneFSMState
     float elapsedTime;
     float intervalTime;
 
-
-
     int packSize;
     int whitePackNumber = 6;
     int greyPackNUmber = 3;
@@ -42,9 +40,17 @@ public class BossSpawnSkeletonsState : BossFightOneFSMState
 
     public override void Act()
     {
+        
         Debug.Log("Spawning");
         //ISSUE HERE
-        enemyAI.spawnSkeletonsForBoss("white");//call from spawn
+        if (enemyAI.colour == BossFightOneAI.skeletonColour.white)
+        {
+            enemyAI.spawnSkeletonsForBoss("white");//call from spawn
+        }
+        else if(enemyAI.colour == BossFightOneAI.skeletonColour.grey)
+        {
+            enemyAI.spawnSkeletonsForBoss("grey");//call from spawn
+        }
         Debug.Log("Spawning Over");
         //just fucking do the spawning here
         enemyAI.allSkeletonsSpawned = true;

@@ -44,7 +44,7 @@ public class ProjectileDamage : MonoBehaviour
                 }
                 else if(attacker == Attacker.SKELETON)
                 {
-                    c.GetComponent<Health>().Damage((10));
+                    c.GetComponent<Health>().Damage((1));
                 }
                 else
                 {
