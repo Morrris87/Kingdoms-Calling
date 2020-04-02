@@ -616,7 +616,8 @@ AudioSource:
   m_GameObject: {fileID: 6850935412393349415}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4976982623957935086, guid: 8aae5d92b44405e4b9596d24aa84b3cf,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -820,6 +821,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6850935412393349414}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
+        type: 3}
+      propertyPath: m_Name
+      value: archer
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -874,11 +880,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
-        type: 3}
-      propertyPath: m_Name
-      value: archer
       objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: 7db7bd1d14f1bcf4897b6a849a5871cc,
         type: 3}
