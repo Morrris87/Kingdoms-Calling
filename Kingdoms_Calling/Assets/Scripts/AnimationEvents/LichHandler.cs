@@ -30,9 +30,12 @@ public class LichHandler : MonoBehaviour
         UIFade.color = Color.black;
         UIFade.canvasRenderer.SetAlpha(0.0f);
         UIFade.CrossFadeAlpha(1.0f, 2f, false);
+    }
 
+    public void SceneSwitchEvent()
+    {
         // When the Lich dies, transfer the players to the next scene
-        SceneManager.LoadScene("GraveYardMap");
+        //SceneManager.LoadScene("GraveYardMap");
     }
 
     public void LichMeleeEvent()
