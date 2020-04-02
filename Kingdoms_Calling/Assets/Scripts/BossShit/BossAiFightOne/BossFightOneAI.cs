@@ -327,19 +327,19 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                     {
                         skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
                         Instantiate(skeletonGrey, spawnZone.transform.position, Quaternion.identity);
-                        skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
+                        skeletonGrey.transform.localScale = new Vector3(2, 2, 2);
                     }
                     else if (i == 1)
                     {
                         skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
                         Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x + 4f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
-                        skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
+                        skeletonGrey.transform.localScale = new Vector3(2, 2, 2);
                     }
                     else if (i == 2)
                     {
                         skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
                         Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x - 4f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
-                        skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
+                        skeletonGrey.transform.localScale = new Vector3(2, 2, 2);
                     }
                 }
             }
