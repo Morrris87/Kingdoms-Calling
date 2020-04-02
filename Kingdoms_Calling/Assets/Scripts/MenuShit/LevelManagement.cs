@@ -1,8 +1,15 @@
-﻿using System.Collections;
+﻿/*
+ * Level management script which handles the character select screen cursor and character input switch aswell as level loading
+ * Resource: https://docs.unity3d.com/Packages/com.unity.inputsystem@1.0/manual/Installation.html
+ * Created by: Bradley Williamson
+ * On: 04/01/20
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelManagement : MonoBehaviour
 {
@@ -10,8 +17,12 @@ public class LevelManagement : MonoBehaviour
     List<GameObject> playerCharacters = new List<GameObject>();
     bool isInCollision = false;
 
+    public float timeRequiredInAreaToLoad = 2f;
+    public int numPlayerInAreaToLoad = 1;
+
     public GameObject LevelLoad;
     public GameObject gameStatus;
+    public Text testText;
 
     [Header("Character Prefabs")]
     public GameObject ArcherPrefab;
@@ -26,11 +37,13 @@ public class LevelManagement : MonoBehaviour
     public GameObject PaladinPrefabSpawnLocation;
 
     GameObject uiCanvas;
+    private float timeInArea = 0;
+    private int playerInArea = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        uiCanvas = GameObject.Find("Canvas");
+        uiCanvas = GameObject.Find("StartGame Menu");
         gameStatus = GameObject.Find("GameStatus");
         characterCards = GameObject.FindGameObjectsWithTag("Character");
     }
@@ -41,7 +54,23 @@ public class LevelManagement : MonoBehaviour
         //if we dont have a ui canvas find it
         if (!uiCanvas)
         {
-            uiCanvas = GameObject.Find("Canvas");
+            uiCanvas = GameObject.Find("StartGame Menu");
+        }
+
+        if(characterCards.Length == 0)
+        {
+            characterCards = GameObject.FindGameObjectsWithTag("Character");
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if(testText)
+        {
+            if(testText.gameObject.activeSelf)
+            {
+                testText.text = "Player in load Area = " + playerInArea + " | Time in area with max players = " + timeInArea + " seconds";
+            }
         }
     }
 
@@ -88,30 +117,69 @@ public class LevelManagement : MonoBehaviour
         }
         //LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.FindGameObjectWithTag("Player"));
     }
-    void OnCollisionEnter(Collision col)
+    void OnCollisionEnter(Collision collision)
     {
         Debug.Log("CollisionEntered");
-        if (col.transform.tag == "Player")
+        if (collision.transform.tag == "Player")
+        {
+            playerInArea++;
+
+            if (playerInArea > 0)
+            {
+                testText.gameObject.SetActive(true);
+            }
+        }
+            
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        Debug.Log("CollisionExited");
+        if (collision.transform.tag == "Player")
+        {
+            playerInArea--;
+            timeInArea = 0f;
+
+            if (playerInArea < 1)
+            {
+                testText.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {        
+        if (collision.transform.tag == "Player")
         {
             if (isInCollision == false)
             {
-                isInCollision = true;
-                //Do stuff
-                GameObject.Destroy(GetComponent<BoxCollider>());
-                //SceneManager.LoadScene(2);
-                Scene sceneToLoad = SceneManager.GetSceneAt(0); //is my main level
-                if (playerCharacters.Count == 0)
+                isInCollision = true;                
+            }
+            else if(isInCollision == true && playerInArea >= numPlayerInAreaToLoad)
+            {
+                if(timeInArea >= timeRequiredInAreaToLoad)
                 {
-                    //playerCharacters = GameObject.FindGameObjectsWithTag("Player");
-                }
+                    //Do stuff
+                    GameObject.Destroy(GetComponent<BoxCollider>());
+                    //SceneManager.LoadScene(2);
+                    Scene sceneToLoad = SceneManager.GetSceneAt(0); //is my main level
+                    if (playerCharacters.Count == 0)
+                    {
+                        //playerCharacters = GameObject.FindGameObjectsWithTag("Player");
+                    }
 
-                for (int i = 0; i < playerCharacters.Count; i++)
-                {
-                    //reparent the object to the root of the scene
-                    playerCharacters[i].transform.SetParent(gameStatus.transform);
-                    //SceneManager.MoveGameObjectToScene(playerCharacters[i], sceneToLoad);
+                    for (int i = 0; i < playerCharacters.Count; i++)
+                    {
+                        //reparent the object to the root of the scene
+                        playerCharacters[i].transform.SetParent(gameStatus.transform);
+                        //SceneManager.MoveGameObjectToScene(playerCharacters[i], sceneToLoad);
+                    }
+                    SceneManager.LoadScene(sceneToLoad.name);
                 }
-                SceneManager.LoadScene(sceneToLoad.name);
+                else
+                {
+                    timeInArea += Time.deltaTime;
+                }
             }
         }
     }
