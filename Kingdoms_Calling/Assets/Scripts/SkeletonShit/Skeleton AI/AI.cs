@@ -44,6 +44,7 @@ public class AI : AdvancedFSM
 
     [HideInInspector]
     public GameObject thisSkeleton;
+    int randOne = -1;
 
     //slot manager stuff
     //float pathTime = 0f;
@@ -81,42 +82,31 @@ public class AI : AdvancedFSM
 
         //this line needs to be a player array
         Players = GameObject.FindGameObjectsWithTag("Player");
-
+        if (randOne == -1)
+        {
+            randOne = Random.Range(0, Players.Length);    
+        }
     }
 
     // Update each frame.
     protected override void FSMUpdate()
     {
-        //float time = 0f;
-        //int rand =  Random.Range(1, 4);
-        objPlayer = GameObject.FindGameObjectWithTag("Player");
-        //if (time <= 0)
-        //{
-        //    if (rand == 1)
-        //    {
-        //        objPlayer = Players[1];
-        //        time = 10f;
-        //    }
-        //    else if (rand == 2)
-        //    {
-        //        objPlayer = Players[2];
-        //        time = 10f;
-        //    }
-        //    else if (rand == 3)
-        //    {
-        //        objPlayer = Players[3];
-        //        time = 10f;
-        //    }
-        //    else if (rand == 4)
-        //    {
-        //        objPlayer = Players[4];
-        //        time = 10f;
-        //    }
-        //}
-        //else
-        //{
-        //    time -= Time.deltaTime;
-        //}
+        if(randOne == 1)
+        {
+            objPlayer = Players[0];
+        }
+        else if (randOne == 2)
+        {
+            objPlayer = Players[1];
+        }
+        else if (randOne == 3)
+        {
+            objPlayer = Players[2];
+        }
+        else if (randOne == 4)
+        {
+            objPlayer = Players[3];
+        }
 
         if (objPlayer != null)
         {
