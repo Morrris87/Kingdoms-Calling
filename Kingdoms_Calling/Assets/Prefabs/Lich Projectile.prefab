@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6671355828088245164}
   - component: {fileID: 6671355828088245165}
   - component: {fileID: 6671355828088245155}
-  - component: {fileID: 5517480341219948668}
+  - component: {fileID: 1229251431105177005}
   m_Layer: 0
   m_Name: Lich Projectile
   m_TagString: Untagged
@@ -95,8 +95,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attacker: 1
   shot: {fileID: 0}
---- !u!135 &5517480341219948668
-SphereCollider:
+--- !u!65 &1229251431105177005
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -106,7 +106,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 1, y: 4.9958687, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &6836514393421479216
 PrefabInstance:
