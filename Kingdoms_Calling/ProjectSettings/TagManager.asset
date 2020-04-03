@@ -22,6 +22,8 @@ TagManager:
   - Cursor
   - Character
   - PatrolSpot
+  - SpawnZoneD
+  - SpawnerD
   layers:
   - Default
   - TransparentFX
