@@ -34,7 +34,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterSource: {fileID: 5112216888766895985}
-  arrowSource: {fileID: 1533764030709738349, guid: ab6bfdf8ccbcdcd4f93cb2e6ebd3a82c,
+  arrowSource: {fileID: -6242233270719223658, guid: 7b4291890935a4947a1e40aec4386b49,
     type: 3}
   windupClip: {fileID: 8300000, guid: fafb50e4f50841c409c17a1c783ad220, type: 3}
   attackClip: {fileID: 8300000, guid: 63e582ea5a68cb945ab848e522fdfbd1, type: 3}
@@ -425,7 +425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 3
   weaponHitbox: {fileID: 0}
-  arrowPrefab: {fileID: 9076422881442198651, guid: ab6bfdf8ccbcdcd4f93cb2e6ebd3a82c,
+  arrowPrefab: {fileID: 6526343053571971707, guid: 7b4291890935a4947a1e40aec4386b49,
     type: 3}
   spawner: {fileID: 3347577505664671575}
   AttackRateSpeed: 0
@@ -516,9 +516,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
-  m_Height: 5
+  m_Height: 2.182641
   m_Direction: 1
-  m_Center: {x: 0, y: 2.5, z: 0}
+  m_Center: {x: 0, y: 1.0913205, z: 0}
 --- !u!114 &-6480449882182180542
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -368,7 +368,7 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0.6050426
-        functionName: LightningStrikeEvent
+        functionName: ThunderStrikeEvent
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
