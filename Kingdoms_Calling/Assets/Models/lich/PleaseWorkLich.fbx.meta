@@ -27,7 +27,37 @@ ModelImporter:
   - first:
       74: 241902536073888508
     second: Lich_Clone
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skull
+    second: {fileID: 2100000, guid: fc73d6684b0915b46a64df1e1bf72367, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bones
+    second: {fileID: 2100000, guid: 0ee33b3d8dc366e4e9186cf61ee3d8a8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cloak
+    second: {fileID: 2100000, guid: 95dba98b9271a434e8249665b091e5dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: scarfNDrape
+    second: {fileID: 2100000, guid: 546e3100d055ae64aa7637ea3d853952, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: scarfSpikes
+    second: {fileID: 2100000, guid: ee2cce62e8a7f7c4fbf45551a9e08096, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: skull
+    second: {fileID: 2100000, guid: fc73d6684b0915b46a64df1e1bf72367, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
