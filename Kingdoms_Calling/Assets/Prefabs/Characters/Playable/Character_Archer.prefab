@@ -34,7 +34,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterSource: {fileID: 5112216888766895985}
-  arrowSource: {fileID: 1533764030709738349, guid: ab6bfdf8ccbcdcd4f93cb2e6ebd3a82c,
+  arrowSource: {fileID: -6242233270719223658, guid: 7b4291890935a4947a1e40aec4386b49,
     type: 3}
   windupClip: {fileID: 8300000, guid: fafb50e4f50841c409c17a1c783ad220, type: 3}
   attackClip: {fileID: 8300000, guid: 63e582ea5a68cb945ab848e522fdfbd1, type: 3}

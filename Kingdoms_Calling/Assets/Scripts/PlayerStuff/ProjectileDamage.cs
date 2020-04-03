@@ -14,6 +14,7 @@ public class ProjectileDamage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        shot = new BasicAttack();
         arrowLife = 1.5f;
     }
 
