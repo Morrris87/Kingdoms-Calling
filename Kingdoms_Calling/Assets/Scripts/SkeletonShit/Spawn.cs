@@ -15,6 +15,7 @@ public class Spawn : MonoBehaviour
     int spawnerNumberA;
     int spawnerNumberB;
     int spawnerNumberC;
+    int spawnerNumberD;
 
     float skeletonSpawnTimer;
     public float skeletonTimerLength = 2.0f;
@@ -49,20 +50,24 @@ public class Spawn : MonoBehaviour
     GameObject SpawnZoneA;
     GameObject SpawnZoneB;
     GameObject SpawnZoneC;
+    GameObject SpawnZoneD;
 
     GameObject[] SpawnersZoneA;
     GameObject[] SpawnersZoneB;
     GameObject[] SpawnersZoneC;
+    GameObject[] SpawnersZoneD;
 
     bool spawnZoneAisTriggered = false;
     bool spawnZoneBisTriggered = false;
     bool spawnZoneCisTriggered = false;
+    bool spawnZoneDisTriggered = false;
 
     [HideInInspector]
     public string skeletonClass;
     bool SpawningAInProgress = false;
     bool SpawningBInProgress = false; 
     bool SpawningCInProgress = false;
+    bool SpawningDInProgress = false;
 
     // Start is called before the first frame update
     void Start()
@@ -71,14 +76,17 @@ public class Spawn : MonoBehaviour
         SpawnZoneA = GameObject.FindGameObjectWithTag("SpawnZoneA");
         SpawnZoneB = GameObject.FindGameObjectWithTag("SpawnZoneB");
         SpawnZoneC = GameObject.FindGameObjectWithTag("SpawnZoneC");
+        SpawnZoneD = GameObject.FindGameObjectWithTag("SpawnZoneD");
 
         SpawnersZoneA = GameObject.FindGameObjectsWithTag("SpawnerA");
         SpawnersZoneB = GameObject.FindGameObjectsWithTag("SpawnerB");
         SpawnersZoneC = GameObject.FindGameObjectsWithTag("SpawnerC");
+        SpawnersZoneD = GameObject.FindGameObjectsWithTag("SpawnerD");
 
         spawnerNumberA = SpawnersZoneA.Length;
         spawnerNumberB = SpawnersZoneB.Length;
         spawnerNumberC = SpawnersZoneC.Length;
+        spawnerNumberD = SpawnersZoneD.Length;
     }
 
     // Update is called once per frame
@@ -107,13 +115,10 @@ public class Spawn : MonoBehaviour
                     }
 
                 }
-                //else if SpawnZoneB is triggered
-                else if (spawnZoneBisTriggered == true)
-                {
                     //if SpawnZoneB is triggered
-                    if (spawnZoneBisTriggered == true)
+                   else if (spawnZoneBisTriggered == true)
                     {
-                        for (int d = 0; d < spawnerNumberA; d++)
+                        for (int d = 0; d < spawnerNumberB; d++)
                         {
                             if (totalSkeletoNumber >= maxSkeletonNumber)
                             {
@@ -128,12 +133,10 @@ public class Spawn : MonoBehaviour
 
                     }
                     //else if SpawnZoneC is triggered
-                    else if (spawnZoneCisTriggered == true)
-                    {
                         //if SpawnZoneC is triggered
-                        if (spawnZoneCisTriggered == true)
+                       else if (spawnZoneCisTriggered == true)
                         {
-                            for (int d = 0; d < spawnerNumberA; d++)
+                            for (int d = 0; d < spawnerNumberC; d++)
                             {
                                 if (totalSkeletoNumber >= maxSkeletonNumber)
                                 {
@@ -146,12 +149,24 @@ public class Spawn : MonoBehaviour
                                 }
                             }
                         }
-                    }
-                }
-
+                        //if SpawnZoneC is triggered
+                        else if (spawnZoneDisTriggered == true)
+                        {
+                            for (int d = 0; d < spawnerNumberD; d++)
+                            {
+                                if (totalSkeletoNumber >= maxSkeletonNumber)
+                                {
+                                    //no more spawning
+                                }
+                                else
+                                {
+                                    spawnZone = SpawnersZoneD[d];
+                                    SpawnSkeletons();
+                                }
+                            }
+                        }
             }
         }
-
     }
     public void SpawnSkeletons()
     {
@@ -521,6 +536,10 @@ public class Spawn : MonoBehaviour
             else if (this.tag == "SpawnZoneC")
             {
                 spawnZoneCisTriggered = true;
+            }
+            else if (this.tag == "SpawnZoneD")
+            {
+                spawnZoneDisTriggered = true;
             }
         }
     }
