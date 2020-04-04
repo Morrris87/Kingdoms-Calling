@@ -1,0 +1,11 @@
+Skeleton Animations
+	Death f0 f14
+	run (purple)   f20 f36
+	zombie walk (sword) f55 f71 (play animation at half speed)
+	mace stumbling walk f74 f90
+	limp walk (bow and arrow) f94 f128 
+	Attack f40 f52
+	Bow attack f130 f157
+	idle(use when stuck in group) f161 f181
+	Staff Walk f182 f246
+	Staff Attack f247 f259
