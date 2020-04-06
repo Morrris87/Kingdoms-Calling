@@ -206,6 +206,6 @@ public class BasicAttack : MonoBehaviour
     }
     private void OnGUI()
     {
-        GUI.Label(new Rect(90, 60, 30, 30), zacAttackBool.ToString());
+        //GUI.Label(new Rect(90, 60, 30, 30), zacAttackBool.ToString());
     }
 }

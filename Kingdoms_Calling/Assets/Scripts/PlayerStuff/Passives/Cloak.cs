@@ -58,7 +58,7 @@ public class Cloak : MonoBehaviour
     }
     private void OnGUI()
     {
-        GUI.Label(new Rect(60, 30, 30, 30), timer.ToString());
-        GUI.Label(new Rect(90, 30, 30, 30), used.ToString());
+        //GUI.Label(new Rect(60, 30, 30, 30), timer.ToString());
+        //GUI.Label(new Rect(90, 30, 30, 30), used.ToString());
     }
 }

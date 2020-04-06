@@ -43,6 +43,6 @@ public class FocusShot : MonoBehaviour
     }
     private void OnGUI()
     {
-        GUI.Label(new Rect(90, 30, 30, 30), passiveReady.ToString());
+        //GUI.Label(new Rect(90, 30, 30, 30), passiveReady.ToString());
     }
 }
