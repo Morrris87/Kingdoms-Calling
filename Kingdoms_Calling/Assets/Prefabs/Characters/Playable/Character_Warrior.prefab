@@ -871,6 +871,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: warrior
       objectReference: {fileID: 0}
+    - target: {fileID: 1415491753777913222, guid: ff72273c3b56e694bb931cc6f3084b2f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: ff72273c3b56e694bb931cc6f3084b2f,
         type: 3}
       propertyPath: m_LocalPosition.x
