@@ -11,6 +11,7 @@ public class BringToSpawnOnLoad : MonoBehaviour
     GameObject assassin;
     GameObject paladin;
     GameObject warrior;
+    CameraControl cController;
 
     public GameObject archerSpawn;
     public GameObject assassinSpawn;
@@ -25,6 +26,7 @@ public class BringToSpawnOnLoad : MonoBehaviour
         assassin = GameObject.Find("Character_Assassin(Clone)");
         paladin = GameObject.Find("Character_Paladin(Clone)");
         warrior = GameObject.Find("Character_Warrior(Clone)");
+        cController = GameObject.Find("Camera Rig").GetComponent<CameraControl>();
     }
 
     // Update is called once per frame
@@ -52,6 +54,8 @@ public class BringToSpawnOnLoad : MonoBehaviour
                 {
                     warrior.transform.localPosition = warriorSpawn.transform.position;
                 }
+                cController.loadCharacters();
+
                 GameObject.Destroy(this);
             }
             timer += Time.deltaTime;
