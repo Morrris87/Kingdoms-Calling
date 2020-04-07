@@ -166,6 +166,7 @@ public class CharacterManager : MonoBehaviour
     {
          //inventory things
         inventory = new Inventory();
+        if(uiInventory)
         uiInventory.SetInventory(inventory);
     }
 

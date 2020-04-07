@@ -519,7 +519,7 @@ public class Spawn : MonoBehaviour
     }
     private void OnGUI()
     {
-        GUI.Label(new Rect(60, 30, 30, 30), totalSkeletoNumber.ToString());
+        //GUI.Label(new Rect(60, 30, 30, 30), totalSkeletoNumber.ToString());
     }
     public void OnTriggerEnter(Collider other)
     {

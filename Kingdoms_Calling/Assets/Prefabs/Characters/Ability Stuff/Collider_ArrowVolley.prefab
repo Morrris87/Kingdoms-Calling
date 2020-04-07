@@ -121,7 +121,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: -4976982623957935086, guid: 8aae5d92b44405e4b9596d24aa84b3cf,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 36eb3a9b5e17c5f48bdb116497b1ef5d, type: 3}
+  m_audioClip: {fileID: 8300000, guid: c6b670b8619c4b34fa36b12b34371a02, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -214,6 +214,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 232987215450213820}
     m_Modifications:
+    - target: {fileID: 3782110905921619867, guid: 64917bb3cd26877469c1ec86f5cfc533,
+        type: 3}
+      propertyPath: m_Name
+      value: Archer_ArrowVolley
+      objectReference: {fileID: 0}
     - target: {fileID: 6508355491818516614, guid: 64917bb3cd26877469c1ec86f5cfc533,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -268,11 +273,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3782110905921619867, guid: 64917bb3cd26877469c1ec86f5cfc533,
-        type: 3}
-      propertyPath: m_Name
-      value: Archer_ArrowVolley
       objectReference: {fileID: 0}
     - target: {fileID: 6548354403618998101, guid: 64917bb3cd26877469c1ec86f5cfc533,
         type: 3}

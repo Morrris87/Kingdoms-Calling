@@ -62,7 +62,7 @@ public class MapPopUp : MonoBehaviour
         Vector2 position = new Vector2(x, y);
         if(isInBox == true)
         {
-            GUI.Label(new Rect(x,y,Screen.height/2,Screen.width/2), "Press A to open Map");
+            //GUI.Label(new Rect(x,y,Screen.height/2,Screen.width/2), "Press A to open Map");
         }
         else
         {

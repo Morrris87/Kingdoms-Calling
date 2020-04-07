@@ -18,7 +18,7 @@ MonoBehaviour:
   piercingArrowSource: {fileID: 2484372546059354253, guid: 2ddfa3d942e53c04c8a0398f3ace68bf,
     type: 3}
   footstepClip: {fileID: 8300000, guid: 2ac7dc710be71424b9da8be1fcf01e70, type: 3}
-  arrowVolleyClip: {fileID: 8300000, guid: 36eb3a9b5e17c5f48bdb116497b1ef5d, type: 3}
+  arrowVolleyClip: {fileID: 8300000, guid: c6b670b8619c4b34fa36b12b34371a02, type: 3}
   piercingArrowClip: {fileID: 8300000, guid: f185c70551ffed34e90ce55e5d685bd8, type: 3}
   evasionClip: {fileID: 0}
 --- !u!114 &2739353547136035820
