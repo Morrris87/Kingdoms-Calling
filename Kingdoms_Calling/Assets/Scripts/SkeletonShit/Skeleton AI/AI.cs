@@ -93,19 +93,35 @@ public class AI : AdvancedFSM
     {
         if(randOne == 1)
         {
+            if(Players[0].activeSelf)
             objPlayer = Players[0];
+            
         }
         else if (randOne == 2)
         {
-            objPlayer = Players[1];
+            if (Players[1].activeSelf)
+                objPlayer = Players[1];
         }
         else if (randOne == 3)
         {
-            objPlayer = Players[2];
+            if (Players[2].activeSelf)
+                objPlayer = Players[2];
         }
         else if (randOne == 4)
         {
-            objPlayer = Players[3];
+            if (Players[3].activeSelf)
+                objPlayer = Players[3];
+        }
+        else
+        {
+            if (Players[0].activeSelf)
+                objPlayer = Players[0];
+            else if(Players[1].activeSelf)
+                objPlayer = Players[1];
+            else if (Players[2].activeSelf)
+                objPlayer = Players[2];
+            else if (Players[3].activeSelf)
+                objPlayer = Players[3];
         }
 
         if (objPlayer != null)

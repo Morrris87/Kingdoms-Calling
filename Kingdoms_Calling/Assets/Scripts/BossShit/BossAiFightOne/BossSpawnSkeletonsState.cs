@@ -51,6 +51,10 @@ public class BossSpawnSkeletonsState : BossFightOneFSMState
         {
             enemyAI.spawnSkeletonsForBoss("grey");//call from spawn
         }
+        else if (enemyAI.colour == BossFightOneAI.skeletonColour.purple)
+        {
+            enemyAI.spawnSkeletonsForBoss("purple");//call from spawn
+        }
         Debug.Log("Spawning Over");
         //just fucking do the spawning here
         enemyAI.allSkeletonsSpawned = true;

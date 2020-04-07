@@ -10,7 +10,7 @@ using CompleteBossOne;
 
 public class BossFightOneAI : BossFIghtOneAdvancedFSM
 {
-    public enum skeletonColour {white,grey,none};
+    public enum skeletonColour {white,grey,purple,none};
     public skeletonColour colour;
     // Public Variables
     //Players
@@ -341,6 +341,16 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                         Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x - 4f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                         skeletonGrey.transform.localScale = new Vector3(2, 2, 2);
                     }
+                }
+            }
+            else if (tempColour == "purple")
+            {
+                packSize = purplePackNumber;
+                for (int i = 0; i < packSize; i++)
+                {
+                    skeletonPurple = ChooseSkeletonClass(skeletonPurpleSword, skeletonPurpleMace, skeletonPurpleBow);
+                    Instantiate(skeletonPurple, spawnZone.transform.position, Quaternion.identity);
+                    //skeletonPurple.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                 }
             }
         }
