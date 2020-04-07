@@ -29,6 +29,7 @@ public class CursorControllerScript : MonoBehaviour
     public InputDevice[] userDevice;
     public CharacterCardScript.character chosenCharacter;
     List<RaycastResult> results = new List<RaycastResult>();
+    Text playerText;
 
 
     // Start is called before the first frame update
@@ -46,6 +47,7 @@ public class CursorControllerScript : MonoBehaviour
                 //GameObject.Destroy(this.gameObject);
             }
         }
+        playerText = GetComponentInChildren<Text>();
     }
 
     // Update is called once per frame
@@ -56,6 +58,7 @@ public class CursorControllerScript : MonoBehaviour
         {
             user = pI.user;
         }
+        playerText.text = "P" + user.id;
 
         //if we dont have a ui canvas find it
         if (parentObject == null)
@@ -138,8 +141,8 @@ public class CursorControllerScript : MonoBehaviour
         //Loop through our results
         foreach (RaycastResult r in results)
         {
-            if (r.gameObject.tag == "Character")
-                Debug.Log(r);
+            //if (r.gameObject.tag == "Character")
+                //Debug.Log(r);
             //Check if they have a button if it does we use the first button grabbed
             checkButton(r);
 
