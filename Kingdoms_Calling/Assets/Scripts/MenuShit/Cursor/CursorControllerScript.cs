@@ -7,6 +7,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -29,7 +30,7 @@ public class CursorControllerScript : MonoBehaviour
     public InputDevice[] userDevice;
     public CharacterCardScript.character chosenCharacter;
     List<RaycastResult> results = new List<RaycastResult>();
-    Text playerText;
+    TextMeshProUGUI playerText;
 
 
     // Start is called before the first frame update
@@ -47,7 +48,7 @@ public class CursorControllerScript : MonoBehaviour
                 //GameObject.Destroy(this.gameObject);
             }
         }
-        playerText = GetComponentInChildren<Text>();
+        playerText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     // Update is called once per frame

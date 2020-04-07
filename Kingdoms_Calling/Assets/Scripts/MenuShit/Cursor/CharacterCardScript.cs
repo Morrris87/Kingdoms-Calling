@@ -5,6 +5,7 @@
  */
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -20,13 +21,13 @@ public class CharacterCardScript : MonoBehaviour
     public bool isSelected = true;
     public GameObject selectedBy;
     public GameObject selectedCircle;
-    Text playerSelectedCardText;
+    TextMeshProUGUI playerSelectedCardText;
 
     // Start is called before the first frame update
     void Start()
     {
         //selectedCircle = GetComponentInChildren<Image>().gameObject;
-        playerSelectedCardText = GetComponentInChildren<Text>();
+        playerSelectedCardText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     // Update is called once per frame

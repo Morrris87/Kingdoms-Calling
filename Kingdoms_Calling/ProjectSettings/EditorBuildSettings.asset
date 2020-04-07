@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/PlayGame.unity
     guid: a7d794009a1ab2d45b6132d7b673c154
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/PlainsMap.unity
     guid: 6a6a31158d5af6b42ba112b2ea7cc558
   - enabled: 0
