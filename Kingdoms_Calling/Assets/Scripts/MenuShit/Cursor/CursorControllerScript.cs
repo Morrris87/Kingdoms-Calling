@@ -69,8 +69,8 @@ public class CursorControllerScript : MonoBehaviour
             //test
 
             //if we are ingame
-            if (!parentObject)
-                parentObject = GameObject.Find("Canvas_InGame");
+            //if (parentObject == null)
+            //    parentObject = GameObject.Find("Canvas_InGame");
         }
         //if we have a canvas check if it is our parent as this is a ui script
         else if (parentObject)
@@ -92,8 +92,18 @@ public class CursorControllerScript : MonoBehaviour
         if (gr == null)
             gr = GetComponentInParent<GraphicRaycaster>();
 
+        if (pI.devices.Count == 0)
+        {
+            if (Time.deltaTime != 0)
+            {
+                //this.gameObject.SetActive(false);
+            }
+            else if (Time.deltaTime == 0)
+            {
+                //this.gameObject.SetActive(true);
+            }
+        }
 
-        
         Move();
     }
 
