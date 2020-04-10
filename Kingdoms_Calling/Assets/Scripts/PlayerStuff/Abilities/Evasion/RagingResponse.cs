@@ -51,7 +51,7 @@ public class RagingResponse : MonoBehaviour
             else
             {
                 isUsable = true;                    // Make ability useable again
-                abilityCooldownUI.SetActive(false); // Hide the cooldown UI
+                //abilityCooldownUI.SetActive(false); // Hide the cooldown UI
                 cooldownTimer = waitTime;           // Reset the cooldownTimer
                 health.ragingResponse = false;
             }
@@ -61,6 +61,7 @@ public class RagingResponse : MonoBehaviour
     // Calling this function uses the ability
     public void UseAbility()
     {
+        abilityCooldownUI = GameObject.Find("WarriorEvasion_Cooldown");
         // Ability has been used, so set ability as unusable
         isUsable = false;
         Debug.Log("Warrior Evasion");

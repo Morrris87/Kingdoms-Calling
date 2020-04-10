@@ -52,7 +52,7 @@ public class ThunderStrike : MonoBehaviour
             else
             {
                 isUsable = true;                    // Make ability useable again
-                abilityCooldownUI.SetActive(false); // Hide the cooldown UI
+                //abilityCooldownUI.SetActive(false); // Hide the cooldown UI
                 cooldownTimer = waitTime;           // Reset the cooldownTimer
             }
         }
@@ -61,6 +61,7 @@ public class ThunderStrike : MonoBehaviour
     // Calling this function uses the ability
     public void UseAbility(GameObject indicator)
     {
+        abilityCooldownUI = GameObject.Find("AssassinPrimary_Cooldown");
         // If the ability is usable...
         if (isUsable == true)
         {

@@ -42,6 +42,7 @@ public class IronWall : MonoBehaviour
     // Calling this function uses the ability
     public void UseAbility()
     {
+        abilityCooldownUI = GameObject.Find("PaladinEvasion_Cooldown");
         // Ability has been used, so it needs to cooldown
         isUsable = false;
         isActive = true;
@@ -49,6 +50,7 @@ public class IronWall : MonoBehaviour
 
     public void EndAbility()
     {
+        abilityCooldownUI = GameObject.Find("PaladinEvasion_Cooldown");
         health.takeDamage = true;
         isUsable = true;
         isActive = false;

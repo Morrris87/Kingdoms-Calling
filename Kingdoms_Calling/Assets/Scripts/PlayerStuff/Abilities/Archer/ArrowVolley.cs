@@ -21,7 +21,7 @@ public class ArrowVolley : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        abilityCooldownUI = GameObject.Find("ArcherPrimary_Cooldown");
+        //abilityCooldownUI = GameObject.Find("ArcherPrimary_Cooldown");
         isUsable = true;            // Ability starts as usable
         cooldownTimer = waitTime;   // Cooldown timer starts at the value of waitTime
     }
@@ -29,7 +29,7 @@ public class ArrowVolley : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        abilityCooldownUI = GameObject.Find("ArcherPrimary_Cooldown");
+        //abilityCooldownUI = GameObject.Find("ArcherPrimary_Cooldown");
         // If ability has been used and hasn't refreshed...
         if (isUsable == false)
         {
@@ -39,7 +39,7 @@ public class ArrowVolley : MonoBehaviour
                 // Subtract cooldownTimer by deltaTime
                 cooldownTimer -= Time.deltaTime;
 
-                abilityCooldownUI = GameObject.Find("ArcherPrimary_Cooldown");
+                //abilityCooldownUI = GameObject.Find("ArcherPrimary_Cooldown");
                 // Update the UI with the amount of time remaining
                 abilityCooldownUI.GetComponentInChildren<Text>().text = "" + ((int)cooldownTimer + 1);
             }

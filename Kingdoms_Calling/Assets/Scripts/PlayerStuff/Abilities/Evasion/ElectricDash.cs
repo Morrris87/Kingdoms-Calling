@@ -54,7 +54,7 @@ public class ElectricDash : MonoBehaviour
             else
             {
                 isUsable = true;                    // Make ability useable again
-                abilityCooldownUI.SetActive(false); // Hide the cooldown UI
+                //abilityCooldownUI.SetActive(false); // Hide the cooldown UI
                 cooldownTimer = waitTime;           // Reset the cooldownTimer
             }
         }
@@ -63,6 +63,7 @@ public class ElectricDash : MonoBehaviour
     // Calling this function uses the ability
     public void UseAbility(GameObject indicatorLocation)
     {
+        abilityCooldownUI = GameObject.Find("AssassinEvasion_Cooldown");
         // Ability has been used, so set ability as unusable
         isUsable = false;
 
