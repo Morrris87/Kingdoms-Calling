@@ -4689,8 +4689,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96249911}
-  m_LocalRotation: {x: -0.15309907, y: 0.7619358, z: 0.19496141, w: 0.59833485}
-  m_LocalPosition: {x: -240.81747, y: -79.55414, z: 325.37436}
+  m_LocalRotation: {x: 0.30410147, y: 0.0051451293, z: 0.0016466758, w: -0.9526243}
+  m_LocalPosition: {x: 289.02814, y: -97.43135, z: 495.88687}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 979137007}
@@ -17530,11 +17530,11 @@ Transform:
   m_LocalPosition: {x: 265.30273, y: 249.2609, z: 277.5566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 38992080}
   - {fileID: 1623110679}
   - {fileID: 489741964}
   - {fileID: 1931748552}
   - {fileID: 1985795892}
-  - {fileID: 38992080}
   - {fileID: 408478335}
   - {fileID: 1192448278}
   - {fileID: 162920702}
@@ -17617,16 +17617,16 @@ Transform:
   - {fileID: 825783992}
   - {fileID: 1517599484}
   - {fileID: 546904394}
-  - {fileID: 2041437759}
+  - {fileID: 775295833}
   - {fileID: 2008691890}
   - {fileID: 1878814149}
   - {fileID: 912117925}
   - {fileID: 597804903}
   - {fileID: 4543848}
   - {fileID: 889234104}
+  - {fileID: 2041437759}
   - {fileID: 1014946498}
   - {fileID: 266398707}
-  - {fileID: 775295833}
   - {fileID: 546525975}
   - {fileID: 1655666280}
   - {fileID: 931059396}
@@ -24391,13 +24391,13 @@ Transform:
   m_LocalPosition: {x: 73.332184, y: 236.00401, z: 569.15875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1127719057}
   - {fileID: 825610425}
   - {fileID: 2074763578}
+  - {fileID: 1127719057}
   - {fileID: 511837287}
+  - {fileID: 1481591661}
   - {fileID: 1301179843}
   - {fileID: 1288155020}
-  - {fileID: 1481591661}
   - {fileID: 436882043}
   - {fileID: 1985435983}
   - {fileID: 246814271}
@@ -57825,9 +57825,9 @@ Transform:
   m_LocalPosition: {x: 272.5538, y: 250.25098, z: 219.97069}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 36742514}
   - {fileID: 1120278332}
   - {fileID: 1977456567}
+  - {fileID: 36742514}
   - {fileID: 1459405720}
   - {fileID: 1772933742}
   - {fileID: 9208907}
@@ -62193,6 +62193,11 @@ PrefabInstance:
       propertyPath: staminaUI
       value: 
       objectReference: {fileID: 1632116539}
+    - target: {fileID: 1063371864473402099, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
+        type: 3}
+      propertyPath: abilityCooldownUI
+      value: 
+      objectReference: {fileID: 1632116538}
     - target: {fileID: 2345498833140326227, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
       propertyPath: abilityCooldownUI
@@ -62202,11 +62207,6 @@ PrefabInstance:
       propertyPath: abilityCooldownUI
       value: 
       objectReference: {fileID: 1632116536}
-    - target: {fileID: 1063371864473402099, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
-        type: 3}
-      propertyPath: abilityCooldownUI
-      value: 
-      objectReference: {fileID: 1632116538}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e5a4c85c6d71004ea94f79a64a9a63a, type: 3}
 --- !u!1001 &1481591660
@@ -67541,6 +67541,65 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606947158}
   m_Mesh: {fileID: 6715375062900545627, guid: 5a78858980d63304f9c6347b36b18c40, type: 3}
+--- !u!1 &1608911142
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1608911145}
+  - component: {fileID: 1608911144}
+  - component: {fileID: 1608911143}
+  m_Layer: 0
+  m_Name: PlainsToBoss
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1608911143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608911142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412eb853badcdf841bb78baabb9dcf59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UIFade: {fileID: 1632116541}
+  SceneToLoad: BOSSFIGHT3THRONE
+--- !u!65 &1608911144
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608911142}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.265747, y: 17.118214, z: 22.75058}
+  m_Center: {x: -2.0223389, y: 8.059107, z: 1.9991608}
+--- !u!4 &1608911145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608911142}
+  m_LocalRotation: {x: -0, y: -0.17045055, z: -0, w: 0.9853662}
+  m_LocalPosition: {x: 795, y: 53.2, z: 861}
+  m_LocalScale: {x: 1, y: 1, z: 2.9145}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: -19.628, z: 0}
 --- !u!1 &1611114477
 GameObject:
   m_ObjectHideFlags: 0
@@ -69016,6 +69075,18 @@ MonoBehaviour:
 --- !u!114 &1632116540 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8101875804011288104, guid: 3126e2b090e229644a42aeda1fc2535b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1632116521}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1632116541 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3608174180193034023, guid: 3126e2b090e229644a42aeda1fc2535b,
     type: 3}
   m_PrefabInstance: {fileID: 1632116521}
   m_PrefabAsset: {fileID: 0}
