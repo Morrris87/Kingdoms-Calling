@@ -334,21 +334,21 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                         skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
                         Instantiate(skeletonGrey, spawnZone.transform.position, Quaternion.identity);
                         skeletonGrey.transform.localScale = new Vector3(2, 2, 2);
-                        skeletonWhite.GetComponent<AI>().chaseRange = 100;
+                        skeletonGrey.GetComponent<AI>().chaseRange = 100;
                     }
                     else if (i == 1)
                     {
                         skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
                         Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x + 4f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                         skeletonGrey.transform.localScale = new Vector3(2, 2, 2);
-                        skeletonWhite.GetComponent<AI>().chaseRange = 100;
+                        skeletonGrey.GetComponent<AI>().chaseRange = 100;
                     }
                     else if (i == 2)
                     {
                         skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
                         Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x - 4f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                         skeletonGrey.transform.localScale = new Vector3(2, 2, 2);
-                        skeletonWhite.GetComponent<AI>().chaseRange = 100;
+                        skeletonGrey.GetComponent<AI>().chaseRange = 100;
                     }
                 }
             }
@@ -360,7 +360,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                     skeletonPurple = ChooseSkeletonClass(skeletonPurpleSword, skeletonPurpleMace, skeletonPurpleBow);
                     Instantiate(skeletonPurple, spawnZone.transform.position, Quaternion.identity);
                     //skeletonPurple.GetComponent<AI>().thisSkeletonClass = skeletonClass;
-                    skeletonWhite.GetComponent<AI>().chaseRange = 100;
+                    skeletonPurple.GetComponent<AI>().chaseRange = 100;
                 }
             }
         }
