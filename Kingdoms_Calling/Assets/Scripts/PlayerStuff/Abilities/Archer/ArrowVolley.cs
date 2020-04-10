@@ -25,7 +25,12 @@ public class ArrowVolley : MonoBehaviour
         cooldownDefault = abilityCooldownUI.transform;
         isUsable = true;            // Ability starts as usable
         cooldownTimer = waitTime;   // Cooldown timer starts at the value of waitTime
-        abilityCooldownUI.transform.position = new Vector3(-99999, -99999);
+        abilityCooldownUI.transform.localScale = new Vector3(0f, 0f, 0f);
+    }
+
+    private void Awake()
+    {
+        cooldownDefault = abilityCooldownUI.transform;
     }
 
     // Update is called once per frame
@@ -37,8 +42,12 @@ public class ArrowVolley : MonoBehaviour
             // If cooldownTimer hasn't completed...
             if (cooldownTimer >= 0f)
             {
+
                 // Subtract cooldownTimer by deltaTime
                 cooldownTimer -= Time.deltaTime;
+
+                // Enable the cooldown UI
+                abilityCooldownUI.transform.localScale = new Vector3(1f, 1f, 1f);
 
                 // Update the UI with the amount of time remaining
                 abilityCooldownUI.GetComponentInChildren<Text>().text = "" + ((int)cooldownTimer + 1);
@@ -47,7 +56,7 @@ public class ArrowVolley : MonoBehaviour
             else
             {
                 isUsable = true;                    // Make ability useable again
-                abilityCooldownUI.transform.position = new Vector3(-99999, -99999); // Hide the cooldown UI
+                abilityCooldownUI.transform.localScale = new Vector3(0f,0f,0f); // Hide the cooldown UI
                 cooldownTimer = waitTime;           // Reset the cooldownTimer
             }
         }
@@ -72,7 +81,7 @@ public class ArrowVolley : MonoBehaviour
 
 
             // Enable the cooldown UI
-            abilityCooldownUI.transform.position = cooldownDefault.position;
+            abilityCooldownUI.transform.localScale = new Vector3(1f, 1f, 1f);
 
             // Play the ability animation
             GetComponentInChildren<Animator>().SetTrigger("ArrowVolleyUsed");

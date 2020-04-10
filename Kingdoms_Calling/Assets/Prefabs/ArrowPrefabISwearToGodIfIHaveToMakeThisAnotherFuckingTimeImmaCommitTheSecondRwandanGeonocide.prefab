@@ -26,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4710712404308268623}
-  m_LocalRotation: {x: -0, y: 0.8110705, z: -0, w: 0.5849484}
+  m_LocalRotation: {x: -0, y: -0.7407647, z: -0, w: 0.6717647}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -164,11 +164,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1209343806661901920}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 275afff7b4df38d4db13087825a7bfef,
-        type: 3}
-      propertyPath: m_Name
-      value: KC_Arrow
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 275afff7b4df38d4db13087825a7bfef,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -223,6 +218,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 275afff7b4df38d4db13087825a7bfef,
+        type: 3}
+      propertyPath: m_Name
+      value: KC_Arrow
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 275afff7b4df38d4db13087825a7bfef, type: 3}
