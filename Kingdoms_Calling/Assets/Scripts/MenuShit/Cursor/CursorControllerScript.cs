@@ -7,6 +7,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -29,6 +30,7 @@ public class CursorControllerScript : MonoBehaviour
     public InputDevice[] userDevice;
     public CharacterCardScript.character chosenCharacter;
     List<RaycastResult> results = new List<RaycastResult>();
+    TextMeshProUGUI playerText;
 
 
     // Start is called before the first frame update
@@ -46,6 +48,7 @@ public class CursorControllerScript : MonoBehaviour
                 //GameObject.Destroy(this.gameObject);
             }
         }
+        playerText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -56,6 +59,7 @@ public class CursorControllerScript : MonoBehaviour
         {
             user = pI.user;
         }
+        playerText.text = "P" + user.id;
 
         //if we dont have a ui canvas find it
         if (parentObject == null)
@@ -65,8 +69,8 @@ public class CursorControllerScript : MonoBehaviour
             //test
 
             //if we are ingame
-            if (!parentObject)
-                parentObject = GameObject.Find("Canvas_InGame");
+            //if (parentObject == null)
+            //    parentObject = GameObject.Find("Canvas_InGame");
         }
         //if we have a canvas check if it is our parent as this is a ui script
         else if (parentObject)
@@ -88,8 +92,18 @@ public class CursorControllerScript : MonoBehaviour
         if (gr == null)
             gr = GetComponentInParent<GraphicRaycaster>();
 
+        if (pI.devices.Count == 0)
+        {
+            if (Time.deltaTime != 0)
+            {
+                //this.gameObject.SetActive(false);
+            }
+            else if (Time.deltaTime == 0)
+            {
+                //this.gameObject.SetActive(true);
+            }
+        }
 
-        
         Move();
     }
 
@@ -138,8 +152,8 @@ public class CursorControllerScript : MonoBehaviour
         //Loop through our results
         foreach (RaycastResult r in results)
         {
-            if (r.gameObject.tag == "Character")
-                Debug.Log(r);
+            //if (r.gameObject.tag == "Character")
+                //Debug.Log(r);
             //Check if they have a button if it does we use the first button grabbed
             checkButton(r);
 

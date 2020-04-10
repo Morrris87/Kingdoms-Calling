@@ -30,6 +30,9 @@ public class LevelManagement : MonoBehaviour
     public GameObject WarriorPrefab;
     public GameObject PaladinPrefab;
 
+    [Header("Scene to load")]
+    public string SceneName;
+
     [Header("Character Prefab Spawn Locations")]
     public GameObject ArcherPrefabSpawnLocation;
     public GameObject AssassinPrefabSpawnLocation;
@@ -46,6 +49,10 @@ public class LevelManagement : MonoBehaviour
         uiCanvas = GameObject.Find("StartGame Menu");
         gameStatus = GameObject.Find("GameStatus");
         characterCards = GameObject.FindGameObjectsWithTag("Character");
+        if (SceneName == "")
+        {
+            SceneName = "PlainsMap";
+        }
     }
 
     // Update is called once per frame
@@ -57,7 +64,7 @@ public class LevelManagement : MonoBehaviour
             uiCanvas = GameObject.Find("StartGame Menu");
         }
 
-        if(characterCards.Length == 0)
+        if (characterCards.Length == 0)
         {
             characterCards = GameObject.FindGameObjectsWithTag("Character");
         }
@@ -65,9 +72,9 @@ public class LevelManagement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(testText)
+        if (testText)
         {
-            if(testText.gameObject.activeSelf)
+            if (testText.gameObject.activeSelf)
             {
                 testText.text = "Player in load Area = " + playerInArea + " | Time in area with max players = " + timeInArea + " seconds";
             }
@@ -88,31 +95,29 @@ public class LevelManagement : MonoBehaviour
                 {
                     GameObject.Destroy(c.GetComponent<CharacterCardScript>().selectedBy);
                     PlayerInput.Instantiate(ArcherPrefab, ArcherPrefabSpawnLocation.transform);
-                    LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Archer"));
+                    LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Character_Archer(Clone)"));
                 }
                 //if warrior
                 if (c.GetComponent<CharacterCardScript>().thisCharacter == CharacterCardScript.character.Warrior)
                 {
                     GameObject.Destroy(c.GetComponent<CharacterCardScript>().selectedBy);
                     PlayerInput.Instantiate(WarriorPrefab, WarriorPrefabSpawnLocation.transform);
-                    LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Warrior"));
+                    LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Character_Warrior(Clone)"));
                 }
                 //if paladin
                 if (c.GetComponent<CharacterCardScript>().thisCharacter == CharacterCardScript.character.Paladin)
                 {
                     GameObject.Destroy(c.GetComponent<CharacterCardScript>().selectedBy);
                     PlayerInput.Instantiate(PaladinPrefab, PaladinPrefabSpawnLocation.transform);
-                    LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Paladin"));
+                    LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Character_Paladin(Clone)"));
                 }
                 //if assassin
                 if (c.GetComponent<CharacterCardScript>().thisCharacter == CharacterCardScript.character.Assassin)
                 {
                     GameObject.Destroy(c.GetComponent<CharacterCardScript>().selectedBy);
                     PlayerInput.Instantiate(AssassinPrefab, AssassinPrefabSpawnLocation.transform);
-                    LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Assassin"));
+                    LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Character_Assassin(Clone)"));
                 }
-
-
             }
         }
         //LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.FindGameObjectWithTag("Player"));
@@ -126,10 +131,11 @@ public class LevelManagement : MonoBehaviour
 
             if (playerInArea > 0)
             {
-                testText.gameObject.SetActive(true);
+                if (testText)
+                    testText.gameObject.SetActive(true);
             }
         }
-            
+
     }
 
     private void OnCollisionExit(Collision collision)
@@ -142,27 +148,27 @@ public class LevelManagement : MonoBehaviour
 
             if (playerInArea < 1)
             {
-                testText.gameObject.SetActive(false);
+                if (testText)
+                    testText.gameObject.SetActive(false);
             }
         }
     }
 
     private void OnCollisionStay(Collision collision)
-    {        
+    {
         if (collision.transform.tag == "Player")
         {
             if (isInCollision == false)
             {
-                isInCollision = true;                
+                isInCollision = true;
             }
-            else if(isInCollision == true && playerInArea >= numPlayerInAreaToLoad)
+            else if (isInCollision == true && playerInArea >= numPlayerInAreaToLoad)
             {
-                if(timeInArea >= timeRequiredInAreaToLoad)
+                if (timeInArea >= timeRequiredInAreaToLoad)
                 {
                     //Do stuff
                     GameObject.Destroy(GetComponent<BoxCollider>());
-                    //SceneManager.LoadScene(2);
-                    Scene sceneToLoad = SceneManager.GetSceneAt(0); //is my main level
+                    
                     if (playerCharacters.Count == 0)
                     {
                         //playerCharacters = GameObject.FindGameObjectsWithTag("Player");
@@ -174,7 +180,8 @@ public class LevelManagement : MonoBehaviour
                         playerCharacters[i].transform.SetParent(gameStatus.transform);
                         //SceneManager.MoveGameObjectToScene(playerCharacters[i], sceneToLoad);
                     }
-                    SceneManager.LoadScene(sceneToLoad.name);
+                    Debug.Log("Loading into: " + SceneName);
+                    SceneManager.LoadScene(SceneName);
                 }
                 else
                 {

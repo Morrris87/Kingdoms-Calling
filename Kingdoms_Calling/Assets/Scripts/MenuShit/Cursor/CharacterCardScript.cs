@@ -5,6 +5,7 @@
  */
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
@@ -20,11 +21,13 @@ public class CharacterCardScript : MonoBehaviour
     public bool isSelected = true;
     public GameObject selectedBy;
     public GameObject selectedCircle;
+    TextMeshProUGUI playerSelectedCardText;
 
     // Start is called before the first frame update
     void Start()
     {
         //selectedCircle = GetComponentInChildren<Image>().gameObject;
+        playerSelectedCardText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -35,12 +38,14 @@ public class CharacterCardScript : MonoBehaviour
             if(selectedCircle.activeSelf == false)
             {
                 selectedCircle.SetActive(true);
+                playerSelectedCardText.text = "P" + selectedBy.GetComponent<CursorControllerScript>().user.id;
             }
         }else
         {
             if(selectedCircle.activeSelf == true)
             {
                 selectedCircle.SetActive(false);
+                playerSelectedCardText.text = "";
             }
         }
     }

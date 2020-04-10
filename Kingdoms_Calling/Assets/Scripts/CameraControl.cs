@@ -29,7 +29,7 @@ public class CameraControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -129,5 +129,17 @@ public class CameraControl : MonoBehaviour
 
         // Move the camera
         transform.position = Vector3.SmoothDamp(transform.position, finalPosition, ref velocity, focusTime);
+    }
+
+    public void loadCharacters()
+    {
+        if (GameObject.Find("Character_Archer(Clone)"))
+            players[0] = GameObject.Find("Character_Archer(Clone)").transform;
+        if (GameObject.Find("Character_Assassin(Clone)"))
+            players[1] = GameObject.Find("Character_Assassin(Clone)").transform;
+        if (GameObject.Find("Character_Paladin(Clone)"))
+            players[2] = GameObject.Find("Character_Paladin(Clone)").transform;
+        if (GameObject.Find("Character_Warrior(Clone)"))
+            players[3] = GameObject.Find("Character_Warrior(Clone)").transform;
     }
 }

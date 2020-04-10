@@ -166,6 +166,7 @@ public class CharacterManager : MonoBehaviour
     {
          //inventory things
         inventory = new Inventory();
+        if(uiInventory)
         uiInventory.SetInventory(inventory);
     }
 
@@ -452,7 +453,10 @@ public class CharacterManager : MonoBehaviour
 
                 if (context.ReadValue<float>() == 0)
                 {
-                    thunderStrike.UseAbility(abilityIndicator);
+                    if(checkInside())
+                    {
+                        thunderStrike.UseAbility(abilityIndicator);                       
+                    }
                     displayLocation = false;
                 }
             }
@@ -467,7 +471,11 @@ public class CharacterManager : MonoBehaviour
 
                 if (context.ReadValue<float>() == 0)//Button released and we are showing indicator
                 {
-                    arrowVolley.UseAbility();
+                    if(checkInside())
+                    {
+                        arrowVolley.UseAbility();
+                        
+                    }
                     displayLocation = false;
                     //Debug.Log("arrow volley performed");
                 }
@@ -482,7 +490,10 @@ public class CharacterManager : MonoBehaviour
 
                 if (context.ReadValue<float>() == 0)
                 {
-                    warriorFalmingLeap.UseAbility(abilityIndicator);
+                    if (checkInside())
+                    {
+                        warriorFalmingLeap.UseAbility(abilityIndicator);                        
+                    }
                     displayLocation = false;
                     //Debug.Log("Performed");
                 }
@@ -544,9 +555,12 @@ public class CharacterManager : MonoBehaviour
 
                 if (context.started == false && context.performed == true)//Button released and we are showing indicator
                 {
-                    electricDash.UseAbility(abilityIndicator);
+                    if(checkInside())
+                    {
+                        electricDash.UseAbility(abilityIndicator);
+                    }
                     displayLocation = false;
-                    Debug.Log("Special performed");
+                    //Debug.Log("Special performed");
                 }
             }
             else if (characterClass == CharacterClass.Archer)
@@ -563,8 +577,15 @@ public class CharacterManager : MonoBehaviour
 
                 if (context.performed == true && !context.started)//Button released
                 {
-                    if (leapOfFaith.isActive)
-                        leapOfFaith.UseAbility(abilityIndicator);
+                    if(checkInside())
+                    {
+                        if (leapOfFaith.isActive)
+                            leapOfFaith.UseAbility(abilityIndicator);
+                    }
+                    else
+                    {
+                        leapOfFaith.isActive = false;
+                    }
                     if (displayLocation)
                         displayLocation = false;
                 }
@@ -841,6 +862,17 @@ public class CharacterManager : MonoBehaviour
         rotationDirection = Vector3.zero;
     }
 
+    bool checkInside()
+    {
+        if(abilityIndicator.GetComponent<AbilityIndicator>().insideTerrain)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 
     private void OnGUI()
     {

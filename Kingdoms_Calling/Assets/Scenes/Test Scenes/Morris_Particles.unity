@@ -14775,7 +14775,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1664618513}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &215934617
 GameObject:
@@ -19931,7 +19931,7 @@ Transform:
   m_Children:
   - {fileID: 1886280253}
   m_Father: {fileID: 1664618513}
-  m_RootOrder: 9
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &561091843
 GameObject:
@@ -24715,7 +24715,7 @@ Transform:
   m_Children:
   - {fileID: 805034215}
   m_Father: {fileID: 1664618513}
-  m_RootOrder: 8
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &579443547 stripped
 GameObject:
@@ -25644,7 +25644,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1664618513}
-  m_RootOrder: 15
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1288869172
 PrefabInstance:
@@ -26066,19 +26066,19 @@ Transform:
   - {fileID: 1454344407}
   - {fileID: 756706613}
   - {fileID: 1002213190}
-  - {fileID: 1875806152}
   - {fileID: 196662891}
   - {fileID: 1732877448}
-  - {fileID: 579443551}
-  - {fileID: 1913262355}
+  - {fileID: 1875806152}
   - {fileID: 572632292}
   - {fileID: 509341253}
+  - {fileID: 579443551}
+  - {fileID: 1913262355}
   - {fileID: 1769021190}
   - {fileID: 1663702163}
+  - {fileID: 1232497863}
   - {fileID: 1105695159}
   - {fileID: 1216544179}
   - {fileID: 1515770463}
-  - {fileID: 1232497863}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -26116,7 +26116,7 @@ Transform:
   m_LocalScale: {x: 0.99705, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1664618513}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1769021189
 GameObject:
@@ -36477,6 +36477,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1917603053}
     m_Modifications:
+    - target: {fileID: 2511948603917254328, guid: f7c108658ddee8a428ee9ba7757baba8,
+        type: 3}
+      propertyPath: m_Name
+      value: Warrior_FlamingLeap
+      objectReference: {fileID: 0}
     - target: {fileID: 4320572611295657806, guid: f7c108658ddee8a428ee9ba7757baba8,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -36531,16 +36536,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511948603917254328, guid: f7c108658ddee8a428ee9ba7757baba8,
-        type: 3}
-      propertyPath: m_Name
-      value: Warrior_FlamingLeap
-      objectReference: {fileID: 0}
-    - target: {fileID: 2511948603917254328, guid: f7c108658ddee8a428ee9ba7757baba8,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f7c108658ddee8a428ee9ba7757baba8, type: 3}
@@ -36625,6 +36620,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 215934618}
     m_Modifications:
+    - target: {fileID: 1891219502887864465, guid: 3d18e9be68ce70041bcbd049f2df2f10,
+        type: 3}
+      propertyPath: m_Name
+      value: Paladian_Healing
+      objectReference: {fileID: 0}
     - target: {fileID: 5643562740756339059, guid: 3d18e9be68ce70041bcbd049f2df2f10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -36679,16 +36679,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1891219502887864465, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_Name
-      value: Paladian_Healing
-      objectReference: {fileID: 0}
-    - target: {fileID: 1891219502887864465, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d18e9be68ce70041bcbd049f2df2f10, type: 3}
@@ -36990,6 +36980,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1663702163}
     m_Modifications:
+    - target: {fileID: 7666514430376086122, guid: a1e69915401665240a075f5921449ff6,
+        type: 3}
+      propertyPath: m_Name
+      value: Lich_Shot
+      objectReference: {fileID: 0}
+    - target: {fileID: 7666514430376086122, guid: a1e69915401665240a075f5921449ff6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3902125232249040601, guid: a1e69915401665240a075f5921449ff6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37043,16 +37043,6 @@ PrefabInstance:
     - target: {fileID: 3902125232249040601, guid: a1e69915401665240a075f5921449ff6,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7666514430376086122, guid: a1e69915401665240a075f5921449ff6,
-        type: 3}
-      propertyPath: m_Name
-      value: Lich_Shot
-      objectReference: {fileID: 0}
-    - target: {fileID: 7666514430376086122, guid: a1e69915401665240a075f5921449ff6,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5049922076240051618, guid: a1e69915401665240a075f5921449ff6,
@@ -37144,6 +37134,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 215934618}
     m_Modifications:
+    - target: {fileID: 8479391382043241092, guid: 6a4016ad20ec3ea4d92adfd4281de880,
+        type: 3}
+      propertyPath: m_Name
+      value: Paladian_AOE
+      objectReference: {fileID: 0}
+    - target: {fileID: 8479391382043241092, guid: 6a4016ad20ec3ea4d92adfd4281de880,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6362699314732852961, guid: 6a4016ad20ec3ea4d92adfd4281de880,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37199,16 +37199,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8479391382043241092, guid: 6a4016ad20ec3ea4d92adfd4281de880,
-        type: 3}
-      propertyPath: m_Name
-      value: Paladian_AOE
-      objectReference: {fileID: 0}
-    - target: {fileID: 8479391382043241092, guid: 6a4016ad20ec3ea4d92adfd4281de880,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a4016ad20ec3ea4d92adfd4281de880, type: 3}
 --- !u!4 &6508355491652288445 stripped
@@ -37224,6 +37214,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1942031178}
     m_Modifications:
+    - target: {fileID: 3782110905921619867, guid: 64917bb3cd26877469c1ec86f5cfc533,
+        type: 3}
+      propertyPath: m_Name
+      value: Archer_ArrowVolley
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782110905921619867, guid: 64917bb3cd26877469c1ec86f5cfc533,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6508355491818516614, guid: 64917bb3cd26877469c1ec86f5cfc533,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37278,16 +37278,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3782110905921619867, guid: 64917bb3cd26877469c1ec86f5cfc533,
-        type: 3}
-      propertyPath: m_Name
-      value: Archer_ArrowVolley
-      objectReference: {fileID: 0}
-    - target: {fileID: 3782110905921619867, guid: 64917bb3cd26877469c1ec86f5cfc533,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64917bb3cd26877469c1ec86f5cfc533, type: 3}

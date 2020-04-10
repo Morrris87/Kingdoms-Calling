@@ -27,6 +27,12 @@ public class HUDController : MonoBehaviour
 
     }
 
+	public void QuitGame()
+	{
+		Application.Quit();
+		Debug.Log("Quit");
+	}
+
     public void PauseGame()
     {
         if (isPaused)   // If game is paused...
