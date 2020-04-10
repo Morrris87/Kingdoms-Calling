@@ -285,36 +285,42 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                         skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 2f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                         skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
+                        skeletonWhite.GetComponent<AI>().chaseRange = 100;
                     }
                     else if (i == 1)
                     {
                         skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 8f), Quaternion.identity);
                         skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
+                        skeletonWhite.GetComponent<AI>().chaseRange = 100;
                     }
                     else if (i == 2)
                     {
                         skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 4f), Quaternion.identity);
                         skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
+                        skeletonWhite.GetComponent<AI>().chaseRange = 100;
                     }
                     else if (i == 3)
                     {
                         skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 2f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                         skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
+                        skeletonWhite.GetComponent<AI>().chaseRange = 100;
                     }
                     else if (i == 4)
                     {
                         skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 8f), Quaternion.identity);
                         skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
+                        skeletonWhite.GetComponent<AI>().chaseRange = 100;
                     }
                     else if (i == 5)
                     {
                         skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 4f), Quaternion.identity);
                         skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
+                        skeletonWhite.GetComponent<AI>().chaseRange = 100;
                     }
                 }
             }
@@ -328,18 +334,21 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                         skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
                         Instantiate(skeletonGrey, spawnZone.transform.position, Quaternion.identity);
                         skeletonGrey.transform.localScale = new Vector3(2, 2, 2);
+                        skeletonWhite.GetComponent<AI>().chaseRange = 100;
                     }
                     else if (i == 1)
                     {
                         skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
                         Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x + 4f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                         skeletonGrey.transform.localScale = new Vector3(2, 2, 2);
+                        skeletonWhite.GetComponent<AI>().chaseRange = 100;
                     }
                     else if (i == 2)
                     {
                         skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
                         Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x - 4f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                         skeletonGrey.transform.localScale = new Vector3(2, 2, 2);
+                        skeletonWhite.GetComponent<AI>().chaseRange = 100;
                     }
                 }
             }
@@ -351,6 +360,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                     skeletonPurple = ChooseSkeletonClass(skeletonPurpleSword, skeletonPurpleMace, skeletonPurpleBow);
                     Instantiate(skeletonPurple, spawnZone.transform.position, Quaternion.identity);
                     //skeletonPurple.GetComponent<AI>().thisSkeletonClass = skeletonClass;
+                    skeletonWhite.GetComponent<AI>().chaseRange = 100;
                 }
             }
         }
