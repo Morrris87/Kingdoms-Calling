@@ -473,6 +473,7 @@ public class CharacterManager : MonoBehaviour
                 {
                     if(checkInside())
                     {
+                        arrowVolley.abilityCooldownUI = GameObject.Find("ArcherPrimary_Cooldown");
                         arrowVolley.UseAbility();
                         
                     }

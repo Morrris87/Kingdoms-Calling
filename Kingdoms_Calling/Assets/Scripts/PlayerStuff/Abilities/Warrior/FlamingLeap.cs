@@ -59,7 +59,7 @@ public class FlamingLeap : MonoBehaviour
             else
             {
                 isUsable = true;                    // Make ability useable again
-                abilityCooldownUI.SetActive(false); // Hide the cooldown UI
+                //abilityCooldownUI.SetActive(false); // Hide the cooldown UI
                 cooldownTimer = waitTime;           // Reset the cooldownTimer
             }
         }
@@ -68,6 +68,7 @@ public class FlamingLeap : MonoBehaviour
     // Calling this function uses the ability
     public void UseAbility(GameObject indicatorLocation)
     {
+        abilityCooldownUI = GameObject.Find("WarriorSecondary_Cooldown");
         // If the ability is usable...
         if (isUsable == true)
         {

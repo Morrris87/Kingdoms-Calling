@@ -11,6 +11,12 @@ public class BringToSpawnOnLoad : MonoBehaviour
     GameObject assassin;
     GameObject paladin;
     GameObject warrior;
+
+    GameObject realArcher;
+    GameObject realAssassin;
+    GameObject realPaladin;
+    GameObject realWarrior;
+
     CameraControl cController;
 
     public GameObject archerSpawn;
@@ -26,6 +32,11 @@ public class BringToSpawnOnLoad : MonoBehaviour
         assassin = GameObject.Find("Character_Assassin(Clone)");
         paladin = GameObject.Find("Character_Paladin(Clone)");
         warrior = GameObject.Find("Character_Warrior(Clone)");
+
+        //realArcher = GameObject.Find("Character_Archer(Clone)");
+        //realAssassin = GameObject.Find("Character_Assassin(Clone)");
+        //realPaladin = GameObject.Find("Character_Paladin(Clone)");
+        //realWarrior = GameObject.Find("Character_Warrior(Clone)");
         cController = GameObject.Find("Camera Rig").GetComponent<CameraControl>();
     }
 

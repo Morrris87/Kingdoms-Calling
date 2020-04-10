@@ -45,7 +45,7 @@ public class Taunt : MonoBehaviour
             else
             {
                 isUsable = true;                    // Make ability useable again
-                abilityCooldownUI.SetActive(false); // Hide the cooldown UI
+                //abilityCooldownUI.SetActive(false); // Hide the cooldown UI
                 cooldownTimer = waitTime;           // Reset the cooldownTimer
             }
         }
@@ -53,6 +53,7 @@ public class Taunt : MonoBehaviour
 
     public void UseAbility()
     {
+        abilityCooldownUI = GameObject.Find("PaladinSecondary_Cooldown");
         // If the ability is usable...
         if (isUsable == true)
         {
