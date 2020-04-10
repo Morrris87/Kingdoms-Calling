@@ -20,7 +20,7 @@ public class AbilityIndicator : MonoBehaviour
     
     private void OnTriggerEnter(Collider collision)
     {
-        Debug.Log("Enter");
+        //Debug.Log("Enter");
         if (insideTerrain == false)
         {
             if (collision.gameObject.tag == "Terrain")
@@ -33,13 +33,13 @@ public class AbilityIndicator : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        Debug.Log("Exit");
+        //Debug.Log("Exit");
         if (insideTerrain == true)
         {
             if (collision.gameObject.tag == "Terrain")
             {
                 insideTerrain = false;
-                Debug.Log("Out of terrain");
+                //Debug.Log("Out of terrain");
             }
         }
     }

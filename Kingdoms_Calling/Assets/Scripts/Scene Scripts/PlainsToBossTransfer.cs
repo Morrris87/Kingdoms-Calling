@@ -12,6 +12,8 @@ public class PlainsToBossTransfer : MonoBehaviour
     private float fadeTimer;
     private bool changeScenes;
 
+    public string SceneToLoad = "";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,7 +31,12 @@ public class PlainsToBossTransfer : MonoBehaviour
 
         if (fadeTimer <= 0f)
         {
-            ChangeScene("BOSSFIGHT1");
+            if(SceneToLoad == "")
+                ChangeScene("BOSSFIGHT1");
+            else
+            {
+                ChangeScene(SceneToLoad);
+            }
         }
     }
 

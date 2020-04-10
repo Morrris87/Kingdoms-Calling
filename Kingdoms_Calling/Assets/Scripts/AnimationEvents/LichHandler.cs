@@ -38,7 +38,14 @@ public class LichHandler : MonoBehaviour
 
         if (fadeTimer <= 0f)
         {
-            SceneManager.LoadScene("GraveYardMap");
+            if(SceneManager.GetActiveScene().name == "BOSSFIGHT1")
+            {
+                SceneManager.LoadScene("GraveYardMap");
+            }
+            else if (SceneManager.GetActiveScene().name == "GraveYardMap")
+            {
+                SceneManager.LoadScene("GraveYardMap BOSS");
+            }
         }
     }
 

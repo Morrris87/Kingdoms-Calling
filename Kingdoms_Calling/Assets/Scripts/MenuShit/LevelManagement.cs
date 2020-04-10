@@ -122,7 +122,7 @@ public class LevelManagement : MonoBehaviour
         }
         //LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.FindGameObjectWithTag("Player"));
     }
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         Debug.Log("CollisionEntered");
         if (collision.transform.tag == "Player")
@@ -135,10 +135,9 @@ public class LevelManagement : MonoBehaviour
                     testText.gameObject.SetActive(true);
             }
         }
-
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
         Debug.Log("CollisionExited");
         if (collision.transform.tag == "Player")
@@ -154,7 +153,7 @@ public class LevelManagement : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider collision)
     {
         if (collision.transform.tag == "Player")
         {
