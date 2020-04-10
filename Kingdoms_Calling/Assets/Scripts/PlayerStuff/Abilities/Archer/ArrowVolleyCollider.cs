@@ -79,7 +79,7 @@ public class ArrowVolleyCollider : MonoBehaviour
         foreach (Collider c in cols)
         {
             // If the enemy currently has no element assigned in it's Element Manager...
-            if (c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.NONE)
+            if (c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.NONE || c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.Wind)
             {
                 // Deal damage to the enemy
                 c.GetComponent<Health>().Damage((int)archerDmg);
