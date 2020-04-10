@@ -34,7 +34,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterSource: {fileID: 5112216888766895985}
-  arrowSource: {fileID: -6242233270719223658, guid: 7b4291890935a4947a1e40aec4386b49,
+  arrowSource: {fileID: 4894310442359587660, guid: 431f1ec624a7fed47b067975b33d8274,
     type: 3}
   windupClip: {fileID: 8300000, guid: fafb50e4f50841c409c17a1c783ad220, type: 3}
   attackClip: {fileID: 8300000, guid: 63e582ea5a68cb945ab848e522fdfbd1, type: 3}
@@ -482,6 +482,7 @@ MonoBehaviour:
   takeDamage: 0
   ragingResponse: 0
   currentHealth: 0
+  isDead: 0
   characterClass: 0
 --- !u!114 &6850935412393349418
 MonoBehaviour:
