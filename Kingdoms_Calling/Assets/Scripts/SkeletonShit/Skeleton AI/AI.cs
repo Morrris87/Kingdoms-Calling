@@ -81,21 +81,21 @@ public class AI : AdvancedFSM
 
 
         //this line needs to be a player array
+
         Players = GameObject.FindGameObjectsWithTag("Player");
         if (randOne == -1)
         {
-            randOne = Random.Range(0, Players.Length);    
+            randOne = Random.Range(0, Players.Length + 1);    
         }
     }
-
     // Update each frame.
-    protected override void FSMUpdate()
-    {
-        if(randOne == 1)
+    void Update()
+    {  
+        
+        if (randOne == 1)
         {
             if(Players[0].activeSelf)
             objPlayer = Players[0];
-            
         }
         else if (randOne == 2)
         {
@@ -123,10 +123,22 @@ public class AI : AdvancedFSM
             else if (Players[3].activeSelf)
                 objPlayer = Players[3];
         }
-
+        
         if (objPlayer != null)
         {
             playerHealth = objPlayer.GetComponent<Health>();
+            if (playerHealth.isDead == true)
+            {
+                foreach (GameObject player in Players)
+                {
+                    if (player.GetComponent<Health>().isDead == true)
+                    {
+                        player.GetComponent<CharacterManager>().speed = 0;
+                    }
+                }
+                //Players = GameObject.FindGameObjectsWithTag("Player");
+                randOne = Random.Range(0, Players.Length + 1);
+            }
         }
         if (CurrentState != null)
         {

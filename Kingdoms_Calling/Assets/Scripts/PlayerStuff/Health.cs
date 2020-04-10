@@ -17,7 +17,7 @@ public class Health : MonoBehaviour
 
     //[HideInInspector]
     public  int currentHealth;  // This int keeps track of what HP this object is currently at
-    private bool isDead;        // If currentHealth reaches 0, this bool is set to true, otherwise is false
+    public bool isDead;        // If currentHealth reaches 0, this bool is set to true, otherwise is false
     private bool trueDamage;    // If true, player/enemy recieves true damage, which ignores armor value
     private RagingResponse ragingResponseScript;
     [HideInInspector]
@@ -111,6 +111,7 @@ public class Health : MonoBehaviour
 
         if (currentHealth <= 0) // When currentHealth reaches 0...
         {
+            this.isDead = true;
             GetComponentInChildren<Animator>().SetTrigger("Dead");
         }
     }
