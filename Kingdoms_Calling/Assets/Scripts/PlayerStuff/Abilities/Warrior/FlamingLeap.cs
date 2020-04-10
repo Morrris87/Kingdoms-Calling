@@ -38,6 +38,7 @@ public class FlamingLeap : MonoBehaviour
         isUsable = true;                // Ability starts as usable
         cooldownTimer = waitTime;       // Cooldown timer starts at the value of waitTime
         tempDestPos = playerDestPos;    // Initialize the tempDestPos variable
+        abilityCooldownUI.transform.localScale = new Vector3(0f, 0f, 0f);
     }
 
     // Update is called once per frame
@@ -52,6 +53,9 @@ public class FlamingLeap : MonoBehaviour
                 // Subtract cooldownTimer by deltaTime
                 cooldownTimer -= Time.deltaTime;
 
+                // Enable the cooldown UI
+                abilityCooldownUI.transform.localScale = new Vector3(1f, 1f, 1f);
+
                 // Update the UI with the amount of time remaining
                 abilityCooldownUI.GetComponentInChildren<Text>().text = "" + ((int)cooldownTimer + 1);
             }
@@ -59,7 +63,7 @@ public class FlamingLeap : MonoBehaviour
             else
             {
                 isUsable = true;                    // Make ability useable again
-                //abilityCooldownUI.SetActive(false); // Hide the cooldown UI
+                abilityCooldownUI.transform.localScale = new Vector3(0f, 0f, 0f); // Hide the cooldown UI
                 cooldownTimer = waitTime;           // Reset the cooldownTimer
             }
         }
@@ -68,15 +72,15 @@ public class FlamingLeap : MonoBehaviour
     // Calling this function uses the ability
     public void UseAbility(GameObject indicatorLocation)
     {
-        abilityCooldownUI = GameObject.Find("WarriorSecondary_Cooldown");
+        abilityCooldownUI = GameObject.Find("WarriorPrimary_Cooldown");
         // If the ability is usable...
         if (isUsable == true)
         {
             // Ability has been used, so set ability as unusable
             isUsable = false;
-
+            
             // Enable the cooldown UI
-            abilityCooldownUI.SetActive(true);
+            abilityCooldownUI.transform.localScale = new Vector3(1f, 1f, 1f);
 
             // Play the ability animation (handle player location)
             GetComponentInChildren<Animator>().SetTrigger("FlamingLeapUsed");

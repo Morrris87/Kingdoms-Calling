@@ -28,11 +28,6 @@ public class ArrowVolley : MonoBehaviour
         abilityCooldownUI.transform.localScale = new Vector3(0f, 0f, 0f);
     }
 
-    private void Awake()
-    {
-        cooldownDefault = abilityCooldownUI.transform;
-    }
-
     // Update is called once per frame
     void Update()
     {

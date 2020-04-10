@@ -30,6 +30,7 @@ public class RagingResponse : MonoBehaviour
         isUsable = true;                // Ability starts as usable
         cooldownTimer = waitTime;       // Cooldown timer starts at the value of waitTime
         health = gameObject.GetComponent<Health>();
+        abilityCooldownUI.transform.localScale = new Vector3(0f, 0f, 0f);
     }
 
     // Update is called once per frame
@@ -44,6 +45,9 @@ public class RagingResponse : MonoBehaviour
                 // Subtract cooldownTimer by deltaTime
                 cooldownTimer -= Time.deltaTime;
 
+                // Enable the cooldown UI
+                abilityCooldownUI.transform.localScale = new Vector3(1f, 1f, 1f);
+
                 // Update the UI with the amount of time remaining
                 abilityCooldownUI.GetComponentInChildren<Text>().text = "" + ((int)cooldownTimer + 1);
             }
@@ -51,7 +55,7 @@ public class RagingResponse : MonoBehaviour
             else
             {
                 isUsable = true;                    // Make ability useable again
-                //abilityCooldownUI.SetActive(false); // Hide the cooldown UI
+                abilityCooldownUI.transform.localScale = new Vector3(0f, 0f, 0f); // Hide the cooldown UI
                 cooldownTimer = waitTime;           // Reset the cooldownTimer
                 health.ragingResponse = false;
             }
@@ -65,8 +69,9 @@ public class RagingResponse : MonoBehaviour
         // Ability has been used, so set ability as unusable
         isUsable = false;
         Debug.Log("Warrior Evasion");
+
         // Enable the cooldown UI
-        abilityCooldownUI.SetActive(true);
+        abilityCooldownUI.transform.localScale = new Vector3(1f, 1f, 1f);
 
         // Set raging response bool to true to check if we are 
         health.ragingResponse = true;

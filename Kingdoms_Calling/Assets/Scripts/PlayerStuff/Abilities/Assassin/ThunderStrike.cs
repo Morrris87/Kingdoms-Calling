@@ -31,6 +31,7 @@ public class ThunderStrike : MonoBehaviour
 
         // Grab the value of the archers damage from BasicAttack.cs
         assassinDmg = GetComponent<BasicAttack>().CharacterAttackValue(BasicAttack.CharacterClass.Assassin);
+        abilityCooldownUI.transform.localScale = new Vector3(0f, 0f, 0f);
     }
 
     // Update is called once per frame
@@ -44,6 +45,9 @@ public class ThunderStrike : MonoBehaviour
             {
                 // Subtract cooldownTimer by deltaTime
                 cooldownTimer -= Time.deltaTime;
+                
+                // Enable the cooldown UI
+                abilityCooldownUI.transform.localScale = new Vector3(1f, 1f, 1f);
 
                 // Update the UI with the amount of time remaining
                 abilityCooldownUI.GetComponentInChildren<Text>().text = "" + ((int)cooldownTimer + 1);
@@ -52,7 +56,7 @@ public class ThunderStrike : MonoBehaviour
             else
             {
                 isUsable = true;                    // Make ability useable again
-                //abilityCooldownUI.SetActive(false); // Hide the cooldown UI
+                abilityCooldownUI.transform.localScale = new Vector3(0f, 0f, 0f); // Hide the cooldown UI
                 cooldownTimer = waitTime;           // Reset the cooldownTimer
             }
         }
@@ -69,7 +73,7 @@ public class ThunderStrike : MonoBehaviour
             isUsable = false;
 
             // Enable the cooldown UI
-            abilityCooldownUI.SetActive(true);
+            abilityCooldownUI.transform.localScale = new Vector3(1f, 1f, 1f);
 
             playerDestPos = indicator.transform;
 
