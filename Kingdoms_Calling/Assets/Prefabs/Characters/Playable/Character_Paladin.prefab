@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3076990616126118854}
+  - component: {fileID: 1108441707}
+  - component: {fileID: 1108441708}
   m_Layer: 0
   m_Name: Indicator
   m_TagString: Untagged
@@ -24,13 +26,39 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 201796285799420056}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25000012, z: 0.25000012}
   m_Children:
   - {fileID: 8067671357806731272}
   m_Father: {fileID: 2241186763897451427}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!65 &1108441707
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201796285799420056}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 11, y: 10.69, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1108441708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201796285799420056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0073652bcf727c24da1cdad474d99e7b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  insideTerrain: 0
 --- !u!1 &2241186763897451426
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,6 +685,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &958394555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4140118554552158198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db545844f24cb7944a1f14587527f020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterAudioSource: {fileID: 8803135202892129940}
+  basicAttackClip: {fileID: 0}
+  footstepClip: {fileID: 0}
+  flammingLeap: {fileID: 0}
+  axSpin: {fileID: 0}
+  evasionClip: {fileID: 0}
+  hitbox: {fileID: 8290268254114761144}
 --- !u!114 &2288031217270134348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -677,25 +724,6 @@ MonoBehaviour:
   basicAttackSound: {fileID: 8300000, guid: 055facb9aa16cf4418b7081d1ec7e0d2, type: 3}
   footstepClip: {fileID: 8300000, guid: 2ac7dc710be71424b9da8be1fcf01e70, type: 3}
   evasionClip: {fileID: 8300000, guid: 61737af8707ccad418f6a5f01d5f1985, type: 3}
---- !u!114 &958394555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4140118554552158198}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db545844f24cb7944a1f14587527f020, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterAudioSource: {fileID: 8803135202892129940}
-  basicAttackClip: {fileID: 0}
-  footstepClip: {fileID: 0}
-  flammingLeap: {fileID: 0}
-  axSpin: {fileID: 0}
-  evasionClip: {fileID: 0}
-  hitbox: {fileID: 8290268254114761144}
 --- !u!1 &5666711235432230660
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,7 +749,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5666711235432230660}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3076990616126118854}
@@ -905,6 +933,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2241186763897451427}
     m_Modifications:
+    - target: {fileID: -927199367670048503, guid: a6ffafa0a9000584191c8a7e231813bf,
+        type: 3}
+      propertyPath: m_Name
+      value: Paladin Update v1
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: a6ffafa0a9000584191c8a7e231813bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -959,11 +992,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: a6ffafa0a9000584191c8a7e231813bf,
-        type: 3}
-      propertyPath: m_Name
-      value: Paladin Update v1
       objectReference: {fileID: 0}
     - target: {fileID: -6057140222963153312, guid: a6ffafa0a9000584191c8a7e231813bf,
         type: 3}
