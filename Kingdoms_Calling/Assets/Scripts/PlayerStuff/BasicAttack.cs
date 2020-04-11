@@ -174,7 +174,7 @@ public class BasicAttack : MonoBehaviour
                 AttackRateSpeed = 2f;
                 AttackRange = 1;
                 AttackDamage = 2.5f;
-                AttackHitChance = 100;
+                AttackHitChance = 100.0f;
                 AttackStaminaLoss = 10.0f;
             }
             else if (currentClass == CharacterClass.Assassin)
@@ -182,15 +182,15 @@ public class BasicAttack : MonoBehaviour
                 AttackRateSpeed = 0.3f;
                 AttackRange = 1;
                 AttackDamage = 10.0f;
-                AttackHitChance = 100;
+                AttackHitChance = 100.0f;
                 AttackStaminaLoss = 15.0f;
             }
             else if (currentClass == CharacterClass.Archer)
             {
                 AttackRateSpeed = 2f;
-                AttackRange = 7.0f;
-                AttackDamage = 20.0f;
-                AttackHitChance = 10.0f;
+                AttackRange = 20.0f;
+                AttackDamage = 15.0f;
+                AttackHitChance = 100.0f;
                 AttackStaminaLoss = 8.0f;
             }
             else if (currentClass == CharacterClass.Warrior)
@@ -198,7 +198,7 @@ public class BasicAttack : MonoBehaviour
                 AttackRateSpeed = 0.5f;
                 AttackRange = 1;
                 AttackDamage = 10.0f;
-                AttackHitChance = 100;
+                AttackHitChance = 100.0f;
                 AttackStaminaLoss = 10.0f;
             }
             attackTimer = AttackRateSpeed;
