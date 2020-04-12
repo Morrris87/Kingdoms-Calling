@@ -32,9 +32,17 @@ public class AttackState : FSMState
         }
         else
         {
-            enemyAI.playerHealth.Damage(enemyAI.skeletonStats.power);
-            enemyAI.animator.SetTrigger("Attacked");
-            elapsedTime = intervalTime;
+            if (enemyAI.GetComponent<SkeletonHandler>().magicShot != null)
+            {
+                enemyAI.animator.SetTrigger("MagicAttack");
+                elapsedTime = intervalTime;
+            }
+            else
+            {
+                enemyAI.playerHealth.Damage(enemyAI.skeletonStats.power);
+                enemyAI.animator.SetTrigger("Attacked");
+                elapsedTime = intervalTime;
+            }
         }
     }
 
