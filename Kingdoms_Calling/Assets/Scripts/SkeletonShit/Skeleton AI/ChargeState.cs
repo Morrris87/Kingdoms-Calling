@@ -16,6 +16,7 @@ public class ChargeState : FSMState
 
     float pathTime = 0f;
     int slot = -1;
+    bool inSlot = false;
 
     float elapsedTime;
     float intervalTime;  
@@ -38,7 +39,7 @@ public class ChargeState : FSMState
             enemyAI.transform.LookAt(enemyAI.objPlayer.transform);
             enemyAI.transform.position += enemyAI.transform.forward * speed;
         }
-        else if(enemyAI.thisSkeletonClass == "Bow")
+        else if(enemyAI.thisSkeletonClass == "Bow" || enemyAI.thisSkeletonClass == "Mage")
         {
             //Make it run to the slot manager on the player
             //(still have to make it)
@@ -58,6 +59,7 @@ public class ChargeState : FSMState
                     if (agent == null)
                         return;
                     agent.destination = slotManager.GetSlotPosition(slot);
+                    inSlot = true;
                 }
             }
         }
@@ -72,7 +74,7 @@ public class ChargeState : FSMState
             enemyAI.PerformTransition(Transition.NoHealth);
             return;
         }
-        if (Vector3.Distance(enemyAI.transform.position, enemyAI.objPlayer.transform.position) <= enemyAI.attackRange)
+        if (Vector3.Distance(enemyAI.transform.position, enemyAI.objPlayer.transform.position) <= enemyAI.attackRange || inSlot == true)
         {
             enemyAI.PerformTransition(Transition.ReachPlayer);
             //Debug.Log("attacking");

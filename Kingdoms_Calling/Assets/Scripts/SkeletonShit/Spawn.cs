@@ -29,14 +29,17 @@ public class Spawn : MonoBehaviour
     public GameObject skeletonWhiteSword;
     public GameObject skeletonWhiteMace;
     public GameObject skeletonWhiteBow;
+    public GameObject skeletonWhiteMage;
     //Grey
     public GameObject skeletonGreySword;
     public GameObject skeletonGreyMace;
     public GameObject skeletonGreyBow;
+    public GameObject skeletonGreyMage;
     //purple
     public GameObject skeletonPurpleSword;
     public GameObject skeletonPurpleMace;
     public GameObject skeletonPurpleBow;
+    public GameObject skeletonPurpleMage;
 
 
     //skeletons
@@ -183,7 +186,7 @@ public class Spawn : MonoBehaviour
                 {
                     if (i == 0)
                     {
-                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
+                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow, skeletonWhiteMage);
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                     //skeletonWhite.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     skeletonWhite.transform.localScale = new Vector3(3, 3, 3);
@@ -191,7 +194,7 @@ public class Spawn : MonoBehaviour
                     }
                     else if (i == 1)
                     {
-                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
+                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow, skeletonWhiteMage);
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 2f), Quaternion.identity);
                     // skeletonWhite.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     skeletonWhite.transform.localScale = new Vector3(3, 3, 3);
@@ -199,7 +202,7 @@ public class Spawn : MonoBehaviour
                     }
                     else if (i == 2)
                     {
-                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
+                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow, skeletonWhiteMage);
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 1f), Quaternion.identity);
                     // skeletonWhite.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     skeletonWhite.transform.localScale = new Vector3(3, 3, 3);
@@ -207,7 +210,7 @@ public class Spawn : MonoBehaviour
                     }
                     else if (i == 3)
                     {
-                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
+                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow, skeletonWhiteMage);
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                     // skeletonWhite.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     skeletonWhite.transform.localScale = new Vector3(3, 3, 3);
@@ -215,7 +218,7 @@ public class Spawn : MonoBehaviour
                     }
                     else if (i == 4)
                     {
-                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
+                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow, skeletonWhiteMage);
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 2f), Quaternion.identity);
                     // skeletonWhite.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     skeletonWhite.transform.localScale = new Vector3(3, 3, 3);
@@ -223,7 +226,7 @@ public class Spawn : MonoBehaviour
                     }
                     else if (i == 5)
                     {
-                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
+                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow, skeletonWhiteMage);
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 1f), Quaternion.identity);
                     //skeletonWhite.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     skeletonWhite.transform.localScale = new Vector3(3, 3, 3);
@@ -241,7 +244,7 @@ public class Spawn : MonoBehaviour
             {
                 if (i == 0)
                 {
-                    skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
+                    skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow, skeletonGreyMage);
                     Instantiate(skeletonGrey, spawnZone.transform.position, Quaternion.identity);
                     skeletonGrey.transform.localScale = new Vector3(3, 3, 3);
                     //skeletonGrey.GetComponent<AI>().thisSkeletonClass = skeletonClass;
@@ -249,7 +252,7 @@ public class Spawn : MonoBehaviour
                 }
                 else if (i == 1)
                 {
-                    skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
+                    skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow, skeletonGreyMage);
                     Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x + 1f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                     // skeletonGrey.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     skeletonGrey.transform.localScale = new Vector3(3, 3, 3);
@@ -257,7 +260,7 @@ public class Spawn : MonoBehaviour
                 }
                 else if (i == 2)
                 {
-                    skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
+                    skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow, skeletonGreyMage);
                     Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x - 1f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                     //skeletonGrey.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     skeletonGrey.transform.localScale = new Vector3(3, 3, 3);
@@ -272,7 +275,7 @@ public class Spawn : MonoBehaviour
             packSize = purplePackNumber;
             for (int i = 0; i < packSize; i++)
             {
-                skeletonPurple = ChooseSkeletonClass(skeletonPurpleSword, skeletonPurpleMace, skeletonPurpleBow);
+                skeletonPurple = ChooseSkeletonClass(skeletonPurpleSword, skeletonPurpleMace, skeletonPurpleBow, skeletonPurpleMage);
                 Instantiate(skeletonPurple, spawnZone.transform.position, Quaternion.identity);
                 //skeletonPurple.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                 totalSkeletoNumber++;
@@ -281,9 +284,9 @@ public class Spawn : MonoBehaviour
         }//purple 10%
         
     }
-    public GameObject ChooseSkeletonClass(GameObject sword, GameObject mace, GameObject bow)
+    public GameObject ChooseSkeletonClass(GameObject sword, GameObject mace, GameObject bow, GameObject mage)
     {
-        if (Random.value > 0.5)
+        if (Random.value > 0.4)
         {
             skeletonClass = "Sword";
         }//50% sword
@@ -294,7 +297,11 @@ public class Spawn : MonoBehaviour
         else if (Random.value > 0.2)
         {
             skeletonClass = "Bow";
-        }//20% bow
+        }
+        else if(Random.value > 0.1)//10% Mage
+        {
+            skeletonClass = "Mage";
+        }
 
         if (skeletonClass == "Sword")
         {
@@ -307,224 +314,13 @@ public class Spawn : MonoBehaviour
         else if (skeletonClass == "Bow")
         {
             return bow;
-        }//returns the Bow skeleton Prefab
+        }
+        else if (skeletonClass == "Mage")
+        {
+            return mage;
+        }
+        //returns the Bow skeleton Prefab
         return null;
-    }
-    public void spawnSkeletonsForBoss(string tempColour)
-    {
-        if (tempColour == "white")
-        {
-            packSize = whitePackNumber;
-            for (int i = 0; i < packSize; i++)
-            {
-                if (i == 0)
-                {
-                    skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 2f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
-                }
-                else if (i == 1)
-                {
-                    skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 8f), Quaternion.identity);
-                }
-                else if (i == 2)
-                {
-                    skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 4f), Quaternion.identity);
-                }
-                else if (i == 3)
-                {
-                    skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 2f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
-                }
-                else if (i == 4)
-                {
-                    skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 8f), Quaternion.identity);
-                }
-                else if (i == 5)
-                {
-                    skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 4f), Quaternion.identity);
-                }
-            }
-        }
-        else if (tempColour == "grey")
-        {
-            packSize = greyPackNUmber;
-            for (int i = 0; i < packSize; i++)
-            {
-                if (i == 0)
-                {
-                    skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
-                    Instantiate(skeletonGrey, spawnZone.transform.position, Quaternion.identity);
-                }
-                else if (i == 1)
-                {
-                    skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
-                    Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x + 4f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
-                }
-                else if (i == 2)
-                {
-                    skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
-                    Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x - 4f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
-                }
-            }
-        }
-    }
-    public void SpawnSkeletonWazeForThroneFightTwentyFive()
-    {
-        int ThroneWhitePackNumber = 1;
-        int ThronePurplePackNumber = 3;
-        for (int i = 0; i < ThroneWhitePackNumber; i++)
-        {
-            packSize = whitePackNumber;
-            for (int b = 0; b < packSize; b++)
-            {
-                if (b == 0)
-                {
-                    skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
-                }
-                else if (b == 1)
-                {
-                    skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 2f), Quaternion.identity);
-                }
-                else if (b == 2)
-                {
-                    skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 1f), Quaternion.identity);
-                }
-                else if (b == 3)
-                {
-                    skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
-                }
-                else if (b == 4)
-                {
-                    skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 2f), Quaternion.identity);
-                }
-                else if (b == 5)
-                {
-                    skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 1f), Quaternion.identity);
-                }
-
-            }
-        }
-        for (int i = 0; i < ThronePurplePackNumber; i++)
-        {
-            packSize = purplePackNumber;
-            for (int b = 0; b < packSize; b++)
-            {
-                skeletonPurple = ChooseSkeletonClass(skeletonPurpleSword, skeletonPurpleMace, skeletonPurpleBow);
-                Instantiate(skeletonPurple, spawnZone.transform.position, Quaternion.identity);
-            }
-        }
-    }// 3 white 1 purple
-    public void SpawnSkeletonWazeForThroneFightFifty()
-    {
-        int ThroneGreyPackNumber = 3;
-        for (int i = 0; i < ThroneGreyPackNumber; i++)
-        {
-            packSize = greyPackNUmber;
-            for (int b = 0; b < packSize; b++)
-            {
-                if (b == 0)
-                {
-                    skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
-                    Instantiate(skeletonGrey, spawnZone.transform.position, Quaternion.identity);
-                    //skeletonGrey.GetComponent<AI>().thisSkeletonClass = skeletonClass;
-                    totalSkeletoNumber++;
-                }
-                else if (b == 1)
-                {
-                    skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
-                    Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x + 1f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
-                    // skeletonGrey.GetComponent<AI>().thisSkeletonClass = skeletonClass;
-                    totalSkeletoNumber++;
-                }
-                else if (b == 2)
-                {
-                    skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
-                    Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x - 1f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
-                    //skeletonGrey.GetComponent<AI>().thisSkeletonClass = skeletonClass;
-                    totalSkeletoNumber++;
-                }
-            }
-        }       
-    } // 3 grey
-    public void SpawnSkeletonWazeForThroneFightSeventyFive()
-    {
-        int ThroneWhitePackNumber = 3;
-        int ThronePurplePackNumber = 1;
-        for (int i = 0; i < ThroneWhitePackNumber; i++)
-        {
-            packSize = whitePackNumber;
-            for (int b = 0; b < packSize; b++)
-            {
-                if (b == 0)
-                {
-                    skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
-                }
-                else if (b == 1)
-                {
-                    skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 2f), Quaternion.identity);
-                }
-                else if (b == 2)
-                {
-                    skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 1f), Quaternion.identity);
-                }
-                else if (b == 3)
-                {
-                    skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
-                }
-                else if (b == 4)
-                {
-                    skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 2f), Quaternion.identity);
-                }
-                else if (b == 5)
-                {
-                    skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
-                    Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 0.5f, spawnZone.transform.position.y, spawnZone.transform.position.z - 1f), Quaternion.identity);
-                }
-
-            }
-        }
-        for (int i = 0; i < ThronePurplePackNumber; i++)
-        {
-            packSize = purplePackNumber;
-            for (int b = 0; b < packSize; b++)
-            {
-                skeletonPurple = ChooseSkeletonClass(skeletonPurpleSword, skeletonPurpleMace, skeletonPurpleBow);
-                Instantiate(skeletonPurple, spawnZone.transform.position, Quaternion.identity);
-            }
-        }
-    }// 1 white 3 purple
-    public void SpawnClones(GameObject bossPrefab, GameObject SpawnZoneOne, GameObject SpawnZoneTwo, GameObject SpawnZoneThree,GameObject SpawnZoneFour)
-    {
-        int maxClones = 4;
-        GameObject[] SpawnZoneArray = {SpawnZoneOne,SpawnZoneTwo,SpawnZoneThree,SpawnZoneFour};
-        //Spawn BossPrefab
-
-        //Spawn at CloneOneSpawn ect
-
-        //for loop 
-        // GET GAME OBJECT FOR BOSS AI SCRIPT
-
-        for(int i = 0; i < maxClones; i++)
-        {
-
-            Instantiate(bossPrefab, new Vector3(SpawnZoneArray[i].transform.position.x, SpawnZoneArray[i].transform.position.y, SpawnZoneArray[i].transform.position.z), Quaternion.identity);
-
-        }
     }
     private void OnGUI()
     {
