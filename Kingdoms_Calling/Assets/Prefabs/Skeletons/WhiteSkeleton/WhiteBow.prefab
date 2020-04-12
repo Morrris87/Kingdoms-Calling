@@ -6236,11 +6236,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75fe87bf589d14f4984f0a76d8d08cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 2
+  maxHealth: 3
   healthUI: {fileID: 0}
   takeDamage: 0
   ragingResponse: 0
   currentHealth: 0
+  isDead: 0
   characterClass: 0
 --- !u!114 &4251356002983864841
 MonoBehaviour:

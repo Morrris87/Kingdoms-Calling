@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class SkeletonHandler : MonoBehaviour
 {
-
+    public GameObject magicShot;
+    public Transform spawner;
+    
     public AudioSource skeletonAudioSource;
     public AudioClip basicAttackClip;
     public AudioClip walkingClip;
@@ -46,5 +48,11 @@ public class SkeletonHandler : MonoBehaviour
         }
     }
 
+    public void MagicEvent()
+    {
+        magicShot.transform.rotation = transform.rotation;
+        magicShot.GetComponent<ProjectileDamage>().attacker = ProjectileDamage.Attacker.SKELETON;
 
+        Instantiate(magicShot, spawner.position, Quaternion.LookRotation(transform.forward, Vector3.up));
+    }
 }

@@ -25,6 +25,7 @@ public class AxeWhirlwind : MonoBehaviour
         isUsable = true;            // Ability starts as usable
         cooldownTimer = waitTime;   // Cooldown timer starts at the value of waitTime
         abilityCooldownUI = GameObject.Find("WarriorSecondary_Cooldown");
+        abilityCooldownUI.transform.localScale = new Vector3(0f, 0f, 0f);
     }
 
     // Update is called once per frame
@@ -39,6 +40,9 @@ public class AxeWhirlwind : MonoBehaviour
                 // Subtract cooldownTimer by deltaTime
                 cooldownTimer -= Time.deltaTime;
 
+                // Enable the cooldown UI
+                abilityCooldownUI.transform.localScale = new Vector3(1f, 1f, 1f);
+
                 // Update the UI with the amount of time remaining
                 abilityCooldownUI.GetComponentInChildren<Text>().text = "" + ((int)cooldownTimer + 1);
             }
@@ -46,7 +50,7 @@ public class AxeWhirlwind : MonoBehaviour
             else
             {
                 isUsable = true;                    // Make ability useable again
-                //abilityCooldownUI.SetActive(false); // Hide the cooldown UI
+                abilityCooldownUI.transform.localScale = new Vector3(0f, 0f, 0f); // Hide the cooldown UI
                 cooldownTimer = waitTime;           // Reset the cooldownTimer
             }
         }
@@ -64,6 +68,9 @@ public class AxeWhirlwind : MonoBehaviour
 
             // Enable the cooldown UI
             abilityCooldownUI.SetActive(true);
+
+            // Enable the cooldown UI
+            abilityCooldownUI.transform.localScale = new Vector3(1f, 1f, 1f);
 
             // Play the ability animation
             GetComponentInChildren<Animator>().SetTrigger("SpinningAxeUsed");

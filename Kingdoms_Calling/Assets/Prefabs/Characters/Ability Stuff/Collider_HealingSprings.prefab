@@ -94,9 +94,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3c3d9e2e8376894f8141d31db3b5c2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalLifeTime: 10
-  damageHealInterval: 2
-  healValue: 10
+  totalLifeTime: 12
+  damageHealInterval: 3
+  healValue: 5
   damageValue: 1
 --- !u!65 &3128582404671600433
 BoxCollider:

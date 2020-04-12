@@ -32,18 +32,18 @@ public class SkeletonStats : MonoBehaviour
         if (this.tag == "White")
         {
             //BLOCK NUMBERS FOR WHITE BOI
-            health = 3;
+            health = 60;
             power = 2;
-            speed = 4;
+            speed = 8;
             stamina = 5;
             physicaDefence = 5;
-            magicDefence = 4;
+            magicDefence = 5;
         }
         else if (this.tag == "Grey")
         {
             //BLOCK NUMBERS FOR GREY BOI
-            health = 4;
-            power = 3;
+            health = 65;
+            power = 5;
             speed = 4;
             stamina = 5;
             physicaDefence = 5;
@@ -52,9 +52,9 @@ public class SkeletonStats : MonoBehaviour
         else if (this.tag == "Purple")
         {
             //BLOCK NUMBERS FOR PURPLE BOI
-            health = 7;
-            power = 5;
-            speed = 5;
+            health = 85;
+            power = 8;
+            speed = 6;
             stamina = 7;
             physicaDefence = 7;
             magicDefence = 7;
