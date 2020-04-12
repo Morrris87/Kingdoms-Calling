@@ -184,7 +184,7 @@ public class LevelManagement : MonoBehaviour
                     {
                         loading = true; 
                         Debug.Log("Loading into: " + SceneName);
-                        //SceneManager.LoadScene(SceneName);
+                        SceneManager.LoadScene(SceneName);
                     }
                 }
                 else
