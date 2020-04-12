@@ -115,14 +115,17 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     public GameObject skeletonWhiteSword;
     public GameObject skeletonWhiteMace;
     public GameObject skeletonWhiteBow;
+    public GameObject skeletonWhiteMage;
     //Grey
     public GameObject skeletonGreySword;
     public GameObject skeletonGreyMace;
     public GameObject skeletonGreyBow;
+    public GameObject skeletonGreyMage;
     //purple
     public GameObject skeletonPurpleSword;
     public GameObject skeletonPurpleMace;
     public GameObject skeletonPurpleBow;
+    public GameObject skeletonPurpleMage;
     List<GameObject> spawnZones;
     GameObject spawnZone;
     int packSize;
@@ -240,9 +243,9 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         }
     }
 
-    public GameObject ChooseSkeletonClass(GameObject sword, GameObject mace, GameObject bow)
+    public GameObject ChooseSkeletonClass(GameObject sword, GameObject mace, GameObject bow, GameObject mage)
     {
-        if (Random.value > 0.5)
+        if (Random.value > 0.4)
         {
             skeletonClass = "Sword";
         }//50% sword
@@ -253,7 +256,11 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         else if (Random.value > 0.2)
         {
             skeletonClass = "Bow";
-        }//20% bow
+        }
+        else if (Random.value > 0.1)//10% Mage
+        {
+            skeletonClass = "Mage";
+        }
 
         if (skeletonClass == "Sword")
         {
@@ -266,7 +273,12 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         else if (skeletonClass == "Bow")
         {
             return bow;
-        }//returns the Bow skeleton Prefab
+        }
+        else if (skeletonClass == "Mage")
+        {
+            return mage;
+        }
+        //returns the Bow skeleton Prefab
         return null;
     }
 
@@ -282,42 +294,42 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                 {
                     if (i == 0)
                     {
-                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
+                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow, skeletonWhiteMage);
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 2f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                         skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
                         skeletonWhite.GetComponent<AI>().chaseRange = 100;
                     }
                     else if (i == 1)
                     {
-                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
+                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow, skeletonWhiteMage);
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 8f), Quaternion.identity);
                         skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
                         skeletonWhite.GetComponent<AI>().chaseRange = 100;
                     }
                     else if (i == 2)
                     {
-                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
+                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow, skeletonWhiteMage);
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 4f), Quaternion.identity);
                         skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
                         skeletonWhite.GetComponent<AI>().chaseRange = 100;
                     }
                     else if (i == 3)
                     {
-                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
+                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow, skeletonWhiteMage);
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 2f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                         skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
                         skeletonWhite.GetComponent<AI>().chaseRange = 100;
                     }
                     else if (i == 4)
                     {
-                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
+                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow, skeletonWhiteMage);
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 8f), Quaternion.identity);
                         skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
                         skeletonWhite.GetComponent<AI>().chaseRange = 100;
                     }
                     else if (i == 5)
                     {
-                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow);
+                        skeletonWhite = ChooseSkeletonClass(skeletonWhiteSword, skeletonWhiteMace, skeletonWhiteBow, skeletonWhiteMage);
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 4f), Quaternion.identity);
                         skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
                         skeletonWhite.GetComponent<AI>().chaseRange = 100;
@@ -331,21 +343,21 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                 {
                     if (i == 0)
                     {
-                        skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
+                        skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow, skeletonGreyMage);
                         Instantiate(skeletonGrey, spawnZone.transform.position, Quaternion.identity);
                         skeletonGrey.transform.localScale = new Vector3(2, 2, 2);
                         skeletonGrey.GetComponent<AI>().chaseRange = 100;
                     }
                     else if (i == 1)
                     {
-                        skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
+                        skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow, skeletonGreyMage);
                         Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x + 4f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                         skeletonGrey.transform.localScale = new Vector3(2, 2, 2);
                         skeletonGrey.GetComponent<AI>().chaseRange = 100;
                     }
                     else if (i == 2)
                     {
-                        skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow);
+                        skeletonGrey = ChooseSkeletonClass(skeletonGreySword, skeletonGreyMace, skeletonGreyBow, skeletonGreyMage);
                         Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x - 4f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                         skeletonGrey.transform.localScale = new Vector3(2, 2, 2);
                         skeletonGrey.GetComponent<AI>().chaseRange = 100;
@@ -357,7 +369,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                 packSize = purplePackNumber;
                 for (int i = 0; i < packSize; i++)
                 {
-                    skeletonPurple = ChooseSkeletonClass(skeletonPurpleSword, skeletonPurpleMace, skeletonPurpleBow);
+                    skeletonPurple = ChooseSkeletonClass(skeletonPurpleSword, skeletonPurpleMace, skeletonPurpleBow, skeletonPurpleMage);
                     Instantiate(skeletonPurple, spawnZone.transform.position, Quaternion.identity);
                     //skeletonPurple.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     skeletonPurple.GetComponent<AI>().chaseRange = 100;

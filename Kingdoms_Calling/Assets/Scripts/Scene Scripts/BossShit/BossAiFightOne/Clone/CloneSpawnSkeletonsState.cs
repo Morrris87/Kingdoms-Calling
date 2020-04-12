@@ -40,7 +40,7 @@ public class CloneSpawnSkeletonsState : CloneFightOneFSMState
 
     public override void Act()
     {
-        enemyAI.spawnScript.spawnSkeletonsForBoss(colour);//call from spawn
+        //enemyAI.spawnScript.spawnSkeletonsForBoss(colour);//call from spawn
     }
 
     public override void Reason()

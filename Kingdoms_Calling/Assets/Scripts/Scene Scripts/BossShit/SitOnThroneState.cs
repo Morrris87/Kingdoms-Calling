@@ -33,15 +33,15 @@ public class SitOnThroneState : BossFightOneFSMState
         }
         if(HealtyPrecent == 75)
         {
-            enemyAI.spawnScript.SpawnSkeletonWazeForThroneFightSeventyFive();
+            //enemyAI.spawnScript.SpawnSkeletonWazeForThroneFightSeventyFive();
         }
         else if(HealtyPrecent == 50)
         {
-            enemyAI.spawnScript.SpawnSkeletonWazeForThroneFightFifty();
+            //enemyAI.spawnScript.SpawnSkeletonWazeForThroneFightFifty();
         }
         else if(HealtyPrecent == 25)
         {
-            enemyAI.spawnScript.SpawnSkeletonWazeForThroneFightTwentyFive();
+            //enemyAI.spawnScript.SpawnSkeletonWazeForThroneFightTwentyFive();
         }
     }
 
