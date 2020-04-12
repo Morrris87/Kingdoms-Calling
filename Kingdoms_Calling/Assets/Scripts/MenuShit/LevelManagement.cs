@@ -42,6 +42,7 @@ public class LevelManagement : MonoBehaviour
     GameObject uiCanvas;
     private float timeInArea = 0;
     private int playerInArea = 0;
+    private bool loading = false;
 
     // Start is called before the first frame update
     void Start()
@@ -179,8 +180,12 @@ public class LevelManagement : MonoBehaviour
                         playerCharacters[i].transform.SetParent(gameStatus.transform);
                         //SceneManager.MoveGameObjectToScene(playerCharacters[i], sceneToLoad);
                     }
-                    Debug.Log("Loading into: " + SceneName);
-                    SceneManager.LoadScene(SceneName);
+                    if (loading == false)
+                    {
+                        loading = true; 
+                        Debug.Log("Loading into: " + SceneName);
+                        //SceneManager.LoadScene(SceneName);
+                    }
                 }
                 else
                 {
