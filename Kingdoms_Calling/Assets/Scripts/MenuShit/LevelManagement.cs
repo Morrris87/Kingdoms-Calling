@@ -86,41 +86,12 @@ public class LevelManagement : MonoBehaviour
     {
         uiCanvas.SetActive(false);
         //loop through all player cards
-        foreach (GameObject c in characterCards)
-        {
-            //if the current card we are on is selected create 
-            if (c.GetComponent<CharacterCardScript>().isSelected)
-            {
-                //if archer
-                if (c.GetComponent<CharacterCardScript>().thisCharacter == CharacterCardScript.character.Archer)
-                {
-                    GameObject.Destroy(c.GetComponent<CharacterCardScript>().selectedBy);
-                    PlayerInput.Instantiate(ArcherPrefab, ArcherPrefabSpawnLocation.transform);
-                    LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Character_Archer(Clone)"));
-                }
-                //if warrior
-                if (c.GetComponent<CharacterCardScript>().thisCharacter == CharacterCardScript.character.Warrior)
-                {
-                    GameObject.Destroy(c.GetComponent<CharacterCardScript>().selectedBy);
-                    PlayerInput.Instantiate(WarriorPrefab, WarriorPrefabSpawnLocation.transform);
-                    LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Character_Warrior(Clone)"));
-                }
-                //if paladin
-                if (c.GetComponent<CharacterCardScript>().thisCharacter == CharacterCardScript.character.Paladin)
-                {
-                    GameObject.Destroy(c.GetComponent<CharacterCardScript>().selectedBy);
-                    PlayerInput.Instantiate(PaladinPrefab, PaladinPrefabSpawnLocation.transform);
-                    LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Character_Paladin(Clone)"));
-                }
-                //if assassin
-                if (c.GetComponent<CharacterCardScript>().thisCharacter == CharacterCardScript.character.Assassin)
-                {
-                    GameObject.Destroy(c.GetComponent<CharacterCardScript>().selectedBy);
-                    PlayerInput.Instantiate(AssassinPrefab, AssassinPrefabSpawnLocation.transform);
-                    LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Character_Assassin(Clone)"));
-                }
-            }
-        }
+
+        //Debug.Log("Wait started");
+        StartCoroutine(WaitAndPrint(5, characterCards.Length));
+        //Debug.Log("Wait eneded");
+
+        
         //LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.FindGameObjectWithTag("Player"));
     }
     void OnTriggerEnter(Collider collision)
@@ -164,7 +135,7 @@ public class LevelManagement : MonoBehaviour
             }
             else if (isInCollision == true && playerInArea >= numPlayerInAreaToLoad)
             {
-                if (timeInArea >= timeRequiredInAreaToLoad)
+                if (timeInArea >= timeRequiredInAreaToLoad*(numPlayerInAreaToLoad*6))
                 {
                     //Do stuff
                     GameObject.Destroy(GetComponent<BoxCollider>());
@@ -193,6 +164,49 @@ public class LevelManagement : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator WaitAndPrint(int waitTime, int playerCount)
+    {
+        foreach (GameObject c in characterCards)
+        {
+            //if the current card we are on is selected create 
+            if (c.GetComponent<CharacterCardScript>().isSelected)
+            {
+                //if archer
+                if (c.GetComponent<CharacterCardScript>().thisCharacter == CharacterCardScript.character.Archer)
+                {
+                    GameObject.Destroy(c.GetComponent<CharacterCardScript>().selectedBy);
+                    PlayerInput.Instantiate(ArcherPrefab, ArcherPrefabSpawnLocation.transform);
+                    LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Character_Archer(Clone)"));
+                }
+                //if warrior
+                if (c.GetComponent<CharacterCardScript>().thisCharacter == CharacterCardScript.character.Warrior)
+                {
+                    GameObject.Destroy(c.GetComponent<CharacterCardScript>().selectedBy);
+                    PlayerInput.Instantiate(WarriorPrefab, WarriorPrefabSpawnLocation.transform);
+                    LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Character_Warrior(Clone)"));
+                }
+                //if paladin
+                if (c.GetComponent<CharacterCardScript>().thisCharacter == CharacterCardScript.character.Paladin)
+                {
+                    GameObject.Destroy(c.GetComponent<CharacterCardScript>().selectedBy);
+                    PlayerInput.Instantiate(PaladinPrefab, PaladinPrefabSpawnLocation.transform);
+                    LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Character_Paladin(Clone)"));
+                }
+                //if assassin
+                if (c.GetComponent<CharacterCardScript>().thisCharacter == CharacterCardScript.character.Assassin)
+                {
+                    GameObject.Destroy(c.GetComponent<CharacterCardScript>().selectedBy);
+                    PlayerInput.Instantiate(AssassinPrefab, AssassinPrefabSpawnLocation.transform);
+                    LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Character_Assassin(Clone)"));
+                }
+                // suspend execution for 1 seconds
+                yield return new WaitForSeconds(waitTime);
+                Debug.Log("WaitAndPrint " + Time.time);
+            }
+        }
+        
     }
 
     //public PlayerInput JoinPlayer(int playerIndex = -1, int splitScreenIndex = -1, string controlScheme = null, InputDevice pairWithDevice = null);
