@@ -15,8 +15,7 @@ MonoBehaviour:
   characterAudioSource: {fileID: 5112216888766895985}
   arrowVolleySource: {fileID: 3985070562502946183, guid: 4bb17b8a101115543b5209f936f8ee41,
     type: 3}
-  piercingArrowSource: {fileID: 2484372546059354253, guid: 2ddfa3d942e53c04c8a0398f3ace68bf,
-    type: 3}
+  piercingArrowSource: {fileID: 5112216888766895985}
   footstepClip: {fileID: 8300000, guid: 2ac7dc710be71424b9da8be1fcf01e70, type: 3}
   arrowVolleyClip: {fileID: 8300000, guid: c6b670b8619c4b34fa36b12b34371a02, type: 3}
   piercingArrowClip: {fileID: 8300000, guid: f185c70551ffed34e90ce55e5d685bd8, type: 3}
@@ -64,7 +63,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1548361943279933341}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.05, z: 0}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25000012, z: 0.25000012}
   m_Children:
   - {fileID: 9140295087134772524}
@@ -121,7 +120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1642801837506864233}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4, z: 0.5}
+  m_LocalPosition: {x: 0, y: 1.048, z: 1.001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6850935412393349414}
@@ -515,6 +514,7 @@ MonoBehaviour:
   areaOfEffect: {fileID: 232987215450213792, guid: 4bb17b8a101115543b5209f936f8ee41,
     type: 3}
   colliderDestPos: {fileID: 3673495573729050289}
+  cooldownDefault: {fileID: 0}
   waitTime: 20
   comboText: {fileID: 0}
   isUsable: 0
@@ -531,7 +531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityCooldownUI: {fileID: 0}
-  piercingArrowPrefab: {fileID: 3544053858262687705, guid: 2ddfa3d942e53c04c8a0398f3ace68bf,
+  piercingArrowPrefab: {fileID: 4710712404308268623, guid: bfa13afd817ceed4eb96fa4c4c64c5a1,
     type: 3}
   isUsable: 0
 --- !u!136 &6850935412393349417
