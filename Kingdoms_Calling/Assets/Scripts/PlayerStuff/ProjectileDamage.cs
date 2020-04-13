@@ -15,13 +15,13 @@ public class ProjectileDamage : MonoBehaviour
     void Start()
     {
         shot = new BasicAttack();
-        arrowLife = 1.5f;
+        arrowLife = 5f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position += transform.forward * 20 * Time.deltaTime;
+        transform.position += transform.forward * 50 * Time.deltaTime;
         if (arrowLife <= 0f)
         {
             Destroy(this.gameObject);
