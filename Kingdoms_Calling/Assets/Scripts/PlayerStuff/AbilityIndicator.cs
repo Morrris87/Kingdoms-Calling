@@ -25,8 +25,8 @@ public class AbilityIndicator : MonoBehaviour
         {
             if (collision.gameObject.tag == "Terrain")
             {
-                insideTerrain = true;
-                Debug.Log("Inside terrain");
+                //insideTerrain = true;
+                //Debug.Log("Inside terrain");
             }
         }
     }
@@ -38,7 +38,7 @@ public class AbilityIndicator : MonoBehaviour
         {
             if (collision.gameObject.tag == "Terrain")
             {
-                insideTerrain = false;
+                //insideTerrain = false;
                 //Debug.Log("Out of terrain");
             }
         }
