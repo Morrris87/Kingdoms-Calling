@@ -4623,6 +4623,37 @@ Transform:
   m_Father: {fileID: 6293084531705382281}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4584344258060572909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8675393338491649048}
+  m_Layer: 0
+  m_Name: MagicSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: -5487077368411116049, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8675393338491649048
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4584344258060572909}
+  m_LocalRotation: {x: 0.00000005960463, y: 0.0000000026341775, z: 0.000000007902533,
+    w: 1}
+  m_LocalPosition: {x: 0, y: 0.765, z: 0.765}
+  m_LocalScale: {x: 0.33333343, y: 0.33333358, z: 0.33333346}
+  m_Children: []
+  m_Father: {fileID: 4987252971247779519}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4687950842237805437
 GameObject:
   m_ObjectHideFlags: 0
@@ -10204,6 +10235,7 @@ Transform:
   m_Children:
   - {fileID: 6286930112794351666}
   - {fileID: 1280624272796989473}
+  - {fileID: 8675393338491649048}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10216,8 +10248,8 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8317323876751821996}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 2b837086e9f80e54480bde74442bdad5, type: 3}
-  m_Controller: {fileID: 9100000, guid: c0e65b2af320b1d44956b1f1b7603a00, type: 2}
+  m_Avatar: {fileID: 9000000, guid: 8a9f3982a6074d8408870594a3bffff7, type: 3}
+  m_Controller: {fileID: 9100000, guid: e1831f5b15ce0c9478ec904705893ec2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -10249,8 +10281,7 @@ MonoBehaviour:
   isTaunted: 0
   tauntDuration: 0
   isTargeted: 1
-  animator: {fileID: 7074737044791080301, guid: d600e1635fcb4f0449a0b71b41f39795,
-    type: 3}
+  animator: {fileID: 3151477294529811397}
   targetSymbol: {fileID: 1485140454962217269, guid: 755a709aca06b3e4baf33c90f5bef31f,
     type: 3}
   skeletonStats: {fileID: 0}
@@ -10387,8 +10418,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2db480fcf1337c4a8efb64510e0dce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  magicShot: {fileID: 0}
-  spawner: {fileID: 0}
+  magicShot: {fileID: 4363148801102124627, guid: 81ced64309d60904d84e03a325c79585,
+    type: 3}
+  spawner: {fileID: 8675393338491649048}
   skeletonAudioSource: {fileID: 0}
   basicAttackClip: {fileID: 0}
   walkingClip: {fileID: 0}
