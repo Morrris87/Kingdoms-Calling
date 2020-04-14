@@ -97,6 +97,7 @@ public class HealingSpringCollider : MonoBehaviour
                 {
                     // Set the elemental proc to Earth
                     c.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.Earth;
+                    c.GetComponent<ElementManager>().effectedElement = ElementManager.ClassElement.Earth;
                 }
                 else
                 {
