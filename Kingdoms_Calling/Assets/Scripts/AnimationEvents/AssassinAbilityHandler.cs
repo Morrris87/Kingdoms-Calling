@@ -91,7 +91,7 @@ public class AssassinAbilityHandler : MonoBehaviour
         float dmgDealt = GetComponentInParent<BasicAttack>().CharacterAttackValue(BasicAttack.CharacterClass.Assassin) * 3;
 
         // Grab the enemy to damage
-        Collider[] cols = Physics.OverlapBox(execution.abilityHitbox.bounds.center, execution.abilityHitbox.bounds.extents, execution.abilityHitbox.transform.rotation, LayerMask.GetMask("Enemy"));
+        Collider[] cols = Physics.OverlapBox(thunderStrike.abilityHitbox.bounds.center, thunderStrike.abilityHitbox.bounds.extents, thunderStrike.abilityHitbox.transform.rotation, LayerMask.GetMask("Enemy"));
 
         // Cycle through each collider in the cols array
         foreach (Collider c in cols)

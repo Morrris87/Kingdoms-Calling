@@ -12,6 +12,7 @@ public class ThunderStrike : MonoBehaviour
     public float waitTime = 20;             // Time in seconds needed to wait for ability cooldown
     public Transform playerDestPos;         // The destination position for the player when ability is used
     public Text comboText;                  // Debug text for combos
+    public Collider abilityHitbox;
     [HideInInspector] public bool isUsable; // When ability is available for use, set this to true
 
     // Private Variables
