@@ -55,4 +55,9 @@ public class SkeletonHandler : MonoBehaviour
 
         Instantiate(magicShot, spawner.position, Quaternion.LookRotation(transform.forward, Vector3.up));
     }
+
+    public void DeathEvent()
+    {
+        GameObject.Destroy(gameObject, 5f);
+    }
 }
