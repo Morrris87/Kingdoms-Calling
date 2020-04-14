@@ -84,14 +84,13 @@ public class LevelManagement : MonoBehaviour
 
     public void Load()
     {
-        uiCanvas.SetActive(false);
         //loop through all player cards
 
         //Debug.Log("Wait started");
         StartCoroutine(WaitAndPrint(5, characterCards.Length));
         //Debug.Log("Wait eneded");
 
-        
+
         //LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.FindGameObjectWithTag("Player"));
     }
     void OnTriggerEnter(Collider collision)
@@ -135,11 +134,11 @@ public class LevelManagement : MonoBehaviour
             }
             else if (isInCollision == true && playerInArea >= numPlayerInAreaToLoad)
             {
-                if (timeInArea >= timeRequiredInAreaToLoad*(numPlayerInAreaToLoad*6))
+                if (timeInArea >= timeRequiredInAreaToLoad * (numPlayerInAreaToLoad * 6))
                 {
                     //Do stuff
                     GameObject.Destroy(GetComponent<BoxCollider>());
-                    
+
                     if (playerCharacters.Count == 0)
                     {
                         //playerCharacters = GameObject.FindGameObjectsWithTag("Player");
@@ -153,7 +152,7 @@ public class LevelManagement : MonoBehaviour
                     }
                     if (loading == false)
                     {
-                        loading = true; 
+                        loading = true;
                         Debug.Log("Loading into: " + SceneName);
                         SceneManager.LoadScene(SceneName);
                     }
@@ -177,6 +176,7 @@ public class LevelManagement : MonoBehaviour
                 if (c.GetComponent<CharacterCardScript>().thisCharacter == CharacterCardScript.character.Archer)
                 {
                     GameObject.Destroy(c.GetComponent<CharacterCardScript>().selectedBy);
+                    yield return new WaitForSeconds(waitTime);
                     PlayerInput.Instantiate(ArcherPrefab, ArcherPrefabSpawnLocation.transform);
                     LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Character_Archer(Clone)"));
                 }
@@ -184,6 +184,7 @@ public class LevelManagement : MonoBehaviour
                 if (c.GetComponent<CharacterCardScript>().thisCharacter == CharacterCardScript.character.Warrior)
                 {
                     GameObject.Destroy(c.GetComponent<CharacterCardScript>().selectedBy);
+                    yield return new WaitForSeconds(waitTime);
                     PlayerInput.Instantiate(WarriorPrefab, WarriorPrefabSpawnLocation.transform);
                     LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Character_Warrior(Clone)"));
                 }
@@ -191,6 +192,7 @@ public class LevelManagement : MonoBehaviour
                 if (c.GetComponent<CharacterCardScript>().thisCharacter == CharacterCardScript.character.Paladin)
                 {
                     GameObject.Destroy(c.GetComponent<CharacterCardScript>().selectedBy);
+                    yield return new WaitForSeconds(waitTime);
                     PlayerInput.Instantiate(PaladinPrefab, PaladinPrefabSpawnLocation.transform);
                     LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Character_Paladin(Clone)"));
                 }
@@ -198,15 +200,15 @@ public class LevelManagement : MonoBehaviour
                 if (c.GetComponent<CharacterCardScript>().thisCharacter == CharacterCardScript.character.Assassin)
                 {
                     GameObject.Destroy(c.GetComponent<CharacterCardScript>().selectedBy);
+                    yield return new WaitForSeconds(waitTime);
                     PlayerInput.Instantiate(AssassinPrefab, AssassinPrefabSpawnLocation.transform);
                     LevelLoad.GetComponent<LevelManagement>().playerCharacters.Add(GameObject.Find("Character_Assassin(Clone)"));
                 }
-                // suspend execution for 1 seconds
-                yield return new WaitForSeconds(waitTime);
                 Debug.Log("WaitAndPrint " + Time.time);
             }
         }
-        
+        if (uiCanvas.activeSelf)
+            uiCanvas.SetActive(false);
     }
 
     //public PlayerInput JoinPlayer(int playerIndex = -1, int splitScreenIndex = -1, string controlScheme = null, InputDevice pairWithDevice = null);
