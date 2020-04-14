@@ -76,8 +76,11 @@ public class ElectricDash : MonoBehaviour
 
         // Play the ability animation
         StopCoroutine(MoveToPosition(transform, indicatorLocation.transform.position, dashDuration));
-        // Start Ability
-        StartCoroutine(MoveToPosition(transform, indicatorLocation.transform.position, dashDuration));
+        if(isUsable == true)
+        {
+            // Start Ability
+            StartCoroutine(MoveToPosition(transform, indicatorLocation.transform.position, dashDuration));
+        }
 
     }
 
@@ -90,6 +93,7 @@ public class ElectricDash : MonoBehaviour
     /// <returns></returns>
     IEnumerator MoveToPosition(Transform transform, Vector3 position, float timeToMove)
     {
+        isUsable = false;   
         Vector3 currentPos = transform.position;
         float t = 0f;
         while (t < 1)

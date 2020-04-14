@@ -164,10 +164,10 @@ public class CharacterManager : MonoBehaviour
     }
     public void Start()
     {
-         //inventory things
+        //inventory things
         inventory = new Inventory();
-        if(uiInventory)
-        uiInventory.SetInventory(inventory);
+        if (uiInventory)
+            uiInventory.SetInventory(inventory);
     }
 
     void Update()
@@ -188,7 +188,7 @@ public class CharacterManager : MonoBehaviour
             ZeroInput();
         }
 
-        if(mainCamera == null)
+        if (mainCamera == null)
         {
             mainCamera = Camera.main;
         }
@@ -447,15 +447,16 @@ public class CharacterManager : MonoBehaviour
             {
                 if (context.ReadValue<float>() == 1)
                 {
-                    displayLocation = true;
+                    if (thunderStrike.isUsable)
+                        displayLocation = true;
                     //Debug.Log("Started");
                 }
 
                 if (context.ReadValue<float>() == 0)
                 {
-                    if(checkInside())
+                    if (checkInside())
                     {
-                        thunderStrike.UseAbility(abilityIndicator);                       
+                        thunderStrike.UseAbility(abilityIndicator);
                     }
                     displayLocation = false;
                 }
@@ -471,11 +472,11 @@ public class CharacterManager : MonoBehaviour
 
                 if (context.ReadValue<float>() == 0)//Button released and we are showing indicator
                 {
-                    if(checkInside())
+                    if (checkInside())
                     {
                         arrowVolley.abilityCooldownUI = GameObject.Find("ArcherPrimary_Cooldown");
                         arrowVolley.UseAbility();
-                        
+
                     }
                     displayLocation = false;
                     //Debug.Log("arrow volley performed");
@@ -493,7 +494,7 @@ public class CharacterManager : MonoBehaviour
                 {
                     if (checkInside())
                     {
-                        warriorFalmingLeap.UseAbility(abilityIndicator);                        
+                        warriorFalmingLeap.UseAbility(abilityIndicator);
                     }
                     displayLocation = false;
                     //Debug.Log("Performed");
@@ -531,79 +532,79 @@ public class CharacterManager : MonoBehaviour
 
     public void Special(InputAction.CallbackContext context)   // For the character's Evasion/Special
     {
-        if (playerAnim.GetBool("performingAction") == false)
-        {
-            if (characterClass == CharacterClass.Paladin)
-            {
-                if (context.ReadValue<float>() == 1)//Button pressed
-                {
-                    paladinIronWall.UseAbility();
-                }
+        //if (playerAnim.GetBool("performingAction") == false)
+        //{
+        //    if (characterClass == CharacterClass.Paladin)
+        //    {
+        //        if (context.ReadValue<float>() == 1)//Button pressed
+        //        {
+        //            paladinIronWall.UseAbility();
+        //        }
 
-                if (context.ReadValue<float>() == 0)//Button released
-                {
-                    paladinIronWall.EndAbility();
-                }
+        //        if (context.ReadValue<float>() == 0)//Button released
+        //        {
+        //            paladinIronWall.EndAbility();
+        //        }
 
-            }
-            else if (characterClass == CharacterClass.Assassin)
-            {
-                if (context.ReadValue<float>() == 1)//Button pressed
-                {
-                    if (!displayLocation)
-                        displayLocation = true;
-                }
+        //    }
+        //    else if (characterClass == CharacterClass.Assassin)
+        //    {
+        //        if (context.ReadValue<float>() == 1)//Button pressed
+        //        {
+        //            if (!displayLocation)
+        //                displayLocation = true;
+        //        }
 
-                if (context.started == false && context.performed == true)//Button released and we are showing indicator
-                {
-                    if(checkInside())
-                    {
-                        electricDash.UseAbility(abilityIndicator);
-                    }
-                    displayLocation = false;
-                    //Debug.Log("Special performed");
-                }
-            }
-            else if (characterClass == CharacterClass.Archer)
-            {
-                if (context.ReadValue<float>() == 1)//Button pressed
-                {
-                    if (!leapOfFaith.isActive)
-                    {
-                        if (!displayLocation)
-                            displayLocation = true;
-                        leapOfFaith.isActive = true;
-                    }
-                }
+        //        if (context.started == false && context.performed == true)//Button released and we are showing indicator
+        //        {
+        //            if (checkInside())
+        //            {
+        //                electricDash.UseAbility(abilityIndicator);
+        //            }
+        //            displayLocation = false;
+        //            //Debug.Log("Special performed");
+        //        }
+        //    }
+        //    else if (characterClass == CharacterClass.Archer)
+        //    {
+        //        if (context.ReadValue<float>() == 1)//Button pressed
+        //        {
+        //            if (!leapOfFaith.isActive)
+        //            {
+        //                if (!displayLocation)
+        //                    displayLocation = true;
+        //                leapOfFaith.isActive = true;
+        //            }
+        //        }
 
-                if (context.performed == true && !context.started)//Button released
-                {
-                    if(checkInside())
-                    {
-                        if (leapOfFaith.isActive)
-                            leapOfFaith.UseAbility(abilityIndicator);
-                    }
-                    else
-                    {
-                        leapOfFaith.isActive = false;
-                    }
-                    if (displayLocation)
-                        displayLocation = false;
-                }
-            }
-            else if (characterClass == CharacterClass.Warrior)
-            {
-                if (context.ReadValue<float>() == 1)//Button pressed
-                {
-                    warriorRagingResponse.UseAbility();
-                }
+        //        if (context.performed == true && !context.started)//Button released
+        //        {
+        //            if (checkInside())
+        //            {
+        //                if (leapOfFaith.isActive)
+        //                    leapOfFaith.UseAbility(abilityIndicator);
+        //            }
+        //            else
+        //            {
+        //                leapOfFaith.isActive = false;
+        //            }
+        //            if (displayLocation)
+        //                displayLocation = false;
+        //        }
+        //    }
+        //    else if (characterClass == CharacterClass.Warrior)
+        //    {
+        //        if (context.ReadValue<float>() == 1)//Button pressed
+        //        {
+        //            warriorRagingResponse.UseAbility();
+        //        }
 
-                if (context.ReadValue<float>() == 0)//Button released
-                {
+        //        if (context.ReadValue<float>() == 0)//Button released
+        //        {
 
-                }
-            }
-        }
+        //        }
+        //    }
+        //}
     }
 
     public void Pause(InputAction.CallbackContext context)
@@ -739,14 +740,14 @@ public class CharacterManager : MonoBehaviour
             Item droppedItem = inventory.ItemDrop();
 
             //We have a tomb on our hands :)
-            if(droppedItem.itemType == Item.ItemType.TomeOfStat)
+            if (droppedItem.itemType == Item.ItemType.TomeOfStat)
             {
                 //Check which tomb it is then drop the item infront of the character
-                if(droppedItem.stat == Item.statType.Health)
+                if (droppedItem.stat == Item.statType.Health)
                 {
                     dropItemScript.DropItem(TomeOfStatHealth, transform.localPosition + new Vector3(0, 0, 50f), 100);
                 }
-                else if(droppedItem.stat == Item.statType.Power)
+                else if (droppedItem.stat == Item.statType.Power)
                 {
                     dropItemScript.DropItem(TomeOfStatPower, transform.localPosition + new Vector3(0, 0, 50f), 100);
                 }
@@ -791,7 +792,7 @@ public class CharacterManager : MonoBehaviour
                 {
                     dropItemScript.DropItem(PiercingSheathe, transform.localPosition + new Vector3(0, 0, 50f), 100);
                 }
-                
+
             }
         }
     }
@@ -865,7 +866,7 @@ public class CharacterManager : MonoBehaviour
 
     bool checkInside()
     {
-        if(abilityIndicator.GetComponent<AbilityIndicator>().insideTerrain)
+        if (abilityIndicator.GetComponent<AbilityIndicator>().insideTerrain)
         {
             return false;
         }
