@@ -25,7 +25,10 @@ public class AxeWhirlwind : MonoBehaviour
         isUsable = true;            // Ability starts as usable
         cooldownTimer = waitTime;   // Cooldown timer starts at the value of waitTime
         abilityCooldownUI = GameObject.Find("WarriorSecondary_Cooldown");
-        abilityCooldownUI.transform.localScale = new Vector3(0f, 0f, 0f);
+        if(abilityCooldownUI != null)
+        {
+            abilityCooldownUI.transform.localScale = new Vector3(0f, 0f, 0f);
+        }
     }
 
     // Update is called once per frame
