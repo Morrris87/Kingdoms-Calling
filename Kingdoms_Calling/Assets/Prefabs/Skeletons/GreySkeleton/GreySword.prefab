@@ -35,7 +35,7 @@ Transform:
   m_GameObject: {fileID: 18892595514446658}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -566.8352, y: 49.088917, z: 253.76}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 6784793903943130741}
   - {fileID: 4224071287246373879}
@@ -81,7 +81,7 @@ MonoBehaviour:
   rigBody: {fileID: 0}
   thisSkeletonClass: Sword
   attackRange: 5
-  chaseRange: 50
+  chaseRange: 100
   isTaunted: 0
   tauntDuration: 0
   isTargeted: 1
@@ -109,6 +109,7 @@ MonoBehaviour:
   takeDamage: 0
   ragingResponse: 0
   currentHealth: 0
+  isDead: 0
   characterClass: 0
 --- !u!114 &18892595514446671
 MonoBehaviour:
@@ -217,6 +218,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2db480fcf1337c4a8efb64510e0dce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magicShot: {fileID: 0}
+  spawner: {fileID: 0}
   skeletonAudioSource: {fileID: 0}
   basicAttackClip: {fileID: 8300000, guid: 9fc3352356102d1489674fc6853dc2ac, type: 3}
   walkingClip: {fileID: 8300000, guid: 9dca5212912cf134c9871833b097844a, type: 3}
