@@ -112,7 +112,10 @@ public class Health : MonoBehaviour
 
         if (this.tag == "Player") // || tag == "Boss"
         {
+	    if(!isDead)
+	    {
             FlashRed();
+	    }	
         }
 
         //Check take damage bool if true we take damage (Paladin Evasion)
