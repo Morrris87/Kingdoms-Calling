@@ -75,6 +75,9 @@ public class AxeWhirlwind : MonoBehaviour
             // Enable the cooldown UI
             abilityCooldownUI.transform.localScale = new Vector3(1f, 1f, 1f);
 
+            // Place the collder for the ability in the spawn area
+            Instantiate(areaOfEffect, transform.position, Quaternion.identity);
+
             // Play the ability animation
             GetComponentInChildren<Animator>().SetTrigger("SpinningAxeUsed");
         }
