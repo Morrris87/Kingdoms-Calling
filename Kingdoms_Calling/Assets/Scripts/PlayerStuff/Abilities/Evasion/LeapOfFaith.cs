@@ -74,7 +74,7 @@ public class LeapOfFaith : MonoBehaviour
 
         // Enable the cooldown UI
         abilityCooldownUI.transform.localScale = new Vector3(1f, 1f, 1f);
-
+        StopCoroutine(MoveToPosition(transform, indicatorLocation.transform.position, leapDuration));
         // Start Ability
         StartCoroutine(MoveToPosition(transform, indicatorLocation.transform.position, leapDuration));
 

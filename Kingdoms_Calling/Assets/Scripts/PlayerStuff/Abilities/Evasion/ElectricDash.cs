@@ -75,7 +75,7 @@ public class ElectricDash : MonoBehaviour
         abilityCooldownUI.transform.localScale = new Vector3(1f, 1f, 1f);
 
         // Play the ability animation
-
+        StopCoroutine(MoveToPosition(transform, indicatorLocation.transform.position, dashDuration));
         // Start Ability
         StartCoroutine(MoveToPosition(transform, indicatorLocation.transform.position, dashDuration));
 
