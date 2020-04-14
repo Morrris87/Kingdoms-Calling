@@ -93,7 +93,7 @@ public class HealingSpringCollider : MonoBehaviour
             else
             {
                 // If the enemy currently has no element assigned in it's Element Manager...
-                if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.NONE)
+                if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.NONE || c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Earth)
                 {
                     // Set the elemental proc to Earth
                     c.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.Earth;
