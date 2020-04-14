@@ -18,6 +18,7 @@ public class AssassinAbilityHandler : MonoBehaviour
     public GameObject assassin;
     public GameObject ChainLightningPrefab;
     public GameObject ArcherWarriorComboPrefab;
+    public GameObject teleportLightningPrefab;
 
     private ThunderStrike thunderStrike;
     private Execution execution;
@@ -86,6 +87,9 @@ public class AssassinAbilityHandler : MonoBehaviour
     {
         // Teleport the player to the destination of the target
         assassin.transform.position = thunderStrike.playerDestPos.position;
+
+        // Create the particles
+        Instantiate(teleportLightningPrefab, thunderStrike.playerDestPos.position, Quaternion.identity);
 
         // Do 3x the assassin's normal damage to the target
         float dmgDealt = GetComponentInParent<BasicAttack>().CharacterAttackValue(BasicAttack.CharacterClass.Assassin) * 3;
