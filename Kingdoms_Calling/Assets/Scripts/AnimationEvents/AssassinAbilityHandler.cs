@@ -100,7 +100,7 @@ public class AssassinAbilityHandler : MonoBehaviour
             c.GetComponent<Health>().Damage((int)dmgDealt);
 
             // If the enemy currently has no element assigned in it's Element Manager...
-            if (c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.NONE)
+            if (c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.NONE || c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.Lightning)
             {
                 // Set the elemental proc to Fire
                 c.GetComponent<ElementManager>().effectedElement = ElementManager.ClassElement.Lightning;
