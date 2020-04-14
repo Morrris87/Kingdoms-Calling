@@ -56,7 +56,7 @@ public class Health : MonoBehaviour
     void Update()
     {
         // If the player, update their healthbar
-        if (this.tag == "Player" || tag == "Boss")
+        if (this.tag == "Player" || tag == "Boss")   
         {
 
             //FlashRed();
@@ -110,7 +110,7 @@ public class Health : MonoBehaviour
             //}
         }
 
-        if (this.tag == "Player" || tag == "Boss")
+        if (this.tag == "Player") // || tag == "Boss"
         {
             FlashRed();
         }
@@ -174,7 +174,7 @@ public class Health : MonoBehaviour
         Renderer[] renderers = GetComponentsInChildren<Renderer>();
         foreach (Renderer r in renderers)
         {
-            if (r.tag == "Grey")
+           /* if (r.tag == "Grey")
             {
                 ogColor.r = 94;
                 ogColor.g = 88;
@@ -197,8 +197,8 @@ public class Health : MonoBehaviour
             else if (this.tag == "Boss")
             {
                 ogColor = Color.white;
-            }
-            r.material.color = ogColor;
+            }*/
+            r.material.color = Color.white;
         }
         //gameObject.GetComponent<Renderer>().material.color = Color.white;
     }
