@@ -32,7 +32,7 @@ public class AttackState : FSMState
         }
         else
         {
-            if (enemyAI.thisSkeletonClass != "Mage")
+            if (enemyAI.thisSkeletonClass != "Mage" || enemyAI.thisSkeletonClass != "Bow")
             {
                 enemyAI.playerHealth.Damage(enemyAI.skeletonStats.power);
             }

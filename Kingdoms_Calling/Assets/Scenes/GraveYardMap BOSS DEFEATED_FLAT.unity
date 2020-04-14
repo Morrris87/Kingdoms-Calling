@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.004
@@ -2723,18 +2723,21 @@ MonoBehaviour:
     type: 3}
   skeletonWhiteBow: {fileID: 4251356002983864836, guid: d600e1635fcb4f0449a0b71b41f39795,
     type: 3}
+  skeletonWhiteMage: {fileID: 0}
   skeletonGreySword: {fileID: 18892595514446658, guid: e270fc9ffa35a8f47950e08a406134f0,
     type: 3}
   skeletonGreyMace: {fileID: 5595002497362708657, guid: 67f0bf14f08e53d44877991a19eacfc9,
     type: 3}
   skeletonGreyBow: {fileID: 9152741486584601969, guid: 1dcf33404ad22634ca044e134662642d,
     type: 3}
+  skeletonGreyMage: {fileID: 0}
   skeletonPurpleSword: {fileID: 7571853730052553586, guid: 7d2933b48fdc7be4580a572e4f79155c,
     type: 3}
   skeletonPurpleMace: {fileID: 8481385157997072597, guid: 82cd710978159ef4baf655c5664bab2c,
     type: 3}
   skeletonPurpleBow: {fileID: 5294393101146193261, guid: 38f11e26019fc3847946d8016794041d,
     type: 3}
+  skeletonPurpleMage: {fileID: 0}
   skeletonClass: 
 --- !u!1 &43796844
 GameObject:
@@ -4689,8 +4692,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96249911}
-  m_LocalRotation: {x: 0.30410147, y: 0.0051451293, z: 0.0016466758, w: -0.9526243}
-  m_LocalPosition: {x: -239.44345, y: -661.394, z: -596.7201}
+  m_LocalRotation: {x: -0.020067632, y: -0.9703711, z: -0.086995035, w: 0.2245196}
+  m_LocalPosition: {x: -541.635, y: -26.139225, z: -235.00632}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 979137007}
@@ -30396,18 +30399,21 @@ MonoBehaviour:
     type: 3}
   skeletonWhiteBow: {fileID: 4251356002983864836, guid: d600e1635fcb4f0449a0b71b41f39795,
     type: 3}
+  skeletonWhiteMage: {fileID: 0}
   skeletonGreySword: {fileID: 18892595514446658, guid: e270fc9ffa35a8f47950e08a406134f0,
     type: 3}
   skeletonGreyMace: {fileID: 5595002497362708657, guid: 67f0bf14f08e53d44877991a19eacfc9,
     type: 3}
   skeletonGreyBow: {fileID: 9152741486584601969, guid: 1dcf33404ad22634ca044e134662642d,
     type: 3}
+  skeletonGreyMage: {fileID: 0}
   skeletonPurpleSword: {fileID: 7571853730052553586, guid: 7d2933b48fdc7be4580a572e4f79155c,
     type: 3}
   skeletonPurpleMace: {fileID: 8481385157997072597, guid: 82cd710978159ef4baf655c5664bab2c,
     type: 3}
   skeletonPurpleBow: {fileID: 5294393101146193261, guid: 38f11e26019fc3847946d8016794041d,
     type: 3}
+  skeletonPurpleMage: {fileID: 0}
   skeletonClass: 
 --- !u!1001 &723594079
 PrefabInstance:
@@ -32108,7 +32114,7 @@ PrefabInstance:
     - target: {fileID: 2241186763897451426, guid: cceb7dbc57405904a8c0e93e68f26c48,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2241186763897451427, guid: cceb7dbc57405904a8c0e93e68f26c48,
         type: 3}
@@ -62121,7 +62127,7 @@ PrefabInstance:
     - target: {fileID: 6850935412393349415, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6850935412393349414, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
@@ -68835,11 +68841,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8300081291097214799, guid: 3126e2b090e229644a42aeda1fc2535b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8863542652062060436, guid: 3126e2b090e229644a42aeda1fc2535b,
         type: 3}
       propertyPath: m_IsActive
@@ -68849,6 +68850,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8300081291097214799, guid: 3126e2b090e229644a42aeda1fc2535b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1489799769, guid: 3126e2b090e229644a42aeda1fc2535b, type: 3}
       propertyPath: m_textInfo.characterCount
@@ -83497,18 +83503,21 @@ MonoBehaviour:
     type: 3}
   skeletonWhiteBow: {fileID: 4251356002983864836, guid: d600e1635fcb4f0449a0b71b41f39795,
     type: 3}
+  skeletonWhiteMage: {fileID: 0}
   skeletonGreySword: {fileID: 18892595514446658, guid: e270fc9ffa35a8f47950e08a406134f0,
     type: 3}
   skeletonGreyMace: {fileID: 5595002497362708657, guid: 67f0bf14f08e53d44877991a19eacfc9,
     type: 3}
   skeletonGreyBow: {fileID: 9152741486584601969, guid: 1dcf33404ad22634ca044e134662642d,
     type: 3}
+  skeletonGreyMage: {fileID: 0}
   skeletonPurpleSword: {fileID: 7571853730052553586, guid: 7d2933b48fdc7be4580a572e4f79155c,
     type: 3}
   skeletonPurpleMace: {fileID: 8481385157997072597, guid: 82cd710978159ef4baf655c5664bab2c,
     type: 3}
   skeletonPurpleBow: {fileID: 5294393101146193261, guid: 38f11e26019fc3847946d8016794041d,
     type: 3}
+  skeletonPurpleMage: {fileID: 0}
   skeletonClass: 
 --- !u!1 &1999319943
 GameObject:
@@ -87479,7 +87488,7 @@ PrefabInstance:
     - target: {fileID: 8623312592771481221, guid: b73341ff3ab3fe8458189c9c8f71a022,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8623312592771481220, guid: b73341ff3ab3fe8458189c9c8f71a022,
         type: 3}

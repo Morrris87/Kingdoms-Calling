@@ -60,35 +60,35 @@ public class ElementManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (effectedElement == ClassElement.Fire)
+        if (effectedElement == ClassElement.Fire || thisElement == ClassElement.Fire)
         {
             fireMark.SetActive(true);
             windMark.SetActive(false);
             lightningMark.SetActive(false);
             earthMark.SetActive(false);
         }
-        else if (effectedElement == ClassElement.Wind)
+        else if (effectedElement == ClassElement.Wind || thisElement == ClassElement.Wind)
         {
             fireMark.SetActive(false);
             windMark.SetActive(true);
             lightningMark.SetActive(false);
             earthMark.SetActive(false);
         }
-        else if (effectedElement == ClassElement.Lightning)
+        else if (effectedElement == ClassElement.Lightning || thisElement == ClassElement.Lightning)
         {
             fireMark.SetActive(false);
             windMark.SetActive(false);
             lightningMark.SetActive(true);
             earthMark.SetActive(false);
         }
-        else if (effectedElement == ClassElement.Earth)
+        else if (effectedElement == ClassElement.Earth || thisElement == ClassElement.Earth)
         {
             fireMark.SetActive(false);
             windMark.SetActive(false);
             lightningMark.SetActive(false);
             earthMark.SetActive(true);
         }
-        else if (effectedElement == ClassElement.NONE)
+        else if (effectedElement == ClassElement.NONE || thisElement == ClassElement.NONE)
         {
             fireMark.SetActive(false);
             windMark.SetActive(false);

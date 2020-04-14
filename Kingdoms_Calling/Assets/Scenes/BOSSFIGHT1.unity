@@ -257,6 +257,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5519836243428302383, guid: 3126e2b090e229644a42aeda1fc2535b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1489799769, guid: 3126e2b090e229644a42aeda1fc2535b, type: 3}
       propertyPath: m_textInfo.characterCount
       value: 0
@@ -511,6 +516,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &39976033 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 827211357, guid: 3126e2b090e229644a42aeda1fc2535b,
+    type: 3}
+  m_PrefabInstance: {fileID: 39976012}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &95940955
@@ -3594,6 +3611,11 @@ PrefabInstance:
       propertyPath: abilityCooldownUI
       value: 
       objectReference: {fileID: 39976024}
+    - target: {fileID: 5663429486333080011, guid: c1c6583202c1aaf4bbcebb6792578b2e,
+        type: 3}
+      propertyPath: comboText
+      value: 
+      objectReference: {fileID: 39976033}
     - target: {fileID: 6056994560321717552, guid: c1c6583202c1aaf4bbcebb6792578b2e,
         type: 3}
       propertyPath: abilityCooldownUI
@@ -3609,6 +3631,11 @@ PrefabInstance:
       propertyPath: abilityCooldownUI
       value: 
       objectReference: {fileID: 39976022}
+    - target: {fileID: 161197284939248921, guid: c1c6583202c1aaf4bbcebb6792578b2e,
+        type: 3}
+      propertyPath: dashDuration
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c6583202c1aaf4bbcebb6792578b2e, type: 3}
 --- !u!1001 &1254437636
@@ -4425,7 +4452,7 @@ PrefabInstance:
     - target: {fileID: 5085727573283618061, guid: 3873d432aba7d41498e2458772910daa,
         type: 3}
       propertyPath: maxHealth
-      value: 2
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5085727573742206788, guid: 3873d432aba7d41498e2458772910daa,
         type: 3}
@@ -4440,7 +4467,27 @@ PrefabInstance:
     - target: {fileID: 5085727573283618060, guid: 3873d432aba7d41498e2458772910daa,
         type: 3}
       propertyPath: health
-      value: 2
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085727573742206809, guid: 3873d432aba7d41498e2458772910daa,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085727573742206809, guid: 3873d432aba7d41498e2458772910daa,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085727573742206809, guid: 3873d432aba7d41498e2458772910daa,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 295644734793796530, guid: 3873d432aba7d41498e2458772910daa,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3873d432aba7d41498e2458772910daa, type: 3}

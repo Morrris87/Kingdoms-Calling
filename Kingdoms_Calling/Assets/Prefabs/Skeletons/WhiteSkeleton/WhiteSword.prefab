@@ -10460,6 +10460,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2db480fcf1337c4a8efb64510e0dce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magicShot: {fileID: 0}
+  spawner: {fileID: 0}
   skeletonAudioSource: {fileID: 0}
   basicAttackClip: {fileID: 8300000, guid: 9fc3352356102d1489674fc6853dc2ac, type: 3}
   walkingClip: {fileID: 8300000, guid: 9dca5212912cf134c9871833b097844a, type: 3}
@@ -10505,7 +10507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75fe87bf589d14f4984f0a76d8d08cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 3
+  maxHealth: 4
   healthUI: {fileID: 0}
   takeDamage: 0
   ragingResponse: 0

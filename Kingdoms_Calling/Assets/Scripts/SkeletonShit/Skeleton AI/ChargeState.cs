@@ -39,7 +39,7 @@ public class ChargeState : FSMState
             enemyAI.transform.LookAt(enemyAI.objPlayer.transform);
             enemyAI.transform.position += enemyAI.transform.forward * speed;
         }
-        else if(enemyAI.thisSkeletonClass == "Bow" || enemyAI.thisSkeletonClass == "Mage")
+        else if(enemyAI.thisSkeletonClass == "Mage")
         {
             //Make it run to the slot manager on the player
             //(still have to make it)

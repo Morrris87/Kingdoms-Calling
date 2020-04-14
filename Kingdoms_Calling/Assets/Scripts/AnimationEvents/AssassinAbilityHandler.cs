@@ -90,7 +90,10 @@ public class AssassinAbilityHandler : MonoBehaviour
 
         // Create the particles
         Instantiate(teleportLightningPrefab, transform.position, Quaternion.identity);
+    }
 
+    public void ThunderDamageEvent()
+    {
         // Do 3x the assassin's normal damage to the target
         float dmgDealt = GetComponentInParent<BasicAttack>().CharacterAttackValue(BasicAttack.CharacterClass.Assassin) * 3;
 

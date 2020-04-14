@@ -48,7 +48,7 @@ public class LichHandler : MonoBehaviour
             }
             else if (SceneManager.GetActiveScene().name == "GraveYardMap BOSS")
             {
-                SceneManager.LoadScene("GraveYardMap BOSS DEFEATED");
+                SceneManager.LoadScene("GraveYardMap BOSS DEFEATED_FLAT");
             }
         }
     }

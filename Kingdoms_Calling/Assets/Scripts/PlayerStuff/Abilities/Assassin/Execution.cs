@@ -11,7 +11,7 @@ public class Execution : MonoBehaviour
     [HideInInspector] public bool isUsable; // When ability is available for use, set this to true
 
     // Private Variables
-    private float waitTime = 40;    // Time in seconds needed to wait for ability cooldown
+    public float waitTime = 40;    // Time in seconds needed to wait for ability cooldown
     private float cooldownTimer;    // When in cooldown, increments until waitTime is reached
 
     // Start is called before the first frame update

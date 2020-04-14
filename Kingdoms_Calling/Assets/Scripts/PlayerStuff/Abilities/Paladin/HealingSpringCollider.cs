@@ -92,44 +92,47 @@ public class HealingSpringCollider : MonoBehaviour
             }
             else
             {
-                // If the enemy currently has no element assigned in it's Element Manager...
-                if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.NONE || c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Earth)
+                if (c.gameObject.tag != "Boss")
                 {
-                    // Set the elemental proc to Earth
-                    c.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.Earth;
-                    c.GetComponent<ElementManager>().effectedElement = ElementManager.ClassElement.Earth;
-                }
-                else
-                {
-                    // If the enemy currently has a Wind proc...
-                    if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Wind)
+                    // If the enemy currently has no element assigned in it's Element Manager...
+                    if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.NONE || c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Earth)
                     {
-                        // Remove the enemies mark
-                        c.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
-
-                        // Activate the Archer & Paladin combo
-                        archerPaladinCombo.ActivateCombo(c.gameObject);
-                        comboText.text = "Archer & Paladin Combo Performed";
+                        // Set the elemental proc to Earth
+                        c.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.Earth;
+                        c.GetComponent<ElementManager>().effectedElement = ElementManager.ClassElement.Earth;
                     }
-                    // If the enemy currently has a Fire proc...
-                    else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Fire)
+                    else
                     {
-                        // Remove the enemies mark
-                        c.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
+                        // If the enemy currently has a Wind proc...
+                        if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Wind)
+                        {
+                            // Remove the enemies mark
+                            c.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
 
-                        // Activate the Paladin & Warrior combo
-                        paladinWarriorCombo.ActivateCombo(c.gameObject);
-                        comboText.text = "Paladin & Warrior Combo Performed";
-                    }
-                    // If the enemy currently has a Lightning proc...
-                    else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Lightning)
-                    {
-                        // Remove the enemies mark
-                        c.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
+                            // Activate the Archer & Paladin combo
+                            archerPaladinCombo.ActivateCombo(c.gameObject);
+                            comboText.text = "Archer & Paladin Combo Performed";
+                        }
+                        // If the enemy currently has a Fire proc...
+                        else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Fire)
+                        {
+                            // Remove the enemies mark
+                            c.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
 
-                        // Activate the Assassin & Paladin combo
-                        assassinPaladinCombo.ActivateCombo();
-                        comboText.text = "Assassin & Paladin Combo Performed";
+                            // Activate the Paladin & Warrior combo
+                            paladinWarriorCombo.ActivateCombo(c.gameObject);
+                            comboText.text = "Paladin & Warrior Combo Performed";
+                        }
+                        // If the enemy currently has a Lightning proc...
+                        else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Lightning)
+                        {
+                            // Remove the enemies mark
+                            c.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
+
+                            // Activate the Assassin & Paladin combo
+                            assassinPaladinCombo.ActivateCombo();
+                            comboText.text = "Assassin & Paladin Combo Performed";
+                        }
                     }
                 }
             }

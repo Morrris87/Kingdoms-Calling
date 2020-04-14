@@ -9,32 +9,23 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 50745cb69ab0ef44f9e5dd5db6ee33ea
   - enabled: 1
-    path: Assets/Scenes/PlayGame.unity
-    guid: a7d794009a1ab2d45b6132d7b673c154
-  - enabled: 1
     path: Assets/Scenes/PlainsMap.unity
     guid: 6a6a31158d5af6b42ba112b2ea7cc558
-  - enabled: 1
-    path: Assets/Scenes/GraveYardMap.unity
-    guid: e4924d99f5b396c4da88b0e507f9ef4f
-  - enabled: 1
-    path: Assets/Scenes/CastleOutskirts.unity
-    guid: 5e3ed941b2c3b314ba1fe185ce72de54
   - enabled: 1
     path: Assets/Scenes/BOSSFIGHT1.unity
     guid: 6d1933f53a1c63d46a43f80eb9f93678
   - enabled: 1
-    path: Assets/Scenes/BOSSFIGHT3THRONE.unity
-    guid: 23a55b032f40f25419d81c337fbe4526
+    path: Assets/Scenes/GraveYardMap.unity
+    guid: e4924d99f5b396c4da88b0e507f9ef4f
   - enabled: 1
     path: Assets/Scenes/GraveYardMap BOSS.unity
     guid: db6e1c88ba41d734498c1ae276cd45a3
   - enabled: 1
-    path: Assets/Scenes/GraveYardMap BOSS DEFEATED.unity
-    guid: f9ab4adc6dfc5e844b03c3f05d1c8bf9
+    path: Assets/Scenes/GraveYardMap BOSS DEFEATED_FLAT.unity
+    guid: 123706b6beeaa2f4394dc0620c9231b3
   - enabled: 1
-    path: Assets/Scenes/NICKS TEST.unity
-    guid: 42ec7d97a8a3e0e418140199975a1413
+    path: Assets/Scenes/BOSSFIGHT3THRONE.unity
+    guid: 23a55b032f40f25419d81c337fbe4526
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 27fd5c1b92c7ba74eb9f9b206c7b8f66,
       type: 2}
