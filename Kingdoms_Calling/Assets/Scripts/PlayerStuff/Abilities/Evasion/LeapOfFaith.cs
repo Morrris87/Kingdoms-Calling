@@ -75,8 +75,11 @@ public class LeapOfFaith : MonoBehaviour
         // Enable the cooldown UI
         abilityCooldownUI.transform.localScale = new Vector3(1f, 1f, 1f);
         StopCoroutine(MoveToPosition(transform, indicatorLocation.transform.position, leapDuration));
-        // Start Ability
-        StartCoroutine(MoveToPosition(transform, indicatorLocation.transform.position, leapDuration));
+        if(!isActive)
+        {
+            // Start Ability
+            StartCoroutine(MoveToPosition(transform, indicatorLocation.transform.position, leapDuration));
+        }
 
     }
 
@@ -89,6 +92,7 @@ public class LeapOfFaith : MonoBehaviour
     /// <returns></returns>
     IEnumerator MoveToPosition(Transform transform, Vector3 position, float timeToMove)
     {
+        isActive = true;
         Vector3 currentPos = transform.position;
         float t = 0f;
         while (t < 1)

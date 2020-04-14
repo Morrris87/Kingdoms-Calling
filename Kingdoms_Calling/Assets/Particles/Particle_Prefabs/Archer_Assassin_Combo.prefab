@@ -13308,7 +13308,7 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 1
+    enabled: 0
     ratio: 1
     light: {fileID: 2169262627865476303, guid: 19587226bf4134148977cca37a734432, type: 3}
     randomDistribution: 1
@@ -43191,7 +43191,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8705934984350010905}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 4.65, y: 18.652355, z: 43.15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -43259,18 +43259,6 @@ PrefabInstance:
     - target: {fileID: 410886, guid: ce56f814fa0835a43aba1716e41c3173, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 19848952, guid: ce56f814fa0835a43aba1716e41c3173, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19848952, guid: ce56f814fa0835a43aba1716e41c3173, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 19848952, guid: ce56f814fa0835a43aba1716e41c3173, type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 19950378, guid: ce56f814fa0835a43aba1716e41c3173, type: 3}
       propertyPath: m_Materials.Array.data[0]
