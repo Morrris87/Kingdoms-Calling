@@ -900,16 +900,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Character_Archer
       objectReference: {fileID: 0}
-    - target: {fileID: 6850935412393349415, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6850935412393349415, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
-        type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
     - target: {fileID: 6850935412393349414, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -985,27 +975,11 @@ PrefabInstance:
       propertyPath: abilityCooldownUI
       value: 
       objectReference: {fileID: 1590901514}
-    - target: {fileID: 7649840642150135110, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1864538171205062525, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
-        type: 3}
-      propertyPath: piercingArrowSource
-      value: 
-      objectReference: {fileID: 1413669232}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e5a4c85c6d71004ea94f79a64a9a63a, type: 3}
 --- !u!4 &1286640925 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6850935412393349414, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1286640924}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &1413669232 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 5112216888766895985, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
     type: 3}
   m_PrefabInstance: {fileID: 1286640924}
   m_PrefabAsset: {fileID: 0}
