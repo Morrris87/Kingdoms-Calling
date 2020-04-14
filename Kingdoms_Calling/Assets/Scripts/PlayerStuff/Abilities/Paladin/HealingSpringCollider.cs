@@ -86,7 +86,7 @@ public class HealingSpringCollider : MonoBehaviour
             // Deal damage to the enemy
             c.GetComponent<Health>().Damage(damageValue);
 
-            if(totemBoost)
+            if (totemBoost)
             {
                 c.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
             }
@@ -103,6 +103,9 @@ public class HealingSpringCollider : MonoBehaviour
                     // If the enemy currently has a Wind proc...
                     if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Wind)
                     {
+                        // Remove the enemies mark
+                        c.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
+
                         // Activate the Archer & Paladin combo
                         archerPaladinCombo.ActivateCombo(c.gameObject);
                         comboText.text = "Archer & Paladin Combo Performed";
@@ -110,6 +113,9 @@ public class HealingSpringCollider : MonoBehaviour
                     // If the enemy currently has a Fire proc...
                     else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Fire)
                     {
+                        // Remove the enemies mark
+                        c.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
+
                         // Activate the Paladin & Warrior combo
                         paladinWarriorCombo.ActivateCombo(c.gameObject);
                         comboText.text = "Paladin & Warrior Combo Performed";
@@ -125,7 +131,7 @@ public class HealingSpringCollider : MonoBehaviour
                         comboText.text = "Assassin & Paladin Combo Performed";
                     }
                 }
-            }            
+            }
         }
     }
 
@@ -139,7 +145,8 @@ public class HealingSpringCollider : MonoBehaviour
         foreach (Collider c in cols)
         {
             // Heal the player
-            c.GetComponent<Health>().Heal(healValue);
+            if (c.GetComponent<Health>().currentHealth > 0)
+                c.GetComponent<Health>().Heal(healValue);
         }
     }
 
