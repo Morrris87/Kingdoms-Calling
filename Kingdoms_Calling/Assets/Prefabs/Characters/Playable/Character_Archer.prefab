@@ -819,7 +819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 3
   weaponHitbox: {fileID: 0}
-  arrowPrefab: {fileID: 4710712404308268623, guid: 431f1ec624a7fed47b067975b33d8274,
+  arrowPrefab: {fileID: 4710712404308268623, guid: ea952ad03847f0b4bbdca59356021540,
     type: 3}
   spawner: {fileID: 3347577505664671575}
   AttackRateSpeed: 0
