@@ -167,6 +167,7 @@ public class LevelManagement : MonoBehaviour
 
     IEnumerator WaitAndPrint(int waitTime, int playerCount)
     {
+        yield return new WaitForSeconds(waitTime);
         foreach (GameObject c in characterCards)
         {
             //if the current card we are on is selected create 
