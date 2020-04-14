@@ -14996,6 +14996,36 @@ PrefabInstance:
       propertyPath: abilityCooldownUI
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1998069277819962527, guid: b73341ff3ab3fe8458189c9c8f71a022,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2829418115664515563, guid: b73341ff3ab3fe8458189c9c8f71a022,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 185495737613525442, guid: b73341ff3ab3fe8458189c9c8f71a022,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.204
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922387711429938310, guid: b73341ff3ab3fe8458189c9c8f71a022,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6904712594214321508, guid: b73341ff3ab3fe8458189c9c8f71a022,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623312592771481227, guid: b73341ff3ab3fe8458189c9c8f71a022,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 0.79
+      objectReference: {fileID: 0}
     - target: {fileID: 2081665595721992954, guid: b73341ff3ab3fe8458189c9c8f71a022,
         type: 3}
       propertyPath: m_Materials.Array.data[2]
@@ -15011,36 +15041,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[1]
       value: 
       objectReference: {fileID: 2100000, guid: 9f883231bfaa7784abcc167a09d2ce64, type: 2}
-    - target: {fileID: 1998069277819962527, guid: b73341ff3ab3fe8458189c9c8f71a022,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8623312592771481227, guid: b73341ff3ab3fe8458189c9c8f71a022,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.79
-      objectReference: {fileID: 0}
-    - target: {fileID: 3922387711429938310, guid: b73341ff3ab3fe8458189c9c8f71a022,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2829418115664515563, guid: b73341ff3ab3fe8458189c9c8f71a022,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 185495737613525442, guid: b73341ff3ab3fe8458189c9c8f71a022,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.204
-      objectReference: {fileID: 0}
-    - target: {fileID: 6904712594214321508, guid: b73341ff3ab3fe8458189c9c8f71a022,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6528268800570180775, guid: b73341ff3ab3fe8458189c9c8f71a022,
         type: 3}
       propertyPath: m_RootOrder
@@ -25599,6 +25599,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7280584505368016745, guid: c1c6583202c1aaf4bbcebb6792578b2e,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7280584505368016746, guid: c1c6583202c1aaf4bbcebb6792578b2e,
         type: 3}
       propertyPath: healthUI
@@ -25624,25 +25629,10 @@ PrefabInstance:
       propertyPath: abilityCooldownUI
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 7280584505368016745, guid: c1c6583202c1aaf4bbcebb6792578b2e,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 161197284939248921, guid: c1c6583202c1aaf4bbcebb6792578b2e,
         type: 3}
       propertyPath: abilityCooldownUI
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7280584505368016662, guid: c1c6583202c1aaf4bbcebb6792578b2e,
-        type: 3}
-      propertyPath: m_Mass
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7280584505368016662, guid: c1c6583202c1aaf4bbcebb6792578b2e,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 657364441069981050, guid: c1c6583202c1aaf4bbcebb6792578b2e,
         type: 3}
@@ -25652,6 +25642,16 @@ PrefabInstance:
     - target: {fileID: 3882631593056704526, guid: c1c6583202c1aaf4bbcebb6792578b2e,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280584505368016662, guid: c1c6583202c1aaf4bbcebb6792578b2e,
+        type: 3}
+      propertyPath: m_Mass
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7280584505368016662, guid: c1c6583202c1aaf4bbcebb6792578b2e,
+        type: 3}
+      propertyPath: m_IsKinematic
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5012728445501340295, guid: c1c6583202c1aaf4bbcebb6792578b2e,
@@ -36337,6 +36337,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2241186763897451435, guid: cceb7dbc57405904a8c0e93e68f26c48,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2241186763897451432, guid: cceb7dbc57405904a8c0e93e68f26c48,
         type: 3}
       propertyPath: healthUI
@@ -36360,11 +36365,6 @@ PrefabInstance:
     - target: {fileID: 1497476140298328000, guid: cceb7dbc57405904a8c0e93e68f26c48,
         type: 3}
       propertyPath: abilityCooldownUI
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2241186763897451435, guid: cceb7dbc57405904a8c0e93e68f26c48,
-        type: 3}
-      propertyPath: m_Camera
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 201796285799420056, guid: cceb7dbc57405904a8c0e93e68f26c48,
@@ -37426,16 +37426,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1664618513}
     m_Modifications:
-    - target: {fileID: 2256751593182358330, guid: 12d9561f53c35b545a6a6ec8eb4b97a9,
-        type: 3}
-      propertyPath: m_Name
-      value: PowerShot
-      objectReference: {fileID: 0}
-    - target: {fileID: 2256751593182358330, guid: 12d9561f53c35b545a6a6ec8eb4b97a9,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 726274649088000546, guid: 12d9561f53c35b545a6a6ec8eb4b97a9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -37489,6 +37479,16 @@ PrefabInstance:
     - target: {fileID: 726274649088000546, guid: 12d9561f53c35b545a6a6ec8eb4b97a9,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256751593182358330, guid: 12d9561f53c35b545a6a6ec8eb4b97a9,
+        type: 3}
+      propertyPath: m_Name
+      value: PowerShot
+      objectReference: {fileID: 0}
+    - target: {fileID: 2256751593182358330, guid: 12d9561f53c35b545a6a6ec8eb4b97a9,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

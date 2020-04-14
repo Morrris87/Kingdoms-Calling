@@ -3762,7 +3762,7 @@ ParticleSystem:
       properties: 0
       emitProbability: 1
   LightsModule:
-    enabled: 1
+    enabled: 0
     ratio: 1
     light: {fileID: 2169262627865476303, guid: 19587226bf4134148977cca37a734432, type: 3}
     randomDistribution: 1
@@ -9532,7 +9532,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1804850902907393434}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.27, y: -0.01979065, z: -0.17}
+  m_LocalPosition: {x: 0.27, y: 0.25, z: -0.17}
   m_LocalScale: {x: 1.3363316, y: 1.3363316, z: 1.3363316}
   m_Children: []
   m_Father: {fileID: 8623560345445534126}
