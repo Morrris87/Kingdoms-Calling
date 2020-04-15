@@ -123,6 +123,16 @@ public class AI : AdvancedFSM
             else if (Players[3].activeSelf)
                 objPlayer = Players[3];
         }
+        if(isTaunted == true)
+        {
+            foreach(GameObject player in Players)
+            {
+                if(player.name == "Character_Paladin")
+                {
+                    objPlayer = player;
+                }
+            }
+        }
         
         if (objPlayer != null)
         {
