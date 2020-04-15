@@ -217,16 +217,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4261474336237692719}
     m_Modifications:
-    - target: {fileID: 3752599770477588643, guid: bcf01d9b8ae7d1c4899eadd2319cac1b,
-        type: 3}
-      propertyPath: m_Name
-      value: Warrior_Pali_Combo
-      objectReference: {fileID: 0}
-    - target: {fileID: 3752599770477588643, guid: bcf01d9b8ae7d1c4899eadd2319cac1b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3752599770477588640, guid: bcf01d9b8ae7d1c4899eadd2319cac1b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -280,6 +270,16 @@ PrefabInstance:
     - target: {fileID: 3752599770477588640, guid: bcf01d9b8ae7d1c4899eadd2319cac1b,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752599770477588643, guid: bcf01d9b8ae7d1c4899eadd2319cac1b,
+        type: 3}
+      propertyPath: m_Name
+      value: Warrior_Pali_Combo
+      objectReference: {fileID: 0}
+    - target: {fileID: 3752599770477588643, guid: bcf01d9b8ae7d1c4899eadd2319cac1b,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -303,6 +303,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4261474336237692719}
     m_Modifications:
+    - target: {fileID: 1891219502887864465, guid: 3d18e9be68ce70041bcbd049f2df2f10,
+        type: 3}
+      propertyPath: m_Name
+      value: Paladian_Healing
+      objectReference: {fileID: 0}
     - target: {fileID: 5643562740756339059, guid: 3d18e9be68ce70041bcbd049f2df2f10,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -357,121 +362,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5643562740756339059, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5643562740756339059, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5643562740756339059, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1891219502887864465, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_Name
-      value: Paladian_Healing
-      objectReference: {fileID: 0}
-    - target: {fileID: 1891219502887864465, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373645826310266714, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373645826310266714, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373645826310266714, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373645826310266714, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373645826310266714, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373645826310266714, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373645827148221075, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373645827148221075, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373645827148221075, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373645827148221075, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373645827148221075, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373645827148221075, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373645827510027588, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373645827510027588, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373645827510027588, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373645827510027588, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373645827510027588, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2373645827510027588, guid: 3d18e9be68ce70041bcbd049f2df2f10,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d18e9be68ce70041bcbd049f2df2f10, type: 3}
