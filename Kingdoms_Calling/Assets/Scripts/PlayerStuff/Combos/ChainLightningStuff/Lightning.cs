@@ -13,8 +13,7 @@ public class Lightning : MonoBehaviour
 
     private void Start()
     {
-        //LightningPrefab = GameObject.Find("SimpleLightningBoltAnimatedPrefab");
-        
+        //LightningPrefab = GameObject.Find("SimpleLightningBoltAnimatedPrefab");        
     }
 
     void OnTriggerEnter(Collider other)
@@ -33,7 +32,6 @@ public class Lightning : MonoBehaviour
         // the enemy is yet to be hit
         if (h == null)
         {
-            
             //Mark the enemy as hit
             h = other.gameObject.AddComponent<Hit>();
 
@@ -52,7 +50,7 @@ public class Lightning : MonoBehaviour
 
             //Kill this gameObject once you have struck the closest enemy
             //Remove the Kill() if you want to strike everyone in the proximity
-            Kill();
+            //Kill();
         }
     }
 
@@ -63,6 +61,11 @@ public class Lightning : MonoBehaviour
         {
             Kill();
         }
+        //if(passObj == null)
+        //{
+        //    passObj = this.gameObject;
+        //}
+
     }
 
     //Call this using an animation event, just in case the sphere strike nothing at all

@@ -19,7 +19,7 @@ public class ArcherPaladinCombo : MonoBehaviour
     public void ActivateCombo(GameObject target)
     {
         // Remove proc
-        target.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.NONE;
+        target.GetComponent<ElementManager>().effectedElement = ElementManager.ClassElement.NONE;
 
         // Stop enemy movement
         target.GetComponent<Animator>().enabled = false;

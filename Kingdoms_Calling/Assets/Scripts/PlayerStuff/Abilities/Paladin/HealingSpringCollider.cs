@@ -17,6 +17,9 @@ public class HealingSpringCollider : MonoBehaviour
     public int healValue = 10;               // Variable for the ability's healing value
     public int damageValue = 1;             // Variable for the ability's damage value
 
+    public GameObject defaultFX;
+    public GameObject paladinWarriorFx;
+
     // Private Variables
     private float effectTimer, oldHealValue, oldDamageValue, abilityLifeTimer;
     private bool cooldownActive;    // Bool which determines if the cooldown is running
@@ -95,16 +98,16 @@ public class HealingSpringCollider : MonoBehaviour
                 if (c.gameObject.tag != "Boss")
                 {
                     // If the enemy currently has no element assigned in it's Element Manager...
-                    if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.NONE || c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Earth)
+                    if (c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.NONE || c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.Earth)
                     {
                         // Set the elemental proc to Earth
-                        c.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.Earth;
+                        //c.GetComponent<ElementManager>().thisElement = ElementManager.ClassElement.Earth;
                         c.GetComponent<ElementManager>().effectedElement = ElementManager.ClassElement.Earth;
                     }
                     else
                     {
                         // If the enemy currently has a Wind proc...
-                        if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Wind)
+                        if (c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.Wind)
                         {
                             // Remove the enemies mark
                             c.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
@@ -114,7 +117,7 @@ public class HealingSpringCollider : MonoBehaviour
                             comboText.text = "Archer & Paladin Combo Performed";
                         }
                         // If the enemy currently has a Fire proc...
-                        else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Fire)
+                        else if (c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.Fire)
                         {
                             // Remove the enemies mark
                             c.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
@@ -124,7 +127,7 @@ public class HealingSpringCollider : MonoBehaviour
                             comboText.text = "Paladin & Warrior Combo Performed";
                         }
                         // If the enemy currently has a Lightning proc...
-                        else if (c.GetComponent<ElementManager>().thisElement == ElementManager.ClassElement.Lightning)
+                        else if (c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.Lightning)
                         {
                             // Remove the enemies mark
                             c.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
@@ -156,13 +159,31 @@ public class HealingSpringCollider : MonoBehaviour
 
     public void TotemBoost(float rangeMultiplier, int damageHealMultiplier)
     {
+        Debug.Log("totem boost");
         //update the specs of the totem and reset its life boosted     
         damageValue *= damageHealMultiplier; // Multiply the damage being dealt
         healValue *= damageHealMultiplier; // Multiply the healing
         abilityLifeTimer = totalLifeTime; // Reset the totems lifespan
         totemBoost = true; // Turn the boost on
         //Increase the totem effect size
-        transform.localScale = new Vector3(transform.localScale.x * rangeMultiplier, transform.localScale.y, transform.localScale.z * rangeMultiplier);
+        //transform.localScale = new Vector3(transform.localScale.x * rangeMultiplier, transform.localScale.y, transform.localScale.z * rangeMultiplier);
+        Transform[] underSprings = GameObject.Find("Paladian_Healing").GetComponentsInChildren<Transform>();
+
+        for (int i = 0; i < underSprings.Length; i++)
+        {
+            underSprings[i].localScale = new Vector3(transform.localScale.x * damageHealMultiplier, transform.localScale.y, transform.localScale.z * damageHealMultiplier);
+            if (underSprings[i].name == "WaterSpraying")
+            {
+                underSprings[i].localScale = new Vector3(transform.localScale.x, 2.5f, transform.localScale.z);
+            }
+        }
+
         //Debug.Log("Totem Boost");
+    }
+
+    public void switchEffect()
+    {
+        defaultFX.SetActive(false);
+        paladinWarriorFx.SetActive(true);
     }
 }

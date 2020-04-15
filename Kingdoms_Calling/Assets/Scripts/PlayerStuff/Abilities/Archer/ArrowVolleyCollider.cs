@@ -10,6 +10,7 @@ public class ArrowVolleyCollider : MonoBehaviour
     // Public Variables
     public float timerLength = 5f;  // Time in seconds for the collider to last before being destroyed
     public GameObject ArcherWarriorComboPrefab;
+    public GameObject lightning;
 
     // Private Variables
     private float damageInterval = 1f;  // Interval value for how much time passes between damage being dealt
@@ -111,7 +112,8 @@ public class ArrowVolleyCollider : MonoBehaviour
                 else if (c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.Lightning)
                 {
                     // Activate the Archer & Assassin combo
-                    archerAssassinCombo.ActivateCombo(c.gameObject, (int)archerDmg);
+                    lightning.SetActive(true);
+                    archerAssassinCombo.ActivateCombo(c.gameObject, (int)archerDmg);                    
                     comboText.text = "Archer & Assassin Combo Performed";
                 }
             }

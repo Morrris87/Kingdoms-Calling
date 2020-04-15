@@ -48,7 +48,7 @@ public class AssassinPaladinCombo : MonoBehaviour
 
         //if we find a totem then boostS
         if (t)
-        {
+        {            
             t.gameObject.GetComponent<HealingSpringCollider>().TotemBoost(range, damageHealMultiplier);
         }
 

@@ -31,16 +31,28 @@ public class AssassinWarriorCombo : MonoBehaviour
     }
 
     // Calling this function uses the ability
-    public void ActivateCombo(GameObject ChainLightningprefab)
+    public void ActivateCombo(GameObject ChainLightningprefab, GameObject obj)
     {
-        LightingChain(GameObject.Find("Character_Warrior"), ChainLightningprefab);
+        LightingChain(obj, ChainLightningprefab);
+        LightingChain(obj, ChainLightningprefab);
     }
 
     void LightingChain(GameObject obj, GameObject ChainLightningPrefab)
     {
+
+        //if (obj == null)
+        //{
+        //    GameObject.Find("Character_Warrior");
+        //    if (obj == null)
+        //    {
+        //        GameObject.Find("Character_Assassin");
+        //    }
+        //}
         //Spawn our chainLightning prefab on our target which will handle the lightning chaining
         ChainLightningPrefab.GetComponent<Lightning>().passObj = obj;
+        Debug.Log(obj + " " + ChainLightningPrefab + " " + Quaternion.identity);
         Instantiate(ChainLightningPrefab, obj.transform.position, Quaternion.identity);
+
 
         #region Old Lightning Chain Recursive
         ////increment number of times we have chained

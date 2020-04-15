@@ -129,7 +129,7 @@ MonoBehaviour:
   enemyRestruckDelay: 100
   LightningPrefab: {fileID: 7052526911153070361}
   passObj: {fileID: 0}
-  damage: 0
+  damage: 5
 --- !u!114 &-5875236551848339080
 MonoBehaviour:
   m_ObjectHideFlags: 0

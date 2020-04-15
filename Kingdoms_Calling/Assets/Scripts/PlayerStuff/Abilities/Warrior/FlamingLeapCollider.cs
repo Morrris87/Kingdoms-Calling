@@ -86,6 +86,7 @@ public class FlamingLeapCollider : MonoBehaviour
                 {
                     // Activate the Paladin & Warrior combo
                     paladinWarriorCombo.ActivateCombo(c.gameObject);
+                    //Instantiate(ArcherWarriorComboPrefab, c.GetComponent<Transform>().position, Quaternion.identity);
                     comboText.text = "Paladin & Warrior Combo Performed";
                 }
                 // If the enemy currently has a Wind proc...
@@ -101,7 +102,7 @@ public class FlamingLeapCollider : MonoBehaviour
                 else if (c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.Lightning)
                 {
                     // Activate the Archer & Assassin combo
-                    assassinWarriorCombo.ActivateCombo(ChainLightningPrefab);
+                    assassinWarriorCombo.ActivateCombo(ChainLightningPrefab, this.gameObject);
                     comboText.text = "Assassin & Warrior Combo Performed";
                 }
             }
