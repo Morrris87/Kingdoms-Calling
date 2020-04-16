@@ -63,11 +63,11 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     [HideInInspector]
     public int currentHealth;
 
-    public double seventyFivePercentHp;
+    public float seventyFivePercentHp;
     bool seventyFiveUsed;
-    public double fiftyPercentHp;
+    public float fiftyPercentHp;
     bool fiftyUsed;
-    public double twentyFivePercentHp;
+    public float twentyFivePercentHp;
     bool twentyFiveUsed;
     public bool atHpThreshold;
     //Spawn Zones for the Skeletons
@@ -171,9 +171,9 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         fiftyUsed = false;
         twentyFiveUsed = false;
 
-        seventyFivePercentHp = (GetComponent<Health>().maxHealth * 0.75);
-        fiftyPercentHp = (GetComponent<Health>().maxHealth * 0.50);
-        twentyFivePercentHp = (GetComponent<Health>().maxHealth * 0.25);
+        seventyFivePercentHp = (int)(GetComponent<Health>().maxHealth * 0.75f);
+        fiftyPercentHp = (int)(GetComponent<Health>().maxHealth * 0.50f);
+        twentyFivePercentHp = (int)(GetComponent<Health>().maxHealth * 0.25f);
 
         rigBody = GetComponent<Rigidbody>();
         bossStats = gameObject.GetComponent<BossStats>();
@@ -218,7 +218,14 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         objPlayer = GameObject.FindGameObjectWithTag("Player");
         playerHealth = objPlayer.GetComponent<Health>();
         currentHealth = GetComponent<Health>().currentHealth;
-        bossSkellyNumber = bossSkellyUpdate;
+        if (bossSkellyUpdate == 0)
+        {
+            bossSkellyUpdate = bossSkellyNumber;
+        }
+        if (bossSkellyNumber != 0)
+        {
+            bossSkellyNumber = bossSkellyUpdate;
+        }
         //bossSkellyNumber = skelly.CurrentBossSkelly;
         if (CurrentState != null)
         {

@@ -621,6 +621,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8623312592771481221, guid: b73341ff3ab3fe8458189c9c8f71a022,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8623312592771481221, guid: b73341ff3ab3fe8458189c9c8f71a022,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 8623312592771481220, guid: b73341ff3ab3fe8458189c9c8f71a022,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3210,6 +3220,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera Rig
       objectReference: {fileID: 0}
+    - target: {fileID: 97737047962252954, guid: ac9cda7a768a3d445a28b8ac4bb6dc8e,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 97737048053535371, guid: ac9cda7a768a3d445a28b8ac4bb6dc8e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3285,11 +3300,6 @@ PrefabInstance:
       propertyPath: players.Array.data[3]
       value: 
       objectReference: {fileID: 691077401}
-    - target: {fileID: 97737047962252954, guid: ac9cda7a768a3d445a28b8ac4bb6dc8e,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 97737047962252953, guid: ac9cda7a768a3d445a28b8ac4bb6dc8e,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -3519,7 +3529,7 @@ PrefabInstance:
     - target: {fileID: 7280584505368016736, guid: c1c6583202c1aaf4bbcebb6792578b2e,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7280584505368016737, guid: c1c6583202c1aaf4bbcebb6792578b2e,
         type: 3}
@@ -3576,21 +3586,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7280584505368016737, guid: c1c6583202c1aaf4bbcebb6792578b2e,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7280584505368016737, guid: c1c6583202c1aaf4bbcebb6792578b2e,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 7280584505368016737, guid: c1c6583202c1aaf4bbcebb6792578b2e,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7280584505368016745, guid: c1c6583202c1aaf4bbcebb6792578b2e,
         type: 3}
       propertyPath: m_Camera
@@ -3621,21 +3616,11 @@ PrefabInstance:
       propertyPath: abilityCooldownUI
       value: 
       objectReference: {fileID: 39976023}
-    - target: {fileID: 2020547607532324613, guid: c1c6583202c1aaf4bbcebb6792578b2e,
-        type: 3}
-      propertyPath: distance
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 161197284939248921, guid: c1c6583202c1aaf4bbcebb6792578b2e,
         type: 3}
       propertyPath: abilityCooldownUI
       value: 
       objectReference: {fileID: 39976022}
-    - target: {fileID: 161197284939248921, guid: c1c6583202c1aaf4bbcebb6792578b2e,
-        type: 3}
-      propertyPath: dashDuration
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c1c6583202c1aaf4bbcebb6792578b2e, type: 3}
 --- !u!1001 &1254437636
@@ -3653,7 +3638,7 @@ PrefabInstance:
     - target: {fileID: 2241186763897451426, guid: cceb7dbc57405904a8c0e93e68f26c48,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2241186763897451427, guid: cceb7dbc57405904a8c0e93e68f26c48,
         type: 3}
@@ -4132,7 +4117,7 @@ PrefabInstance:
     - target: {fileID: 6850935412393349415, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6850935412393349414, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
@@ -4453,7 +4438,7 @@ PrefabInstance:
     - target: {fileID: 5085727573283618063, guid: 3873d432aba7d41498e2458772910daa,
         type: 3}
       propertyPath: colour
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5085727573283618061, guid: 3873d432aba7d41498e2458772910daa,
         type: 3}
