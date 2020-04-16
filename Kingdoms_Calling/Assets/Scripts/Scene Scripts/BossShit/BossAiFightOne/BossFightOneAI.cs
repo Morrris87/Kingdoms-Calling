@@ -136,8 +136,11 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     List<GameObject> spawnZones;
     GameObject spawnZone;
     int packSize;
-    [HideInInspector]
+
+    //AI skelly;
+
     public int bossSkellyNumber;
+    public int bossSkellyUpdate;
 
     private string GetStateString()
     {
@@ -215,6 +218,8 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         objPlayer = GameObject.FindGameObjectWithTag("Player");
         playerHealth = objPlayer.GetComponent<Health>();
         currentHealth = GetComponent<Health>().currentHealth;
+        bossSkellyNumber = bossSkellyUpdate;
+        //bossSkellyNumber = skelly.CurrentBossSkelly;
         if (CurrentState != null)
         {
             CurrentState.Reason();
