@@ -39,18 +39,18 @@ public class Lightning : MonoBehaviour
             enemy.GetComponent<Health>().Damage(damage);
             enemy.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
 
-            h.start = passObj;
+            h.start = this.gameObject;
 
-            h.killDelay = enemyRestruckDelay;
+            h.killDelay = 10000f;
 
-            passObj = enemy.gameObject;
+            //passObj = enemy.gameObject;
 
-            LightningPrefab.GetComponent<Lightning>().passObj = passObj;
-            Instantiate(LightningPrefab, other.gameObject.transform.position, Quaternion.identity);
+            //LightningPrefab.GetComponent<Lightning>().passObj = passObj;
+            Instantiate(LightningPrefab, enemy.gameObject.transform.position, Quaternion.identity);
 
             //Kill this gameObject once you have struck the closest enemy
             //Remove the Kill() if you want to strike everyone in the proximity
-            //Kill();
+            Kill();
         }
     }
 
@@ -61,10 +61,11 @@ public class Lightning : MonoBehaviour
         {
             Kill();
         }
-        //if(passObj == null)
-        //{
-        //    passObj = this.gameObject;
-        //}
+
+        if (passObj == null)
+        {
+            //this.gameObject.GetComponent<LightningBoltScript>().StartObject = this.gameObject;
+        }
 
     }
 

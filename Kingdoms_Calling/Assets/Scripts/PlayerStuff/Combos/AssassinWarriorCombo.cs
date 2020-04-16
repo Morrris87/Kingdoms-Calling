@@ -48,9 +48,14 @@ public class AssassinWarriorCombo : MonoBehaviour
         //        GameObject.Find("Character_Assassin");
         //    }
         //}
+        if(obj == null)
+        {
+            obj = this.gameObject;
+        }
         //Spawn our chainLightning prefab on our target which will handle the lightning chaining
         ChainLightningPrefab.GetComponent<Lightning>().passObj = obj;
-        Debug.Log(obj + " " + ChainLightningPrefab + " " + Quaternion.identity);
+        //Debug.Log(obj + " " + ChainLightningPrefab + " " + Quaternion.identity);
+        //ChainLightningPrefab.GetComponent<LightningBoltScript>().StartObject = obj;
         Instantiate(ChainLightningPrefab, obj.transform.position, Quaternion.identity);
 
 
