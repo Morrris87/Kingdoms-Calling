@@ -340,7 +340,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiInventory: {fileID: 0}
   characterClass: 1
-  speed: 800
+  isdead: 0
+  speed: 600
   rotSpeed: 1
   cycleSpeed: 1
   cycleRange: 10
@@ -401,6 +402,7 @@ MonoBehaviour:
   takeDamage: 0
   ragingResponse: 0
   currentHealth: 0
+  isDead: 0
   characterClass: 0
 --- !u!114 &2241186763897451439
 MonoBehaviour:
@@ -432,7 +434,7 @@ MonoBehaviour:
   abilityCooldownUI: {fileID: 0}
   areaOfEffect: {fileID: 4261474336237692723, guid: 63c4cc9c1ef96844a96e7d00cdd0eb14,
     type: 3}
-  waitTime: 20
+  waitTime: 30
   comboText: {fileID: 0}
 --- !u!114 &1497476140298328000
 MonoBehaviour:
@@ -449,7 +451,7 @@ MonoBehaviour:
   abilityCooldownUI: {fileID: 0}
   areaOfEffect: {fileID: 7910526597649875783, guid: 1c18f601b2857d8419336c8ea498bff2,
     type: 3}
-  waitTime: 40
+  waitTime: 30
   isUsable: 0
 --- !u!136 &2241186763897451436
 CapsuleCollider:

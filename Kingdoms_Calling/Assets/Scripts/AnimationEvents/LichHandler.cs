@@ -50,6 +50,10 @@ public class LichHandler : MonoBehaviour
             {
                 SceneManager.LoadScene("GraveYardMap BOSS DEFEATED_FLAT");
             }
+            else if (SceneManager.GetActiveScene().name == "BOSSFIGHT3THRONE")
+            {
+                SceneManager.LoadScene("WinScreen");
+            }
         }
     }
 
