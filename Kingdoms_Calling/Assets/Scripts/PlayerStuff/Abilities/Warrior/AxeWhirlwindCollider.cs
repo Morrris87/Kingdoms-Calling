@@ -33,7 +33,7 @@ public class AxeWhirlwindCollider : MonoBehaviour
         playerPos = GameObject.FindGameObjectWithTag("AW_Tracker");
 
         // Sets archerDmg to the stored value in BasicAttack and halves it
-        warriorDmg = (FindObjectOfType<BasicAttack>().CharacterAttackValue(BasicAttack.CharacterClass.Warrior) / 2);
+        warriorDmg = (FindObjectOfType<BasicAttack>().CharacterAttackValue(BasicAttack.CharacterClass.Warrior));
     }
 
     // Update is called once per frame

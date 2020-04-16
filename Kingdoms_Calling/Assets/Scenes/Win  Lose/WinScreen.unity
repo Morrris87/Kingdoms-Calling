@@ -707,7 +707,7 @@ PrefabInstance:
     - target: {fileID: 1571170086263860728, guid: c0f6bdf62c0ad8c4a84d4cbe5e9f6c39,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1
+      value: -1503.8939
       objectReference: {fileID: 0}
     - target: {fileID: 1571170086263860728, guid: c0f6bdf62c0ad8c4a84d4cbe5e9f6c39,
         type: 3}
@@ -1232,9 +1232,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7876cebcd3959274698469aaed44a89b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadingScreen: {fileID: 216756661}
-  slider: {fileID: 467947572}
-  progressTex: {fileID: 2025572590}
+  loadingScreen: {fileID: 0}
+  slider: {fileID: 0}
+  progressTex: {fileID: 0}
 --- !u!4 &1332892067
 Transform:
   m_ObjectHideFlags: 0
