@@ -786,6 +786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiInventory: {fileID: 0}
   characterClass: 4
+  isdead: 0
   speed: 800
   rotSpeed: 1
   cycleSpeed: 1
@@ -819,7 +820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 3
   weaponHitbox: {fileID: 0}
-  arrowPrefab: {fileID: 4710712404308268623, guid: 11cdaee936e9f8b4d8a7d80f3ea9decc,
+  arrowPrefab: {fileID: 4710712404308268623, guid: f63718464790a4849bce574657778148,
     type: 3}
   spawner: {fileID: 3347577505664671575}
   AttackRateSpeed: 0

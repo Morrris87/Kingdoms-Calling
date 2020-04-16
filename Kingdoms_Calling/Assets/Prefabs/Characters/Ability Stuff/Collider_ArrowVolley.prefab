@@ -216,6 +216,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 232987215450213820}
     m_Modifications:
+    - target: {fileID: 8705934984350010905, guid: ad633f8d7b37aca42821eca8af43190d,
+        type: 3}
+      propertyPath: m_Name
+      value: Archer_Assassin_Combo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8705934984350010905, guid: ad633f8d7b37aca42821eca8af43190d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1657081382277282052, guid: ad633f8d7b37aca42821eca8af43190d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -271,16 +281,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8705934984350010905, guid: ad633f8d7b37aca42821eca8af43190d,
-        type: 3}
-      propertyPath: m_Name
-      value: Archer_Assassin_Combo
-      objectReference: {fileID: 0}
-    - target: {fileID: 8705934984350010905, guid: ad633f8d7b37aca42821eca8af43190d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad633f8d7b37aca42821eca8af43190d, type: 3}
 --- !u!1 &8705934986084119960 stripped
@@ -306,6 +306,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Archer_ArrowVolley
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782110905921619867, guid: 64917bb3cd26877469c1ec86f5cfc533,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6508355491818516614, guid: 64917bb3cd26877469c1ec86f5cfc533,
         type: 3}

@@ -1062,8 +1062,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96249911}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 38.811157, y: -289.24414, z: -1064.4358}
+  m_LocalRotation: {x: -0.11085596, y: 0.8173273, z: 0.16780879, w: 0.53993267}
+  m_LocalPosition: {x: -1264.4568, y: -148.64326, z: 56.555817}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 979137007}
@@ -15183,15 +15183,60 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8300081291097214799, guid: 3126e2b090e229644a42aeda1fc2535b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5519836243428302383, guid: 3126e2b090e229644a42aeda1fc2535b,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833392740221266731, guid: 3126e2b090e229644a42aeda1fc2535b,
+        type: 3}
+      propertyPath: playerHUD.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833392740221266731, guid: 3126e2b090e229644a42aeda1fc2535b,
+        type: 3}
+      propertyPath: playerHUD.Array.data[1]
+      value: 
+      objectReference: {fileID: 506020731}
+    - target: {fileID: 5833392740221266731, guid: 3126e2b090e229644a42aeda1fc2535b,
+        type: 3}
+      propertyPath: playerHUD.Array.data[2]
+      value: 
+      objectReference: {fileID: 1527489033}
+    - target: {fileID: 5833392740221266731, guid: 3126e2b090e229644a42aeda1fc2535b,
+        type: 3}
+      propertyPath: playerHUD.Array.data[3]
+      value: 
+      objectReference: {fileID: 1761873502}
+    - target: {fileID: 5833392740221266731, guid: 3126e2b090e229644a42aeda1fc2535b,
+        type: 3}
+      propertyPath: players.Array.data[0]
+      value: 
+      objectReference: {fileID: 1734803605}
+    - target: {fileID: 5833392740221266731, guid: 3126e2b090e229644a42aeda1fc2535b,
+        type: 3}
+      propertyPath: playerHUD.Array.data[0]
+      value: 
+      objectReference: {fileID: 1734803605}
+    - target: {fileID: 5833392740221266731, guid: 3126e2b090e229644a42aeda1fc2535b,
+        type: 3}
+      propertyPath: players.Array.data[1]
+      value: 
+      objectReference: {fileID: 506020731}
+    - target: {fileID: 5833392740221266731, guid: 3126e2b090e229644a42aeda1fc2535b,
+        type: 3}
+      propertyPath: players.Array.data[2]
+      value: 
+      objectReference: {fileID: 1527489033}
+    - target: {fileID: 5833392740221266731, guid: 3126e2b090e229644a42aeda1fc2535b,
+        type: 3}
+      propertyPath: players.Array.data[3]
+      value: 
+      objectReference: {fileID: 1761873502}
+    - target: {fileID: 8300081291097214799, guid: 3126e2b090e229644a42aeda1fc2535b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1489799769, guid: 3126e2b090e229644a42aeda1fc2535b, type: 3}
       propertyPath: m_textInfo.characterCount

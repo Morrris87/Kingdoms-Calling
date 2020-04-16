@@ -179,7 +179,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3922387711429938310}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.05, z: 0}
+  m_LocalPosition: {x: 0, y: 0.63, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 712143286606901500}
@@ -628,6 +628,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiInventory: {fileID: 0}
   characterClass: 2
+  isdead: 0
   speed: 800
   rotSpeed: 1
   cycleSpeed: 1
@@ -684,7 +685,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75fe87bf589d14f4984f0a76d8d08cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 80
   healthUI: {fileID: 0}
   takeDamage: 0
   ragingResponse: 0
@@ -719,11 +720,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilityCooldownUI: {fileID: 0}
-  leapDuration: 1
+  leapDuration: 2
   areaOfEffect: {fileID: 8473521741495384684, guid: e2e640f8f747e794fae4de2abd2bbf5d,
     type: 3}
   playerDestPos: {fileID: 2208114099597708144}
-  waitTime: 2
+  waitTime: 5
   leapDistance: 0
   comboText: {fileID: 0}
   isUsable: 0

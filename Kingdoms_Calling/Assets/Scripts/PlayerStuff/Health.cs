@@ -37,7 +37,7 @@ public class Health : MonoBehaviour
         ragingResponse = false;
         currentHealth = maxHealth;      // Transfers the value from startingHealth to currentHealth, keeping track of this object's max HP
         ogColor = new Color();
-        
+
         if (this.tag == "White" || this.tag == "Grey" || this.tag == "Purple")
         {
             //tempColor = this.gameObject.GetComponent<Renderer>().material.color;
@@ -56,7 +56,7 @@ public class Health : MonoBehaviour
     void Update()
     {
         // If the player, update their healthbar
-        if (this.tag == "Player" || tag == "Boss")   
+        if (this.tag == "Player" || tag == "Boss")
         {
 
             //FlashRed();
@@ -64,7 +64,16 @@ public class Health : MonoBehaviour
                 healthUI.fillAmount = CalculateHealthLeftPercent(currentHealth, maxHealth);    // Adjusts the fill amount of the health bar based on the % of health left
             if (currentHealth <= 0) // When currentHealth reaches 0...
             {
+                if (this.tag == "Player")
+                    GetComponent<CharacterManager>().isdead = true;
+
                 GetComponentInChildren<Animator>().SetTrigger("Dead");
+            }
+            else
+            {
+                if (this.tag == "Player")
+                    if (this.gameObject.GetComponent<CharacterManager>().isdead == false)
+                        GetComponent<CharacterManager>().isdead = false;
             }
 
         }
@@ -72,13 +81,13 @@ public class Health : MonoBehaviour
         timerForFlash += Time.deltaTime;
         if (this.tag == "White" || this.tag == "Grey" || this.tag == "Purple")
         {
-           /* //FlashRed();
-            if (colorBool == true && timerForFlash >= 2)
-            {
-                this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", tempColor);
-                timerForFlash = 0;
-                colorBool = false;
-            }*/
+            /* //FlashRed();
+             if (colorBool == true && timerForFlash >= 2)
+             {
+                 this.gameObject.GetComponent<Renderer>().material.SetColor("_Color", tempColor);
+                 timerForFlash = 0;
+                 colorBool = false;
+             }*/
         }
     }
 
@@ -112,10 +121,10 @@ public class Health : MonoBehaviour
 
         if (this.tag == "Player") // || tag == "Boss"
         {
-	    if(!isDead)
-	    {
-            FlashRed();
-	    }	
+            if (!isDead)
+            {
+                FlashRed();
+            }
         }
 
         //Check take damage bool if true we take damage (Paladin Evasion)
@@ -143,7 +152,7 @@ public class Health : MonoBehaviour
             {
                 ragingResponseScript.SpawnRagingResponse();
             }
-            
+
         }
 
         if (currentHealth <= 0) // When currentHealth reaches 0...
@@ -185,30 +194,30 @@ public class Health : MonoBehaviour
         Renderer[] renderers = GetComponentsInChildren<Renderer>();
         foreach (Renderer r in renderers)
         {
-           /* if (r.tag == "Grey")
-            {
-                ogColor.r = 94;
-                ogColor.g = 88;
-                ogColor.b = 88;
-            }
-            else if (this.tag == "Purple")
-            {
-                ogColor.r = 175;
-                ogColor.g = 0;
-                ogColor.b = 255;
-            }
-            else if (this.tag == "White")
-            {
-                ogColor = Color.white;
-            }
-            else if (this.tag == "Player")
-            {
-                ogColor = Color.white;
-            }
-            else if (this.tag == "Boss")
-            {
-                ogColor = Color.white;
-            }*/
+            /* if (r.tag == "Grey")
+             {
+                 ogColor.r = 94;
+                 ogColor.g = 88;
+                 ogColor.b = 88;
+             }
+             else if (this.tag == "Purple")
+             {
+                 ogColor.r = 175;
+                 ogColor.g = 0;
+                 ogColor.b = 255;
+             }
+             else if (this.tag == "White")
+             {
+                 ogColor = Color.white;
+             }
+             else if (this.tag == "Player")
+             {
+                 ogColor = Color.white;
+             }
+             else if (this.tag == "Boss")
+             {
+                 ogColor = Color.white;
+             }*/
             r.material.color = Color.white;
         }
         //gameObject.GetComponent<Renderer>().material.color = Color.white;
