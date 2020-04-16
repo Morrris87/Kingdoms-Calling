@@ -10421,7 +10421,7 @@ Transform:
   m_GameObject: {fileID: 8801290136251585222}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -566.8352, y: 49.088917, z: 251.74953}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 2616316591262851057}
   - {fileID: 4681916760521540211}
@@ -10484,7 +10484,7 @@ MonoBehaviour:
   rigBody: {fileID: 0}
   thisSkeletonClass: Sword
   attackRange: 5
-  chaseRange: 50
+  chaseRange: 100
   isTaunted: 0
   tauntDuration: 0
   isTargeted: 1

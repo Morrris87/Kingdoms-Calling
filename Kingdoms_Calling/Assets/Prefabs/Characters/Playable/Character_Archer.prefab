@@ -426,7 +426,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1548361943279933341}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.49, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25000012, z: 0.25000012}
   m_Children:
   - {fileID: 9140295087134772524}
@@ -819,7 +819,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 3
   weaponHitbox: {fileID: 0}
-  arrowPrefab: {fileID: 4710712404308268623, guid: ea952ad03847f0b4bbdca59356021540,
+  arrowPrefab: {fileID: 4710712404308268623, guid: f63718464790a4849bce574657778148,
     type: 3}
   spawner: {fileID: 3347577505664671575}
   AttackRateSpeed: 0
@@ -827,7 +827,7 @@ MonoBehaviour:
   AttackDamage: 0
   AttackHitChance: 0
   AttackStaminaLoss: 12
-  attackTimer: 1
+  attackTimer: 0.1
   basicAttackSound: {fileID: 8300000, guid: fafb50e4f50841c409c17a1c783ad220, type: 3}
   m_AudioSource: {fileID: 5112216888766895985}
   zacAttackBool: 0
@@ -843,7 +843,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75fe87bf589d14f4984f0a76d8d08cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 50
   healthUI: {fileID: 0}
   takeDamage: 0
   ragingResponse: 0
@@ -882,7 +882,7 @@ MonoBehaviour:
     type: 3}
   colliderDestPos: {fileID: 3673495573729050289}
   cooldownDefault: {fileID: 0}
-  waitTime: 20
+  waitTime: 15
   comboText: {fileID: 0}
   isUsable: 0
 --- !u!114 &2345498833140326227
