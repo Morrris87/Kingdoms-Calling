@@ -114,6 +114,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7910526597649875803}
     m_Modifications:
+    - target: {fileID: 8479391382043241092, guid: 6a4016ad20ec3ea4d92adfd4281de880,
+        type: 3}
+      propertyPath: m_Name
+      value: Paladian_AOE
+      objectReference: {fileID: 0}
     - target: {fileID: 6362699314732852961, guid: 6a4016ad20ec3ea4d92adfd4281de880,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -168,11 +173,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8479391382043241092, guid: 6a4016ad20ec3ea4d92adfd4281de880,
-        type: 3}
-      propertyPath: m_Name
-      value: Paladian_AOE
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a4016ad20ec3ea4d92adfd4281de880, type: 3}
