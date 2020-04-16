@@ -76,7 +76,7 @@ public class BossPatrolState : BossFightOneFSMState
 
         }
     }
-
+    //( • )( • )ԅ(‾ ⌣ ‾ԅ)
     public override void Reason()
     {
         if (enemyAI.bossStats.health <= 0)
@@ -90,5 +90,6 @@ public class BossPatrolState : BossFightOneFSMState
             enemyAI.PerformTransition(Transition.ToAutoAttack);
             return;
         }
+        
     }
 }

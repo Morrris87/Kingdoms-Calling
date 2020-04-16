@@ -63,6 +63,13 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     [HideInInspector]
     public int currentHealth;
 
+    public double seventyFivePercentHp;
+    bool seventyFiveUsed;
+    public double fiftyPercentHp;
+    bool fiftyUsed;
+    public double twentyFivePercentHp;
+    bool twentyFiveUsed;
+    public bool atHpThreshold;
     //Spawn Zones for the Skeletons
     [Header("Skeleton Spawn Zones")]
     public GameObject spawnZoneOne;
@@ -153,6 +160,14 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         PatrolList = new List<GameObject>();
         spawnZones = new List<GameObject>();
 
+        atHpThreshold = false;
+        seventyFiveUsed = false;
+        fiftyUsed = false;
+        twentyFiveUsed = false;
+
+        seventyFivePercentHp = (GetComponent<Health>().maxHealth * 0.75);
+        fiftyPercentHp = (GetComponent<Health>().maxHealth * 0.50);
+        twentyFivePercentHp = (GetComponent<Health>().maxHealth * 0.25);
 
         rigBody = GetComponent<Rigidbody>();
         bossStats = gameObject.GetComponent<BossStats>();
@@ -190,12 +205,13 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         spawnZones.Add(CloneTwoSpawn);
         spawnZones.Add(CloneThreeSpawn);
         spawnZones.Add(CloneFourSpawn);
-    }
+    }    
     // Update each frame.
     protected override void FSMUpdate()
     {
         objPlayer = GameObject.FindGameObjectWithTag("Player");
         playerHealth = objPlayer.GetComponent<Health>();
+        currentHealth = GetComponent<Health>().currentHealth;
         if (CurrentState != null)
         {
             CurrentState.Reason();
@@ -211,7 +227,23 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
             randomizePlayersInputsTimer -= Time.deltaTime;
         }
 
-        if(bossTimer <= bossAutoAttackCooldown)
+        if(currentHealth <= seventyFivePercentHp && seventyFiveUsed == false)
+        {
+            seventyFiveUsed = true;
+            atHpThreshold = true;
+        }
+        else if (currentHealth <= fiftyPercentHp && fiftyUsed == false)
+        {
+            fiftyUsed = true;
+            atHpThreshold = true;
+        }
+        else if (currentHealth <= twentyFivePercentHp && twentyFiveUsed == false)
+        {
+            twentyFiveUsed = true;
+            atHpThreshold = true;
+        }
+
+        if (bossTimer <= bossAutoAttackCooldown)
         {
             bossTimer -= Time.deltaTime;
         }

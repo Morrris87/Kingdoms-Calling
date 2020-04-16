@@ -57,6 +57,7 @@ public class BossScreechState : BossFightOneFSMState
             enemyAI.PerformTransition(Transition.ToPatrol);
             return;
         }
+        
     }
     public void RandomizePlayersInput()
     {

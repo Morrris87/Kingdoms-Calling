@@ -57,8 +57,10 @@ public class BossAutoAttackState : BossFightOneFSMState
             enemyAI.PerformTransition(Transition.NoHealth);
             return;
         }
-        if(enemyAI.SpawnSkeletonsTimer <= 0)
+        if (enemyAI.atHpThreshold == true)
         {
+            Debug.Log("Hit Auto");
+            enemyAI.atHpThreshold = false;
             enemyAI.PerformTransition(Transition.CastSpawnSkeletons);
             return;
         }
