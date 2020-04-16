@@ -6026,7 +6026,7 @@ GameObject:
   - component: {fileID: 4202486288294919624}
   - component: {fileID: 4202486288294919625}
   - component: {fileID: 4202486288294919626}
-  - component: {fileID: 8772485323549965237}
+  - component: {fileID: 1788764334125592080}
   m_Layer: 9
   m_Name: WhiteMace
   m_TagString: White
@@ -6043,7 +6043,7 @@ Transform:
   m_GameObject: {fileID: 4202486288294919627}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -562.8581, y: 48.989708, z: 248.31613}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 7221886696366190844}
   - {fileID: 40479349404462462}
@@ -6231,7 +6231,7 @@ CapsuleCollider:
   m_Height: 1.4955637
   m_Direction: 1
   m_Center: {x: 0, y: 0.65623784, z: 0.021273654}
---- !u!82 &8772485323549965237
+--- !u!82 &1788764334125592080
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6243,13 +6243,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 90
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

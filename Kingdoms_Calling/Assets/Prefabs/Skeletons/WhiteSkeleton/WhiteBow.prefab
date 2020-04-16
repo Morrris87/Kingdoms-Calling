@@ -6135,7 +6135,7 @@ GameObject:
   - component: {fileID: 4251356002983864839}
   - component: {fileID: 4251356002983864838}
   - component: {fileID: 4251356002983864837}
-  - component: {fileID: -4007336398587305334}
+  - component: {fileID: -1813893678829627747}
   m_Layer: 9
   m_Name: WhiteBow
   m_TagString: White
@@ -6152,7 +6152,7 @@ Transform:
   m_GameObject: {fileID: 4251356002983864836}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -559.22546, y: 48.884567, z: 245.09932}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 7247603990422218547}
   - {fileID: 9619631948610225}
@@ -6340,7 +6340,7 @@ CapsuleCollider:
   m_Height: 1.4955637
   m_Direction: 1
   m_Center: {x: 0, y: 0.65623784, z: 0.021273654}
---- !u!82 &-4007336398587305334
+--- !u!82 &-1813893678829627747
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6352,13 +6352,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 90
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
