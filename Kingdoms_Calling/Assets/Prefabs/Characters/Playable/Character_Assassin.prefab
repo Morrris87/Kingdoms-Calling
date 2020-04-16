@@ -647,7 +647,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiInventory: {fileID: 0}
   characterClass: 3
-  speed: 800
+  isdead: 0
+  speed: 1000
   rotSpeed: 1
   cycleSpeed: 1
   cycleRange: 10
@@ -703,7 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75fe87bf589d14f4984f0a76d8d08cb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 40
   healthUI: {fileID: 0}
   takeDamage: 0
   ragingResponse: 0
@@ -807,7 +808,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7280584505368016736}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f65033f899d23394a8e33e4f647dd75f, type: 3}
   m_Name: 

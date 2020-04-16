@@ -3,6 +3,7 @@
 //  Date: 1/28/2020
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HUDController : MonoBehaviour
 {
@@ -24,7 +25,13 @@ public class HUDController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(players.Length == 4)
+        {
+            if (playerHUD[0].GetComponent<CharacterManager>().isdead == true && playerHUD[1].GetComponent<CharacterManager>().isdead == true && playerHUD[2].GetComponent<CharacterManager>().isdead == true && playerHUD[3].GetComponent<CharacterManager>().isdead == true)
+            {
+                SceneManager.LoadScene("LoseScreen");
+            }
+        }
     }
 
 	public void QuitGame()

@@ -23,6 +23,8 @@ public class CharacterManager : MonoBehaviour
     [Header("Character Class")]
     public CharacterClass characterClass;
 
+    public bool isdead = false;
+
     [Header("Movement")]
     public float speed = 7.5f;   // Original = 4.5f
     public float rotSpeed = 10.0f;

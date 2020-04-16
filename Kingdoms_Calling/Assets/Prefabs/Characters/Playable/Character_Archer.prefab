@@ -786,6 +786,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiInventory: {fileID: 0}
   characterClass: 4
+  isdead: 0
   speed: 800
   rotSpeed: 1
   cycleSpeed: 1
