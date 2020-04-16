@@ -10404,7 +10404,7 @@ GameObject:
   - component: {fileID: 8801290136251585221}
   - component: {fileID: 8801290136251585220}
   - component: {fileID: 8801290136251585223}
-  - component: {fileID: 5682806619592821278}
+  - component: {fileID: -411004294931071564}
   m_Layer: 9
   m_Name: WhiteSword
   m_TagString: White
@@ -10484,7 +10484,7 @@ MonoBehaviour:
   rigBody: {fileID: 0}
   thisSkeletonClass: Sword
   attackRange: 5
-  chaseRange: 50
+  chaseRange: 100
   isTaunted: 0
   tauntDuration: 0
   isTargeted: 1
@@ -10609,7 +10609,7 @@ CapsuleCollider:
   m_Height: 1.4955637
   m_Direction: 1
   m_Center: {x: 0, y: 0.65623784, z: 0.021273654}
---- !u!82 &5682806619592821278
+--- !u!82 &-411004294931071564
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10621,13 +10621,13 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 90
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

@@ -9754,7 +9754,7 @@ GameObject:
   - component: {fileID: 8481385157997072599}
   - component: {fileID: 8481385157997072596}
   - component: {fileID: 8203098097229006773}
-  - component: {fileID: -6208462642498284272}
+  - component: {fileID: -6041778655494737903}
   m_Layer: 9
   m_Name: PurpleMace
   m_TagString: Purple
@@ -9845,6 +9845,7 @@ MonoBehaviour:
   takeDamage: 0
   ragingResponse: 0
   currentHealth: 0
+  isDead: 0
   characterClass: 0
 --- !u!114 &8481385157997072600
 MonoBehaviour:
@@ -9953,10 +9954,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2db480fcf1337c4a8efb64510e0dce1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  magicShot: {fileID: 0}
+  spawner: {fileID: 0}
   skeletonAudioSource: {fileID: 0}
   basicAttackClip: {fileID: 8300000, guid: 9fc3352356102d1489674fc6853dc2ac, type: 3}
   walkingClip: {fileID: 8300000, guid: 9dca5212912cf134c9871833b097844a, type: 3}
---- !u!82 &-6208462642498284272
+--- !u!82 &-6041778655494737903
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9965,17 +9968,16 @@ AudioSource:
   m_GameObject: {fileID: 8481385157997072597}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -4976982623957935086, guid: 8aae5d92b44405e4b9596d24aa84b3cf,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 90
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

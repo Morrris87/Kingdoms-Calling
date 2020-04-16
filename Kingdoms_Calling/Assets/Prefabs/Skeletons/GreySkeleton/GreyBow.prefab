@@ -10909,7 +10909,7 @@ GameObject:
   - component: {fileID: 9152741486584601971}
   - component: {fileID: 9152741486584601968}
   - component: {fileID: -162431001531312401}
-  - component: {fileID: 9117762621157300936}
+  - component: {fileID: -7388086484014414054}
   m_Layer: 9
   m_Name: GreyBow
   m_TagString: Grey
@@ -11114,7 +11114,7 @@ MonoBehaviour:
   skeletonAudioSource: {fileID: 0}
   basicAttackClip: {fileID: 8300000, guid: 63e582ea5a68cb945ab848e522fdfbd1, type: 3}
   walkingClip: {fileID: 8300000, guid: 9dca5212912cf134c9871833b097844a, type: 3}
---- !u!82 &9117762621157300936
+--- !u!82 &-7388086484014414054
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -11123,17 +11123,16 @@ AudioSource:
   m_GameObject: {fileID: 9152741486584601969}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -4976982623957935086, guid: 8aae5d92b44405e4b9596d24aa84b3cf,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 90
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

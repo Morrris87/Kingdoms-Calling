@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 18892595514446656}
   - component: {fileID: 18892595514446659}
   - component: {fileID: -8420555109870297528}
-  - component: {fileID: -2823380964702708831}
+  - component: {fileID: -2922967277152580334}
   m_Layer: 9
   m_Name: GreySword
   m_TagString: Grey
@@ -223,7 +223,7 @@ MonoBehaviour:
   skeletonAudioSource: {fileID: 0}
   basicAttackClip: {fileID: 8300000, guid: 9fc3352356102d1489674fc6853dc2ac, type: 3}
   walkingClip: {fileID: 8300000, guid: 9dca5212912cf134c9871833b097844a, type: 3}
---- !u!82 &-2823380964702708831
+--- !u!82 &-2922967277152580334
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,17 +232,16 @@ AudioSource:
   m_GameObject: {fileID: 18892595514446658}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -4976982623957935086, guid: 8aae5d92b44405e4b9596d24aa84b3cf,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 90
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500

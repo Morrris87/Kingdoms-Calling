@@ -41,11 +41,13 @@ public class AI : AdvancedFSM
     GameObject[] Players;
 
     Spawn spawn;
+    //public int CurrentBossSkelly;
 
     [HideInInspector]
     public GameObject thisSkeleton;
     int randOne = -1;
 
+    BossFightOneAI boss;
     //slot manager stuff
     //float pathTime = 0f;
     //int slot = -1;
@@ -57,6 +59,7 @@ public class AI : AdvancedFSM
         {
             if (CurrentState.ID == FSMStateID.Dead)
             {
+                boss.bossSkellyUpdate -= 1;
                 state = "DEAD";
             }
         }
@@ -77,8 +80,9 @@ public class AI : AdvancedFSM
         // Create the FSM for the player.
         ConstructFSM();
         thisSkeleton = this.gameObject;
-        //thisSkeletonClass = spawn.skeletonClass;
 
+        
+       // CurrentBossSkelly = boss.bossSkellyNumber;
 
         //this line needs to be a player array
 

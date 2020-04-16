@@ -24,9 +24,10 @@ public class DeathState : FSMState
     public override void Act()
     {
         //die
-        enemyAI.animator.SetTrigger("Dead");
         bossCounter.bossSkellyNumber -= 1;
-        //GameObject.Destroy(enemyAI.thisSkeleton, 5f);
+        enemyAI.animator.SetTrigger("Dead");
+       
+        GameObject.Destroy(enemyAI.thisSkeleton, 5f);
     }
 
     public override void Reason()
