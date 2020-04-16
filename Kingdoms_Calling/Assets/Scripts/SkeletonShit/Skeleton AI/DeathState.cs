@@ -9,7 +9,7 @@ using Complete;
 public class DeathState : FSMState
 {
     AI enemyAI;
-    SpawnBoss bossCounter;
+    BossFightOneAI bossCounter;
 
     float elapsedTime;
     float intervalTime;
@@ -25,7 +25,7 @@ public class DeathState : FSMState
     {
         //die
         enemyAI.animator.SetTrigger("Dead");
-        //bossCounter.currentNumber -= 1;
+        bossCounter.bossSkellyNumber -= 1;
         //GameObject.Destroy(enemyAI.thisSkeleton, 5f);
     }
 

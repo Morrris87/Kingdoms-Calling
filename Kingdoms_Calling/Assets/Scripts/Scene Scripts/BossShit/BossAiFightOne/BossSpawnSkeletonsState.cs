@@ -40,7 +40,7 @@ public class BossSpawnSkeletonsState : BossFightOneFSMState
 
     public override void Act()
     {
-        
+        enemyAI.tag = "Immune";
         Debug.Log("Spawning");
         //ISSUE HERE
         if (enemyAI.colour == BossFightOneAI.skeletonColour.white)

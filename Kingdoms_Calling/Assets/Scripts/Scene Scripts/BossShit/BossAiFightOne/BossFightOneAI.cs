@@ -10,7 +10,7 @@ using CompleteBossOne;
 
 public class BossFightOneAI : BossFIghtOneAdvancedFSM
 {
-    public enum skeletonColour {white,grey,purple,none};
+    public enum skeletonColour { white, grey, purple, none };
     public skeletonColour colour;
     // Public Variables
     //Players
@@ -136,6 +136,8 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     List<GameObject> spawnZones;
     GameObject spawnZone;
     int packSize;
+    [HideInInspector]
+    public int bossSkellyNumber;
 
     private string GetStateString()
     {
@@ -153,6 +155,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     // Initialize the FSM for the NPC skeleton.s
     protected override void Initialize()
     {
+        bossSkellyNumber = 0;
         bossAutoAttackCooldown = bossTimer;
         skeltonSpawnCooldown = SpawnSkeletonsTimer;
         screechCoolDown = screechTimer;
@@ -226,7 +229,10 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         {
             randomizePlayersInputsTimer -= Time.deltaTime;
         }
-
+        if(bossSkellyNumber == 0)
+        {
+            this.tag = "Boss";
+        }
         if(currentHealth <= seventyFivePercentHp && seventyFiveUsed == false)
         {
             seventyFiveUsed = true;
@@ -330,6 +336,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 2f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                         skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
                         skeletonWhite.GetComponent<AI>().chaseRange = 100;
+                        bossSkellyNumber += 1;
                     }
                     else if (i == 1)
                     {
@@ -337,6 +344,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 8f), Quaternion.identity);
                         skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
                         skeletonWhite.GetComponent<AI>().chaseRange = 100;
+                        bossSkellyNumber += 1;
                     }
                     else if (i == 2)
                     {
@@ -344,6 +352,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x - 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 4f), Quaternion.identity);
                         skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
                         skeletonWhite.GetComponent<AI>().chaseRange = 100;
+                        bossSkellyNumber += 1;
                     }
                     else if (i == 3)
                     {
@@ -351,6 +360,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 2f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                         skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
                         skeletonWhite.GetComponent<AI>().chaseRange = 100;
+                        bossSkellyNumber += 1;
                     }
                     else if (i == 4)
                     {
@@ -358,6 +368,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 8f), Quaternion.identity);
                         skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
                         skeletonWhite.GetComponent<AI>().chaseRange = 100;
+                        bossSkellyNumber += 1;
                     }
                     else if (i == 5)
                     {
@@ -365,6 +376,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                         Instantiate(skeletonWhite, new Vector3(spawnZone.transform.position.x + 2f, spawnZone.transform.position.y, spawnZone.transform.position.z - 4f), Quaternion.identity);
                         skeletonWhite.transform.localScale = new Vector3(2, 2, 2);
                         skeletonWhite.GetComponent<AI>().chaseRange = 100;
+                        bossSkellyNumber += 1;
                     }
                 }
             }
@@ -379,6 +391,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                         Instantiate(skeletonGrey, spawnZone.transform.position, Quaternion.identity);
                         skeletonGrey.transform.localScale = new Vector3(2, 2, 2);
                         skeletonGrey.GetComponent<AI>().chaseRange = 100;
+                        bossSkellyNumber += 1;
                     }
                     else if (i == 1)
                     {
@@ -386,6 +399,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                         Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x + 4f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                         skeletonGrey.transform.localScale = new Vector3(2, 2, 2);
                         skeletonGrey.GetComponent<AI>().chaseRange = 100;
+                        bossSkellyNumber += 1;
                     }
                     else if (i == 2)
                     {
@@ -393,6 +407,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                         Instantiate(skeletonGrey, new Vector3(spawnZone.transform.position.x - 4f, spawnZone.transform.position.y, spawnZone.transform.position.z), Quaternion.identity);
                         skeletonGrey.transform.localScale = new Vector3(2, 2, 2);
                         skeletonGrey.GetComponent<AI>().chaseRange = 100;
+                        bossSkellyNumber += 1;
                     }
                 }
             }
@@ -405,6 +420,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
                     Instantiate(skeletonPurple, spawnZone.transform.position, Quaternion.identity);
                     //skeletonPurple.GetComponent<AI>().thisSkeletonClass = skeletonClass;
                     skeletonPurple.GetComponent<AI>().chaseRange = 100;
+                    bossSkellyNumber += 1;
                 }
             }
         }

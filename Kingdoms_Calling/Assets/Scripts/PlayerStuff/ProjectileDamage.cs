@@ -35,13 +35,19 @@ public class ProjectileDamage : MonoBehaviour
             {
                 if (attacker == Attacker.PLAYER && shot.zacAttackBool == true)
                 {
-                    c.GetComponent<Health>().Damage((2));
-                    Destroy(gameObject);
+                    if (c.tag == "Boss" || c.tag == "White" || c.tag == "Grey" || c.tag == "Purple")
+                    {
+                        c.GetComponent<Health>().Damage((2));
+                        Destroy(gameObject);
+                    }
                 }
                 else if(attacker == Attacker.PLAYER && shot.zacAttackBool == false)
                 {
-                    c.GetComponent<Health>().Damage((1));
-                    Destroy(gameObject);
+                    if (c.tag == "Boss" || c.tag == "White" || c.tag == "Grey" || c.tag == "Purple")
+                    {
+                        c.GetComponent<Health>().Damage((1));
+                        Destroy(gameObject);
+                    }
                 }
                 else if(attacker == Attacker.SKELETON)
                 {

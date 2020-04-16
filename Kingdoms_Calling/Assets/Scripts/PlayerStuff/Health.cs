@@ -121,21 +121,29 @@ public class Health : MonoBehaviour
         //Check take damage bool if true we take damage (Paladin Evasion)
         if (takeDamage)
         {
-            if (trueDamage)
+            if (this.tag == "Immune")
             {
-                // Deal true damage to the player/enemy
-                currentHealth -= damage;
+
             }
             else
             {
-                // Deal normal damage to the player/enemy
-                currentHealth -= damage;    // subtract armor from damage in this calc when implemented
+                if (trueDamage)
+                {
+                    // Deal true damage to the player/enemy
+                    currentHealth -= damage;
+                }
+                else
+                {
+                    // Deal normal damage to the player/enemy
+                    currentHealth -= damage;    // subtract armor from damage in this calc when implemented
+                }
             }
 
             if (ragingResponse)
             {
                 ragingResponseScript.SpawnRagingResponse();
             }
+            
         }
 
         if (currentHealth <= 0) // When currentHealth reaches 0...
