@@ -1062,8 +1062,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96249911}
-  m_LocalRotation: {x: -0.11085596, y: 0.8173273, z: 0.16780879, w: 0.53993267}
-  m_LocalPosition: {x: -1264.4568, y: -148.64326, z: 56.555817}
+  m_LocalRotation: {x: -0.39568952, y: 0.14722888, z: 0.06442937, w: 0.90421367}
+  m_LocalPosition: {x: -358.95496, y: -102.92569, z: 193.8999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 979137007}
@@ -10878,10 +10878,15 @@ PrefabInstance:
       propertyPath: colour
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5085727573283618060, guid: 3873d432aba7d41498e2458772910daa,
+        type: 3}
+      propertyPath: health
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 5085727573283618061, guid: 3873d432aba7d41498e2458772910daa,
         type: 3}
       propertyPath: maxHealth
-      value: 30
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 5085727573283618061, guid: 3873d432aba7d41498e2458772910daa,
         type: 3}
@@ -10893,11 +10898,6 @@ PrefabInstance:
       propertyPath: UIFade
       value: 
       objectReference: {fileID: 1932702905}
-    - target: {fileID: 5085727573283618060, guid: 3873d432aba7d41498e2458772910daa,
-        type: 3}
-      propertyPath: health
-      value: 30
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3873d432aba7d41498e2458772910daa, type: 3}
 --- !u!4 &1086125217 stripped
@@ -13886,12 +13886,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 97737047105376147}
-    - target: {fileID: 6850935412393349420, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
-        type: 3}
-      propertyPath: arrowPrefab
-      value: 
-      objectReference: {fileID: 4710712404308268623, guid: f63718464790a4849bce574657778148,
-        type: 3}
     - target: {fileID: 6850935412393349421, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
       propertyPath: healthUI
@@ -13916,6 +13910,12 @@ PrefabInstance:
       propertyPath: abilityCooldownUI
       value: 
       objectReference: {fileID: 1645030843}
+    - target: {fileID: 6850935412393349420, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
+        type: 3}
+      propertyPath: arrowPrefab
+      value: 
+      objectReference: {fileID: 4710712404308268623, guid: f63718464790a4849bce574657778148,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e5a4c85c6d71004ea94f79a64a9a63a, type: 3}
 --- !u!1 &1492765826
@@ -15183,11 +15183,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5519836243428302383, guid: 3126e2b090e229644a42aeda1fc2535b,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5833392740221266731, guid: 3126e2b090e229644a42aeda1fc2535b,
         type: 3}
       propertyPath: playerHUD.Array.size
@@ -15237,6 +15232,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5519836243428302383, guid: 3126e2b090e229644a42aeda1fc2535b,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1489799769, guid: 3126e2b090e229644a42aeda1fc2535b, type: 3}
       propertyPath: m_textInfo.characterCount

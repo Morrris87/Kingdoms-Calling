@@ -161,7 +161,7 @@ public class AssassinAbilityHandler : MonoBehaviour
             int enemyHealth = c.GetComponent<Health>().currentHealth;
 
             // Subtract the enemyHealth from the enemy's max health
-            int damageDealt = c.GetComponent<Health>().maxHealth - enemyHealth;
+            int damageDealt = 10;
 
             // Do damage to the enemy
             c.GetComponent<Health>().Damage(damageDealt);
