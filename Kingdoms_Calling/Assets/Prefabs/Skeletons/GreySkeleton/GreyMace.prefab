@@ -5881,7 +5881,7 @@ GameObject:
   - component: {fileID: 5595002497362708659}
   - component: {fileID: 5595002497362708656}
   - component: {fileID: -649138374159278074}
-  - component: {fileID: -431869492734758773}
+  - component: {fileID: -2557226498147653075}
   m_Layer: 9
   m_Name: GreyMace
   m_TagString: Grey
@@ -5898,7 +5898,7 @@ Transform:
   m_GameObject: {fileID: 5595002497362708657}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -562.8581, y: 48.989708, z: 250.7}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 1427079833518097798}
   - {fileID: 8608777898763163652}
@@ -6086,7 +6086,7 @@ MonoBehaviour:
   skeletonAudioSource: {fileID: 0}
   basicAttackClip: {fileID: 8300000, guid: 9fc3352356102d1489674fc6853dc2ac, type: 3}
   walkingClip: {fileID: 8300000, guid: 9dca5212912cf134c9871833b097844a, type: 3}
---- !u!82 &-431869492734758773
+--- !u!82 &-2557226498147653075
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6095,17 +6095,16 @@ AudioSource:
   m_GameObject: {fileID: 5595002497362708657}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: -4976982623957935086, guid: 8aae5d92b44405e4b9596d24aa84b3cf,
-    type: 2}
+  OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.02
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 90
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
