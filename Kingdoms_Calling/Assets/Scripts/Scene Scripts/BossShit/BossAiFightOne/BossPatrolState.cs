@@ -38,7 +38,7 @@ public class BossPatrolState : BossFightOneFSMState
     public override void Act()
     {
         donePatrol = false;
-        Debug.Log("Patrolling");
+        //Debug.Log("Patrolling");
         // Play move animation   
         //move
         speed = enemyAI.bossStats.speed * Time.deltaTime;
@@ -47,7 +47,7 @@ public class BossPatrolState : BossFightOneFSMState
             if (randOne == -1)
             {
                 randOne = Random.Range(0, enemyAI.PatrolList.Count);
-                Debug.Log("Picked " + randOne.ToString());
+                //Debug.Log("Picked " + randOne.ToString());
             }
             //move to randOne
             //if (timer > 0f)

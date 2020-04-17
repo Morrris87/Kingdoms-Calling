@@ -39,7 +39,7 @@ public class BossAutoAttackState : BossFightOneFSMState
 
         if (enemyAI.bossTimer <= 0)
         {
-            Debug.Log("Autoing");
+            //Debug.Log("Autoing");
             enemyAI.animator.SetTrigger("Attacked");
             enemyAI.bossTimer = enemyAI.bossAutoAttackCooldown;
         }
@@ -59,7 +59,7 @@ public class BossAutoAttackState : BossFightOneFSMState
         }
         if (enemyAI.atHpThreshold == true)
         {
-            Debug.Log("Hit Auto");
+            //Debug.Log("Hit Auto");
             enemyAI.atHpThreshold = false;
             enemyAI.PerformTransition(Transition.CastSpawnSkeletons);
             return;

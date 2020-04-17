@@ -47,10 +47,8 @@ public class AI : AdvancedFSM
     public GameObject thisSkeleton;
     int randOne = -1;
 
-    BossFightOneAI boss;
-    //slot manager stuff
-    //float pathTime = 0f;
-    //int slot = -1;
+    [HideInInspector]
+    public GameObject boss;
 
     private string GetStateString()
     {
@@ -59,7 +57,6 @@ public class AI : AdvancedFSM
         {
             if (CurrentState.ID == FSMStateID.Dead)
             {
-                boss.bossSkellyUpdate -= 1;
                 state = "DEAD";
             }
         }
@@ -70,19 +67,16 @@ public class AI : AdvancedFSM
     //think need to make the skeleton turn red when live deplets 
     //
     //-------------------------------------
-
-
+  
     // Initialize the FSM for the NPC skeleton.
     protected override void Initialize()
     {
         rigBody = GetComponent<Rigidbody>();
         skeletonStats = gameObject.GetComponent<SkeletonStats>();
+        boss = GameObject.FindGameObjectWithTag("Immune");
         // Create the FSM for the player.
         ConstructFSM();
         thisSkeleton = this.gameObject;
-
-        
-       // CurrentBossSkelly = boss.bossSkellyNumber;
 
         //this line needs to be a player array
 
@@ -95,7 +89,7 @@ public class AI : AdvancedFSM
     // Update each frame.
     void Update()
     {  
-        
+
         if (randOne == 1)
         {
             if(Players[0].activeSelf)
@@ -148,6 +142,7 @@ public class AI : AdvancedFSM
                     if (player.GetComponent<Health>().isDead == true)
                     {
                         player.GetComponent<CharacterManager>().speed = 0;
+                        
                     }
                 }
                 //Players = GameObject.FindGameObjectsWithTag("Player");
@@ -162,6 +157,8 @@ public class AI : AdvancedFSM
         }
         if(CurrentState.ID == FSMStateID.Dead)
         {
+            boss.GetComponent<BossFightOneAI>().bossSkellyUpdate -= 1;
+            Debug.Log(boss.GetComponent<BossFightOneAI>().bossSkellyUpdate.ToString());
             Destroy(this.gameObject);
         }
         //making the target pop up on the skeleton

@@ -23,7 +23,7 @@ public class BossScreechState : BossFightOneFSMState
 
     public override void Act()
     {
-        Debug.Log("Screaching");
+       // Debug.Log("Screaching");
         //timer for the attack length (maybe just have it lenght of the animation)
         if (enemyAI.screechTimer <= 0)
         {
