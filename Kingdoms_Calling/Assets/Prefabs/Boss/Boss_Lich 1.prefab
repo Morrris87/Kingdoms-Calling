@@ -892,6 +892,10 @@ MonoBehaviour:
   targetSymbol: {fileID: 5085727573880696419}
   TimerThroneHasBeenActivated: 0
   currentHealth: 0
+  seventyFivePercentHp: 0
+  fiftyPercentHp: 0
+  twentyFivePercentHp: 0
+  atHpThreshold: 0
   spawnZoneOne: {fileID: 5085727573827955008}
   spawnZoneTwo: {fileID: 5085727572716937568}
   spawnZoneThree: {fileID: 5085727572830485718}
@@ -929,6 +933,9 @@ MonoBehaviour:
   skeletonPurpleBow: {fileID: 5294393101146193261, guid: 38f11e26019fc3847946d8016794041d,
     type: 3}
   skeletonPurpleMage: {fileID: 0}
+  bossSkellyNumber: 0
+  bossSkellyUpdate: 0
+  bossSkellySaftey: 0
 --- !u!114 &5085727573283618060
 MonoBehaviour:
   m_ObjectHideFlags: 0

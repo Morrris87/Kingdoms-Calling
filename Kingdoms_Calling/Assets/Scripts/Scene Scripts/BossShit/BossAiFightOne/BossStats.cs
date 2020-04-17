@@ -28,7 +28,7 @@ public class BossStats : MonoBehaviour
         LichHP = GetComponent<Health>();
         health = LichHP.currentHealth;
         power = 7;
-        speed = 6;
+        speed = 10;
         stamina = 10;
         physicaDefence = 8;
         magicDefence = 6;

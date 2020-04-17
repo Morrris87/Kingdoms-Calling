@@ -2288,6 +2288,18 @@ Light:
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &505923044 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3608174180193034023, guid: 3126e2b090e229644a42aeda1fc2535b,
+    type: 3}
+  m_PrefabInstance: {fileID: 969236921}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &512220848
 GameObject:
   m_ObjectHideFlags: 0
@@ -7455,18 +7467,13 @@ PrefabInstance:
     - target: {fileID: 5085727573283618061, guid: 3873d432aba7d41498e2458772910daa,
         type: 3}
       propertyPath: maxHealth
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 5085727573742206788, guid: 3873d432aba7d41498e2458772910daa,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: 85
       objectReference: {fileID: 0}
     - target: {fileID: 5085727573742206790, guid: 3873d432aba7d41498e2458772910daa,
         type: 3}
       propertyPath: UIFade
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 505923044}
     - target: {fileID: 295644734793796530, guid: 3873d432aba7d41498e2458772910daa,
         type: 3}
       propertyPath: m_RootOrder
