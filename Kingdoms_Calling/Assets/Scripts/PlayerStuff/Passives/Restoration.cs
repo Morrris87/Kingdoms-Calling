@@ -11,7 +11,7 @@ public class Restoration : MonoBehaviour
     void Start()
     {
         hp = GetComponent<Health>();
-        regenTime = 2;
+        regenTime = 1;
         timer = regenTime;
     }
 
