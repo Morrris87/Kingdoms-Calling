@@ -4300,6 +4300,22 @@ PrefabInstance:
       propertyPath: abilityCooldownUI
       value: 
       objectReference: {fileID: 39976027}
+    - target: {fileID: 449487470, guid: 5e5a4c85c6d71004ea94f79a64a9a63a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050574587, guid: 5e5a4c85c6d71004ea94f79a64a9a63a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050574589, guid: 5e5a4c85c6d71004ea94f79a64a9a63a, type: 3}
+      propertyPath: m_Intensity
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 1050574589, guid: 5e5a4c85c6d71004ea94f79a64a9a63a, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2739353547136035820, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
       propertyPath: arrowSource
@@ -4513,7 +4529,7 @@ PrefabInstance:
     - target: {fileID: 5085727573283618061, guid: 3873d432aba7d41498e2458772910daa,
         type: 3}
       propertyPath: maxHealth
-      value: 20
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5085727573742206788, guid: 3873d432aba7d41498e2458772910daa,
         type: 3}
