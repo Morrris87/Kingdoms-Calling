@@ -114,7 +114,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     GameObject skeletonPurple;
 
     //Pack Size
-    int whitePackNumber = 6;
+    int whitePackNumber = 3;
     int greyPackNUmber = 3;
     int purplePackNumber = 1;
 
@@ -141,6 +141,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
 
     public int bossSkellyNumber;
     public int bossSkellyUpdate;
+    public int bossSkellySaftey;
 
     private string GetStateString()
     {
@@ -165,7 +166,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         allSkeletonsSpawned = false;
         PatrolList = new List<GameObject>();
         spawnZones = new List<GameObject>();
-
+        bossSkellySaftey = -1;
         atHpThreshold = false;
         seventyFiveUsed = false;
         fiftyUsed = false;
@@ -218,15 +219,24 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         objPlayer = GameObject.FindGameObjectWithTag("Player");
         playerHealth = objPlayer.GetComponent<Health>();
         currentHealth = GetComponent<Health>().currentHealth;
-        if (bossSkellyUpdate == 0)
+
+
+        if (bossSkellyUpdate == 0 && bossSkellySaftey == -1)
         {
             bossSkellyUpdate = bossSkellyNumber;
+            bossSkellySaftey = bossSkellyUpdate;
         }
         if (bossSkellyNumber != 0)
         {
             bossSkellyNumber = bossSkellyUpdate;
+            bossSkellySaftey = bossSkellyUpdate;
         }
-        //bossSkellyNumber = skelly.CurrentBossSkelly;
+        else if(bossSkellySaftey == 0)
+        {
+            bossSkellySaftey = -1;
+            bossSkellyNumber = bossSkellyUpdate;
+        }
+
         if (CurrentState != null)
         {
             CurrentState.Reason();
@@ -241,10 +251,12 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
         {
             randomizePlayersInputsTimer -= Time.deltaTime;
         }
-        if(bossSkellyNumber == 0)
+
+        if(bossSkellyNumber <= 0)
         {
             this.tag = "Boss";
         }
+
         if(currentHealth <= seventyFivePercentHp && seventyFiveUsed == false)
         {
             seventyFiveUsed = true;
