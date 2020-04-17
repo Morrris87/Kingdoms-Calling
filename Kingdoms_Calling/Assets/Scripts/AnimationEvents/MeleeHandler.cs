@@ -68,9 +68,6 @@ public class MeleeHandler : MonoBehaviour
         // Take away player's stamina
         GetComponentInParent<Stamina>().DepleteStamina((int)basicAttack.AttackStaminaLoss);
 
-        // DEBUG: Hitbox is visible
-        hitbox.GetComponent<MeshRenderer>().enabled = true;
-
         // Freeze player movement
         GetComponentInParent<Rigidbody>().constraints = RigidbodyConstraints.FreezeAll;
 
@@ -92,9 +89,6 @@ public class MeleeHandler : MonoBehaviour
 
     public void HitboxEvent()
     {
-        // DEBUG: Hitbox is invisible
-        hitbox.GetComponent<MeshRenderer>().enabled = false;
-
         GetComponent<Animator>().SetBool("performingAction", false);
     }
 }
