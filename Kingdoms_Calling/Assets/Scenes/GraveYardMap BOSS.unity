@@ -1062,8 +1062,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 96249911}
-  m_LocalRotation: {x: -0.22347991, y: 0.7458277, z: 0.30344048, w: 0.54929197}
-  m_LocalPosition: {x: -429.35397, y: -141.65361, z: 288.24344}
+  m_LocalRotation: {x: 0.05921182, y: -0.94051534, z: -0.24907462, w: -0.22335352}
+  m_LocalPosition: {x: -703.067, y: -230.68646, z: 85.74185}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 979137007}
@@ -6915,11 +6915,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 67317484}
     m_Modifications:
-    - target: {fileID: 4770841318550299095, guid: 8a84cb8fbf3b31f4d9134866fb626514,
-        type: 3}
-      propertyPath: m_Name
-      value: LichScreach
-      objectReference: {fileID: 0}
     - target: {fileID: 295644733275287456, guid: 8a84cb8fbf3b31f4d9134866fb626514,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6979,6 +6974,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.15089193
+      objectReference: {fileID: 0}
+    - target: {fileID: 4770841318550299095, guid: 8a84cb8fbf3b31f4d9134866fb626514,
+        type: 3}
+      propertyPath: m_Name
+      value: LichScreach
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a84cb8fbf3b31f4d9134866fb626514, type: 3}
@@ -13895,7 +13895,7 @@ PrefabInstance:
         type: 3}
       propertyPath: arrowPrefab
       value: 
-      objectReference: {fileID: 4710712404308268623, guid: f63718464790a4849bce574657778148,
+      objectReference: {fileID: 4710712404308268623, guid: ea952ad03847f0b4bbdca59356021540,
         type: 3}
     - target: {fileID: 6850935412393349421, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}

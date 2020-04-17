@@ -820,7 +820,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weaponType: 3
   weaponHitbox: {fileID: 0}
-  arrowPrefab: {fileID: 4710712404308268623, guid: f63718464790a4849bce574657778148,
+  arrowPrefab: {fileID: 4710712404308268623, guid: ea952ad03847f0b4bbdca59356021540,
     type: 3}
   spawner: {fileID: 3347577505664671575}
   AttackRateSpeed: 0
@@ -884,7 +884,6 @@ MonoBehaviour:
   colliderDestPos: {fileID: 3673495573729050289}
   cooldownDefault: {fileID: 0}
   waitTime: 15
-  comboText: {fileID: 0}
   isUsable: 0
 --- !u!114 &2345498833140326227
 MonoBehaviour:
@@ -1017,7 +1016,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0

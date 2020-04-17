@@ -3255,6 +3255,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Camera Rig
       objectReference: {fileID: 0}
+    - target: {fileID: 97737047962252954, guid: ac9cda7a768a3d445a28b8ac4bb6dc8e,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 97737048053535371, guid: ac9cda7a768a3d445a28b8ac4bb6dc8e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3330,11 +3335,6 @@ PrefabInstance:
       propertyPath: players.Array.data[3]
       value: 
       objectReference: {fileID: 691077401}
-    - target: {fileID: 97737047962252954, guid: ac9cda7a768a3d445a28b8ac4bb6dc8e,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 97737047962252953, guid: ac9cda7a768a3d445a28b8ac4bb6dc8e,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -3928,11 +3928,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 544235531}
     m_Modifications:
-    - target: {fileID: 4770841318550299095, guid: 8a84cb8fbf3b31f4d9134866fb626514,
-        type: 3}
-      propertyPath: m_Name
-      value: LichScreach
-      objectReference: {fileID: 0}
     - target: {fileID: 295644733275287456, guid: 8a84cb8fbf3b31f4d9134866fb626514,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3987,6 +3982,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4770841318550299095, guid: 8a84cb8fbf3b31f4d9134866fb626514,
+        type: 3}
+      propertyPath: m_Name
+      value: LichScreach
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8a84cb8fbf3b31f4d9134866fb626514, type: 3}
@@ -4263,7 +4263,7 @@ PrefabInstance:
         type: 3}
       propertyPath: arrowPrefab
       value: 
-      objectReference: {fileID: 4710712404308268623, guid: f63718464790a4849bce574657778148,
+      objectReference: {fileID: 4710712404308268623, guid: ea952ad03847f0b4bbdca59356021540,
         type: 3}
     - target: {fileID: 6850935412393349421, guid: 5e5a4c85c6d71004ea94f79a64a9a63a,
         type: 3}
