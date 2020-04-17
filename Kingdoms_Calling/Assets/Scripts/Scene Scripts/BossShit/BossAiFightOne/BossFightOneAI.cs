@@ -114,7 +114,7 @@ public class BossFightOneAI : BossFIghtOneAdvancedFSM
     GameObject skeletonPurple;
 
     //Pack Size
-    int whitePackNumber = 6;
+    int whitePackNumber = 2;
     int greyPackNUmber = 3;
     int purplePackNumber = 1;
 
