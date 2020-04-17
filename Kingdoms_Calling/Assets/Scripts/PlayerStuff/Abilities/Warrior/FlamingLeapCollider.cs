@@ -22,7 +22,6 @@ public class FlamingLeapCollider : MonoBehaviour
     private AssassinWarriorCombo assassinWarriorCombo = new AssassinWarriorCombo(); // Used for calling the assassin combo
     //private AssassinWarriorCombo assassinWarriorCombo;
     private PaladinWarriorCombo paladinWarriorCombo = new PaladinWarriorCombo();    // Used for calling the paladin combo
-    private Text comboText;
 
 
     // Start is called before the first frame update
@@ -32,7 +31,6 @@ public class FlamingLeapCollider : MonoBehaviour
 
         abilityLifeTimer = timerLength; // Sets the length of the cooldown to the amount stored in timerLength
         cooldownActive = true;          // Starts the cooldown timer
-        comboText = GameObject.FindGameObjectWithTag("ComboText").GetComponent<Text>();
 
         // Sets warriorDmg to the stored value in BasicAttack
         warriorDmg = FindObjectOfType<BasicAttack>().CharacterAttackValue(BasicAttack.CharacterClass.Warrior);
@@ -87,7 +85,6 @@ public class FlamingLeapCollider : MonoBehaviour
                     // Activate the Paladin & Warrior combo
                     paladinWarriorCombo.ActivateCombo(c.gameObject);
                     //Instantiate(ArcherWarriorComboPrefab, c.GetComponent<Transform>().position, Quaternion.identity);
-                    comboText.text = "Paladin & Warrior Combo Performed";
                 }
                 // If the enemy currently has a Wind proc...
                 else if (c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.Wind)
@@ -96,14 +93,12 @@ public class FlamingLeapCollider : MonoBehaviour
                     // Set the elemental proc to none
                     c.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
                     Instantiate(ArcherWarriorComboPrefab, transform.position, Quaternion.identity);
-                    comboText.text = "Archer & Warrior Combo Performed";
                 }
                 // If the enemy currently has a Lightning proc...
                 else if (c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.Lightning)
                 {
                     // Activate the Archer & Assassin combo
                     assassinWarriorCombo.ActivateCombo(ChainLightningPrefab, this.gameObject);
-                    comboText.text = "Assassin & Warrior Combo Performed";
                 }
             }
         }

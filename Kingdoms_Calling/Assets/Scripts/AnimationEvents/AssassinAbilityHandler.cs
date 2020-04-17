@@ -29,7 +29,6 @@ public class AssassinAbilityHandler : MonoBehaviour
     private AssassinWarriorCombo assassinWarriorCombo = new AssassinWarriorCombo(); // Used for calling the assassin combo
     private AssassinPaladinCombo assassinPaladinCombo = new AssassinPaladinCombo();
     private PaladinWarriorCombo paladinWarriorCombo = new PaladinWarriorCombo();    // Used for calling the paladin combo
-    private Text comboText;
 
 
     // Start is called before the first frame update
@@ -37,7 +36,6 @@ public class AssassinAbilityHandler : MonoBehaviour
     {
         thunderStrike = GetComponentInParent<ThunderStrike>();
         execution = GetComponentInParent<Execution>();
-        comboText = GameObject.FindGameObjectWithTag("ComboText").GetComponent<Text>();
     }
 
     public void StepEvent()
@@ -120,7 +118,6 @@ public class AssassinAbilityHandler : MonoBehaviour
                 {
                     // Activate the Paladin & Warrior combo
                     assassinPaladinCombo.ActivateCombo();
-                    comboText.text = "Paladin & Assassin Combo Performed";
                 }
                 // If the enemy currently has a Wind proc...
                 else if (c.GetComponent<ElementManager>().effectedElement == ElementManager.ClassElement.Wind)
@@ -130,7 +127,6 @@ public class AssassinAbilityHandler : MonoBehaviour
                     c.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
                     
                     Instantiate(ArcherAssassinComboPrefab, transform.position, Quaternion.identity);                    
-                    comboText.text = "Archer & Assassin Combo Performed";
                     //GameObject.Find("Archer_Assassin_Combo").SetActive(true);
                     //Transform[] transforms = GameObject.Find("Archer_Assassin_Combo").GetComponentsInChildren<Transform>();
                     //for (int i = 0; i < transforms.Length; i++)
@@ -143,7 +139,6 @@ public class AssassinAbilityHandler : MonoBehaviour
                 {
                     // Activate the Archer & Assassin combo
                     assassinWarriorCombo.ActivateCombo(ChainLightningPrefab, this.gameObject);
-                    comboText.text = "Assassin & Warrior Combo Performed";
                 }
             }
         }

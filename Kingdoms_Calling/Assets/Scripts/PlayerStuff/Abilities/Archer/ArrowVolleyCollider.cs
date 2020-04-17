@@ -18,7 +18,6 @@ public class ArrowVolleyCollider : MonoBehaviour
     private float abilityLifeTimer;     // The ability timer
     private float archerDmg;            // Variable for the archer's attack damage
     private bool cooldownActive;        // Bool which determines if the cooldown is running
-    private Text comboText;             // Debug text for the combos
 
     // Combo variables
     private ArcherAssassinCombo archerAssassinCombo = new ArcherAssassinCombo();    // Used for calling the assassin combo
@@ -32,7 +31,6 @@ public class ArrowVolleyCollider : MonoBehaviour
         abilityLifeTimer = timerLength; // Sets the length of the cooldown to the amount stored in timerLength
         cooldownActive = true;          // Starts the cooldown timer
         damageTimer = 0f;               // Set the damage interval timer
-        comboText = GameObject.FindGameObjectWithTag("ComboText").GetComponent<Text>();
 
         // Sets archerDmg to the stored value in BasicAttack
         archerDmg = FindObjectOfType<BasicAttack>().CharacterAttackValue(BasicAttack.CharacterClass.Archer);
@@ -95,7 +93,6 @@ public class ArrowVolleyCollider : MonoBehaviour
                 {
                     // Activate the Archer & Paladin combo
                     archerPaladinCombo.ActivateCombo(c.gameObject);
-                    comboText.text = "Archer & Paladin Combo Performed";
 
                 }
                 // If the enemy currently has a Fire proc...
@@ -105,7 +102,6 @@ public class ArrowVolleyCollider : MonoBehaviour
                     // Set the elemental proc to none
                     c.GetComponent<ElementManager>().ApplyElement(ElementManager.ClassElement.NONE);
                     Instantiate(ArcherWarriorComboPrefab, transform.position, Quaternion.identity);
-                    comboText.text = "Archer & Warrior Combo Performed";
                     Destroy(this.gameObject);
                 }
                 // If the enemy currently has a Lightning proc...
@@ -114,7 +110,6 @@ public class ArrowVolleyCollider : MonoBehaviour
                     // Activate the Archer & Assassin combo
                     lightning.SetActive(true);
                     archerAssassinCombo.ActivateCombo(c.gameObject, (int)archerDmg);                    
-                    comboText.text = "Archer & Assassin Combo Performed";
                 }
             }
         }
