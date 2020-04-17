@@ -6027,6 +6027,7 @@ GameObject:
   - component: {fileID: 4202486288294919625}
   - component: {fileID: 4202486288294919626}
   - component: {fileID: 1788764334125592080}
+  - component: {fileID: 195827856288889209}
   m_Layer: 9
   m_Name: WhiteMace
   m_TagString: White
@@ -6226,7 +6227,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 4202486288294919627}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.3127909
   m_Height: 1.4955637
   m_Direction: 1
@@ -6327,6 +6328,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &195827856288889209
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4202486288294919627}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.63861084, y: 1.4259415, z: 0.6256918}
+  m_Center: {x: 0.000010172526, y: 0.6905403, z: 0.025812786}
 --- !u!1 &4210998698987856643
 GameObject:
   m_ObjectHideFlags: 0
@@ -11327,11 +11341,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 867333098613919704}
     m_Modifications:
-    - target: {fileID: 5380694614663323724, guid: 26954e7c4cde51d4e96a9483cd80bca0,
-        type: 3}
-      propertyPath: m_Name
-      value: Element Indicator Spawn
-      objectReference: {fileID: 0}
     - target: {fileID: 8820610731224589448, guid: 26954e7c4cde51d4e96a9483cd80bca0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11387,6 +11396,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5380694614663323724, guid: 26954e7c4cde51d4e96a9483cd80bca0,
+        type: 3}
+      propertyPath: m_Name
+      value: Element Indicator Spawn
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26954e7c4cde51d4e96a9483cd80bca0, type: 3}
 --- !u!4 &8997129579319336827 stripped
@@ -11401,9 +11415,9 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 483331116801915891}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3640768882052015682 stripped
+--- !u!1 &6971470254944656980 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 3761560211536436657, guid: 26954e7c4cde51d4e96a9483cd80bca0,
+  m_CorrespondingSourceObject: {fileID: 7352830447047632295, guid: 26954e7c4cde51d4e96a9483cd80bca0,
     type: 3}
   m_PrefabInstance: {fileID: 483331116801915891}
   m_PrefabAsset: {fileID: 0}
@@ -11413,9 +11427,9 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 483331116801915891}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6971470254944656980 stripped
+--- !u!1 &3640768882052015682 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 7352830447047632295, guid: 26954e7c4cde51d4e96a9483cd80bca0,
+  m_CorrespondingSourceObject: {fileID: 3761560211536436657, guid: 26954e7c4cde51d4e96a9483cd80bca0,
     type: 3}
   m_PrefabInstance: {fileID: 483331116801915891}
   m_PrefabAsset: {fileID: 0}
@@ -11426,21 +11440,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 780541723829513329}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 45a9f83d89e9d65408b946907d5f89bd,
-        type: 3}
-      propertyPath: m_Name
-      value: SkeletonSword
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 45a9f83d89e9d65408b946907d5f89bd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 45a9f83d89e9d65408b946907d5f89bd,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 45a9f83d89e9d65408b946907d5f89bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11495,6 +11494,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 45a9f83d89e9d65408b946907d5f89bd,
+        type: 3}
+      propertyPath: m_Name
+      value: SkeletonSword
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 45a9f83d89e9d65408b946907d5f89bd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 45a9f83d89e9d65408b946907d5f89bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 45a9f83d89e9d65408b946907d5f89bd,
         type: 3}
@@ -11601,21 +11615,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 780541723829513329}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
-        type: 3}
-      propertyPath: m_Name
-      value: Bow
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11670,6 +11669,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
+        type: 3}
+      propertyPath: m_Name
+      value: Bow
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: -3449532170947455738, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
         type: 3}

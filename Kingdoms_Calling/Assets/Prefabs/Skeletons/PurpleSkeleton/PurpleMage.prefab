@@ -5357,6 +5357,7 @@ GameObject:
   - component: {fileID: 6680611734322131107}
   - component: {fileID: 6680611734322131108}
   - component: {fileID: 6680611734322131109}
+  - component: {fileID: 2310418404882073874}
   m_Layer: 9
   m_Name: PurpleMage
   m_TagString: Purple
@@ -5527,7 +5528,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 3429387678206716334}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.3127909
   m_Height: 1.4955637
   m_Direction: 1
@@ -5661,6 +5662,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &2310418404882073874
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3429387678206716334}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6298625, y: 1.4379959, z: 0.6298625}
+  m_Center: {x: -0.0061747236, y: 0.6878332, z: 0.018508911}
 --- !u!1 &3437904504141772646
 GameObject:
   m_ObjectHideFlags: 0

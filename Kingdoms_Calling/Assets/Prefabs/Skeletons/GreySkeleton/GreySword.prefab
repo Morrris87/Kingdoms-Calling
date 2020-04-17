@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 18892595514446659}
   - component: {fileID: -8420555109870297528}
   - component: {fileID: -2922967277152580334}
+  - component: {fileID: 6010885280845646464}
   m_Layer: 9
   m_Name: GreySword
   m_TagString: Grey
@@ -201,7 +202,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 18892595514446658}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.3127909
   m_Height: 1.4955637
   m_Direction: 1
@@ -319,6 +320,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &6010885280845646464
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 18892595514446658}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.62443036, y: 1.4413389, z: 0.4882966}
+  m_Center: {x: 0, y: 0.6841259, z: -0.011736512}
 --- !u!1 &27405008908520842
 GameObject:
   m_ObjectHideFlags: 0
@@ -11326,21 +11340,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3513985542573785848}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
-        type: 3}
-      propertyPath: m_Name
-      value: Bow
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11396,6 +11395,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
+        type: 3}
+      propertyPath: m_Name
+      value: Bow
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: -3449532170947455738, guid: 950ecef2aaff6954a8f6ca2d06a924bb,
         type: 3}
       propertyPath: m_Layer
@@ -11421,21 +11435,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3513985542573785848}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 45a9f83d89e9d65408b946907d5f89bd,
-        type: 3}
-      propertyPath: m_Name
-      value: SkeletonSword
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 45a9f83d89e9d65408b946907d5f89bd,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 45a9f83d89e9d65408b946907d5f89bd,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 45a9f83d89e9d65408b946907d5f89bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11491,6 +11490,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 45a9f83d89e9d65408b946907d5f89bd,
+        type: 3}
+      propertyPath: m_Name
+      value: SkeletonSword
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 45a9f83d89e9d65408b946907d5f89bd,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 45a9f83d89e9d65408b946907d5f89bd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 45a9f83d89e9d65408b946907d5f89bd,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -11511,11 +11525,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3897944022828769617}
     m_Modifications:
-    - target: {fileID: 5380694614663323724, guid: 26954e7c4cde51d4e96a9483cd80bca0,
-        type: 3}
-      propertyPath: m_Name
-      value: Element Indicator Spawn
-      objectReference: {fileID: 0}
     - target: {fileID: 8820610731224589448, guid: 26954e7c4cde51d4e96a9483cd80bca0,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11571,6 +11580,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5380694614663323724, guid: 26954e7c4cde51d4e96a9483cd80bca0,
+        type: 3}
+      propertyPath: m_Name
+      value: Element Indicator Spawn
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26954e7c4cde51d4e96a9483cd80bca0, type: 3}
 --- !u!4 &4890544939041851642 stripped
@@ -11585,6 +11599,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4158984147480570994}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6898721166823524821 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7352830447047632295, guid: 26954e7c4cde51d4e96a9483cd80bca0,
+    type: 3}
+  m_PrefabInstance: {fileID: 4158984147480570994}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &973922219309674947 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3761560211536436657, guid: 26954e7c4cde51d4e96a9483cd80bca0,
@@ -11594,12 +11614,6 @@ GameObject:
 --- !u!1 &1803973649192840515 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2359515076102357297, guid: 26954e7c4cde51d4e96a9483cd80bca0,
-    type: 3}
-  m_PrefabInstance: {fileID: 4158984147480570994}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6898721166823524821 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7352830447047632295, guid: 26954e7c4cde51d4e96a9483cd80bca0,
     type: 3}
   m_PrefabInstance: {fileID: 4158984147480570994}
   m_PrefabAsset: {fileID: 0}

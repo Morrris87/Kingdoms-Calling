@@ -7599,6 +7599,7 @@ GameObject:
   - component: {fileID: 3384191067663888630}
   - component: {fileID: 3384191067663888631}
   - component: {fileID: 3384191067663888624}
+  - component: {fileID: 2257229965264504327}
   m_Layer: 9
   m_Name: WhiteMage
   m_TagString: White
@@ -7769,7 +7770,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 6761841268795943419}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.3127909
   m_Height: 1.4955637
   m_Direction: 1
@@ -7903,6 +7904,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &2257229965264504327
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6761841268795943419}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.645874, y: 1.4249611, z: 0.6387838}
+  m_Center: {x: 0, y: 0.69410264, z: 0.024790447}
 --- !u!1 &6770212938274944819
 GameObject:
   m_ObjectHideFlags: 0
